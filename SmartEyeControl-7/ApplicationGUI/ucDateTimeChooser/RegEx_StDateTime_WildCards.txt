@@ -1,0 +1,87 @@
+RFC 2822 Long Full Date_Time With Date_Wild cards
+
+^(?<DateTimeWildCard>\s*(?<DayOfWeek_>___|ANY|Sun|Mon|Tue|Wed|Thu|Fri|Sat),\s*)?(?<DayOfMonth>0?[1-9]|[1-2][0-9]|3[01]|ANY|LST|2LST|__|_)\s+(?<Month>ANY|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|___)\s+(?<Year>19[0-9]{2}|[2-9][0-9]{3}|[0-9]{2}|ANY|____)\s+(?<Hour>2[0-3]|[0-1][0-9]):(?<Minute>[0-5][0-9]):(?<Second>(60|[0-5][0-9]))?\s+(?<GMT>[-\+][0-9]{2}[0-5][0-9]|(?:UT|GMT|(?:E|C|M|P)(?:ST|DT)|[A-IK-Z])|ANY|___||\s*)(\s*\((\\\(|\\\)|(?<=[^\\])\((?<C>)|(?<=[^\\])\)(?<-C>)|[^\(\)]*)*(?(C)(?!))\))*\s*$
+
+Long Full Date_Time With Date&Time_Wild cards
+
+^(?<LongDateTimeWildCard>\s*(?<DayOfWeek_>___|ANY|Sun|Mon|Tue|Wed|Thu|Fri|Sat),\s*)?(?<DayOfMonth>0?[1-9]|[1-2][0-9]|3[01]|ANY|LST|2LST|__|_)\s+(?<Month>ANY|DLSB|DLSE|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|___)\s+(?<Year>19[0-9]{2}|[2-9][0-9]{3}|[0-9]{2}|ANY|____)\s+(?<Hour>2[0-3]|[0-1][0-9]|ANY|__):(?<Minute>[0-5][0-9]|ANY|__):(?<Second>(60|[0-5][0-9]|ANY|__))?\s+(?<GMT>[-\+][0-9]{2}[0-5][0-9]|(?:UT|GMT|(?:E|C|M|P)(?:ST|DT)|[A-IK-Z])|ANY|___||\s*)(\s*\((\\\(|\\\)|(?<=[^\\])\((?<C>)|(?<=[^\\])\)(?<-C>)|[^\(\)]*)*(?(C)(?!))\))*\s*$
+
+(Format)ddd, dd MMM YYYY HH:mm:ss UTC
+
+Valid Date & Time Strings
+
+Any, LST ANY ANY 18:44:56 -0500
+Fri, 01 May 2014 11:05:00 +0500
+Fri, 01 May 2014 11:05:00 -0500
+Fri, 01 May 2014 11:05:00 (Null GMT)
+
+RFC 2822 Long_Full Date_Time With No Date_Time Wild cards support
+
+^(?<LongDateTime>\s*(?<DayOfWeek_>Sun|Mon|Tue|Wed|Thu|Fri|Sat),\s*)?(?<DayOfMonth>0?[1-9]|[1-2][0-9]|3[01])\s+(?<Month>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(?<Year>19[0-9]{2}|[2-9][0-9]{3}|[0-9]{2})\s+(?<Hour>2[0-3]|[0-1][0-9]):(?<Minute>[0-5][0-9]):(?<Second>(60|[0-5][0-9]))?\s+(?<GMT>[-\+][0-9]{2}[0-5][0-9]|(?:UT|GMT|(?:E|C|M|P)(?:ST|DT)|[A-IK-Z])||\s*)(\s*\((\\\(|\\\)|(?<=[^\\])\((?<C>)|(?<=[^\\])\)(?<-C>)|[^\(\)]*)*(?(C)(?!))\))*\s*$
+
+Fri, 01 May 2014 11:05:00 +0500
+Fri, 01 May 2014 11:05:00 -0500
+Fri, 01 May 2014 11:05:00 (Null GMT)
+
+RFC 2822 Long_Full Date With Date_Time Wild cards support
+
+^(?<LongDateWildCard>\s*(?<DayOfWeek_>___|ANY|Sun|Mon|Tue|Wed|Thu|Fri|Sat),\s*)?(?<DayOfMonth>0?[1-9]|[1-2][0-9]|3[01]|ANY|LST|2LST|__|_)\s+(?<Month>ANY|DLSB|DLSE|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|___)\s+(?<Year>19[0-9]{2}|[2-9][0-9]{3}|[0-9]{2}|ANY|____)\s+\s*$
+
+(Format)ddd, dd MMM YYYY
+
+
+Short DateTime DayOfMonth,Month(Without_WildCard Support)
+
+^((?<DayOfMonth31>31(?! (FEB|APR|JUN|SEP|NOV)))|(?<DayOfMonth30>30(?! FEB))|(?<DayOfMonth>0?[1-9]|1\d|2[0-9]))\s*(?<Month>JAN|FEB|MAR|MAY|APR|JUL|JUN|AUG|OCT|SEP|NOV|DEC)$
+
+DateTime.Format()
+dd MMM
+
+01 May
+28 FEB
+29 FEB
+
+StDatetime(interval)
+
+24 Hour Time Format (With No WildCard Support)		
+^(?<Hour>([0-1]?[0-9])|([2][0-3])):(?<Minute>[0-5]?[0-9]):(?<Second>([0-5]?[0-9]))?$
+
+(Format)HH:mm:ss
+
+23:59:00
+22:00:00
+01:59:59
+
+StDateTime(Fixed_Interval)
+
+^(?<Minute>([0-1]?[0-4]|[0]?[1-9])):(?<Second>([0-5]?[0-9]))$
+
+(Format)mm:ss
+
+14:59
+9:00
+10:59
+
+StDateTime(Interval Time Sink)
+
+(Format)mm:ss
+^(?<Minute>([0]?[1-6]|10|12|15|20)):(?<Second>([0-5]?[0-9]))$
+
+Valid Strings
+06:59
+5:59
+10:10
+20:50
+Invalid Strings
+11:59
+07:00
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D8011CD-8DB8-4C56-8662-341073D0FBA9}</ProjectGuid>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>OptocomSoftware</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>OptocomSoftware</RootNamespace>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SmartEyeControl_7.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\Assemblies\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Design, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DatabaseConfiguration">
+      <HintPath>..\Assemblies\DatabaseConfiguration.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="MySql.Data, Version=6.10.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.9\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.10.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.10.9\lib\net452\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="PopupControl">
+      <HintPath>..\Assemblies\PopupControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Serenity.Crypto, Version=0.0.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Serenity.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\WindowsFormsIntegration\3.0.0.0__31bf3856ad364e35\WindowsFormsIntegration.dll</HintPath>
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Application_Configs\Animation\paramerization-active.png" />
+    <Content Include="bin\Debug\Application_Configs\Animation\paramerization-over.png" />
+    <Content Include="bin\Debug\Application_Configs\Animation\paramerization.png" />
+    <Content Include="bin\Debug\Application_Configs\ConnectionLog.txt" />
+    <Content Include="bin\Debug\Application_Configs\Logs\.txt" />
+    <Content Include="bin\Debug\Application_Configs\Logs\3698000123.txt" />
+    <Content Include="bin\Debug\Application_Configs\Logs\3698000123_IO.txt" />
+    <Content Include="bin\Debug\Application_Configs\Logs\3699001103.txt" />
+    <Content Include="bin\Debug\Application_Configs\Logs\3699001103_IO.txt" />
+    <Content Include="bin\Debug\Application_Configs\Logs\_IO.txt" />
+    <Content Include="bin\Debug\Application_Configs\x_commParams.xml" />
+    <Content Include="bin\Debug\Application_Configs\x_hdlcParams.xml" />
+    <Content Include="bin\Debug\Application_Configs\x_tcpParams.xml" />
+    <Content Include="bin\Debug\Application_Configs\x_WkupSMSParams.xml" />
+    <Content Include="bin\Debug\AsyncCtpLibrary.dll" />
+    <Content Include="bin\Debug\AsyncCtpLibrary.xml" />
+    <Content Include="bin\Debug\AxInterop.WMPLib.dll" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Design.dll" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Toolkit.dll" />
+    <Content Include="bin\Debug\DLMS_COSEM_Lib.dll" />
+    <Content Include="bin\Debug\DLMS_COSEM_Lib.pdb" />
+    <Content Include="bin\Debug\DLMS_COSEM_Lib.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\Debug\DLMS_saved_files\ActivityCalendar\Param_ActivityCalendar.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Clock\Clock.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\CommProfile\CommProfile.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Contactor\Contactor.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Credentials\Credentials.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Credentials\CustomerReference.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Credentials\FirmwareUpdatePassword.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\CTPTRatio\CTPTRatio.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\CustomerReference\CustomerReference.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\DecimalPoint\DecimalPoint.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\DisplayPowerDown\DisplayPowerDown.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\DisplayWindows\DisplayWindowsAlternate.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\DisplayWindows\DisplayWindowsNormal.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\DisplayWindows\DisplayWindowsTest.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\EnergyParam\EnergyParam.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\EventCautions\EventCautions.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\GeneralProcess\GeneralProcess.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\IPProfile\ProfileID_1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\IPProfile\ProfileID_2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\IPProfile\ProfileID_3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\IPProfile\ProfileID_4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\IPV4\IPV4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\keepAlive\keepAlive.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits\Limits.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R283\Limits.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R326\Limits.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R411\Limits.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R421\Limits.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_T421\Limits.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\LoadProfile\LoadProfileChannels.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\MajorAlarmProfile\MajorAlarms.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\MDIParams\MDIParams.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\ModemBasicsNEW\ModemBasicsNEW.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\ModemInitialize\ModemInitialize.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\ModemLimitAndTime\ModemLimitAndTime.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\MonitoringTime\MonitoringTime.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\NumberProfile\NumberProfile_1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\NumberProfile\NumberProfile_2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\NumberProfile\NumberProfile_3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\NumberProfile\NumberProfile_4.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\NumberProfile\NumberProfile_5.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\TBEs\TBEs.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\WakeUpProfile\WakeUpProfile_1.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\WakeUpProfile\WakeUpProfile_2.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\WakeUpProfile\WakeUpProfile_3.xml" />
+    <Content Include="bin\Debug\DLMS_saved_files\WakeUpProfile\WakeUpProfile_4.xml" />
+    <Content Include="bin\Debug\HDLCLib.dll" />
+    <Content Include="bin\Debug\HDLCLib.pdb" />
+    <Content Include="bin\Debug\images\backImage.jpg" />
+    <Content Include="bin\Debug\images\Copy of backImage.jpg" />
+    <Content Include="bin\Debug\images\Copy of iconsBack.jpg" />
+    <Content Include="bin\Debug\images\iconsBack.jpg" />
+    <Content Include="bin\Debug\images\iconsBack_1.jpg" />
+    <Content Include="bin\Debug\images\iconsBack_2.jpg" />
+    <None Include="app.manifest" />
+    <None Include="bin\Debug\images\icons\addStrip.png" />
+    <Content Include="bin\Debug\images\icons\admin.png" />
+    <Content Include="bin\Debug\images\icons\bg.png" />
+    <Content Include="bin\Debug\images\icons\billing.png" />
+    <Content Include="bin\Debug\images\icons\billing_active.png" />
+    <Content Include="bin\Debug\images\icons\Copy %282%29 of bg.png" />
+    <Content Include="bin\Debug\images\icons\Debug.png" />
+    <Content Include="bin\Debug\images\icons\Debug_active.png" />
+    <Content Include="bin\Debug\images\icons\events.png" />
+    <Content Include="bin\Debug\images\icons\events_active.png" />
+    <Content Include="bin\Debug\images\icons\help.png" />
+    <Content Include="bin\Debug\images\icons\help_active.png" />
+    <Content Include="bin\Debug\images\icons\Instantaneous.png" />
+    <Content Include="bin\Debug\images\icons\Instantaneous_active.png" />
+    <Content Include="bin\Debug\images\icons\loadprofile.png" />
+    <Content Include="bin\Debug\images\icons\loadprofile_active.png" />
+    <Content Include="bin\Debug\images\icons\logoff.png" />
+    <Content Include="bin\Debug\images\icons\logoff1.png" />
+    <Content Include="bin\Debug\images\icons\modem.png" />
+    <Content Include="bin\Debug\images\icons\modem_active.png" />
+    <Content Include="bin\Debug\images\icons\parameterization.png" />
+    <Content Include="bin\Debug\images\icons\parameterization_active.png" />
+    <Content Include="bin\Debug\images\icons\settings.png" />
+    <Content Include="bin\Debug\images\icons\settings_active.png" />
+    <Content Include="bin\Debug\images\menuBar.jpg" />
+    <Content Include="bin\Debug\images\sideBar.jpg" />
+    <Content Include="bin\Debug\images\statusBar.jpg" />
+    <Content Include="bin\Debug\images\welcome.jpg" />
+    <Content Include="bin\Debug\images\welcome2.jpg" />
+    <Content Include="bin\Debug\Interop.WMPLib.dll" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\PopupControl.dll" />
+    <Content Include="bin\Debug\PopupControl.pdb" />
+    <Content Include="bin\Debug\SmartEyeAdvanceControl-7.exe" />
+    <Content Include="bin\Debug\SmartEyeAdvanceControl-7.pdb" />
+    <Content Include="bin\Debug\Transitions.dll" />
+    <Content Include="bin\Debug\Version Log.txt" />
+    <Content Include="bin\Debug\Wakeup Generator.exe" />
+    <Content Include="bin\Release\DLMS_saved_files\ActivityCalendar\Param_ActivityCalendar.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Clock\Clock.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\CommProfile\CommProfile.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Contactor\Contactor.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Credentials\Credentials.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Credentials\CustomerReference.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Credentials\FirmwareUpdatePassword.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\CTPT.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\CTPTRatio\CTPTRatio.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\CustomerReference\CustomerReference.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\DecimalPoint\DecimalPoint.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\DisplayWindows\DisplayWindowsAlternate.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\DisplayWindows\DisplayWindowsNormal.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\DisplayWindows\DisplayWindowsTest.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\EnergyParam\EnergyParam.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\EventCautions\EventCautions.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\IPProfile\ProfileID_1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\IPProfile\ProfileID_2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\IPProfile\ProfileID_3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\IPProfile\ProfileID_4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\IPV4\IPV4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\keepAlive\keepAlive.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits\Limits.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R283\Limits.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R283\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R326\Limits.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R326\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R411\Limits.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R411\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R421\Limits.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_R421\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_T421\Limits.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\Limits_T421\Param_Limit_Demand_OverLoad_T4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\LoadProfile\LoadProfileChannels.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\MajorAlarmProfile\MajorAlarms.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\MDIParams\MDIParams.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\ModemBasicsNEW\ModemBasicsNEW.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\ModemInitialize\ModemInitialize.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\ModemLimitAndTime\ModemLimitAndTime.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\MonitoringTime\MonitoringTime.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\NumberProfile\NumberProfile_1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\NumberProfile\NumberProfile_2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\NumberProfile\NumberProfile_3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\NumberProfile\NumberProfile_4.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\NumberProfile\NumberProfile_5.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\password\password.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\TBEs\TBEs.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\WakeUpProfile\WakeUpProfile_1.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\WakeUpProfile\WakeUpProfile_2.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\WakeUpProfile\WakeUpProfile_3.xml" />
+    <Content Include="bin\Release\DLMS_saved_files\WakeUpProfile\WakeUpProfile_4.xml" />
+    <Content Include="Images\add.png" />
+    <None Include="bin\Debug\Application_Configs\Configs.dat" />
+    <None Include="bin\Debug\DLMS_saved_files\.SEC7" />
+    <None Include="bin\Debug\DLMS_saved_files\ParameterExport\Parameters.conf" />
+    <None Include="bin\Debug\SmartEyeAdvanceControl-7.exe.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Release\DLMS_saved_files\.SEC7" />
+    <None Include="bin\Release\DLMS_saved_files\ParameterExport\Parameters.conf" />
+    <Content Include="Images\bell.png" />
+    <Content Include="Images\bell_go.png" />
+    <None Include="comm\ActivityCalendar.cd" />
+    <None Include="comm\Billing_Diagram.cd" />
+    <None Include="Images\blue_header.JPG" />
+    <Content Include="Images\caution_board.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\font_red_delete.png" />
+    <Content Include="Images\load_parameters.png" />
+    <Content Include="Images\page_copy.png" />
+    <Content Include="Images\red_cross_icon.png" />
+    <Content Include="Images\resultset_next.png" />
+    <Content Include="Images\resultset_previous.png" />
+    <Content Include="Images\set_parameters.png" />
+    <Content Include="Images\stop.png" />
+    <Content Include="Images\table_tab_search.png" />
+    <Content Include="logo.ico" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Reporting\RPT_ParamQC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_ParamQC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_ParamNew.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_ParamNew.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Resources\BackImage.bmp" />
+    <None Include="Resources\blue_header.bmp" />
+    <None Include="Resources\Accurate-logo-final.jpg" />
+    <None Include="Resources\Accurate BG.jpg" />
+    <None Include="Resources\Accurate BG2.png" />
+    <None Include="Resources\Gray white lines.bmp" />
+    <None Include="Resources\BG Pcb.jpg" />
+    <None Include="Resources\welcome_old.jpg" />
+    <None Include="Resources\_gr2.jpg" />
+    <None Include="Resources\backImage.jpg" />
+    <None Include="Resources\backImage1.jpg" />
+    <None Include="Resources\gr5.jpg" />
+    <None Include="Resources\gr6.jpg" />
+    <None Include="Resources\welcome.jpg" />
+    <None Include="Resources\n_logo2.png" />
+    <None Include="Resources\Button BG.PNG" />
+    <None Include="Resources\images %287%29.jpg" />
+    <None Include="Resources\Animated-Flag-Pakistan.gif" />
+    <None Include="Resources\120px-Nuvola_Pakistani_flag.svg.png" />
+    <None Include="Resources\Buttn BG on focus.PNG" />
+    <None Include="Resources\red_cross_icon.png" />
+    <None Include="Resources\page copy.jpg" />
+    <Content Include="Version Log.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationGUI\GUI\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\Application.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\Application.designer.cs">
+      <DependentUpon>Application.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ApplicationConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ApplicationConfiguration.designer.cs">
+      <DependentUpon>ApplicationConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ApplicationUserRights.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ApplicationUserRights.Designer.cs">
+      <DependentUpon>ApplicationUserRights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ConfigurationParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ConfigurationParams.designer.cs">
+      <DependentUpon>ConfigurationParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\FindOBISCodeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\FindOBISCodeDialog.designer.cs">
+      <DependentUpon>FindOBISCodeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmDummy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmDummy.Designer.cs">
+      <DependentUpon>frmDummy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmHlsKeys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmHlsKeys.designer.cs">
+      <DependentUpon>frmHlsKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\MsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\OBISCodeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\OBISCodeDialog.designer.cs">
+      <DependentUpon>OBISCodeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ProgressStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ProgressStatus.Designer.cs">
+      <DependentUpon>ProgressStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Billing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Billing.designer.cs">
+      <DependentUpon>Billing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDummy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDummy.Designer.cs">
+      <DependentUpon>ucDummy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucEnergyMizer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucEnergyMizer.Designer.cs">
+      <DependentUpon>ucEnergyMizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucGeneratorStart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucGeneratorStart.Designer.cs">
+      <DependentUpon>ucGeneratorStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucHDLCSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucHDLCSetup.Designer.cs">
+      <DependentUpon>ucHDLCSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMeterModelAccess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMeterModelAccess.Designer.cs">
+      <DependentUpon>ucMeterModelAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucScheduleTableEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucScheduleTableEntry.Designer.cs">
+      <DependentUpon>ucScheduleTableEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucStandardModemParameters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucStandardModemParameters.Designer.cs">
+      <DependentUpon>ucStandardModemParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\UcStatusWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\UcStatusWord.designer.cs">
+      <DependentUpon>UcStatusWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucTimeWindowParam2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucTimeWindowParam2.designer.cs">
+      <DependentUpon>ucTimeWindowParam2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Parameterization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Parameterization.designer.cs">
+      <DependentUpon>Parameterization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\CustomSaver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\CustomSaver.designer.cs">
+      <DependentUpon>CustomSaver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmPlain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmPlain.Designer.cs">
+      <DependentUpon>frmPlain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\DateTimeChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\DateTimeChooser.designer.cs">
+      <DependentUpon>DateTimeChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Debugging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Debugging.Designer.cs">
+      <DependentUpon>Debugging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Events.Designer.cs">
+      <DependentUpon>Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Instantaneous.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Instantaneous.designer.cs">
+      <DependentUpon>Instantaneous.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\LoadProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\LoadProfile.Designer.cs">
+      <DependentUpon>LoadProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\MsgDisplay.cs" />
+    <Compile Include="ApplicationGUI\ucCustomControl\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Notification.designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucActivityCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucActivityCalendar.Designer.cs">
+      <DependentUpon>ucActivityCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucClockCalib.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucClockCalib.Designer.cs">
+      <DependentUpon>ucClockCalib.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCommProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCommProfile.designer.cs">
+      <DependentUpon>ucCommProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucContactor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucContactor.Designer.cs">
+      <DependentUpon>ucContactor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCTPTRatio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCTPTRatio.Designer.cs">
+      <DependentUpon>ucCTPTRatio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCustomerReference.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCustomerReference.Designer.cs">
+      <DependentUpon>ucCustomerReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDateTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDateTime.Designer.cs">
+      <DependentUpon>ucDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDecimalPoint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDecimalPoint.Designer.cs">
+      <DependentUpon>ucDecimalPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDisplayPowerDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucDisplayPowerDown.Designer.cs">
+      <DependentUpon>ucDisplayPowerDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\UcDisplayWindows.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\UcDisplayWindows.designer.cs">
+      <DependentUpon>UcDisplayWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucEnergyParam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucEnergyParam.Designer.cs">
+      <DependentUpon>ucEnergyParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucGeneralProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucGeneralProcess.Designer.cs">
+      <DependentUpon>ucGeneralProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\uCHeartBeat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\uCHeartBeat.designer.cs">
+      <DependentUpon>uCHeartBeat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucIPProfiles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucIPProfiles.designer.cs">
+      <DependentUpon>ucIPProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucKeepAlive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucKeepAlive.designer.cs">
+      <DependentUpon>ucKeepAlive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucLimits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucLimits.designer.cs">
+      <DependentUpon>ucLimits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucLoadProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucLoadProfile.designer.cs">
+      <DependentUpon>ucLoadProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCustomDateTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucCustomDateTime.Designer.cs">
+      <DependentUpon>ucCustomDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMajorAlarm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMajorAlarm.Designer.cs">
+      <DependentUpon>ucMajorAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMDIParams.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMDIParams.Designer.cs">
+      <DependentUpon>ucMDIParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucModemInitialize.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucModemInitialize.designer.cs">
+      <DependentUpon>ucModemInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucModemLimitsAndTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucModemLimitsAndTime.designer.cs">
+      <DependentUpon>ucModemLimitsAndTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMonitoringTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucMonitoringTime.Designer.cs">
+      <DependentUpon>ucMonitoringTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucNumberProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucNumberProfile.designer.cs">
+      <DependentUpon>ucNumberProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucParamSinglePhase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucParamSinglePhase.Designer.cs">
+      <DependentUpon>ucParamSinglePhase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucPasswords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucPasswords.Designer.cs">
+      <DependentUpon>ucPasswords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucSPDayProfileDateTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucSPDayProfileDateTime.Designer.cs">
+      <DependentUpon>ucSPDayProfileDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucTimeWindowParam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucTimeWindowParam.designer.cs">
+      <DependentUpon>ucTimeWindowParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucWakeupProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\ucWakeupProfile.designer.cs">
+      <DependentUpon>ucWakeupProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\usDateRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\usDateRange.designer.cs">
+      <DependentUpon>usDateRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Welcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucDateTimeChooser\DateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucDateTimeChooser\ucCustomDateTimePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucDateTimeChooser\ucCustomDateTimePicker.designer.cs">
+      <DependentUpon>ucCustomDateTimePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucDateTimeChooser\ucCustomWildCards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucDateTimeChooser\ucCustomWildCards.Designer.cs">
+      <DependentUpon>ucCustomWildCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\clsStatus.cs" />
+    <Compile Include="Common\LocalCommon.cs" />
+    <Compile Include="Common\Serializer.cs" />
+    <Compile Include="Common\SortableList.cs" />
+    <Compile Include="comm\AllInOne.cs" />
+    <Compile Include="comm\ApplicationLookAndFeel.cs" />
+    <Compile Include="comm\ApplicationRight_Helper.cs" />
+    <Compile Include="comm\NotifyProperyChangedBase.cs" />
+    <Compile Include="comm\PasswordKeyManager.cs" />
+    <Compile Include="comm\Testing_Debug.cs" />
+    <Compile Include="DB\DataBaseController.cs" />
+    <Compile Include="DB\DatabaseValidator.cs" />
+    <Compile Include="DB\DBConnect.cs" />
+    <Compile Include="DB\DBController_OLD.cs" />
+    <Compile Include="DB\HlsDbController.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Billing_ReportSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Billing_ReportSelection.designer.cs">
+      <DependentUpon>Billing_ReportSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_events1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_events.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\RPT_EventsAll2.cs">
+      <DependentUpon>RPT_EventsAll2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\ds_LoadProfile.cs">
+      <DependentUpon>ds_LoadProfile.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\rptLoadProfileChannel2Chart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoadProfileChannel2Chart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\rptLoadProfileChannel3Chart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoadProfileChannel3Chart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\rptLoadProfileChannel4Chart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoadProfileChannel4Chart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\rptLoadProfileChannelWiseChart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoadProfileChannelWiseChart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_headerForAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_headerForAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_Instantaneous_WebFormat.cs">
+      <DependentUpon>RPT_Instantaneous_WebFormat.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\RPT_LoadProfile_WebFormat.cs">
+      <DependentUpon>RPT_LoadProfile_WebFormat.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\RPT_ParamQC.cs">
+      <DependentUpon>RPT_ParamQC.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\RPT_ParamNew.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_ParamNew.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_headerGenaric_w.cs">
+      <DependentUpon>RPT_headerGenaric_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_headerForParam_w.cs">
+      <DependentUpon>RPT_headerForParam_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_LoadProfile_wt.cs">
+      <DependentUpon>RPT_LoadProfile_wt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_EventsSingle_w.cs">
+      <DependentUpon>RPT_EventsSingle_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_Instantaneous_new_w.cs">
+      <DependentUpon>RPT_Instantaneous_new_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\dataset_Calendar.cs">
+      <DependentUpon>dataset_Calendar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\dataset_Calendar.designer.cs">
+      <DependentUpon>dataset_Calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_Billing.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_Billing.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_CB_Day_Record.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_CB_Day_Record.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_displayWindow.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_displayWindow.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_events.cs">
+      <DependentUpon>ds_events.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_Ins.cs">
+      <DependentUpon>ds_Ins.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_Ins.designer.cs">
+      <DependentUpon>ds_Ins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_LoadProfile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_LoadProfile.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_Monthly_Billing.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_Monthly_Billing.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_Param.cs">
+      <DependentUpon>ds_Param.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_Param.designer.cs">
+      <DependentUpon>ds_Param.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_security.cs">
+      <DependentUpon>ds_security.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ds_security.designer.cs">
+      <DependentUpon>ds_security.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\DS_TL_LOAD_PROFILE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_TL_LOAD_PROFILE.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ReportSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportSelection.designer.cs">
+      <DependentUpon>ReportSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportViewer.designer.cs">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\RPT_Billing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Billing.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_Billing_Data.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Billing_Data.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_DisplayWindow.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_DisplayWindow.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_Events.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Events.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_EventsAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_EventsAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_Instantaneous.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Instantaneous.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_Instantaneous_new.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Instantaneous_new.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_LoadProfile.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_LoadProfile.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_MAJOR_ALARM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_MAJOR_ALARM.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_Monthly_Billing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Monthly_Billing.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_Param.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Param.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\RPT_security.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_security.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\temp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>temp.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\ParamReportSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\ParamReportSelection.Designer.cs">
+      <DependentUpon>ParamReportSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_DisplayWindow_w.cs">
+      <DependentUpon>RPT_DisplayWindow_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_LoadProfile_w.cs">
+      <DependentUpon>RPT_LoadProfile_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_LoadProfileLineGraph_w.cs">
+      <DependentUpon>RPT_LoadProfileLineGraph_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_Billing_w.cs">
+      <DependentUpon>RPT_Billing_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_EventsLogBook_w.cs">
+      <DependentUpon>RPT_EventsLogBook_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_EventsStartEnd_w.cs">
+      <DependentUpon>RPT_EventsStartEnd_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_headerForAll_w.cs">
+      <DependentUpon>RPT_headerForAll_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_Instantaneous_w.cs">
+      <DependentUpon>RPT_Instantaneous_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_LoadProfile_WebFormat_w.cs">
+      <DependentUpon>RPT_LoadProfile_WebFormat_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_MAJOR_ALARM_w.cs">
+      <DependentUpon>RPT_MAJOR_ALARM_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_Monthly_Billing_w.cs">
+      <DependentUpon>RPT_Monthly_Billing_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_Param_w.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Param_w.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\RPT_security_w.cs">
+      <DependentUpon>RPT_security_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\WapdaFormat\temp_w.cs">
+      <DependentUpon>temp_w.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Security_MachineInfo\AppInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Security_MachineInfo\MachineProfileEngine.cs" />
+    <Compile Include="Security_MachineInfo\ProductValidationEngine.cs" />
+    <Compile Include="ApplicationGUI\GUI\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\Splash.designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\superAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\superAdminPanel.Designer.cs">
+      <DependentUpon>superAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ApplicationGUI\GUI\AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\Application.resx">
+      <DependentUpon>Application.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\ApplicationConfiguration.resx">
+      <DependentUpon>ApplicationConfiguration.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\ApplicationUserRights.resx">
+      <DependentUpon>ApplicationUserRights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\ConfigurationParams.resx">
+      <DependentUpon>ConfigurationParams.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\FindOBISCodeDialog.resx">
+      <DependentUpon>FindOBISCodeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\frmDummy.resx">
+      <DependentUpon>frmDummy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\frmHlsKeys.resx">
+      <DependentUpon>frmHlsKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\MsgBox.resx">
+      <DependentUpon>MsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\OBISCodeDialog.resx">
+      <DependentUpon>OBISCodeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\ProgressStatus.resx">
+      <DependentUpon>ProgressStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Billing.resx">
+      <DependentUpon>Billing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucDummy.resx">
+      <DependentUpon>ucDummy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucEnergyMizer.resx">
+      <DependentUpon>ucEnergyMizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucGeneratorStart.resx">
+      <DependentUpon>ucGeneratorStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucHDLCSetup.resx">
+      <DependentUpon>ucHDLCSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucMeterModelAccess.resx">
+      <DependentUpon>ucMeterModelAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucScheduleTableEntry.resx">
+      <DependentUpon>ucScheduleTableEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucStandardModemParameters.resx">
+      <DependentUpon>ucStandardModemParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\UcStatusWord.resx">
+      <DependentUpon>UcStatusWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucTimeWindowParam2.resx">
+      <DependentUpon>ucTimeWindowParam2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Parameterization.resx">
+      <DependentUpon>Parameterization.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\CustomSaver.resx">
+      <DependentUpon>CustomSaver.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\frmPlain.resx">
+      <DependentUpon>frmPlain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\DateTimeChooser.resx">
+      <DependentUpon>DateTimeChooser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Debugging.resx">
+      <DependentUpon>Debugging.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Events.resx">
+      <DependentUpon>Events.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Instantaneous.resx">
+      <DependentUpon>Instantaneous.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\LoadProfile.resx">
+      <DependentUpon>LoadProfile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucActivityCalendar.resx">
+      <DependentUpon>ucActivityCalendar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucClockCalib.resx">
+      <DependentUpon>ucClockCalib.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucCommProfile.resx">
+      <DependentUpon>ucCommProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucContactor.resx">
+      <DependentUpon>ucContactor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucCTPTRatio.resx">
+      <DependentUpon>ucCTPTRatio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucCustomerReference.resx">
+      <DependentUpon>ucCustomerReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucDateTime.resx">
+      <DependentUpon>ucDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucDecimalPoint.resx">
+      <DependentUpon>ucDecimalPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucDisplayPowerDown.resx">
+      <DependentUpon>ucDisplayPowerDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\UcDisplayWindows.resx">
+      <DependentUpon>UcDisplayWindows.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucEnergyParam.resx">
+      <DependentUpon>ucEnergyParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucGeneralProcess.resx">
+      <DependentUpon>ucGeneralProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\uCHeartBeat.resx">
+      <DependentUpon>uCHeartBeat.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucIPProfiles.resx">
+      <DependentUpon>ucIPProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucKeepAlive.resx">
+      <DependentUpon>ucKeepAlive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucLimits.resx">
+      <DependentUpon>ucLimits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucLoadProfile.resx">
+      <DependentUpon>ucLoadProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucCustomDateTime.resx">
+      <DependentUpon>ucCustomDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucMajorAlarm.resx">
+      <DependentUpon>ucMajorAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucMDIParams.resx">
+      <DependentUpon>ucMDIParams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucModemInitialize.resx">
+      <DependentUpon>ucModemInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucModemLimitsAndTime.resx">
+      <DependentUpon>ucModemLimitsAndTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucMonitoringTime.resx">
+      <DependentUpon>ucMonitoringTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucNumberProfile.resx">
+      <DependentUpon>ucNumberProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucParamSinglePhase.resx">
+      <DependentUpon>ucParamSinglePhase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucPasswords.resx">
+      <DependentUpon>ucPasswords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucSPDayProfileDateTime.resx">
+      <DependentUpon>ucSPDayProfileDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucTimeWindowParam.resx">
+      <DependentUpon>ucTimeWindowParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\ucWakeupProfile.resx">
+      <DependentUpon>ucWakeupProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\usDateRange.resx">
+      <DependentUpon>usDateRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucDateTimeChooser\ucCustomDateTimePicker.resx">
+      <DependentUpon>ucCustomDateTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucDateTimeChooser\ucCustomWildCards.resx">
+      <DependentUpon>ucCustomWildCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Billing_ReportSelection.resx">
+      <DependentUpon>Billing_ReportSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_EventsAll2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_EventsAll2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptLoadProfileChannel2Chart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoadProfileChannel2Chart.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptLoadProfileChannel3Chart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoadProfileChannel3Chart.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptLoadProfileChannel4Chart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoadProfileChannel4Chart.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptLoadProfileChannelWiseChart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoadProfileChannelWiseChart.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_headerForAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_headerForAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Instantaneous_WebFormat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Instantaneous_WebFormat.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_LoadProfile_WebFormat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_LoadProfile_WebFormat.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_headerGenaric_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_headerGenaric_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_headerForParam_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_headerForParam_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_LoadProfile_wt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_LoadProfile_wt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_EventsSingle_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_EventsSingle_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_Instantaneous_new_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Instantaneous_new_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\ReportSelection.resx">
+      <DependentUpon>ReportSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\ReportViewer.resx">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Billing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Billing.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Billing_Data.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Billing_Data.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_DisplayWindow.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_DisplayWindow.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Events.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Events.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_EventsAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_EventsAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Instantaneous.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Instantaneous.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Instantaneous_new.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Instantaneous_new.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_LoadProfile.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_LoadProfile.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_MAJOR_ALARM.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_MAJOR_ALARM.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Monthly_Billing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Monthly_Billing.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_Param.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Param.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RPT_security.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_security.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\temp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>temp.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\ParamReportSelection.resx">
+      <DependentUpon>ParamReportSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_DisplayWindow_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_DisplayWindow_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_LoadProfile_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_LoadProfile_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_LoadProfileLineGraph_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_LoadProfileLineGraph_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_Billing_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Billing_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_EventsLogBook_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_EventsLogBook_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_EventsStartEnd_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_EventsStartEnd_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_headerForAll_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_headerForAll_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_Instantaneous_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Instantaneous_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_LoadProfile_WebFormat_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_LoadProfile_WebFormat_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_MAJOR_ALARM_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_MAJOR_ALARM_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_Monthly_Billing_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Monthly_Billing_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_Param_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Param_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\RPT_security_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_security_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\WapdaFormat\temp_w.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>temp_w.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\superAdminPanel.resx">
+      <DependentUpon>superAdminPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\dataset_Calendar.xsc">
+      <DependentUpon>dataset_Calendar.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\dataset_Calendar.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataset_Calendar1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\dataset_Calendar.xss">
+      <DependentUpon>dataset_Calendar.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Billing.xsc">
+      <DependentUpon>ds_Billing.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Billing.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_Billing.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_Billing.xss">
+      <DependentUpon>ds_Billing.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_CB_Day_Record.xsc">
+      <DependentUpon>ds_CB_Day_Record.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_CB_Day_Record.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_CB_Day_Record.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\ds_CB_Day_Record.xss">
+      <DependentUpon>ds_CB_Day_Record.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_displayWindow.xsc">
+      <DependentUpon>ds_displayWindow.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_displayWindow.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_displayWindow.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_displayWindow.xss">
+      <DependentUpon>ds_displayWindow.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_events.xsc">
+      <DependentUpon>ds_events.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_events.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_events1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_events.xss">
+      <DependentUpon>ds_events.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Ins.xsc">
+      <DependentUpon>ds_Ins.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Ins.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_Ins1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_Ins.xss">
+      <DependentUpon>ds_Ins.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_LoadProfile.xsc">
+      <DependentUpon>ds_LoadProfile.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_LoadProfile.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_LoadProfile.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_LoadProfile.xss">
+      <DependentUpon>ds_LoadProfile.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Monthly_Billing.xsc">
+      <DependentUpon>ds_Monthly_Billing.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Monthly_Billing.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_Monthly_Billing.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_Monthly_Billing.xss">
+      <DependentUpon>ds_Monthly_Billing.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Param.xsc">
+      <DependentUpon>ds_Param.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_Param.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_Param1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_Param.xss">
+      <DependentUpon>ds_Param.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_security.xsc">
+      <DependentUpon>ds_security.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\ds_security.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_security1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\ds_security.xss">
+      <DependentUpon>ds_security.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\DS_TL_LOAD_PROFILE.xsc">
+      <DependentUpon>DS_TL_LOAD_PROFILE.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\DS_TL_LOAD_PROFILE.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_TL_LOAD_PROFILE1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\DS_TL_LOAD_PROFILE.xss">
+      <DependentUpon>DS_TL_LOAD_PROFILE.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\x86\Debug\" />
+    <Folder Include="bin\x86\Release\" />
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLMS_COSEM_Lib\DLMS_COSEM_Lib.csproj">
+      <Project>{964a11f5-41bb-43f6-a038-3db7c03e0a8f}</Project>
+      <Name>DLMS_COSEM_Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDLCLib\HDLCLib.csproj">
+      <Project>{b0fba40a-21d8-4e5f-942d-14b449cfb56b}</Project>
+      <Name>HDLCLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerToolKit\ServerToolkit.BufferManagement.csproj">
+      <Project>{DB69A550-67B0-40EC-A27E-CFD646D04615}</Project>
+      <Name>ServerToolkit.BufferManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedCode\SharedCode.csproj">
+      <Project>{101351f7-97d8-4124-8108-2f08b284241a}</Project>
+      <Name>SharedCode</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+</Project>

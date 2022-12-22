@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_all_in_one" targetNamespace="http://tempuri.org/ds_all_in_one.xsd" xmlns:mstns="http://tempuri.org/ds_all_in_one.xsd" xmlns="http://tempuri.org/ds_all_in_one.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_all_in_one" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="ds_all_in_one" msprop:Generator_UserDSName="ds_all_in_one" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Table_Instentaious" msprop:Generator_UserTableName="Table_Instentaious" msprop:Generator_RowDeletedName="Table_InstentaiousRowDeleted" msprop:Generator_TableClassName="Table_InstentaiousDataTable" msprop:Generator_RowChangedName="Table_InstentaiousRowChanged" msprop:Generator_RowClassName="Table_InstentaiousRow" msprop:Generator_RowChangingName="Table_InstentaiousRowChanging" msprop:Generator_RowEvArgName="Table_InstentaiousRowChangeEvent" msprop:Generator_RowEvHandlerName="Table_InstentaiousRowChangeEventHandler" msprop:Generator_TablePropName="Table_Instentaious" msprop:Generator_TableVarName="tableTable_Instentaious" msprop:Generator_RowDeletingName="Table_InstentaiousRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_UserColumnName="title" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInTable="titleColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="phase_1" msprop:Generator_UserColumnName="phase_1" msprop:Generator_ColumnPropNameInRow="phase_1" msprop:Generator_ColumnVarNameInTable="columnphase_1" msprop:Generator_ColumnPropNameInTable="phase_1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="phase_2" msprop:Generator_UserColumnName="phase_2" msprop:Generator_ColumnPropNameInRow="phase_2" msprop:Generator_ColumnVarNameInTable="columnphase_2" msprop:Generator_ColumnPropNameInTable="phase_2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="phase_3" msprop:Generator_UserColumnName="phase_3" msprop:Generator_ColumnPropNameInRow="phase_3" msprop:Generator_ColumnVarNameInTable="columnphase_3" msprop:Generator_ColumnPropNameInTable="phase_3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="average" msprop:Generator_UserColumnName="average" msprop:Generator_ColumnPropNameInRow="average" msprop:Generator_ColumnVarNameInTable="columnaverage" msprop:Generator_ColumnPropNameInTable="averageColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

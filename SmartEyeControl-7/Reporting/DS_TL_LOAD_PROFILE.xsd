@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_TL_LOAD_PROFILE" targetNamespace="http://tempuri.org/DS_TL_LOAD_PROFILE.xsd" xmlns:mstns="http://tempuri.org/DS_TL_LOAD_PROFILE.xsd" xmlns="http://tempuri.org/DS_TL_LOAD_PROFILE.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_TL_LOAD_PROFILE" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_TL_LOAD_PROFILE" msprop:Generator_DataSetName="DS_TL_LOAD_PROFILE" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TL_LOAD_PROFILE" msprop:Generator_UserTableName="TL_LOAD_PROFILE" msprop:Generator_RowDeletedName="TL_LOAD_PROFILERowDeleted" msprop:Generator_RowChangedName="TL_LOAD_PROFILERowChanged" msprop:Generator_RowClassName="TL_LOAD_PROFILERow" msprop:Generator_RowChangingName="TL_LOAD_PROFILERowChanging" msprop:Generator_RowEvArgName="TL_LOAD_PROFILERowChangeEvent" msprop:Generator_RowEvHandlerName="TL_LOAD_PROFILERowChangeEventHandler" msprop:Generator_TableClassName="TL_LOAD_PROFILEDataTable" msprop:Generator_TableVarName="tableTL_LOAD_PROFILE" msprop:Generator_RowDeletingName="TL_LOAD_PROFILERowDeleting" msprop:Generator_TablePropName="TL_LOAD_PROFILE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DATE" msprop:Generator_UserColumnName="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="COUNTER" msprop:Generator_UserColumnName="COUNTER" msprop:Generator_ColumnVarNameInTable="columnCOUNTER" msprop:Generator_ColumnPropNameInRow="COUNTER" msprop:Generator_ColumnPropNameInTable="COUNTERColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="KWH_P" msprop:Generator_UserColumnName="KWH_P" msprop:Generator_ColumnVarNameInTable="columnKWH_P" msprop:Generator_ColumnPropNameInRow="KWH_P" msprop:Generator_ColumnPropNameInTable="KWH_PColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="KWH_N" msprop:Generator_UserColumnName="KWH_N" msprop:Generator_ColumnVarNameInTable="columnKWH_N" msprop:Generator_ColumnPropNameInRow="KWH_N" msprop:Generator_ColumnPropNameInTable="KWH_NColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="KVARH_Q1" msprop:Generator_UserColumnName="KVARH_Q1" msprop:Generator_ColumnVarNameInTable="columnKVARH_Q1" msprop:Generator_ColumnPropNameInRow="KVARH_Q1" msprop:Generator_ColumnPropNameInTable="KVARH_Q1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="KVARH_Q2" msprop:Generator_UserColumnName="KVARH_Q2" msprop:Generator_ColumnVarNameInTable="columnKVARH_Q2" msprop:Generator_ColumnPropNameInRow="KVARH_Q2" msprop:Generator_ColumnPropNameInTable="KVARH_Q2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="KVARH_Q3" msprop:Generator_UserColumnName="KVARH_Q3" msprop:Generator_ColumnVarNameInTable="columnKVARH_Q3" msprop:Generator_ColumnPropNameInRow="KVARH_Q3" msprop:Generator_ColumnPropNameInTable="KVARH_Q3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="KVARH_Q4" msprop:Generator_UserColumnName="KVARH_Q4" msprop:Generator_ColumnVarNameInTable="columnKVARH_Q4" msprop:Generator_ColumnPropNameInRow="KVARH_Q4" msprop:Generator_ColumnPropNameInTable="KVARH_Q4Column" type="xs:string" minOccurs="0" />
+              <xs:element name="KVAH" msprop:Generator_UserColumnName="KVAH" msprop:Generator_ColumnVarNameInTable="columnKVAH" msprop:Generator_ColumnPropNameInRow="KVAH" msprop:Generator_ColumnPropNameInTable="KVAHColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="TAMPER" msprop:Generator_UserColumnName="TAMPER" msprop:Generator_ColumnVarNameInTable="columnTAMPER" msprop:Generator_ColumnPropNameInRow="TAMPER" msprop:Generator_ColumnPropNameInTable="TAMPERColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="MDI_KW" msprop:Generator_UserColumnName="MDI_KW" msprop:Generator_ColumnVarNameInTable="columnMDI_KW" msprop:Generator_ColumnPropNameInRow="MDI_KW" msprop:Generator_ColumnPropNameInTable="MDI_KWColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="MDI_KVAR" msprop:Generator_UserColumnName="MDI_KVAR" msprop:Generator_ColumnVarNameInTable="columnMDI_KVAR" msprop:Generator_ColumnPropNameInRow="MDI_KVAR" msprop:Generator_ColumnPropNameInTable="MDI_KVARColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PF" msprop:Generator_UserColumnName="PF" msprop:Generator_ColumnVarNameInTable="columnPF" msprop:Generator_ColumnPropNameInRow="PF" msprop:Generator_ColumnPropNameInTable="PFColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CAPTURE_TIME" msprop:Generator_UserColumnName="CAPTURE_TIME" msprop:Generator_ColumnVarNameInTable="columnCAPTURE_TIME" msprop:Generator_ColumnPropNameInRow="CAPTURE_TIME" msprop:Generator_ColumnPropNameInTable="CAPTURE_TIMEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DAY_MDI_KW" msprop:Generator_UserColumnName="DAY_MDI_KW" msprop:Generator_ColumnVarNameInTable="columnDAY_MDI_KW" msprop:Generator_ColumnPropNameInRow="DAY_MDI_KW" msprop:Generator_ColumnPropNameInTable="DAY_MDI_KWColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DAY_MDI_KVAR" msprop:Generator_UserColumnName="DAY_MDI_KVAR" msprop:Generator_ColumnVarNameInTable="columnDAY_MDI_KVAR" msprop:Generator_ColumnPropNameInRow="DAY_MDI_KVAR" msprop:Generator_ColumnPropNameInTable="DAY_MDI_KVARColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

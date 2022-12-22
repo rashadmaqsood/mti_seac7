@@ -1,0 +1,7 @@
+6.8.1.1 Shared DLMS Object cache modified,LRUPriorityDLMSCache class object modified to improve shared cache response time
+
+6.7.1.1 ApplicationProcessController modified for Synchronous and ASynchronous services.
+
+6.5.0.0 1) Each ApplicationProcess_Controller has unique OwnerId and similar Identification Code is used in DLMS_Base class.
+	2) Shared LRUPriorityDLMSCache data structure revised for sharing among various ApplicationProcess instances.
+	3) New OBIS Codes entered/modified according to MRS 8.0 document of MTI

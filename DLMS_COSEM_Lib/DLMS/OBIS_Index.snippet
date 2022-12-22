@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	
+  <CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>OBIS_Index</Title>
+			<Shortcut>OBISId</Shortcut>
+			<Description>The code snipt is used to represent the OBIS Code Indices that represent formated values in Hex ClassId DLMSClassId (A,B,C,D,E,F)</Description>
+			<Author>MicroTech</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+        <Literal>
+          <ID>SummaryText</ID>
+          <Default>?</Default>
+          <ToolTip>Define OBIS_Index Summary Here</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>Identifier</ID>
+          <Default>Undefined</Default>
+          <ToolTip>OBIS_Index Identifier</ToolTip>
+        </Literal>
+      <Literal>
+          <ID>ClassId</ID>
+					<Default>00</Default>
+					<ToolTip>Class_Id</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>Feild_A</ID>
+					<Default>00</Default>
+					<ToolTip>OBIS_Code_Feild_A</ToolTip>
+				</Literal>
+        <Literal>
+          <ID>Feild_B</ID>
+          <Default>00</Default>
+          <ToolTip>OBIS_Code_Feild_B</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>Feild_C</ID>
+          <Default>00</Default>
+          <ToolTip>OBIS_Code_Feild_C</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>Feild_D</ID>
+          <Default>00</Default>
+          <ToolTip>OBIS_Code_Feild_D</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>Feild_E</ID>
+          <Default>00</Default>
+          <ToolTip>OBIS_Code_Feild_E</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>Feild_F</ID>
+          <Default>00</Default>
+          <ToolTip>OBIS_Code_Feild_F</ToolTip>
+        </Literal>
+      </Declarations>
+			<Code Language="csharp">
+        <![CDATA[,
+      ///<summary>
+      /// $SummaryText$
+      /// </summary>
+      $Identifier$ = 0x$ClassId$$Feild_A$$Feild_B$$Feild_C$$Feild_D$$Feild_E$$Feild_F$
+    ]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+  
+</CodeSnippets>

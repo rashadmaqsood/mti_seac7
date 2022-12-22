@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="DLMS.DLMS_Application_Layer">
+    <Position X="12.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>kEIsfIo2ZjEABwEN4PJ8FgEQBJwsAKPwi2KkRKLItI4=</HashCode>
+      <FileName>DLMS\DLMS_Application_Layer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.DLMS_Application_Process">
+    <Position X="4.75" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <AssociationLine Name="Application_Layer" Type="DLMS.DLMS_Application_Layer">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.39" Y="-0.221" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAnBUKImMSY3icE+YFATIIA3DBbAEIxCkASAgEAIyAI=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Application_Layer" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.Class_Access_Rights">
+    <Position X="27.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.SAP_Object">
+    <Position X="9" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAACEgAAAAABAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>DLMS\SAP_Object.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.st_Rights">
+    <Position X="22.25" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAKBBAAAAAgAAAAAAAAAAEAAAAACCAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stProposed_xDLMS_Context">
+    <Position X="34.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAACABAAAAAAAAAAABAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stNegotiated_xDLMS_Context">
+    <Position X="34" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAARA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stAPPLICATION_ASSOCIATION">
+    <Position X="24.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAAIAABAiABkIgACCEAEgAQCAAAAAABJAAQSBCCAARA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stCOSEM_Attribute_Descriptor">
+    <Position X="34.25" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAQAAAAAAAAAAgBAAAACBAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stDataBlock_SA">
+    <Position X="29.75" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stSET">
+    <Position X="29.75" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAAAIAAAAAABAAIAAQAAAQEABAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stDataBlock_G">
+    <Position X="36.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAIAGAAAAAAAAAAQAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stGET">
+    <Position X="27.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAAAIAEAAAAAAAIAEQAAAQAABAAAAAAAAAAQBA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stCOSEM_Method_Descriptor">
+    <Position X="34.25" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stResponse_Parameters">
+    <Position X="30" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAACBAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stAction_Response">
+    <Position X="32" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAKAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stACTION">
+    <Position X="31.25" Y="7.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAAAIAAAAAABAAIAAAAAAAEAAAAgAAIIAAQABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stASSOCIATION_RELEASE">
+    <Position X="32" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAIAIAAAAAAAQAAAAAAABIAAAAACAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.stEVENT_NOTIFICATION">
+    <Position X="32" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAgRA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.Base_Class">
+    <Position X="19.25" Y="0.5" Width="2.5" />
+    <AssociationLine Name="AccessResults" Type="DLMS.DecodingResult">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.099" Y="0.05" Height="0.16" Width="0.996" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BAgCQAAIAEAYXAwEIMAAABEADYCuDQYAIAGAAAAAmBA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccessResults" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DLMS.Class_1">
+    <Position X="22.25" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAABAAEAAEAAAABACAABCAAAAEgAAABABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_3">
+    <Position X="16.75" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEIAAAAAACAAAABAAAAAEgAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_4">
+    <Position X="21.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEIAAAAAACAAAABAAAIAAgAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_5">
+    <Position X="23.75" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgBAkEKAAAAAACAABABAAAAAkAAgAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_6">
+    <Position X="21.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_7_Vz_Billing">
+    <Position X="19" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEAAAAAAAAAAAAAAEAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\Class_7.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_7_Event_Log">
+    <Position X="16.75" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\Class_7.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_8">
+    <Position X="10.25" Y="7.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gBAAAAEEAAAABAAGCAAIAIAAAAAABAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_9">
+    <Position X="12.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_11">
+    <Position X="26.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEQAAAAEAAAAAABAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_15">
+    <Position X="26.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQBAAEAAAAAAAAAAAABAACAAAAAAEAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_17">
+    <Position X="23.75" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEAAAAAAAAAACAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_20">
+    <Position X="16.75" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQQIAIAAAAQABAAAAgwoAECUCAAABCwAAAAABAEQCBI=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_21">
+    <Position X="14.5" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEAAEAAAABAAAABCAAAAEgAAABABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_22">
+    <Position X="19" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_41">
+    <Position X="14.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABSAAAAAAhAAGQAAgAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_42">
+    <Position X="28.75" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAABAEEAAACAAAgQAMAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DLMS.Class_45">
+    <Position X="29" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAABAAEAAAAAAAgAAAABAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DLMS.AARQ_Packet_Type">
+    <Position X="36.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAACAAAQAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Layer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.GET_req_Packet_Type">
+    <Position X="44.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Layer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.SET_req_Type">
+    <Position X="38.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Layer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.ACTION_req_Type">
+    <Position X="38.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAAAAgAAEAAAAAAAAIAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.Class_ID_No">
+    <Position X="40.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAKgEAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.Data_Access_Result">
+    <Position X="41" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAQAAAAAAIAAAAoIACAAAAAgAgAAACASAQAAAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.Clock_Base">
+    <Position X="42.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAgQAAAAAAAAAAAABCAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.Attrib_Access_Modes">
+    <Position X="36.75" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAgAAACAAAAAAIAAAEAACAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.Method_Access_Modes">
+    <Position X="36.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.GET_Method">
+    <Position X="38.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACCAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.units">
+    <Position X="44.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAJAAAACAAAAAAQAAQIQKYEIAAAKAAAAABABAAgAA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.Get_Index">
+    <Position X="38.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>fz53//X/f/X/3ye18/T9+xjNz34z/Ue/37r1W/ac6r0=</HashCode>
+      <FileName>DLMS\Get_Index.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.DataTypes">
+    <Position X="43" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAgAAkAQAAAIRABAAEAAACAEAAUgEABggIgAAA=</HashCode>
+      <FileName>DLMS\DLMS_Structures.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DLMS.DecodingResult">
+    <Position X="16.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CCAAAACAAAAAAAEAAAAgAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DLMS\DLMS_Application_Process_Init.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

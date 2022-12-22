@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dataset_Calendar" targetNamespace="http://tempuri.org/dataset_Calendar.xsd" xmlns:mstns="http://tempuri.org/dataset_Calendar.xsd" xmlns="http://tempuri.org/dataset_Calendar.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dataset_Calendar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dataset_Calendar" msprop:Generator_DataSetName="dataset_Calendar" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="table_season" msprop:Generator_UserTableName="table_season" msprop:Generator_RowDeletedName="table_seasonRowDeleted" msprop:Generator_RowChangedName="table_seasonRowChanged" msprop:Generator_RowClassName="table_seasonRow" msprop:Generator_RowChangingName="table_seasonRowChanging" msprop:Generator_RowEvArgName="table_seasonRowChangeEvent" msprop:Generator_RowEvHandlerName="table_seasonRowChangeEventHandler" msprop:Generator_TableClassName="table_seasonDataTable" msprop:Generator_TableVarName="tabletable_season" msprop:Generator_RowDeletingName="table_seasonRowDeleting" msprop:Generator_TablePropName="table_season">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="season_profileID" msprop:Generator_UserColumnName="season_profileID" msprop:Generator_ColumnVarNameInTable="columnseason_profileID" msprop:Generator_ColumnPropNameInRow="season_profileID" msprop:Generator_ColumnPropNameInTable="season_profileIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="profileName" msprop:Generator_UserColumnName="profileName" msprop:Generator_ColumnVarNameInTable="columnprofileName" msprop:Generator_ColumnPropNameInRow="profileName" msprop:Generator_ColumnPropNameInTable="profileNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="startDate" msprop:Generator_UserColumnName="startDate" msprop:Generator_ColumnVarNameInTable="columnstartDate" msprop:Generator_ColumnPropNameInRow="startDate" msprop:Generator_ColumnPropNameInTable="startDateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="weekprofileID" msprop:Generator_UserColumnName="weekprofileID" msprop:Generator_ColumnVarNameInTable="columnweekprofileID" msprop:Generator_ColumnPropNameInRow="weekprofileID" msprop:Generator_ColumnPropNameInTable="weekprofileIDColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="table_week" msprop:Generator_UserTableName="table_week" msprop:Generator_RowDeletedName="table_weekRowDeleted" msprop:Generator_RowChangedName="table_weekRowChanged" msprop:Generator_RowClassName="table_weekRow" msprop:Generator_RowChangingName="table_weekRowChanging" msprop:Generator_RowEvArgName="table_weekRowChangeEvent" msprop:Generator_RowEvHandlerName="table_weekRowChangeEventHandler" msprop:Generator_TableClassName="table_weekDataTable" msprop:Generator_TableVarName="tabletable_week" msprop:Generator_RowDeletingName="table_weekRowDeleting" msprop:Generator_TablePropName="table_week">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="week_profileID" msprop:Generator_UserColumnName="week_profileID" msprop:Generator_ColumnVarNameInTable="columnweek_profileID" msprop:Generator_ColumnPropNameInRow="week_profileID" msprop:Generator_ColumnPropNameInTable="week_profileIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="monday" msprop:Generator_UserColumnName="monday" msprop:Generator_ColumnVarNameInTable="columnmonday" msprop:Generator_ColumnPropNameInRow="monday" msprop:Generator_ColumnPropNameInTable="mondayColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="tuesday" msprop:Generator_UserColumnName="tuesday" msprop:Generator_ColumnVarNameInTable="columntuesday" msprop:Generator_ColumnPropNameInRow="tuesday" msprop:Generator_ColumnPropNameInTable="tuesdayColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="wednesday" msprop:Generator_UserColumnName="wednesday" msprop:Generator_ColumnVarNameInTable="columnwednesday" msprop:Generator_ColumnPropNameInRow="wednesday" msprop:Generator_ColumnPropNameInTable="wednesdayColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="thursday" msprop:Generator_UserColumnName="thursday" msprop:Generator_ColumnVarNameInTable="columnthursday" msprop:Generator_ColumnPropNameInRow="thursday" msprop:Generator_ColumnPropNameInTable="thursdayColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="friday" msprop:Generator_UserColumnName="friday" msprop:Generator_ColumnVarNameInTable="columnfriday" msprop:Generator_ColumnPropNameInRow="friday" msprop:Generator_ColumnPropNameInTable="fridayColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="saturday" msprop:Generator_UserColumnName="saturday" msprop:Generator_ColumnVarNameInTable="columnsaturday" msprop:Generator_ColumnPropNameInRow="saturday" msprop:Generator_ColumnPropNameInTable="saturdayColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="sunday" msprop:Generator_UserColumnName="sunday" msprop:Generator_ColumnVarNameInTable="columnsunday" msprop:Generator_ColumnPropNameInRow="sunday" msprop:Generator_ColumnPropNameInTable="sundayColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="table_day" msprop:Generator_UserTableName="table_day" msprop:Generator_RowDeletedName="table_dayRowDeleted" msprop:Generator_RowChangedName="table_dayRowChanged" msprop:Generator_RowClassName="table_dayRow" msprop:Generator_RowChangingName="table_dayRowChanging" msprop:Generator_RowEvArgName="table_dayRowChangeEvent" msprop:Generator_RowEvHandlerName="table_dayRowChangeEventHandler" msprop:Generator_TableClassName="table_dayDataTable" msprop:Generator_TableVarName="tabletable_day" msprop:Generator_RowDeletingName="table_dayRowDeleting" msprop:Generator_TablePropName="table_day">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="startTime" msprop:Generator_UserColumnName="startTime" msprop:Generator_ColumnVarNameInTable="columnstartTime" msprop:Generator_ColumnPropNameInRow="startTime" msprop:Generator_ColumnPropNameInTable="startTimeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="tariff" msprop:Generator_UserColumnName="tariff" msprop:Generator_ColumnVarNameInTable="columntariff" msprop:Generator_ColumnPropNameInRow="tariff" msprop:Generator_ColumnPropNameInTable="tariffColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="profileID" msprop:Generator_UserColumnName="profileID" msprop:Generator_ColumnVarNameInTable="columnprofileID" msprop:Generator_ColumnPropNameInRow="profileID" msprop:Generator_ColumnPropNameInTable="profileIDColumn" type="xs:short" minOccurs="0" />
+              <xs:element name="slotID" msprop:Generator_UserColumnName="slotID" msprop:Generator_ColumnVarNameInTable="columnslotID" msprop:Generator_ColumnPropNameInRow="slotID" msprop:Generator_ColumnPropNameInTable="slotIDColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="table_specialDays" msprop:Generator_UserTableName="table_specialDays" msprop:Generator_RowDeletedName="table_specialDaysRowDeleted" msprop:Generator_RowChangedName="table_specialDaysRowChanged" msprop:Generator_RowClassName="table_specialDaysRow" msprop:Generator_RowChangingName="table_specialDaysRowChanging" msprop:Generator_RowEvArgName="table_specialDaysRowChangeEvent" msprop:Generator_RowEvHandlerName="table_specialDaysRowChangeEventHandler" msprop:Generator_TableClassName="table_specialDaysDataTable" msprop:Generator_TableVarName="tabletable_specialDays" msprop:Generator_RowDeletingName="table_specialDaysRowDeleting" msprop:Generator_TablePropName="table_specialDays">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="dayprofileId" msprop:Generator_UserColumnName="dayprofileId" msprop:Generator_ColumnVarNameInTable="columndayprofileId" msprop:Generator_ColumnPropNameInRow="dayprofileId" msprop:Generator_ColumnPropNameInTable="dayprofileIdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="sday_id" msprop:Generator_UserColumnName="sday_id" msprop:Generator_ColumnPropNameInRow="sday_id" msprop:Generator_ColumnVarNameInTable="columnsday_id" msprop:Generator_ColumnPropNameInTable="sday_idColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

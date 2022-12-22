@@ -1,0 +1,1470 @@
+<?xml version="1.0"?>
+<ArrayOfDisplayWindowItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--Miscellanous Display Windows-->
+  <DisplayWindowItem>
+    <!--Current Locale Date-->
+    <OBISIndex>Local_Date</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Date</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Misc</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Current Locale Time-->
+    <OBISIndex>Local_Time</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Time</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Misc</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+  <!--Battery Volts-->  
+  <OBISIndex>Battery_Volts</OBISIndex>
+  <SelectedAttributeNo>2</SelectedAttributeNo>
+  <WindowNumberToDispay>
+    <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+  </WindowNumberToDispay>
+  <WindowName>Battery Volt</WindowName>
+  <Category>
+    <DisplayWindowsCategory>Misc</DisplayWindowsCategory>
+  </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Supply Frequency-->
+    <OBISIndex>Supply_Frequency</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Supply Frequency</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Misc</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  
+  <!--Miscellanous Display Windows-->
+  <!--Instantanouse Display Windows-->
+  
+  
+  
+  <!--Voltage_Ph_A-->
+  <DisplayWindowItem>
+    <!--Voltage_Ph_A-->
+    <OBISIndex>Voltage_Ph_A</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Voltage Phase A</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Voltage_Ph_B-->
+    <OBISIndex>Voltage_Ph_B</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Voltage Phase B</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Voltage_Ph_C-->
+    <OBISIndex>Voltage_Ph_C</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Voltage Phase C</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Current_Ph_A-->
+  <DisplayWindowItem>
+    <!--Current_Ph_A-->
+    <OBISIndex>Current_Ph_A</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Phase A</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Current_Ph_B-->
+    <OBISIndex>Current_Ph_B</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Phase B</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  
+  <DisplayWindowItem>
+    <!--Current_Ph_C-->
+    <OBISIndex>Current_Ph_C</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Phase C</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Active_Power_Ph_A_Pos-->
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_A_Pos-->
+    <OBISIndex>Active_Power_Ph_A_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase A POSITVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_B_Pos-->
+    <OBISIndex>Active_Power_Ph_B_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase B POSITVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_C_Pos-->
+    <OBISIndex>Active_Power_Ph_C_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase C POSITVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  
+  <!--Active_Power_Ph_A_Neg-->
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_A_Neg-->
+    <OBISIndex>Active_Power_Ph_A_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase A NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_B_Neg-->
+    <OBISIndex>Active_Power_Ph_B_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase B NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_C_Neg-->
+    <OBISIndex>Active_Power_Ph_C_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase C NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  
+  <!--Active_Power_Ph_A_Sign-->
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_A_Sign-->
+    <OBISIndex>Active_Power_Ph_A_Sign</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase A SIGNED</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_B_Sign-->
+    <OBISIndex>Active_Power_Ph_B_Sign</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase B SIGNED</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Ph_C_Sign-->
+    <OBISIndex>Active_Power_Ph_C_Sign</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Power Phase C SIGNED</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Reactive_Power_Ph_A_Pos-->
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_A_Pos-->
+    <OBISIndex>Reactive_Power_Ph_A_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase A POSITIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_B_Pos-->
+    <OBISIndex>Reactive_Power_Ph_B_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase B POSITIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_C_Pos-->
+    <OBISIndex>Reactive_Power_Ph_C_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase C POSITIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  
+  <!--Reactive_Power_Ph_A_Neg-->
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_A_Neg-->
+    <OBISIndex>Reactive_Power_Ph_A_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase A NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_B_Neg-->
+    <OBISIndex>Reactive_Power_Ph_B_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase B NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_C_Neg-->
+    <OBISIndex>Reactive_Power_Ph_C_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase C NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+ 
+  <!--Reactive_Power_Ph_A_Sign-->
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_A_Sign-->
+    <OBISIndex>Reactive_Power_Ph_A_Sign</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase A SIGNED</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_B_Sign-->
+    <OBISIndex>Reactive_Power_Ph_B_Sign</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase B SIGNED</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Ph_C_Sign-->
+    <OBISIndex>Reactive_Power_Ph_C_Sign</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Power Phase C SIGNED</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Apparant_Power_Ph_A-->
+  <!--<DisplayWindowItem>
+    --><!--Apparant_Power_Ph_A--><!--
+    <OBISIndex>Apparant_Power_Ph_A</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Apparant Power Phase A</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    --><!--Apparant_Power_Ph_B--><!--
+    <OBISIndex>Apparant_Power_Ph_B</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Apparant Power Phase B</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    --><!--Apparant_Power_Ph_C--><!--
+    <OBISIndex>Apparant_Power_Ph_C</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Apparant Power Phase C</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>-->
+  <DisplayWindowItem>
+    <!--Apparant_Power_Total-->
+    <OBISIndex>Apparant_Power_Total</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Apparant Total Power</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Total_Pos-->
+    <OBISIndex>Active_Power_Total_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Total Power POSITVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Active_Power_Total_Neg-->
+    <OBISIndex>Active_Power_Total_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Active Total Power NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Total_Pos-->
+    <OBISIndex>Reactive_Power_Total_Pos</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Total Power POSITIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Reactive_Power_Total_Neg-->
+    <OBISIndex>Reactive_Power_Total_Neg</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Reactive Total Power NEGATIVE</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Power_Factor_Ph_A-->
+  <DisplayWindowItem>
+    <!--Power_Factor_Ph_A-->
+    <OBISIndex>Power_Factor_Ph_A</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Phase A</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+      <!--<DisplayWindowsCategory>Billing</DisplayWindowsCategory>-->
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Power_Factor_Ph_B-->
+    <OBISIndex>Power_Factor_Ph_B</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Phase B</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+      <!--<DisplayWindowsCategory>Billing</DisplayWindowsCategory>-->
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Power_Factor_Ph_C-->
+    <OBISIndex>Power_Factor_Ph_C</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Phase C</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+      <!--<DisplayWindowsCategory>Billing</DisplayWindowsCategory>-->
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Power_Factor_All-->
+    <OBISIndex>Power_Factor_All</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Average</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+      <!--<DisplayWindowsCategory>Billing</DisplayWindowsCategory>-->
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_CurrentMonthMdiKw-->
+    <OBISIndex>Cumulative_Tariff1_CurrentMonthMdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kw Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_CurrentMonthMdiKw-->
+    <OBISIndex>Cumulative_Tariff2_CurrentMonthMdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kw Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_CurrentMonthMdiKw-->
+    <OBISIndex>Cumulative_Tariff3_CurrentMonthMdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kw Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_CurrentMonthMdiKw-->
+    <OBISIndex>Cumulative_Tariff4_CurrentMonthMdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kw Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_CurrentMonthMdiKw-->
+    <OBISIndex>Cumulative_TariffTL_CurrentMonthMdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kw Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_CurrentMonthMdiKvar-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_CurrentMonthMdiKvar-->
+    <OBISIndex>Cumulative_Tariff1_CurrentMonthMdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kvar Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_CurrentMonthMdiKvar-->
+    <OBISIndex>Cumulative_Tariff2_CurrentMonthMdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kvar Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_CurrentMonthMdiKvar-->
+    <OBISIndex>Cumulative_Tariff3_CurrentMonthMdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kvar Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_CurrentMonthMdiKvar-->
+    <OBISIndex>Cumulative_Tariff4_CurrentMonthMdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kvar Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_CurrentMonthMdiKvar-->
+    <OBISIndex>Cumulative_TariffTL_CurrentMonthMdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Current Month MDI Kvar Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+
+  <DisplayWindowItem>
+    <!--Billing Period Counter-->
+    <OBISIndex>Billing_Period_Counter_VZ</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Billing Period Counter</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Power Failures No-->
+    <OBISIndex>Power_Failures_No</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Failures No</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>
+      <DisplayWindowsCategory>Event</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+ 
+  <!--Instantanouse Display Windows-->
+  
+  <!--Cumulative Billing Display Windows-->
+  
+  <!--Cumulative_Tariff1_KwhImport-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KwhImport-->
+    <OBISIndex>Cumulative_Tariff1_KwhImport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kwh Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KwhImport-->
+    <OBISIndex>Cumulative_Tariff2_KwhImport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kwh Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KwhImport-->
+    <OBISIndex>Cumulative_Tariff3_KwhImport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kwh Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KwhImport-->
+    <OBISIndex>Cumulative_Tariff4_KwhImport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kwh Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KwhImport-->
+    <OBISIndex>Cumulative_TariffTL_KwhImport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kwh Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_KwhExport-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KwhExport-->
+    <OBISIndex>Cumulative_Tariff1_KwhExport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Export Kwh Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KwhExport-->
+    <OBISIndex>Cumulative_Tariff2_KwhExport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Export Kwh Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KwhExport-->
+    <OBISIndex>Cumulative_Tariff3_KwhExport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Export Kwh Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KwhExport-->
+    <OBISIndex>Cumulative_Tariff4_KwhExport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Export Kwh Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KwhExport-->
+    <OBISIndex>Cumulative_TariffTL_KwhExport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Export Kwh Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  
+  
+  
+  
+  <!--Cumulative_Tariff1_KwhAbsolute-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KwhAbsolute-->
+    <OBISIndex>Cumulative_Tariff1_KwhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kwh Absolute Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KwhExport-->
+    <OBISIndex>Cumulative_Tariff2_KwhExport</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kwh Absolute Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KwhAbsolute-->
+    <OBISIndex>Cumulative_Tariff3_KwhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kwh Absolute Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KwhAbsolute-->
+    <OBISIndex>Cumulative_Tariff4_KwhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kwh Absolute Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KwhAbsolute-->
+    <OBISIndex>Cumulative_TariffTL_KwhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kwh Absolute Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_CurrentMonthMdiKw-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_Kvah-->
+    <OBISIndex>Cumulative_Tariff1_Kvah</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kvah Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_Kvah-->
+    <OBISIndex>Cumulative_Tariff2_Kvah</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kvah Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_Kvah-->
+    <OBISIndex>Cumulative_Tariff3_Kvah</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kvah Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_Kvah-->
+    <OBISIndex>Cumulative_Tariff4_Kvah</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kvah Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_Kvah-->
+    <OBISIndex>Cumulative_TariffTL_Kvah</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Import Kvah Tariff TL</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_KvarhQ1-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KvarhQ1-->
+    <OBISIndex>Cumulative_Tariff1_KvarhQ1</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 1 Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KvarhQ1-->
+    <OBISIndex>Cumulative_Tariff2_KvarhQ1</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 1 Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KvarhQ1-->
+    <OBISIndex>Cumulative_Tariff3_KvarhQ1</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 1 Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KvarhQ1-->
+    <OBISIndex>Cumulative_Tariff4_KvarhQ1</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 1 Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KvarhQ1-->
+    <OBISIndex>Cumulative_TariffTL_KvarhQ1</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 1 Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_KvarhQ2-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KvarhQ2-->
+    <OBISIndex>Cumulative_Tariff1_KvarhQ2</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 2 Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KvarhQ2-->
+    <OBISIndex>Cumulative_Tariff2_KvarhQ2</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 2 Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KvarhQ2-->
+    <OBISIndex>Cumulative_Tariff3_KvarhQ2</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 2 Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KvarhQ2-->
+    <OBISIndex>Cumulative_Tariff4_KvarhQ2</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 2 Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KvarhQ2-->
+    <OBISIndex>Cumulative_TariffTL_KvarhQ2</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 2 Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_KvarhQ3-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KvarhQ2-->
+    <OBISIndex>Cumulative_Tariff1_KvarhQ3</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 3 Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KvarhQ3-->
+    <OBISIndex>Cumulative_Tariff2_KvarhQ3</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 3 Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KvarhQ3-->
+    <OBISIndex>Cumulative_Tariff3_KvarhQ3</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 3 Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KvarhQ3-->
+    <OBISIndex>Cumulative_Tariff4_KvarhQ3</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 3 Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KvarhQ3-->
+    <OBISIndex>Cumulative_TariffTL_KvarhQ3</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 3 Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_KvarhQ4-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KvarhQ4-->
+    <OBISIndex>Cumulative_Tariff1_KvarhQ4</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 4 Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KvarhQ4-->
+    <OBISIndex>Cumulative_Tariff2_KvarhQ4</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 4 Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KvarhQ4-->
+    <OBISIndex>Cumulative_Tariff3_KvarhQ4</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 4 Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KvarhQ4-->
+    <OBISIndex>Cumulative_Tariff4_KvarhQ4</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 4 Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KvarhQ4-->
+    <OBISIndex>Cumulative_TariffTL_KvarhQ4</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Quard 4 Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_KvarhAbsolute-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_KvarhAbsolute-->
+    <OBISIndex>Cumulative_Tariff1_KvarhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Absolute Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_KvarhAbsolute-->
+    <OBISIndex>Cumulative_Tariff2_KvarhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Absolute Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_KvarhAbsolute-->
+    <OBISIndex>Cumulative_Tariff3_KvarhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Absolute Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_KvarhAbsolute-->
+    <OBISIndex>Cumulative_Tariff4_KvarhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Absolute Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_KvarhQ4-->
+    <OBISIndex>Cumulative_TariffTL_KvarhAbsolute</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Kvarh Absolute Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_Kvah-->
+  
+  <!--Cumulative_Tariff1_TamperKwh-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_TamperKwh-->
+    <OBISIndex>Cumulative_Tariff1_TamperKwh</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Tamper Kwh Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_TamperKwh-->
+    <OBISIndex>Cumulative_Tariff2_TamperKwh</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Tamper Kwh Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_TamperKwh-->
+    <OBISIndex>Cumulative_Tariff3_TamperKwh</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Tamper Kwh Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_TamperKwh-->
+    <OBISIndex>Cumulative_Tariff4_TamperKwh</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Tamper Kwh Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_TamperKwh-->
+    <OBISIndex>Cumulative_TariffTL_TamperKwh</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative Tamper Kwh Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+
+  <!--Cumulative_Tariff1_PowerFactor-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_PowerFactor-->
+    <OBISIndex>Cumulative_Tariff1_PowerFactor</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Tariff 1</WindowName>
+    <Category>
+      <!--<DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>-->
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_PowerFactor-->
+    <OBISIndex>Cumulative_Tariff2_PowerFactor</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Tariff 2</WindowName>
+    <Category>
+      <!--<DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>-->
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_PowerFactor-->
+    <OBISIndex>Cumulative_Tariff3_PowerFactor</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Tariff 3</WindowName>
+    <Category>
+      <!--<DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>-->
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+  <!--Cumulative_Tariff4_PowerFactor-->
+  <OBISIndex>Cumulative_Tariff4_PowerFactor</OBISIndex>
+  <SelectedAttributeNo>2</SelectedAttributeNo>
+  <WindowNumberToDispay>
+    <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+  </WindowNumberToDispay>
+  <WindowName>Power Factor Tariff 4</WindowName>
+  <Category>
+    <!--<DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>-->
+    <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+  </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_PowerFactor-->
+    <OBISIndex>Cumulative_TariffTL_PowerFactor</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Power Factor Total</WindowName>
+    <Category>
+      <!--<DisplayWindowsCategory>Instantanous</DisplayWindowsCategory>-->
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_MdiKw-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_MdiKw-->
+    <OBISIndex>Cumulative_Tariff1_MdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kw Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_MdiKw-->
+    <OBISIndex>Cumulative_Tariff2_MdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kw Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_MdiKw-->
+    <OBISIndex>Cumulative_Tariff3_MdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kw Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_MdiKw-->
+    <OBISIndex>Cumulative_Tariff4_MdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kw Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_MdiKw-->
+    <OBISIndex>Cumulative_TariffTL_MdiKw</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kw Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <!--Cumulative_Tariff1_MdiKvar-->
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff1_MdiKvar-->
+    <OBISIndex>Cumulative_Tariff1_MdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kvar Tariff 1</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff2_MdiKvar-->
+    <OBISIndex>Cumulative_Tariff2_MdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kvar Tariff 2</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff3_MdiKvar-->
+    <OBISIndex>Cumulative_Tariff3_MdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kvar Tariff 3</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_Tariff4_MdiKvar-->
+    <OBISIndex>Cumulative_Tariff4_MdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kvar Tariff 4</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+  <DisplayWindowItem>
+    <!--Cumulative_TariffTL_MdiKvar-->
+    <OBISIndex>Cumulative_TariffTL_MdiKvar</OBISIndex>
+    <SelectedAttributeNo>2</SelectedAttributeNo>
+    <WindowNumberToDispay>
+      <DisplayWindowNumberRaw>1</DisplayWindowNumberRaw>
+    </WindowNumberToDispay>
+    <WindowName>Cumulative MDI Kvar Total</WindowName>
+    <Category>
+      <DisplayWindowsCategory>Billing</DisplayWindowsCategory>
+    </Category>
+  </DisplayWindowItem>
+
+
+  <!--Cumulative Billing Display Windows-->
+
+</ArrayOfDisplayWindowItem>

@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{101351F7-97D8-4124-8108-2F08B284241A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharedCode</RootNamespace>
+    <AssemblyName>SharedCode</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <!--<OutputPath>F:\PrjctSourceByMe\SmartEyeMDC_RFP_135\Assemblies</OutputPath> $(TeamBuildOutDir)\Assemblies2 -->
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DatabaseConfiguration">
+      <HintPath>..\Assemblies\DatabaseConfiguration.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\SmartEyeMDC_RFP_135\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\SmartEyeMDC_RFP_135\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LogSystem.Shared.Common">
+      <HintPath>..\Assemblies\LogSystem.Shared.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Serenity.Crypto">
+      <HintPath>..\Assemblies\Serenity.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\App_Validation.cs" />
+    <Compile Include="Common\App_Validation_Info.cs" />
+    <Compile Include="Common\Common_PCL.cs" />
+    <Compile Include="Common\ObjectFactory.cs" />
+    <Compile Include="Comm\DataContainer\Billing.cs" />
+    <Compile Include="Comm\DataContainer\BillingData.cs" />
+    <Compile Include="Comm\DataContainer\BillingItem.cs" />
+    <Compile Include="Comm\DataContainer\CommonClasses.cs" />
+    <Compile Include="Comm\DataContainer\DisplayWindows.cs" />
+    <Compile Include="Comm\DataContainer\InstantaneousMDI.cs" />
+    <Compile Include="Comm\DataContainer\InstantaneousObjClass.cs" />
+    <Compile Include="Comm\DataContainer\TimerReset_SinglePhase.cs" />
+    <Compile Include="Comm\HelperClasses\ConfigsHelper.cs" />
+    <Compile Include="Comm\HelperClasses\ConnectionInitUtil.cs" />
+    <Compile Include="Comm\HelperClasses\EventDataFormatter.cs" />
+    <Compile Include="Comm\HelperClasses\LoadScheduling.cs" />
+    <Compile Include="Comm\HelperClasses\TCPOverSerial.cs" />
+    <Compile Include="Comm\Param\Fuison_IO_StateList.cs" />
+    <Compile Include="Comm\Param\Param_Energy_Mizer.cs" />
+    <Compile Include="Comm\Param\Param_Generator_Start.cs" />
+    <Compile Include="Comm\Param\Param_Ldr_Setting.cs" />
+    <Compile Include="Comm\Param\Param_Load_Scheduling.cs" />
+    <Compile Include="Comm\Param\Param_St_EEPRawRead.cs" />
+    <Compile Include="eGeniousDisplayUnit\ConsumptionData.cs" />
+    <Compile Include="eGeniousDisplayUnit\ConsumptionDataMonthly.cs" />
+    <Compile Include="eGeniousDisplayUnit\ConsumptionDataNow.cs" />
+    <Compile Include="eGeniousDisplayUnit\ConsumptionDataWeekly.cs" />
+    <Compile Include="Others\CommonStructures.cs" />
+    <Compile Include="Comm\DataContainer\ContactorControlData.cs" />
+    <Compile Include="Comm\DataContainer\Cumulative_billing.cs" />
+    <Compile Include="Comm\DataContainer\CustomException.cs" />
+    <Compile Include="Comm\HelperClasses\Encryption.cs" />
+    <Compile Include="Comm\DataContainer\Enums.cs" />
+    <Compile Include="Comm\DataContainer\EventIDtoCode.cs" />
+    <Compile Include="Comm\DataContainer\EventItem.cs" />
+    <Compile Include="Others\Customized_Encoder.cs" />
+    <Compile Include="Others\FileHandler.cs" />
+    <Compile Include="Comm\DataContainer\FirmwareInfo.cs" />
+    <Compile Include="Comm\DataContainer\GatewayScanResult.cs" />
+    <Compile Include="Comm\DataContainer\GetTariff.cs" />
+    <Compile Include="Comm\DataContainer\InstantaneousData.cs" />
+    <Compile Include="Comm\DataContainer\InstantaneousItem.cs" />
+    <Compile Include="Comm\DataContainer\Instantaneous_Class.cs" />
+    <Compile Include="Comm\Param\IParam.cs" />
+    <Compile Include="Comm\DataContainer\Limits.cs" />
+    <Compile Include="Comm\Param\LoadProfileChannelInfo.cs" />
+    <Compile Include="Comm\DataContainer\LoadProfileData.cs" />
+    <Compile Include="Comm\DataContainer\Load_Profile.cs" />
+    <Compile Include="Comm\DataContainer\MDCEventsClass.cs" />
+    <Compile Include="Comm\DataContainer\MDM_Event.cs" />
+    <Compile Include="Comm\DataContainer\MeterEvent.cs" />
+    <Compile Include="Comm\DataContainer\MeterInfo.cs" />
+    <Compile Include="Comm\DataContainer\MeterReliablityParams.cs" />
+    <Compile Include="Comm\DataContainer\MeterSerialNumber.cs" />
+    <Compile Include="Comm\DataContainer\MonitoringTimeValues.cs" />
+    <Compile Include="Comm\DataContainer\Monthly_Billing_data.cs" />
+    <Compile Include="Comm\Param\ParamConfigurationSet.cs" />
+    <Compile Include="Comm\Param\ParameterizationRequest.cs" />
+    <Compile Include="Comm\DataContainer\ParametersSet.cs" />
+    <Compile Include="Comm\Param\Param_ActivityCalendar.cs" />
+    <Compile Include="Comm\Param\Param_clock_caliberation.cs" />
+    <Compile Include="Comm\Param\Param_Communication_Profile.cs" />
+    <Compile Include="Comm\Param\Param_Contactor.cs" />
+    <Compile Include="Comm\Param\Param_CTPT_ratio.cs" />
+    <Compile Include="Comm\Param\Param_Customer_Code.cs" />
+    <Compile Include="Comm\Param\Param_DayProfile.cs" />
+    <Compile Include="Comm\Param\Param_decimal_point.cs" />
+    <Compile Include="Comm\Param\Param_Display_PowerDown.cs" />
+    <Compile Include="Comm\Param\Param_Display_windows.cs" />
+    <Compile Include="Comm\Param\Param_Energy_Parameter.cs" />
+    <Compile Include="Comm\Param\Param_ErrorDetails.cs" />
+    <Compile Include="Comm\Param\Param_EventsCaution.cs" />
+    <Compile Include="Comm\Param\Param_General_Process.cs" />
+    <Compile Include="Comm\Param\Param_GridInputStatus.cs" />
+    <Compile Include="Comm\Param\Param_GSM.cs" />
+    <Compile Include="Comm\Param\Param_HDLCSetup.cs" />
+    <Compile Include="Comm\Param\Param_IPV4.cs" />
+    <Compile Include="Comm\Param\Param_IP_Profiles.cs" />
+    <Compile Include="Comm\Param\Param_Keep_Alive_IP.cs" />
+    <Compile Include="Comm\Param\Param_Limits.cs" />
+    <Compile Include="Comm\Param\Param_limits_DemandOverLoad.cs" />
+    <Compile Include="Comm\Param\Param_load_profile.cs" />
+    <Compile Include="Comm\Param\Param_MajorAlarmProfile.cs" />
+    <Compile Include="Comm\Param\Param_MDI_parameters.cs" />
+    <Compile Include="Comm\Param\param_ModemBasics_NEW.cs" />
+    <Compile Include="Comm\Param\Param_ModemLimitsAndTime.cs" />
+    <Compile Include="Comm\Param\Param_ModemStatus.cs" />
+    <Compile Include="Comm\Param\Param_Modem_Initialize.cs" />
+    <Compile Include="Comm\Param\Param_Monitoring_time.cs" />
+    <Compile Include="Comm\Param\Param_Number_Profile.cs" />
+    <Compile Include="Comm\Param\Param_password.cs" />
+    <Compile Include="Comm\Param\Param_PresetTime.cs" />
+    <Compile Include="Comm\Param\Param_Scheduler.cs" />
+    <Compile Include="Comm\Param\Param_ScriptTable.cs" />
+    <Compile Include="Comm\Param\Param_SeasonProfile.cs" />
+    <Compile Include="Comm\Param\Param_SpecialDay.cs" />
+    <Compile Include="Comm\Param\Param_StatusWordMap.cs" />
+    <Compile Include="Comm\Param\param_Tasks.cs" />
+    <Compile Include="Comm\Param\Param_TCP_UDP.cs" />
+    <Compile Include="Comm\Param\Param_TimeBaseEvents.cs" />
+    <Compile Include="Comm\Param\Param_WakeUp_Profile.cs" />
+    <Compile Include="Comm\Param\Param_WeekProfile.cs" />
+    <Compile Include="Comm\DataContainer\Phase.cs" />
+    <Compile Include="Comm\DataContainer\Request.cs" />
+    <Compile Include="Comm\DataContainer\SaveInstantaneous.cs" />
+    <Compile Include="Comm\DataContainer\Tariff.cs" />
+    <Compile Include="Comm\Param\TBE_PowerFail.cs" />
+    <Compile Include="Comm\DataContainer\TB_Events.cs" />
+    <Compile Include="Comm\DataContainer\TimeBaseEventsRequest.cs" />
+    <Compile Include="Comm\Param\TimeSlots.cs" />
+    <Compile Include="Comm\EventDispatcher\AsyncEventDispatcher.cs" />
+    <Compile Include="Comm\EventDispatcher\Contracts\EventHandlerDelegate.cs" />
+    <Compile Include="Comm\EventDispatcher\Contracts\IEvent.cs" />
+    <Compile Include="Comm\EventDispatcher\Contracts\IEventDispatcher.cs" />
+    <Compile Include="Comm\EventDispatcher\Contracts\IEventPool.cs" />
+    <Compile Include="Comm\EventDispatcher\Contracts\IHasHashCode.cs" />
+    <Compile Include="Comm\EventDispatcher\Contracts\IPoolableApplicationEvent.cs" />
+    <Compile Include="Comm\EventDispatcher\EventPool.cs" />
+    <Compile Include="Comm\Extensions\Extentions.cs" />
+    <Compile Include="Comm\Extensions\IPAdressExtention.cs" />
+    <Compile Include="Comm\HelperClasses\AccessRights.cs" />
+    <Compile Include="Comm\HelperClasses\AsyncTimeOuts.cs" />
+    <Compile Include="Comm\HelperClasses\CB_DayRecord.cs" />
+    <Compile Include="Comm\HelperClasses\CB_Day_Recoord_Tarrification.cs" />
+    <Compile Include="Comm\HelperClasses\Configurator.cs" />
+    <Compile Include="Comm\HelperClasses\ConnectionInfo.cs" />
+    <Compile Include="Comm\HelperClasses\ConnectionManager.cs" />
+    <Compile Include="Comm\HelperClasses\ConnectionsList.cs" />
+    <Compile Include="Comm\HelperClasses\CryptoHelper.cs" />
+    <Compile Include="Comm\HelperClasses\Customized_Encoder.cs" />
+    <Compile Include="Comm\HelperClasses\DateTimeChooser.cs" />
+    <Compile Include="Comm\HelperClasses\Debugger.cs" />
+    <Compile Include="Comm\HelperClasses\DisplayWindowsHelper.cs" />
+    <Compile Include="Comm\HelperClasses\Dongle.cs" />
+    <Compile Include="Comm\HelperClasses\EventMap.cs" />
+    <Compile Include="Comm\HelperClasses\GenericProfileInfo.cs" />
+    <Compile Include="Comm\HelperClasses\IBillingDataFormatter.cs" />
+    <Compile Include="Comm\HelperClasses\IConnectionFactory.cs" />
+    <Compile Include="Comm\HelperClasses\ILValue.cs" />
+    <Compile Include="Comm\HelperClasses\IOConnections.cs" />
+    <Compile Include="Comm\HelperClasses\IOMonitor.cs" />
+    <Compile Include="Comm\HelperClasses\LimitValues.cs" />
+    <Compile Include="Comm\HelperClasses\LoadProfileDataFormatter.cs" />
+    <Compile Include="Comm\HelperClasses\LoadProfileType.cs" />
+    <Compile Include="Comm\HelperClasses\MajorAlarmNotification.cs" />
+    <Compile Include="Comm\HelperClasses\MeterConfig.cs" />
+    <Compile Include="Comm\HelperClasses\MeterUsers.cs" />
+    <Compile Include="Comm\HelperClasses\MonitorThreshouldItem.cs" />
+    <Compile Include="Comm\HelperClasses\MonthlyBillingDataFormatter.cs" />
+    <Compile Include="Comm\HelperClasses\MSN_Notification.cs" />
+    <Compile Include="Comm\HelperClasses\ReadRawData.cs" />
+    <Compile Include="Comm\HelperClasses\security.cs" />
+    <Compile Include="Comm\HelperClasses\Status.cs" />
+    <Compile Include="Comm\HelperClasses\St_FirmwareInfo.cs" />
+    <Compile Include="Comm\Param\TBE.cs" />
+    <Compile Include="Comm\HelperClasses\TCPStreamOverSerial.cs" />
+    <Compile Include="Comm\HelperClasses\TL_LoadProfile.cs" />
+    <Compile Include="Comm\HelperClasses\user.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\BillingController.cs" />
+    <Compile Include="Controllers\ConnectionController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\InstantaneousController.cs" />
+    <Compile Include="Controllers\LoadProfileController.cs" />
+    <Compile Include="Controllers\OpticalPortController.cs" />
+    <Compile Include="Controllers\ParameterController.cs" />
+    <Compile Include="Controllers\TCPIPConController.cs" />
+    <Compile Include="Others\Commons_DB.cs" />
+    <Compile Include="Common\Class_ID_Structures.cs" />
+    <Compile Include="Common\Commons.cs" />
+    <Compile Include="Common\Common_Comparable.cs" />
+    <Compile Include="Common\ReadOnlyValueTypes.cs" />
+    <Compile Include="Comm\ParamComparer\DisplayWindows_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\LoadProfileChannelInfo_PrgChannel_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\ParamConfigurationSet_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_ActivityCalendar_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_clock_caliberation_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Communication_Profile_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_ContactorExt_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_CTPT_ratio_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Customer_Code.cs" />
+    <Compile Include="Comm\ParamComparer\Param_decimal_point_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_DisplayPowerDown_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Energy_Parameter_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_EventsCaution_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_IP_Profiles_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Keep_Alive_IP_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Limits_EqualityComparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_MajorAlarmProfile_IsMajorAlarmComparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_MDI_parameters_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_ModemBasics_NEW_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_ModemLimitsAndTime_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Modem_Initialize_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Monitoring_time_EqualityComparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_Number_Profile_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_password_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_TCP_UDP_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_TimeBaseEvents_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\Param_WakeUp_Profile_Comparer.cs" />
+    <Compile Include="Comm\ParamComparer\StDateTime_ContentComparer.cs" />
+    <Compile Include="Comm\ParamComparer\TBE_PowerFail_Comparer.cs" />
+    <Compile Include="Comm\HelperClasses\ConfigFileHelper.cs" />
+    <Compile Include="Comm\Param\HeaderInfo.cs" />
+    <Compile Include="Comm\Param\InitCommuincationParams.cs" />
+    <Compile Include="Comm\Param\InitHDLCParam.cs" />
+    <Compile Include="Comm\Param\InitTCPParams.cs" />
+    <Compile Include="Others\InitParamsHelper.cs" />
+    <Compile Include="Others\IParamHelper.cs" />
+    <Compile Include="Others\LogHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TCP_Communication\GSMModemHandler.cs" />
+    <Compile Include="TCP_Communication\MTI_TCP_Server.cs" />
+    <Compile Include="TCP_Communication\ShortMessage.cs" />
+    <Compile Include="TCP_Communication\ShortMessageCollection.cs" />
+    <Compile Include="TCP_Communication\SMSWakeUP.cs" />
+    <Compile Include="TCP_Communication\SMS_Decode_Class.cs" />
+    <Compile Include="TCP_Communication\SMS_Params.cs" />
+    <Compile Include="TCP_Communication\SubmitPducs.cs" />
+    <Compile Include="TCP_Communication\TCPIPConnectionFactory.cs" />
+    <Compile Include="TCP_Communication\TCPStream.cs" />
+    <Compile Include="TCP_Communication\TCPStreamResult.cs" />
+    <Compile Include="TCP_Communication\WakeUpCmdParam.cs" />
+    <Compile Include="Others\UserRights.cs" />
+    <Compile Include="Others\XMLParamsProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLMS_COSEM_Lib\DLMS_COSEM_Lib.csproj">
+      <Project>{964a11f5-41bb-43f6-a038-3db7c03e0a8f}</Project>
+      <Name>DLMS_COSEM_Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDLCLib\HDLCLib.csproj">
+      <Project>{b0fba40a-21d8-4e5f-942d-14b449cfb56b}</Project>
+      <Name>HDLCLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerToolKit\ServerToolkit.BufferManagement.csproj">
+      <Project>{db69a550-67b0-40ec-a27e-cfd646d04615}</Project>
+      <Name>ServerToolkit.BufferManagement</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

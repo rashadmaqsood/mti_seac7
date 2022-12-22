@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A99C1F2-D78C-43AD-BAB4-CD4D0FBC8B3D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>DLMS_COSEM_Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants Condition="$([System.Version]::Parse('$(TargetFrameworkVersion.Substring(1))').CompareTo($([System.Version]::Parse('4.5.1')))) &gt;= 0">$(DefineConstants);NETFX_451</DefineConstants>
+    <DefineConstants Condition="$([System.Version]::Parse('$(TargetFrameworkVersion.Substring(1))').CompareTo($([System.Version]::Parse('4.5'))))   &gt;= 0">$(DefineConstants);NETFX_45</DefineConstants>
+    <DefineConstants Condition="$([System.Version]::Parse('$(TargetFrameworkVersion.Substring(1))').CompareTo($([System.Version]::Parse('4.0'))))   &gt;= 0">$(DefineConstants);NETFX_40</DefineConstants>
+    <DefineConstants Condition="$([System.Version]::Parse('$(TargetFrameworkVersion.Substring(1))').CompareTo($([System.Version]::Parse('3.5'))))   &gt;= 0">$(DefineConstants);NETFX_35</DefineConstants>
+    <DefineConstants Condition="$([System.Version]::Parse('$(TargetFrameworkVersion.Substring(1))').CompareTo($([System.Version]::Parse('3.0'))))   &gt;= 0">$(DefineConstants);NETFX_30</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>DLMS_COSEM_Lib</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AsyncCtpLibrary, Version=1.0.4107.18181, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\AsyncCtpLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="LogSystem.Shared.Common, Version=4.3.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\LogSystem.Shared.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Serenity.Crypto">
+      <HintPath>..\Assemblies\Serenity.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DLMS\DLMS_Package .cd" />
+    <None Include="DLMS\OBIS_Index.snippet" />
+    <None Include="Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DLMS\ApplicationProcess_AARQ_Controller.cs" />
+    <Compile Include="DLMS\ApplicationProcess_ARLRQ_Controller.cs" />
+    <Compile Include="DLMS\ApplicationProcess_Controller.cs" />
+    <Compile Include="DLMS\ApplicationProcess_Get_Controller.cs" />
+    <Compile Include="DLMS\ApplicationProcess_Invoke_Controller.cs" />
+    <Compile Include="DLMS\ApplicationProcess_Set_Controller.cs" />
+    <Compile Include="DLMS\Base_Class.cs" />
+    <Compile Include="DLMS\BasicEncodeDecode.cs" />
+    <Compile Include="DLMS\BERType.cs" />
+    <Compile Include="DLMS\Class_1.cs" />
+    <Compile Include="DLMS\Class_11.cs" />
+    <Compile Include="DLMS\Class_15.cs" />
+    <Compile Include="DLMS\Class_17.cs" />
+    <Compile Include="DLMS\Class_20.cs" />
+    <Compile Include="DLMS\Class_21.cs" />
+    <Compile Include="DLMS\Class_22.cs" />
+    <Compile Include="DLMS\Class_3.cs" />
+    <Compile Include="DLMS\Class_4.cs" />
+    <Compile Include="DLMS\Class_41.cs" />
+    <Compile Include="DLMS\Class_42.cs" />
+    <Compile Include="DLMS\Class_45.cs" />
+    <Compile Include="DLMS\Class_5.cs" />
+    <Compile Include="DLMS\Class_64.cs" />
+    <Compile Include="DLMS\Class_7.cs" />
+    <Compile Include="DLMS\Class_70.cs" />
+    <Compile Include="DLMS\Class_8.cs" />
+    <Compile Include="DLMS\Common.cs" />
+    <Compile Include="DLMS\Comm\ActivtiyCalendarStructs.cs" />
+    <Compile Include="DLMS\Comm\CaptureObject.cs" />
+    <Compile Include="DLMS\Comm\Commons.cs" />
+    <Compile Include="DLMS\Comm\DLMS_Comm_Structures.cs" />
+    <Compile Include="DLMS\Comm\EnumeratedDataTypes.cs" />
+    <Compile Include="DLMS\Comm\IAccessSelector.cs" />
+    <Compile Include="DLMS\Comm\ICustomStructure.cs" />
+    <Compile Include="DLMS\Comm\StDateTime.cs" />
+    <Compile Include="DLMS\Comm\StOBISCode.cs" />
+    <Compile Include="DLMS\Comm\St_DisplayWindows.cs" />
+    <Compile Include="DLMS\Comm\St_Rights.cs" />
+    <Compile Include="DLMS\Comm\TypeDescripter.cs" />
+    <Compile Include="DLMS\ConformanceBlock.cs" />
+    <Compile Include="DLMS\DataStrcutures\LRUPriorityDLMSCache.cs" />
+    <Compile Include="DLMS\DataStrcutures\SAPTable.cs" />
+    <Compile Include="DLMS\DLMSClassFactory.cs" />
+    <Compile Include="DLMS\DLMSErrCodesException.cs" />
+    <Compile Include="DLMS\DLMSExceptionEnums.cs" />
+    <Compile Include="DLMS\DLMSLogger.cs" />
+    <Compile Include="DLMS\DLMS_Application_Layer.cs" />
+    <Compile Include="DLMS\DLMS_Application_Process.cs" />
+    <Compile Include="DLMS\DLMS_Application_Process_Init.cs" />
+    <Compile Include="DLMS\DLMS_Classes.cs" />
+    <Compile Include="DLMS\DLMS_Exception.cs" />
+    <Compile Include="DLMS\dtpCustomExtensions.cs" />
+    <Compile Include="DLMS\Get_Index.cs" />
+    <Compile Include="DLMS\HeartBeat.cs" />
+    <Compile Include="DLMS\IConnection.cs" />
+    <Compile Include="DLMS\OBISCodeRights.cs" />
+    <Compile Include="DLMS\RegexExtensions.cs" />
+    <Compile Include="DLMS\SAP_Object.cs" />
+    <Compile Include="DLMS\Security_Context.cs" />
+    <Compile Include="DLMS\Security_Data.cs" />
+    <Compile Include="DLMS\StDateTimeHelper.cs" />
+    <Compile Include="DLMS\WrapperLayer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Version_Log.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <!-- <Import Project="VersionSpecificSymbols.Common.prop" /> -->
+</Project>

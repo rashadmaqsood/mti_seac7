@@ -1,0 +1,363 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D8011CD-8DB8-4C56-8662-341073D0FBA9}</ProjectGuid>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>SmartEyeControl-7</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>SmartEyeControl_7</RootNamespace>
+    <ApplicationIcon>falcons.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="falcons.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationGUI\GUI\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationController\ApplicationController.cs" />
+    <Compile Include="ApplicationController\BillingController.cs" />
+    <Compile Include="ApplicationController\ConnectionController.cs" />
+    <Compile Include="ApplicationController\LoadProfileController.cs" />
+    <Compile Include="ApplicationController\OpticalPortController.cs" />
+    <Compile Include="ApplicationController\ParameterController.cs" />
+    <Compile Include="ApplicationController\TCPIPConController.cs" />
+    <Compile Include="ApplicationGUI\GUI\Application.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\Application.designer.cs">
+      <DependentUpon>Application.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ConfigurationParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ConfigurationParams.designer.cs">
+      <DependentUpon>ConfigurationParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ProgressStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\ProgressStatus.Designer.cs">
+      <DependentUpon>ProgressStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\CustomSaver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\CustomSaver.designer.cs">
+      <DependentUpon>CustomSaver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmInstantaneous.cs" />
+    <Compile Include="ApplicationGUI\GUI\frmInstantaneous.Designer.cs">
+      <DependentUpon>frmInstantaneous.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmPlain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frmPlain.Designer.cs">
+      <DependentUpon>frmPlain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\GUI\frm_Tariffication.cs" />
+    <Compile Include="ApplicationGUI\GUI\frm_Tariffication.designer.cs">
+      <DependentUpon>frm_Tariffication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Billing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Billing.designer.cs">
+      <DependentUpon>Billing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\DateTimeChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\DateTimeChooser.designer.cs">
+      <DependentUpon>DateTimeChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Debugging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Debugging.Designer.cs">
+      <DependentUpon>Debugging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Instantaneous.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Instantaneous.Designer.cs">
+      <DependentUpon>Instantaneous.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\MsgDisplay.cs" />
+    <Compile Include="ApplicationGUI\ucCustomControl\Parameterization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Parameterization.designer.cs">
+      <DependentUpon>Parameterization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Welcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationGUI\ucCustomControl\Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Class_ID_Structures.cs" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="comm\Billing.cs" />
+    <Compile Include="comm\BillingData.cs" />
+    <Compile Include="comm\BillingItem.cs" />
+    <Compile Include="comm\ConnectionManager.cs" />
+    <Compile Include="comm\Customized_Encoder.cs" />
+    <Compile Include="comm\IBillingDataFormatter.cs" />
+    <Compile Include="comm\IConnectionFactory.cs" />
+    <Compile Include="comm\ILValue.cs" />
+    <Compile Include="comm\InitCommuincationParams.cs" />
+    <Compile Include="comm\InitHDLCParam.cs" />
+    <Compile Include="comm\InitParamsHelper.cs" />
+    <Compile Include="comm\InitTCPParams.cs" />
+    <Compile Include="comm\Instantaneous_class.cs" />
+    <Compile Include="comm\IOConnections.cs" />
+    <Compile Include="comm\LoadProfileChannelInfo.cs" />
+    <Compile Include="comm\LoadProfileData.cs" />
+    <Compile Include="comm\LoadProfileDataFormatter.cs" />
+    <Compile Include="comm\LogHelper.cs" />
+    <Compile Include="comm\MeterSAPConfiguration.cs" />
+    <Compile Include="comm\MonthlyBillingDataFormatter.cs" />
+    <Compile Include="comm\Param_ActivityCalendar.cs" />
+    <Compile Include="comm\Param_clock_caliberation.cs" />
+    <Compile Include="comm\Param_Communication_Profile.cs" />
+    <Compile Include="comm\Param_Contactor.cs" />
+    <Compile Include="comm\Param_CTPT_ratio.cs" />
+    <Compile Include="comm\Param_Customer_Code.cs" />
+    <Compile Include="comm\Param_Data_Profile_With_Events.cs" />
+    <Compile Include="comm\Param_DayProfile.cs" />
+    <Compile Include="comm\Param_decimal_point.cs" />
+    <Compile Include="comm\Param_Display_windows.cs" />
+    <Compile Include="comm\Param_Energy_Parameter.cs" />
+    <Compile Include="comm\Param_Events_Caution.cs" />
+    <Compile Include="comm\Param_GSM.cs" />
+    <Compile Include="comm\Param_IPV4.cs" />
+    <Compile Include="comm\Param_IP_Profiles.cs" />
+    <Compile Include="comm\Param_Keep_Alive_IP.cs" />
+    <Compile Include="comm\Param_Limits.cs" />
+    <Compile Include="comm\Param_load_profile.cs" />
+    <Compile Include="comm\Param_Major_Alarm_Profile.cs" />
+    <Compile Include="comm\Param_MDI_parameters.cs" />
+    <Compile Include="comm\Param_ModemLimitsAndTime.cs" />
+    <Compile Include="comm\Param_Modem_Initialize.cs" />
+    <Compile Include="comm\Param_Monitoring_time.cs" />
+    <Compile Include="comm\Param_Number_Profile.cs" />
+    <Compile Include="comm\Param_password.cs" />
+    <Compile Include="comm\Param_SeasonProfile.cs" />
+    <Compile Include="comm\Param_SpecialDay.cs" />
+    <Compile Include="comm\Param_TCP_UDP.cs" />
+    <Compile Include="comm\Param_Wakeup_Profile.cs" />
+    <Compile Include="comm\Param_WeekProfile.cs" />
+    <Compile Include="comm\Status.cs" />
+    <Compile Include="comm\Tariff.cs" />
+    <Compile Include="comm\Testing_Debug.cs" />
+    <Compile Include="comm\TimeSlots.cs" />
+    <Compile Include="comm\GenericProfileInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="TCP_Communication\GSMModemHandler.cs" />
+    <Compile Include="TCP_Communication\MTI_TCP_Server.cs" />
+    <Compile Include="TCP_Communication\ShortMessage.cs" />
+    <Compile Include="TCP_Communication\ShortMessageCollection.cs" />
+    <Compile Include="TCP_Communication\SMSWakeUP.cs" />
+    <Compile Include="TCP_Communication\SMS_Decode_Class.cs" />
+    <Compile Include="TCP_Communication\SMS_Params.cs" />
+    <Compile Include="TCP_Communication\SubmitPdu.cs" />
+    <Compile Include="TCP_Communication\SubmitPducs.cs" />
+    <Compile Include="TCP_Communication\TCPIPConnectionFactory.cs" />
+    <Compile Include="TCP_Communication\WakeUpCmdParam.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ApplicationGUI\GUI\AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\Application.resx">
+      <DependentUpon>Application.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\ConfigurationParams.resx">
+      <DependentUpon>ConfigurationParams.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\ProgressStatus.resx">
+      <DependentUpon>ProgressStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\CustomSaver.resx">
+      <DependentUpon>CustomSaver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\frmInstantaneous.resx">
+      <DependentUpon>frmInstantaneous.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\frmPlain.resx">
+      <DependentUpon>frmPlain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\GUI\frm_Tariffication.resx">
+      <DependentUpon>frm_Tariffication.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Billing.resx">
+      <DependentUpon>Billing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\DateTimeChooser.resx">
+      <DependentUpon>DateTimeChooser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Debugging.resx">
+      <DependentUpon>Debugging.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Instantaneous.resx">
+      <DependentUpon>Instantaneous.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Parameterization.resx">
+      <DependentUpon>Parameterization.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationGUI\ucCustomControl\Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Assemblies\x32\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="comm\ActivityCalendar.cd" />
+    <None Include="comm\Billing_Diagram.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLMS_COSEM_Lib\DLMS_COSEM_Lib.csproj">
+      <Project>{964A11F5-41BB-43F6-A038-3DB7C03E0A8F}</Project>
+      <Name>DLMS_COSEM_Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDLCLib\HDLCLib.csproj">
+      <Project>{B0FBA40A-21D8-4E5F-942D-14B449CFB56B}</Project>
+      <Name>HDLCLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,5 @@
+C:\Users\LB0108\Desktop\Sonic.Net-New\Assemblies\Sonic.Net.dll
+C:\Users\LB0108\Desktop\Sonic.Net-New\Assemblies\Sonic.Net.pdb
+C:\Users\LB0108\Desktop\Sonic.Net-New\Sonic.Net\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\LB0108\Desktop\Sonic.Net-New\Sonic.Net\obj\Debug\Sonic.Net.dll
+C:\Users\LB0108\Desktop\Sonic.Net-New\Sonic.Net\obj\Debug\Sonic.Net.pdb

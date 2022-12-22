@@ -1,0 +1,115 @@
+3.1.0.17 Special Day save error corrected
+		 Detail firmware info obis implemeted. FirmwareInfo Class implemented in ApplicationController. 
+		 ModelName on Pagefooter updated from firmwareInfo
+
+3.0.0.16 User ID AND Software ID Implemented
+		 About box changed
+
+2.0.0.15 Security implemented (Product is activated using Activation Manager)
+
+1.3.0.13 Load profile -> selectiveAccess->ToEntry changed and tested
+
+1.3.0.12 Duplicates load profile entries removed
+
+1.3.0.11 Load Profile Selective Access Algo changed
+
+1.3.0.10 Display Window Scroll Time saved. Previously scroll_time=0 was saved
+	   Limits->Energy saved in Kw
+
+1.2.0.8 IOConnection disabled after disconnecting issue resolved. 
+	  Calendar Activation Date correctly saved to Database
+
+1.2.0.7 When saving list of data, datetime is saved only once. Previously it was changed (few seconds offset)
+
+1.1.0.6 Application reconnected on Logoff Fixed
+
+
+1.1.0.5 Logging Off Disconnects Application
+	  Logging off bring Welcome panel in front. Non Admin cant create new account (BUG REMOVED)
+
+
+1.0.0.4 Load Profile ComputeAccessSelector=>entry.To +1 , 
+	GetTotalEntries thread completed=>from=0 -> from=1
+	billing MDI check added
+
+1.0.0.3 Login Flow Changed
+	Load Profile Add toDB checkbox removed
+	Billing-> ActiveMDI name changed to Cumulative MDI
+
+
+
+
+1.0.0.0 user management -> verfies user and load rights from database
+	SuperAdmin Panel created-> Add user,delete user functionality added
+	DatabaseController updated
+	
+	25-06-2013
+	User Management updated
+	-> GUI updated according to user
+	-> DataBaseController updated
+	-> "Data".saveToClass() functionality added
+	-> Power Quality(3P & 1P) saved to Database
+	-> Cumulative Billing(3P & 1P) saved to Database
+	-> Monthly Billing (3p & 1P) saved to Database
+	-> InstantaneousController updated
+	-> BillingController updated
+
+	26-06-2013
+	-> LoadProfileData saveTOClass()
+	-> Save Load Profile Channels
+	-> Save Load Profile Data against channelgroupID
+	-> No Duplication of loadProfile Data
+	-> If channels group exist, GetID() else save Channels and getnewID
+	-> DataBaseController updated 
+	-> LoadProfile Controller updated
+	-> LogBook saved to Database
+	-> Event designer changed (Logbook tab added)
+	-> Events.cs changed -> showLogBook and Get Logbook functionality Added 
+	-> Alarm Register saved to DB
+	-> Alarm status to bitArray Conversion added in Events.cs
+
+
+	27-06-2013
+	-> Event Cautions & Flash TIme save to DB
+	-> Major Alarm config saved to DataBase
+	-> EventLog Saved to Database
+	-> Above functionality added DataBaseController 
+
+
+	28-06-2013
+	->ALL parameters (meter & modem) Tables added in database
+	-> Limits,MonitoringTime and ActivityCalendar database functions added to DataBaseController
+	-> Activity CAlendar save to DB function tested
+
+	01-07-2013
+	-> All Parameter (meter & modem) savetoDatabase() functions added
+	-> Tables in DB modified accordingly
+	-> New Table for modem added. ID generated used in modem paramters such as IP profile and wakeup Profile etc
+	-> Limits,MDI params,DisplayWindows,CTPT,DEcimalPoint savetoDB tested
+
+	02-07-2013
+	-> All parameters added to database + tested
+	-> Event->showLogbook GUI now working
+	-> softwareID user ID tested
+
+	03-07-2013
+	-> Session table added to DB
+	-> All tables modified accordingly to adjust session ID
+	-> all function implementation according to session
+	-> Cumulative Billing, MonthlyBilling & Instantaneous Data(3P & 1P) current date time included in database
+	-> above functionality added to saveData functions
+
+	04-07-2013
+	-> All decimal values changed to double
+	-> All tables now include datetime instead of seperate data and time fields
+	-> column name 'date' changed to 'date_time'
+	-> All database functions changed to accomodate above modifications
+	
+	upto 09-07-2013
+	-> Fixed in save to db functions
+	-> IP Profile now saved correctly
+	-> Decimal Points now saved correctly
+
+-> Logoff/switch user functionality added
+
+Started from Smart Eye Control 7 v8.8.0.283

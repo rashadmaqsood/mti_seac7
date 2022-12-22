@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_LoadProfile" targetNamespace="http://tempuri.org/ds_LoadProfile.xsd" xmlns:mstns="http://tempuri.org/ds_LoadProfile.xsd" xmlns="http://tempuri.org/ds_LoadProfile.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_LoadProfile" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_LoadProfile" msprop:Generator_UserDSName="ds_LoadProfile">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable_LoadProfile" msprop:Generator_TableClassName="DataTable_LoadProfileDataTable" msprop:Generator_RowEvArgName="DataTable_LoadProfileRowChangeEvent" msprop:Generator_TableVarName="tableDataTable_LoadProfile" msprop:Generator_TablePropName="DataTable_LoadProfile" msprop:Generator_RowDeletingName="DataTable_LoadProfileRowDeleting" msprop:Generator_RowChangingName="DataTable_LoadProfileRowChanging" msprop:Generator_RowEvHandlerName="DataTable_LoadProfileRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable_LoadProfileRowDeleted" msprop:Generator_RowChangedName="DataTable_LoadProfileRowChanged" msprop:Generator_UserTableName="DataTable_LoadProfile" msprop:Generator_RowClassName="DataTable_LoadProfileRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel_1" msprop:Generator_ColumnVarNameInTable="columnChannel_1" msprop:Generator_ColumnPropNameInRow="Channel_1" msprop:Generator_ColumnPropNameInTable="Channel_1Column" msprop:Generator_UserColumnName="Channel_1" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel_2" msprop:Generator_ColumnVarNameInTable="columnChannel_2" msprop:Generator_ColumnPropNameInRow="Channel_2" msprop:Generator_ColumnPropNameInTable="Channel_2Column" msprop:Generator_UserColumnName="Channel_2" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel_3" msprop:Generator_ColumnVarNameInTable="columnChannel_3" msprop:Generator_ColumnPropNameInRow="Channel_3" msprop:Generator_ColumnPropNameInTable="Channel_3Column" msprop:Generator_UserColumnName="Channel_3" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel_4" msprop:Generator_ColumnVarNameInTable="columnChannel_4" msprop:Generator_ColumnPropNameInRow="Channel_4" msprop:Generator_ColumnPropNameInTable="Channel_4Column" msprop:Generator_UserColumnName="Channel_4" type="xs:string" minOccurs="0" />
+              <xs:element name="Counter" msprop:Generator_ColumnVarNameInTable="columnCounter" msprop:Generator_ColumnPropNameInRow="Counter" msprop:Generator_ColumnPropNameInTable="CounterColumn" msprop:Generator_UserColumnName="Counter" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable_LoadProfile2" msprop:Generator_TableClassName="DataTable_LoadProfile2DataTable" msprop:Generator_TableVarName="tableDataTable_LoadProfile2" msprop:Generator_RowChangedName="DataTable_LoadProfile2RowChanged" msprop:Generator_TablePropName="DataTable_LoadProfile2" msprop:Generator_RowDeletingName="DataTable_LoadProfile2RowDeleting" msprop:Generator_RowChangingName="DataTable_LoadProfile2RowChanging" msprop:Generator_RowEvHandlerName="DataTable_LoadProfile2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable_LoadProfile2RowDeleted" msprop:Generator_RowClassName="DataTable_LoadProfile2Row" msprop:Generator_UserTableName="DataTable_LoadProfile2" msprop:Generator_RowEvArgName="DataTable_LoadProfile2RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Channel_1" msprop:Generator_ColumnVarNameInTable="columnChannel_1" msprop:Generator_ColumnPropNameInRow="Channel_1" msprop:Generator_ColumnPropNameInTable="Channel_1Column" msprop:Generator_UserColumnName="Channel_1" type="xs:double" minOccurs="0" />
+              <xs:element name="Channel_2" msprop:Generator_ColumnVarNameInTable="columnChannel_2" msprop:Generator_ColumnPropNameInRow="Channel_2" msprop:Generator_ColumnPropNameInTable="Channel_2Column" msprop:Generator_UserColumnName="Channel_2" type="xs:double" minOccurs="0" />
+              <xs:element name="Channel_3" msprop:Generator_ColumnVarNameInTable="columnChannel_3" msprop:Generator_ColumnPropNameInRow="Channel_3" msprop:Generator_ColumnPropNameInTable="Channel_3Column" msprop:Generator_UserColumnName="Channel_3" type="xs:double" minOccurs="0" />
+              <xs:element name="Channel_4" msprop:Generator_ColumnVarNameInTable="columnChannel_4" msprop:Generator_ColumnPropNameInRow="Channel_4" msprop:Generator_ColumnPropNameInTable="Channel_4Column" msprop:Generator_UserColumnName="Channel_4" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtLoadProfileGraph" msprop:Generator_TableClassName="dtLoadProfileGraphDataTable" msprop:Generator_TableVarName="tabledtLoadProfileGraph" msprop:Generator_TablePropName="dtLoadProfileGraph" msprop:Generator_RowDeletingName="dtLoadProfileGraphRowDeleting" msprop:Generator_RowChangingName="dtLoadProfileGraphRowChanging" msprop:Generator_RowEvHandlerName="dtLoadProfileGraphRowChangeEventHandler" msprop:Generator_RowDeletedName="dtLoadProfileGraphRowDeleted" msprop:Generator_UserTableName="dtLoadProfileGraph" msprop:Generator_RowChangedName="dtLoadProfileGraphRowChanged" msprop:Generator_RowEvArgName="dtLoadProfileGraphRowChangeEvent" msprop:Generator_RowClassName="dtLoadProfileGraphRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DateTime" msprop:Generator_ColumnVarNameInTable="columnDateTime" msprop:Generator_ColumnPropNameInRow="DateTime" msprop:Generator_ColumnPropNameInTable="DateTimeColumn" msprop:Generator_UserColumnName="DateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnPropNameInTable="ValueColumn" msprop:Generator_UserColumnName="Value" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

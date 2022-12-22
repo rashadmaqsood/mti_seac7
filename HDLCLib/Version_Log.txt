@@ -1,0 +1,2 @@
+1.6.0.2 New State variable expectedByteCount added in HDLC.Ready state
+	to handle the duplicate Frame Tag byte in header. 
