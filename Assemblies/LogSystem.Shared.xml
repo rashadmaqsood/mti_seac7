@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+LogSystem.Shared
+</name>
+</assembly>
+<members>
+<member name="P:LogSystem.Shared.LogWriter.Port">
+	<summary>
+ To Define Logger Message UDP BroadCast Message IP Port Number
+ </summary>
+	<value>IP</value>
+	<returns>Integer</returns>
+	<remarks></remarks>
+</member><member name="P:LogSystem.Shared.LogWriter.BroadcastIPAddress">
+	<summary>
+ To Define Logger Message UDP BroadCast Message IP Address
+ </summary>
+	<value>IPAddress</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:LogSystem.Shared.LogWriter.LogsDirectory">
+	<summary>
+ To Define File Directory Info For Logs Files To Create
+ </summary>
+	<value>IPAddress</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:LogSystem.Shared.LogWriter.LogsFile">
+	<summary>
+ To Define File Name For Logs File
+ </summary>
+	<value>FileName STR</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:LogSystem.Shared.LogWriter.LogsFileSize">
+	<summary>
+ To Define Maximum File Size For Logs File
+ </summary>
+	<value>File Size In MBs,-1 Unlimited</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:LogSystem.Shared.LogWriter.LogsFileCount">
+	<summary>
+ To Define Maximum Number Of Logging Files
+ </summary>
+	<value>Log File Count,-1 Unlimited</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:LogSystem.Shared.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:LogSystem.Shared.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:LogSystem.Shared.My.Resources.Resources.Error_Circle_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:LogSystem.Shared.My.Resources.Resources.Forward_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:LogSystem.Shared.My.Resources.Resources.Info_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:LogSystem.Shared.My.Resources.Resources.Rewind_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:LogSystem.Shared.My.Resources.Resources.Warning_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:LogSystem.Shared.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

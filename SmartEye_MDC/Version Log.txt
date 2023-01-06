@@ -1,0 +1,429 @@
+/*********************************************/
+Version		Delivery Date
+			Details
+/**********************************************/
+4.0.1.54  Windows Service Process Hosting Feature Added
+ 	MDC general Activity Logging Feature Added for the following Logging Channels
+	1) Console Window ,2) Text File Logging ,3) Windows Event Logs For Critical Errors ,4) UDP Packet Logging
+
+
+4.0.1.30 New Security Classes Implemented
+
+3.0.0.138 Latest event code in log book and latest event code in individual events along with their timestamps saved in instantaneous_data_live
+
+3.0.0.132 Bug removed. Events are read on kas_Interval when major alarm flag is high AND alarm is triggered
+
+3.0.0.131 Bug removed when both schedule and major alarm flags are true
+		  when disabling logbook, read_logbook flag used instead of read_ev
+
+3.0.0.130 Reset ALarm register ONLY when
+			- Either Events are read and saved successfully
+			- Reading Events on schedule is OFF AND Reading events on alarms is OFF
+
+3.0.0.129 Individual Events read And save.
+		  - Read Events on major alarms
+		  - Read Events on schedule
+		  -DBUPdate-> New Fields in meter table and seperate table to save individual events
+
+3.0.0.128 Packet Log Disabled. Saving configuration ID with Load Profile channels. MeterModel vs ConfigID Hardcoded in DBController
+
+3.0.0.127 Verification of instantaneous data before saving. Retry count=2
+		  Save_packet_log flag added to MeterInformation class and meter table in the database
+		  packet_log table added in the database with fields=> msn,session_date_time,packet
+
+3.0.0.126 AFter writing load profile channels, set load_profile_counter=0, set load_Profile_group_id in meter table. Create new ID if previously not existed
+
+3.0.0.125 Monthly Billing data for SIngle Phase meters saved. 
+		Error in GetBillingItems from configuration corrrected. 
+
+3.0.0.124 Instantaneous Data for single phase meters added to  table `weekly_instantaneous_data`
+				  	
+3.0.0.123 Replace command use removed when updating signal strength
+
+3.0.0.122 Replace command used instead of TryUpdate() then Insert() 
+
+3.0.0.122 SQL-> Replace command used instead of TryUpdate() then Insert()
+
+3.0.0.121 Error in data updation resolved
+
+
+3.0.0.120 Load Profile Live Data updation error removed
+
+
+3.0.0.119 Load Profile chunk size field added in database
+		Intruders inserted into database 
+3.0.0.118 SinglePhase Live data implemented
+
+3.0.0.117 When Inserting/Updating Instantaneous_data_live; save session_time against active_power_positive and active_power_negative (Columns added in database)
+
+3.0.0.116  2-January-2014
+			Contactor Block modified. Update Commands replaced with 'Replace' Command
+			Database structure for acknowledgment_data AND contactor_control_date changed. ONLY msn and reference_number are primary keys
+
+3.0.0.115  30-December-2013
+			Update Intruder function had wrong column name. Corrected
+
+3.0.0.114-> Display Window list clear (precaution) before adding new window items
+			Max of 50 windows can be programmed. Check Added
+			MAX packet size Limit added that can be sent (size:1940bytes)(DLMS_Application_Process.cs)
+3.0.0.113-> Display WIndow MIUF flags bug removed
+3.0.0.112-> Main form size further reduced
+			FIle Menu removed, About box changed, Version Log removed
+3.0.0.111-> Main Form Size decreased. 
+			Load Profile and Display Windows verification check when parameterizing.i.e. Donot write if meter is Single Phase
+			Cumulative Billing for prepaid saved with cumulative billing. i.e. removed from tryParamterize() Section
+			 Condition handled if meter was prepaid and no request existed. Proper Messages shown
+			 Flag added in MeterInformation object. 'prepaid_request_exits'
+
+3.0.0.110 -> Intruder inserted into database
+			 Null/whitespace check for MSN aftr Request is found empty
+3.0.0.109 -> Configurator.cs -> RefreshConfigurationCommented
+3.0.0.108 Meter Disconnected if Request was found empty
+
+3.0.0.107  MSN Displayed if Request was found empty
+
+3.0.0.106 06-Dec-2013
+		  Display Window SET working with Window Numbers
+		  Database Table: 'display_windows_details' changed
+		  Database Table: 'meter' changed. Two new fields added to accomodate display window programmed in OBIS functionality
+		  Error Message Displayed in Meter settings are not loaded successfully from database-> Meter_table
+
+
+3.0.0.105 27-Nov-2013
+		  Seperate Functions to save Cumulative Billing Data for Single Phase and Three Phase Prepaid Meters
+		  Single Phase Cumulative Data has no Reactive Energy TL
+		  EventsToRead AND SavePQ implemented and tested
+		  Cumulative Billing Data for single phase saved to seperate database table i.e. cumm_billing_data_singlephase 
+
+3.0.0.104 Prepaid Logging improved. Log only if request present for prepaid meter. Parameterization successful message only in prepaid request exist
+		  Keep ALive meter schedule update algo changed
+		  Logout Meter when modem parameters programmed
+		  Table added in database to save cumulative billing data for Prepaid Meters
+		  Save To DB function added
+		  MacID verification removed 
+
+3.0.0.103 Log Contactor Progress ONLY IF request exits
+		  Save_Cumulative_billing_single_Phase in the table for 3Phase. Just TL values added
+		  Signal Strength check added before saving to database
+		  Database modified. Strict Mode 
+
+3.0.0.102 Display Windows Updated in GETMeterSettings(). TESTED SUCCESSFULLY.Display Window feautre was incomplete in v94
+		  SaveLoadProfileData() function altered, Else condition included if data not saved 
+		  ReadLoadProfileRegion->DBCounter updated (DatabaseCount = dbCounter;) this was missing :(
+		  Prepaid Setting Removed. Prepaid Flag added to meter table. Column='is_prepaid' added to meter table
+		   
+3.0.0.101 Contactor Block Updated
+		  Changes in contactor tables in database. Code modified accordingly
+
+3.0.0.100 -Load Profile Infinite issue resolved. It was caused in 3.0.0.97 when OLD LoadProfileController was replaced and 4632 was missing :(
+
+3.0.0.99 
+		 -Contactor Block Updated
+		 -Save Data Column names included
+		 -Max Keep Alive transactions implemented
+		 -startTime set to NOW() to resolve time in minus issue
+		 -New Limits for MaxTCPConnections,MaxConcurrentCOnnections
+
+3.0.0.98 05 November 2013
+			Monthly Billing save to DB issue resolved.Index of period counter changed
+
+3.0.0.97  05 November 2013
+		  -LoadProfileController replaced with that of v93 . Get_LoadProfileCounter_internal was different so whole class replaced
+		  -Application Logic for keepAlive replaced with v93
+		  -ApplicationController_Dinit() removed..SOLVES LOadProfile and Events NULL issue
+
+
+3.0.0.96   05 November 2013
+			- Security bug removed. Registry PAth set correctly
+
+3.0.0.95   04 Novemner,2013
+	     Security Enabled.
+
+3.0.0.94   02 November,2013
+			-MonthlyBilling issue resolved. DBConnection was not opened before assigning to sql command
+			-After Reading LoadProfileDataInChunks 
+				if (loadData.ChannelsInstances.Count > 0)
+					 IsLPDataRead = true;
+			-LoadProfile Block in ProcessRequest is replaced with block of MDC version 93. 
+			-TryParameterize() Block replaced with block of MDC version 93
+			-Display Windows Feature implemented
+			-UpdateLive_LoadProfileData issue resolved. The Update Command return 0, coz exactly same data was already present
+			-MDC session feature implemented
+			-Sync MDC Status feature implemented
+			-Save PQ on selected events issue resolved (SAVE PQ code block replaced) 
+			-InnerException saved to DB
+			-Replaced ApplicationController->Constructor with that of v93
+			-if LoadProfileController==null, LoadProfileController=new LoadProfileController()
+
+
+<><><><><><><><> APPLICATION CRASH DUE TO STACKOVERFLOW FIXes <><><><><><><><><><><><><><><><><>
+
+
+3.0.0.94   02 November,2013
+
+			LoadProfileCOntroller->MakeEntry() Condition when CurrentCounter=4632 
+			Throw DLMSExeption if entry.FromEntry=1 AND entry.ToEntry=0
+
+			DLMS_Application_process-> COncept of Max Blocks that can be transferrred
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+
+
+2.8.3.73	03 September, 2013
+			Reading Load Profile Data Algorithm modified
+
+2.8.2.72	02 September, 2013
+			Reinitialize Load Profile Controller and Events Controller
+
+2.8.1.71	30 August, 2013
+			LP_Count = 0, LP_group_id = 0 after programming LP Channels
+			Update meter settings only those parametes which are used/changed
+			
+2.8.0.70	22 August, 2013
+			Auto Start TCP Listener Algo Modified
+
+2.7.9.69	22 August, 2013
+			Internal Threadpool Control Modified
+			DB Connection Modified In some Blocks
+
+2.7.7.68    07 August,2013
+			Contactor working issue resolved
+			Intelligent Data Decoder-> Boolean Support ->Contactor Working
+
+2.7.7.67	05 August, 2013
+			Update Live is fully Independent From saving data
+			Saving Load Profile Data with Transaction Commit and Rollback support
+
+2.7.6.66	03 August, 2013
+			Signal Strenth save issue resolved
+
+2.7.5.65	29 July, 2013
+			Load Profile Channel Program Option Available
+
+2.7.4.64	29 July, 2013
+			Signal Strength update issue resolved
+
+2.7.3.63	26 July, 2013
+			Live update issue resolved
+
+2.7.2.62	26 July, 2013
+			Instantaneous Save Issue Modified
+			Software ID implemented
+			LP and EV duplicate exception handled by exception number in loop to continue
+
+2.7.1.61	19 July, 2013
+			Memory leak fixed :) :) :)
+			modify inst live (type, is_used_in_demand)
+			merge meter and meter_settings
+			update intruders connection time
+			save PQ on basis of selected events
+			Check LP counter update finally
+			Log out metet after parameterization
+			Log Levels implemented
+			NullReferenceException handled in Process Request
+
+2.7.0.60	04 July, 2013
+			Association making and releasing issue resolved on reallocation
+			Reading events without reading alarm register is resolved
+
+2.6.9.59	03 July, 2013
+			Association making and releasing issue resolved
+			
+2.6.8.58	03 July, 2013
+			Reading Events on major alarm resolved
+			Configurable time setting for association release
+
+2.6.7.57	02 July, 2013
+			Parameterization - Set major alarm feature implemented
+			Saving Instantaneous Issue Resolved
+
+2.6.6.56	28 June, 2013
+			Parameterization message issue resolved
+
+2.6.5.55	28 June, 2013
+			Super Immediate support
+			PQ save schedule, SS read schedule, Clock Set schedule
+			Update Sch if LP difference is less than the limit
+			Disabling LP issue resolved
+			Update Non zera active power positive and negative
+			DB structure modified
+
+2.6.2.52	25 June, 2013
+			updating load profile data issue resolved
+			no dependency of quanties
+
+2.6.1.51	25 June, 2013
+			saving load profile data issue resolved
+
+2.6.0.50	loggin issue resolved
+			weekly data saving issue resolved
+
+2.5.9.49	Single Phase billing issue resolved
+			Save PQ and LP weekly data
+			Add signal Stregnth to PQ data
+			meter info format changed
+			DB structure modified
+			Selective Instantaneous Data save disabled
+
+2.5.8.48	Schedule for keep alive changed... threads will remain open utill meter is connected
+			Log structure modified
+			Error while reading events resolved
+			Issues of single phase processing resolved
+
+2.5.7.47	Schedule Structure changed
+
+2.5.6.46	Load Profile Algo Modified Retry on receiving invalid counter
+
+2.5.5.45	Load Profile Algo Modified
+
+2.5.4.44	Load Profile Algo Modified
+			Log Changed
+
+2.5.3.43	Automatic MDC Start
+			Reading Signal Strength
+			Output Window disable on startup
+			No color change on Displaying Intruder Meter
+
+2.5.2.42	Move from Sync to Asycn communication				
+			Incoming meters live update issue	
+			X64 build			
+
+2.5.1.41	Allocation/Deallocation optimized, Communication procedure optimized
+			Add new fields in live data (V, Hz, PF)				
+			uninstall previous versions on installation				
+			echo log and save log settings must be separate				
+			Session datetime not updating when resetting session				
+			Reading events issue for incoming meters				
+			Warnings on load profile counter changed				
+
+2.5.0.40    Support for Prepaid Meters (3 Phase ONLYY) *** Single Phase Prepaid Meters are not supported
+
+2.4.3.39	All settings are saved to database for each meter
+			Intergration for Single Phase and Detailed Billing
+			Optimization
+
+2.4.2.38	Connected Meter Count on form, Log Enable/Disable on form, issue of deallocator resolved
+
+2.4.1.37	Settings for LiveUpdation And Selective Instantaneous Data Control is available for every meter
+
+2.4.0.36	Selective Instantaneous Data Control
+			Update Live Data for Outgoing Meters
+			Enable/Disable Echo Log
+			Last Communication Time Updation with category
+			Display Allocated Count on Main Form
+
+2.3.3.33 
+			1.	Inserting Instantaneous data for live monitoring only for keep alive meters
+			2.	Instead of reading Events internal counter on every transaction of events, now reading it on trigger of alarms other than Time base events
+			3.	Now in load profile info all load profile channel info read and save to database as load profile channel group
+				Instead of reading Load Profile capture object on every transaction of Load Profile, now reading it on first time connection of meter with MDC and
+				in case of meter load profile is reset
+	
+			4.	Software security implemented that will validate the MAC ID, CHASIS ID, CPUID, Hard disk ID and BIOS ID to run the software on a machine
+				As well as Expiration date of software implemented so that software will expire on a certain date
+			5.	Reset request session algorithm optimized for Non-Keep Alive meters: Non-Keep Alive meters were processed for time taking requests by resetting request session after certain period of time. Then read the Instantaneous data and keep on processing until complete request is processed. But now this will be decided on occurrence of events by reading Alarm Register after resetting request session. Request session will be reset after programmable period of time. 
+			6. If counter are missing in database, Insert all default counter and update the load profile group id by reading configurations
+			7. Supply Frequency error fixed in database
+			8. Structure of following tables modified in database : load_profile_groups, caputre_objects and max_counts
+			9. Read schedule by MDC Server Time
+			10. Meter connection life time is inserted to database
+
+2.3.2.32 
+			Correction of infinite loop on reading load profile when current counter is less than the Database counter
+
+2.2.3.31 
+			Meter Session reset on next schedule(for long running sessions).TryingReadingDataInChunks type mthods implemented for
+			Load profiles,Events,MonthlyBilling data, that also try to decode data form partial packets received in blocking
+
+2.2.2.28 
+			Async communication with meters.
+		 
+			Modem parameterization implemented that includes
+			1) IP Profiles
+			2) Enable/Disable KeepAlive
+			3)Modem Initialization
+
+			Set Timebase Events implemented
+
+2.2.3.23 
+			Keep Alive scheduler modified, output class modified, pool now, database structure modified, reading quantities method new logic
+
+2.2.2.22 
+			Intantaneous Controller Modified. Energies AVG Saved.
+
+2.2.1.21 
+			Saving Events data, KeepAlive Request and Status to DP_Logger, Events Log, Session datetime in Cum Billing, Load Profile Group ID
+			Null reference exceptions handled and saved to file
+
+2.2.0.20 
+			DLMS Library modified for Object classes decoders modified
+			Classes Modified: DB_Conection, DatabaseController, DataProcessing_Logger, Stats, Request, MakeRequest
+			Form1, ucHearBeat, Application_Controller and ConnectionThreadAllocator Modified
+
+2.1.8.19 
+			Shared Data Store cache of DLMS Objects modified to improve server response
+			DLMS Library modified for Object classes decoders modified
+			Monthly Billing working
+			Monthly Billing region updated in ApplicationController.cs->ProcessRequest();
+			MonthlyBilling savetoClass and saveToDB modified
+			All Data saved to DB using INSERT DELAYED
+			LoadProfile Region(Selective Access) updated in ApplicationController.cs->ProcessRequest();
+			uchearbeat.cs modified
+			form1.cs modified
+
+2.1.7.18 
+			Connection Allocater,Deallocater,ConnectionManager modified.
+
+2.1.3.14 
+			MDC output modified, exit application events handler confirmation, expected transaction count check OK
+
+2.1.2.13 
+			Classes: TCPIPConController, ConnectionList, IOConnection new implementation
+			Functions: ConnectionThreadAllocater, TCP_CONController_TCPClientConnected new implementation
+
+2.1.1.12 
+			Custom exception implemented, error logging for keep alive meters
+
+2.1.0.11 
+			Keep alive scheduler modified, statistics implemented keep alive and non keep alive meters seprately 
+			Database connections issue resolved
+			data readers replaced by data adapters
+			GUI modified
+
+2.0.0.10 
+			keep alive meters handled.KeepAliveScheduler implemented pooling database for schedule and pooling meter for alarm register, statistics updated.
+			Request processing improved.Error log saved, database design modified.
+			All meter data saved to database. 
+			Billing Formater modified	
+			Improvement in connection management and Thread allocation
+			Server report implemented for both keep alive and non keep alive meters displaying successful and failure transactions.
+
+1.6.0.9 
+			Application Debugger class for Logs modified,IOLogs And ErrorLogs modified to Enable/Disable,and save log files as per meter connections,New implementation of DLMS_Cosem library are adapted
+			ConnectionManager,IOConnection,TCPStream other IO related classes modified.	
+			Statistics stored and displayed
+
+1.5.6.8 
+			Database design changed. Scheduling logic modified, DataProcess Logger implemented, Exception outside main to Files,
+			Debugger logs modified application AccessSelector logic modified,Monthly Billing functions modified
+
+1.5.5.7		
+			MDC Server control function to enable/disable server process,IOConnection read/write timeout errors fixed
+
+1.5.3.5 
+			Wakeup generator and scheduler synchronization,alarm register and status, request and status from DB. , load profile and monthly billing reading
+
+1.5.2.4 
+			DLMS logs implemented.
+
+1.5.1.3 
+			Scheduler, wakeup generator , DB transactions
+
+1.5.0.2 
+			Read Instantaneous and Cumulative Billing Data, Connection Management improved
+
+1.0.0.1		
+			TCP Listener, multiple connection and Formate data request from DB

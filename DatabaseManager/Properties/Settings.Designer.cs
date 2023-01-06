@@ -12,8 +12,8 @@ namespace DatabaseManager.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.0.1.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -25,107 +25,46 @@ namespace DatabaseManager.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\Application_Configs")]
-        public string ApplicationConfigsDirectory {
-            get {
-                return ((string)(this["ApplicationConfigsDirectory"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsEnableIOLog {
-            get {
-                return ((bool)(this["IsEnableIOLog"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsEnableMessageInfoLog {
-            get {
-                return ((bool)(this["IsEnableMessageInfoLog"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsEnableErrorInfo {
-            get {
-                return ((bool)(this["IsEnableErrorInfo"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MTIwaves")]
-        public string SystemTitle {
-            get {
-                return ((string)(this["SystemTitle"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public uint MIN_EK_Counter {
+        public int MaxPoolSize {
             get {
-                return ((uint)(this["MIN_EK_Counter"]));
+                return ((int)(this["MaxPoolSize"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
-        public uint MAX_EK_Counter {
+        [global::System.Configuration.DefaultSettingValueAttribute("temp")]
+        public string MDC_DSN {
             get {
-                return ((uint)(this["MAX_EK_Counter"]));
+                return ((string)(this["MDC_DSN"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1024")]
-        public string MaxReadBuffer {
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public int ConnectionLifeTime {
             get {
-                return ((string)(this["MaxReadBuffer"]));
+                return ((int)(this["ConnectionLifeTime"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1024")]
-        public string MaxWriteBuffer {
-            get {
-                return ((string)(this["MaxWriteBuffer"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool CheckAccessRights {
+        public bool EnableWeeklyLoadProfile {
             get {
-                return ((bool)(this["CheckAccessRights"]));
-            }
-            set {
-                this["CheckAccessRights"] = value;
+                return ((bool)(this["EnableWeeklyLoadProfile"]));
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Application_Configs\\SEAC7_DB.mdb;Pe" +
-            "rsist Security Info=True;Jet OLEDB:Database Password=$v#1S0ot@5")]
-        public string SEAC7_DBConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EnableWeeklyInstentanousData {
             get {
-                return ((string)(this["SEAC7_DBConnectionString"]));
-            }
-            set {
-                this["SEAC7_DBConnectionString"] = value;
+                return ((bool)(this["EnableWeeklyInstentanousData"]));
             }
         }
     }

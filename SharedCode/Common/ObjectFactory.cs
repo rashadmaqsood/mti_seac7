@@ -15,13 +15,14 @@ namespace SharedCode.Common
         MTI = 0,
         ShenzenClu = 1,
         Creative = 2,
+        YTL = 3,
     }
     class ObjectFactory
     {
-        static MeteringCompany meteringCompany = MeteringCompany.ShenzenClu;
+        static MeteringCompany meteringCompany = MeteringCompany.YTL;
         static ObjectFactory()
         {
-            meteringCompany = (MeteringCompany)Settings.Default.HeartBeatType; // HeartBeatType.SHENZHEN_CLOU;
+            //meteringCompany = (MeteringCompany)Settings.Default.HeartBeatType; // HeartBeatType.SHENZHEN_CLOU;
 
         }
         public static HeartBeat GetHeartBeatObject()
@@ -30,6 +31,8 @@ namespace SharedCode.Common
             {
                 case MeteringCompany.ShenzenClu:
                     return new SHENZHEN_CLOU_HeartBeat();
+                case MeteringCompany.YTL:
+                    return new HeartBeat_YTL();
                 case MeteringCompany.Creative:
                 case MeteringCompany.MTI:
                 default:

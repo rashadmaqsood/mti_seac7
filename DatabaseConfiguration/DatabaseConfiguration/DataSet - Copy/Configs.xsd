@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Configs" targetNamespace="http://tempuri.org/Configs.xsd" xmlns:mstns="http://tempuri.org/Configs.xsd" xmlns="http://tempuri.org/Configs.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="4" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConfigurationDBConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConfigurationDBConnectionString (Settings)" PropertyReference="ApplicationSettings.DatabaseConfiguration.Properties.Settings.GlobalReference.Default.ConfigurationDBConnectionString" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConfigurationDBConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConfigurationDBConnectionString1 (Settings)" PropertyReference="ApplicationSettings.DatabaseConfiguration.Properties.Settings.GlobalReference.Default.ConfigurationDBConnectionString1" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConfigurationDBConnectionString2" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConfigurationDBConnectionString2 (Settings)" PropertyReference="ApplicationSettings.DatabaseConfiguration.Properties.Settings.GlobalReference.Default.ConfigurationDBConnectionString2" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConfigurationDBConnectionString3" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConfigurationDBConnectionString3 (Settings)" PropertyReference="ApplicationSettings.DatabaseConfiguration.Properties.Settings.GlobalReference.Default.ConfigurationDBConnectionString3" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Configs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Configs" msprop:Generator_UserDSName="Configs">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AllQuantities" msprop:Generator_TableClassName="AllQuantitiesDataTable" msprop:Generator_TableVarName="tableAllQuantities" msprop:Generator_TablePropName="AllQuantities" msprop:Generator_RowDeletingName="AllQuantitiesRowDeleting" msprop:Generator_RowChangingName="AllQuantitiesRowChanging" msprop:Generator_RowEvHandlerName="AllQuantitiesRowChangeEventHandler" msprop:Generator_RowDeletedName="AllQuantitiesRowDeleted" msprop:Generator_UserTableName="AllQuantities" msprop:Generator_RowChangedName="AllQuantitiesRowChanged" msprop:Generator_RowEvArgName="AllQuantitiesRowChangeEvent" msprop:Generator_RowClassName="AllQuantitiesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OBIS_Index" msprop:Generator_ColumnVarNameInTable="columnOBIS_Index" msprop:Generator_ColumnPropNameInRow="OBIS_Index" msprop:Generator_ColumnPropNameInTable="OBIS_IndexColumn" msprop:Generator_UserColumnName="OBIS_Index" type="xs:decimal" />
+              <xs:element name="Label" msprop:Generator_ColumnVarNameInTable="columnLabel" msprop:Generator_ColumnPropNameInRow="Label" msprop:Generator_ColumnPropNameInTable="LabelColumn" msprop:Generator_UserColumnName="Label" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Authentication_Type" msprop:Generator_TableClassName="Authentication_TypeDataTable" msprop:Generator_TableVarName="tableAuthentication_Type" msprop:Generator_TablePropName="Authentication_Type" msprop:Generator_RowDeletingName="Authentication_TypeRowDeleting" msprop:Generator_RowChangingName="Authentication_TypeRowChanging" msprop:Generator_RowEvHandlerName="Authentication_TypeRowChangeEventHandler" msprop:Generator_RowDeletedName="Authentication_TypeRowDeleted" msprop:Generator_UserTableName="Authentication_Type" msprop:Generator_RowChangedName="Authentication_TypeRowChanged" msprop:Generator_RowEvArgName="Authentication_TypeRowChangeEvent" msprop:Generator_RowClassName="Authentication_TypeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Authentication_Type_Name" msprop:Generator_ColumnVarNameInTable="columnAuthentication_Type_Name" msprop:Generator_ColumnPropNameInRow="Authentication_Type_Name" msprop:Generator_ColumnPropNameInTable="Authentication_Type_NameColumn" msprop:Generator_UserColumnName="Authentication_Type_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BillingItem_Group" msprop:Generator_TableClassName="BillingItem_GroupDataTable" msprop:Generator_TableVarName="tableBillingItem_Group" msprop:Generator_TablePropName="BillingItem_Group" msprop:Generator_RowDeletingName="BillingItem_GroupRowDeleting" msprop:Generator_RowChangingName="BillingItem_GroupRowChanging" msprop:Generator_RowEvHandlerName="BillingItem_GroupRowChangeEventHandler" msprop:Generator_RowDeletedName="BillingItem_GroupRowDeleted" msprop:Generator_UserTableName="BillingItem_Group" msprop:Generator_RowChangedName="BillingItem_GroupRowChanged" msprop:Generator_RowEvArgName="BillingItem_GroupRowChangeEvent" msprop:Generator_RowClassName="BillingItem_GroupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="BillingItem_Group_Name" msprop:Generator_ColumnVarNameInTable="columnBillingItem_Group_Name" msprop:Generator_ColumnPropNameInRow="BillingItem_Group_Name" msprop:Generator_ColumnPropNameInTable="BillingItem_Group_NameColumn" msprop:Generator_UserColumnName="BillingItem_Group_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BillingItems" msprop:Generator_TableClassName="BillingItemsDataTable" msprop:Generator_TableVarName="tableBillingItems" msprop:Generator_TablePropName="BillingItems" msprop:Generator_RowDeletingName="BillingItemsRowDeleting" msprop:Generator_RowChangingName="BillingItemsRowChanging" msprop:Generator_RowEvHandlerName="BillingItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="BillingItemsRowDeleted" msprop:Generator_UserTableName="BillingItems" msprop:Generator_RowChangedName="BillingItemsRowChanged" msprop:Generator_RowEvArgName="BillingItemsRowChangeEvent" msprop:Generator_RowClassName="BillingItemsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Label" msprop:Generator_ColumnVarNameInTable="columnLabel" msprop:Generator_ColumnPropNameInRow="Label" msprop:Generator_ColumnPropNameInTable="LabelColumn" msprop:Generator_UserColumnName="Label" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FormatSpecifier" msprop:Generator_ColumnVarNameInTable="columnFormatSpecifier" msprop:Generator_ColumnPropNameInRow="FormatSpecifier" msprop:Generator_ColumnPropNameInTable="FormatSpecifierColumn" msprop:Generator_UserColumnName="FormatSpecifier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Multiplier" msprop:Generator_ColumnVarNameInTable="columnMultiplier" msprop:Generator_ColumnPropNameInRow="Multiplier" msprop:Generator_ColumnPropNameInTable="MultiplierColumn" msprop:Generator_UserColumnName="Multiplier" type="xs:int" minOccurs="0" />
+              <xs:element name="SequenceId" msprop:Generator_ColumnVarNameInTable="columnSequenceId" msprop:Generator_ColumnPropNameInRow="SequenceId" msprop:Generator_ColumnPropNameInTable="SequenceIdColumn" msprop:Generator_UserColumnName="SequenceId" type="xs:int" minOccurs="0" />
+              <xs:element name="BillItemGroupId" msprop:Generator_ColumnVarNameInTable="columnBillItemGroupId" msprop:Generator_ColumnPropNameInRow="BillItemGroupId" msprop:Generator_ColumnPropNameInTable="BillItemGroupIdColumn" msprop:Generator_UserColumnName="BillItemGroupId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BillTariffQuantity" msprop:Generator_TableClassName="BillTariffQuantityDataTable" msprop:Generator_TableVarName="tableBillTariffQuantity" msprop:Generator_TablePropName="BillTariffQuantity" msprop:Generator_RowDeletingName="BillTariffQuantityRowDeleting" msprop:Generator_RowChangingName="BillTariffQuantityRowChanging" msprop:Generator_RowEvHandlerName="BillTariffQuantityRowChangeEventHandler" msprop:Generator_RowDeletedName="BillTariffQuantityRowDeleted" msprop:Generator_UserTableName="BillTariffQuantity" msprop:Generator_RowChangedName="BillTariffQuantityRowChanged" msprop:Generator_RowEvArgName="BillTariffQuantityRowChangeEvent" msprop:Generator_RowClassName="BillTariffQuantityRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BillItemId" msprop:Generator_ColumnVarNameInTable="columnBillItemId" msprop:Generator_ColumnPropNameInRow="BillItemId" msprop:Generator_ColumnPropNameInTable="BillItemIdColumn" msprop:Generator_UserColumnName="BillItemId" type="xs:int" minOccurs="0" />
+              <xs:element name="OBIS_Index" msprop:Generator_ColumnVarNameInTable="columnOBIS_Index" msprop:Generator_ColumnPropNameInRow="OBIS_Index" msprop:Generator_ColumnPropNameInTable="OBIS_IndexColumn" msprop:Generator_UserColumnName="OBIS_Index" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SequenceId" msprop:Generator_ColumnVarNameInTable="columnSequenceId" msprop:Generator_ColumnPropNameInRow="SequenceId" msprop:Generator_ColumnPropNameInTable="SequenceIdColumn" msprop:Generator_UserColumnName="SequenceId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Configuration" msprop:Generator_TableClassName="ConfigurationDataTable" msprop:Generator_TableVarName="tableConfiguration" msprop:Generator_TablePropName="Configuration" msprop:Generator_RowDeletingName="ConfigurationRowDeleting" msprop:Generator_RowChangingName="ConfigurationRowChanging" msprop:Generator_RowEvHandlerName="ConfigurationRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfigurationRowDeleted" msprop:Generator_UserTableName="Configuration" msprop:Generator_RowChangedName="ConfigurationRowChanged" msprop:Generator_RowEvArgName="ConfigurationRowChangeEvent" msprop:Generator_RowClassName="ConfigurationRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lp_channels_group_id" msprop:Generator_ColumnVarNameInTable="columnlp_channels_group_id" msprop:Generator_ColumnPropNameInRow="lp_channels_group_id" msprop:Generator_ColumnPropNameInTable="lp_channels_group_idColumn" msprop:Generator_UserColumnName="lp_channels_group_id" type="xs:int" minOccurs="0" />
+              <xs:element name="BillItemsGroupId" msprop:Generator_ColumnVarNameInTable="columnBillItemsGroupId" msprop:Generator_ColumnPropNameInRow="BillItemsGroupId" msprop:Generator_ColumnPropNameInTable="BillItemsGroupIdColumn" msprop:Generator_UserColumnName="BillItemsGroupId" type="xs:int" minOccurs="0" />
+              <xs:element name="DisplayWindowGroupId" msprop:Generator_ColumnVarNameInTable="columnDisplayWindowGroupId" msprop:Generator_ColumnPropNameInRow="DisplayWindowGroupId" msprop:Generator_ColumnPropNameInTable="DisplayWindowGroupIdColumn" msprop:Generator_UserColumnName="DisplayWindowGroupId" type="xs:int" minOccurs="0" />
+              <xs:element name="EventGroupId" msprop:Generator_ColumnVarNameInTable="columnEventGroupId" msprop:Generator_ColumnPropNameInRow="EventGroupId" msprop:Generator_ColumnPropNameInTable="EventGroupIdColumn" msprop:Generator_UserColumnName="EventGroupId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Device_Association" msprop:Generator_TableClassName="Device_AssociationDataTable" msprop:Generator_TableVarName="tableDevice_Association" msprop:Generator_TablePropName="Device_Association" msprop:Generator_RowDeletingName="Device_AssociationRowDeleting" msprop:Generator_RowChangingName="Device_AssociationRowChanging" msprop:Generator_RowEvHandlerName="Device_AssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="Device_AssociationRowDeleted" msprop:Generator_UserTableName="Device_Association" msprop:Generator_RowChangedName="Device_AssociationRowChanged" msprop:Generator_RowEvArgName="Device_AssociationRowChangeEvent" msprop:Generator_RowClassName="Device_AssociationRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Association_Name" msprop:Generator_ColumnVarNameInTable="columnAssociation_Name" msprop:Generator_ColumnPropNameInRow="Association_Name" msprop:Generator_ColumnPropNameInTable="Association_NameColumn" msprop:Generator_UserColumnName="Association_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Authentication_Type_Id" msprop:Generator_ColumnVarNameInTable="columnAuthentication_Type_Id" msprop:Generator_ColumnPropNameInRow="Authentication_Type_Id" msprop:Generator_ColumnPropNameInTable="Authentication_Type_IdColumn" msprop:Generator_UserColumnName="Authentication_Type_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Client_Sap" msprop:Generator_ColumnVarNameInTable="columnClient_Sap" msprop:Generator_ColumnPropNameInRow="Client_Sap" msprop:Generator_ColumnPropNameInTable="Client_SapColumn" msprop:Generator_UserColumnName="Client_Sap" type="xs:int" minOccurs="0" />
+              <xs:element name="Meter_Sap" msprop:Generator_ColumnVarNameInTable="columnMeter_Sap" msprop:Generator_ColumnPropNameInRow="Meter_Sap" msprop:Generator_ColumnPropNameInTable="Meter_SapColumn" msprop:Generator_UserColumnName="Meter_Sap" type="xs:int" minOccurs="0" />
+              <xs:element name="Device_Id" msprop:Generator_ColumnVarNameInTable="columnDevice_Id" msprop:Generator_ColumnPropNameInRow="Device_Id" msprop:Generator_ColumnPropNameInTable="Device_IdColumn" msprop:Generator_UserColumnName="Device_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Configuration_Id" msprop:Generator_ColumnVarNameInTable="columnConfiguration_Id" msprop:Generator_ColumnPropNameInRow="Configuration_Id" msprop:Generator_ColumnPropNameInTable="Configuration_IdColumn" msprop:Generator_UserColumnName="Configuration_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="ObisRightGroupId" msprop:Generator_ColumnVarNameInTable="columnObisRightGroupId" msprop:Generator_ColumnPropNameInRow="ObisRightGroupId" msprop:Generator_ColumnPropNameInTable="ObisRightGroupIdColumn" msprop:Generator_UserColumnName="ObisRightGroupId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DisplayWindows" msprop:Generator_TableClassName="DisplayWindowsDataTable" msprop:Generator_TableVarName="tableDisplayWindows" msprop:Generator_TablePropName="DisplayWindows" msprop:Generator_RowDeletingName="DisplayWindowsRowDeleting" msprop:Generator_RowChangingName="DisplayWindowsRowChanging" msprop:Generator_RowEvHandlerName="DisplayWindowsRowChangeEventHandler" msprop:Generator_RowDeletedName="DisplayWindowsRowDeleted" msprop:Generator_UserTableName="DisplayWindows" msprop:Generator_RowChangedName="DisplayWindowsRowChanged" msprop:Generator_RowEvArgName="DisplayWindowsRowChangeEvent" msprop:Generator_RowClassName="DisplayWindowsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Label" msprop:Generator_ColumnVarNameInTable="columnLabel" msprop:Generator_ColumnPropNameInRow="Label" msprop:Generator_ColumnPropNameInTable="LabelColumn" msprop:Generator_UserColumnName="Label" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="AttributeNo" msprop:Generator_ColumnVarNameInTable="columnAttributeNo" msprop:Generator_ColumnPropNameInRow="AttributeNo" msprop:Generator_ColumnPropNameInTable="AttributeNoColumn" msprop:Generator_UserColumnName="AttributeNo" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WinNumberToDisplay" msprop:Generator_ColumnVarNameInTable="columnWinNumberToDisplay" msprop:Generator_ColumnPropNameInRow="WinNumberToDisplay" msprop:Generator_ColumnPropNameInTable="WinNumberToDisplayColumn" msprop:Generator_UserColumnName="WinNumberToDisplay" type="xs:short" minOccurs="0" />
+              <xs:element name="QuantityIndex" msprop:Generator_ColumnVarNameInTable="columnQuantityIndex" msprop:Generator_ColumnPropNameInRow="QuantityIndex" msprop:Generator_ColumnPropNameInTable="QuantityIndexColumn" msprop:Generator_UserColumnName="QuantityIndex" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SequenceId" msprop:Generator_ColumnVarNameInTable="columnSequenceId" msprop:Generator_ColumnPropNameInRow="SequenceId" msprop:Generator_ColumnPropNameInTable="SequenceIdColumn" msprop:Generator_UserColumnName="SequenceId" type="xs:short" minOccurs="0" />
+              <xs:element name="DisplayWindowsGroupId" msprop:Generator_ColumnVarNameInTable="columnDisplayWindowsGroupId" msprop:Generator_ColumnPropNameInRow="DisplayWindowsGroupId" msprop:Generator_ColumnPropNameInTable="DisplayWindowsGroupIdColumn" msprop:Generator_UserColumnName="DisplayWindowsGroupId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DisplayWindows_Group" msprop:Generator_TableClassName="DisplayWindows_GroupDataTable" msprop:Generator_TableVarName="tableDisplayWindows_Group" msprop:Generator_TablePropName="DisplayWindows_Group" msprop:Generator_RowDeletingName="DisplayWindows_GroupRowDeleting" msprop:Generator_RowChangingName="DisplayWindows_GroupRowChanging" msprop:Generator_RowEvHandlerName="DisplayWindows_GroupRowChangeEventHandler" msprop:Generator_RowDeletedName="DisplayWindows_GroupRowDeleted" msprop:Generator_UserTableName="DisplayWindows_Group" msprop:Generator_RowChangedName="DisplayWindows_GroupRowChanged" msprop:Generator_RowEvArgName="DisplayWindows_GroupRowChangeEvent" msprop:Generator_RowClassName="DisplayWindows_GroupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Dw-Group_Name" msprop:Generator_ColumnVarNameInTable="_columnDw_Group_Name" msprop:Generator_ColumnPropNameInRow="_Dw_Group_Name" msprop:Generator_ColumnPropNameInTable="_Dw_Group_NameColumn" msprop:Generator_UserColumnName="Dw-Group_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EventInfo" msprop:Generator_TableClassName="EventInfoDataTable" msprop:Generator_TableVarName="tableEventInfo" msprop:Generator_TablePropName="EventInfo" msprop:Generator_RowDeletingName="EventInfoRowDeleting" msprop:Generator_RowChangingName="EventInfoRowChanging" msprop:Generator_RowEvHandlerName="EventInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="EventInfoRowDeleted" msprop:Generator_UserTableName="EventInfo" msprop:Generator_RowChangedName="EventInfoRowChanged" msprop:Generator_RowEvArgName="EventInfoRowChangeEvent" msprop:Generator_RowClassName="EventInfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="EventCode" msprop:Generator_ColumnVarNameInTable="columnEventCode" msprop:Generator_ColumnPropNameInRow="EventCode" msprop:Generator_ColumnPropNameInTable="EventCodeColumn" msprop:Generator_UserColumnName="EventCode" type="xs:int" />
+              <xs:element name="Label" msprop:Generator_ColumnVarNameInTable="columnLabel" msprop:Generator_ColumnPropNameInRow="Label" msprop:Generator_ColumnPropNameInTable="LabelColumn" msprop:Generator_UserColumnName="Label" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaxEventCount" msprop:Generator_ColumnVarNameInTable="columnMaxEventCount" msprop:Generator_ColumnPropNameInRow="MaxEventCount" msprop:Generator_ColumnPropNameInTable="MaxEventCountColumn" msprop:Generator_UserColumnName="MaxEventCount" type="xs:int" minOccurs="0" />
+              <xs:element name="EventNo" msprop:Generator_ColumnVarNameInTable="columnEventNo" msprop:Generator_ColumnPropNameInRow="EventNo" msprop:Generator_ColumnPropNameInTable="EventNoColumn" msprop:Generator_UserColumnName="EventNo" type="xs:short" minOccurs="0" />
+              <xs:element name="EventGroupId" msprop:Generator_ColumnVarNameInTable="columnEventGroupId" msprop:Generator_ColumnPropNameInRow="EventGroupId" msprop:Generator_ColumnPropNameInTable="EventGroupIdColumn" msprop:Generator_UserColumnName="EventGroupId" type="xs:int" minOccurs="0" />
+              <xs:element name="CautionNumber" msprop:Generator_ColumnVarNameInTable="columnCautionNumber" msprop:Generator_ColumnPropNameInRow="CautionNumber" msprop:Generator_ColumnPropNameInTable="CautionNumberColumn" msprop:Generator_UserColumnName="CautionNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="FlashTime" msprop:Generator_ColumnVarNameInTable="columnFlashTime" msprop:Generator_ColumnPropNameInRow="FlashTime" msprop:Generator_ColumnPropNameInTable="FlashTimeColumn" msprop:Generator_UserColumnName="FlashTime" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EventLogs" msprop:Generator_TableClassName="EventLogsDataTable" msprop:Generator_TableVarName="tableEventLogs" msprop:Generator_TablePropName="EventLogs" msprop:Generator_RowDeletingName="EventLogsRowDeleting" msprop:Generator_RowChangingName="EventLogsRowChanging" msprop:Generator_RowEvHandlerName="EventLogsRowChangeEventHandler" msprop:Generator_RowDeletedName="EventLogsRowDeleted" msprop:Generator_UserTableName="EventLogs" msprop:Generator_RowChangedName="EventLogsRowChanged" msprop:Generator_RowEvArgName="EventLogsRowChangeEvent" msprop:Generator_RowClassName="EventLogsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="EventLogIndex" msprop:Generator_ColumnVarNameInTable="columnEventLogIndex" msprop:Generator_ColumnPropNameInRow="EventLogIndex" msprop:Generator_ColumnPropNameInTable="EventLogIndexColumn" msprop:Generator_UserColumnName="EventLogIndex" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EventCounterIndex" msprop:Generator_ColumnVarNameInTable="columnEventCounterIndex" msprop:Generator_ColumnPropNameInRow="EventCounterIndex" msprop:Generator_ColumnPropNameInTable="EventCounterIndexColumn" msprop:Generator_UserColumnName="EventCounterIndex" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EventGroupId" msprop:Generator_ColumnVarNameInTable="columnEventGroupId" msprop:Generator_ColumnPropNameInRow="EventGroupId" msprop:Generator_ColumnPropNameInTable="EventGroupIdColumn" msprop:Generator_UserColumnName="EventGroupId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Events_Group" msprop:Generator_TableClassName="Events_GroupDataTable" msprop:Generator_TableVarName="tableEvents_Group" msprop:Generator_TablePropName="Events_Group" msprop:Generator_RowDeletingName="Events_GroupRowDeleting" msprop:Generator_RowChangingName="Events_GroupRowChanging" msprop:Generator_RowEvHandlerName="Events_GroupRowChangeEventHandler" msprop:Generator_RowDeletedName="Events_GroupRowDeleted" msprop:Generator_UserTableName="Events_Group" msprop:Generator_RowChangedName="Events_GroupRowChanged" msprop:Generator_RowEvArgName="Events_GroupRowChangeEvent" msprop:Generator_RowClassName="Events_GroupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Events_group_Name" msprop:Generator_ColumnVarNameInTable="columnEvents_group_Name" msprop:Generator_ColumnPropNameInRow="Events_group_Name" msprop:Generator_ColumnPropNameInTable="Events_group_NameColumn" msprop:Generator_UserColumnName="Events_group_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LoadProfileChannels" msprop:Generator_TableClassName="LoadProfileChannelsDataTable" msprop:Generator_TableVarName="tableLoadProfileChannels" msprop:Generator_TablePropName="LoadProfileChannels" msprop:Generator_RowDeletingName="LoadProfileChannelsRowDeleting" msprop:Generator_RowChangingName="LoadProfileChannelsRowChanging" msprop:Generator_RowEvHandlerName="LoadProfileChannelsRowChangeEventHandler" msprop:Generator_RowDeletedName="LoadProfileChannelsRowDeleted" msprop:Generator_UserTableName="LoadProfileChannels" msprop:Generator_RowChangedName="LoadProfileChannelsRowChanged" msprop:Generator_RowEvArgName="LoadProfileChannelsRowChangeEvent" msprop:Generator_RowClassName="LoadProfileChannelsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Label" msprop:Generator_ColumnVarNameInTable="columnLabel" msprop:Generator_ColumnPropNameInRow="Label" msprop:Generator_ColumnPropNameInTable="LabelColumn" msprop:Generator_UserColumnName="Label" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QuantityIndex" msprop:Generator_ColumnVarNameInTable="columnQuantityIndex" msprop:Generator_ColumnPropNameInRow="QuantityIndex" msprop:Generator_ColumnPropNameInTable="QuantityIndexColumn" msprop:Generator_UserColumnName="QuantityIndex" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AttributeNo" msprop:Generator_ColumnVarNameInTable="columnAttributeNo" msprop:Generator_ColumnPropNameInRow="AttributeNo" msprop:Generator_ColumnPropNameInTable="AttributeNoColumn" msprop:Generator_UserColumnName="AttributeNo" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="Multiplier" msprop:Generator_ColumnVarNameInTable="columnMultiplier" msprop:Generator_ColumnPropNameInRow="Multiplier" msprop:Generator_ColumnPropNameInTable="MultiplierColumn" msprop:Generator_UserColumnName="Multiplier" type="xs:short" minOccurs="0" />
+              <xs:element name="SequenceId" msprop:Generator_ColumnVarNameInTable="columnSequenceId" msprop:Generator_ColumnPropNameInRow="SequenceId" msprop:Generator_ColumnPropNameInTable="SequenceIdColumn" msprop:Generator_UserColumnName="SequenceId" type="xs:short" minOccurs="0" />
+              <xs:element name="FormatSpecifier" msprop:Generator_ColumnVarNameInTable="columnFormatSpecifier" msprop:Generator_ColumnPropNameInRow="FormatSpecifier" msprop:Generator_ColumnPropNameInTable="FormatSpecifierColumn" msprop:Generator_UserColumnName="FormatSpecifier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LoadProfileGroupId" msprop:Generator_ColumnVarNameInTable="columnLoadProfileGroupId" msprop:Generator_ColumnPropNameInRow="LoadProfileGroupId" msprop:Generator_ColumnPropNameInTable="LoadProfileGroupIdColumn" msprop:Generator_UserColumnName="LoadProfileGroupId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LoadProfile_Group" msprop:Generator_TableClassName="LoadProfile_GroupDataTable" msprop:Generator_TableVarName="tableLoadProfile_Group" msprop:Generator_TablePropName="LoadProfile_Group" msprop:Generator_RowDeletingName="LoadProfile_GroupRowDeleting" msprop:Generator_RowChangingName="LoadProfile_GroupRowChanging" msprop:Generator_RowEvHandlerName="LoadProfile_GroupRowChangeEventHandler" msprop:Generator_RowDeletedName="LoadProfile_GroupRowDeleted" msprop:Generator_UserTableName="LoadProfile_Group" msprop:Generator_RowChangedName="LoadProfile_GroupRowChanged" msprop:Generator_RowEvArgName="LoadProfile_GroupRowChangeEvent" msprop:Generator_RowClassName="LoadProfile_GroupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="LoadProfile_Group_Name" msprop:Generator_ColumnVarNameInTable="columnLoadProfile_Group_Name" msprop:Generator_ColumnPropNameInRow="LoadProfile_Group_Name" msprop:Generator_ColumnPropNameInTable="LoadProfile_Group_NameColumn" msprop:Generator_UserColumnName="LoadProfile_Group_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Manufacturer" msprop:Generator_TableClassName="ManufacturerDataTable" msprop:Generator_TableVarName="tableManufacturer" msprop:Generator_TablePropName="Manufacturer" msprop:Generator_RowDeletingName="ManufacturerRowDeleting" msprop:Generator_RowChangingName="ManufacturerRowChanging" msprop:Generator_RowEvHandlerName="ManufacturerRowChangeEventHandler" msprop:Generator_RowDeletedName="ManufacturerRowDeleted" msprop:Generator_UserTableName="Manufacturer" msprop:Generator_RowChangedName="ManufacturerRowChanged" msprop:Generator_RowEvArgName="ManufacturerRowChangeEvent" msprop:Generator_RowClassName="ManufacturerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Manufacturer_Name" msprop:Generator_ColumnVarNameInTable="columnManufacturer_Name" msprop:Generator_ColumnPropNameInRow="Manufacturer_Name" msprop:Generator_ColumnPropNameInTable="Manufacturer_NameColumn" msprop:Generator_UserColumnName="Manufacturer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OBIS_Details" msprop:Generator_TableClassName="OBIS_DetailsDataTable" msprop:Generator_TableVarName="tableOBIS_Details" msprop:Generator_TablePropName="OBIS_Details" msprop:Generator_RowDeletingName="OBIS_DetailsRowDeleting" msprop:Generator_RowChangingName="OBIS_DetailsRowChanging" msprop:Generator_RowEvHandlerName="OBIS_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="OBIS_DetailsRowDeleted" msprop:Generator_UserTableName="OBIS_Details" msprop:Generator_RowChangedName="OBIS_DetailsRowChanged" msprop:Generator_RowEvArgName="OBIS_DetailsRowChangeEvent" msprop:Generator_RowClassName="OBIS_DetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Obis_Code" msprop:Generator_ColumnVarNameInTable="columnObis_Code" msprop:Generator_ColumnPropNameInRow="Obis_Code" msprop:Generator_ColumnPropNameInTable="Obis_CodeColumn" msprop:Generator_UserColumnName="Obis_Code" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Default_OBIS_Code" msprop:Generator_ColumnVarNameInTable="columnDefault_OBIS_Code" msprop:Generator_ColumnPropNameInRow="Default_OBIS_Code" msprop:Generator_ColumnPropNameInTable="Default_OBIS_CodeColumn" msprop:Generator_UserColumnName="Default_OBIS_Code" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Device_Id" msprop:Generator_ColumnVarNameInTable="columnDevice_Id" msprop:Generator_ColumnPropNameInRow="Device_Id" msprop:Generator_ColumnPropNameInTable="Device_IdColumn" msprop:Generator_UserColumnName="Device_Id" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OBIS_Rights" msprop:Generator_TableClassName="OBIS_RightsDataTable" msprop:Generator_TableVarName="tableOBIS_Rights" msprop:Generator_TablePropName="OBIS_Rights" msprop:Generator_RowDeletingName="OBIS_RightsRowDeleting" msprop:Generator_RowChangingName="OBIS_RightsRowChanging" msprop:Generator_RowEvHandlerName="OBIS_RightsRowChangeEventHandler" msprop:Generator_RowDeletedName="OBIS_RightsRowDeleted" msprop:Generator_UserTableName="OBIS_Rights" msprop:Generator_RowChangedName="OBIS_RightsRowChanged" msprop:Generator_RowEvArgName="OBIS_RightsRowChangeEvent" msprop:Generator_RowClassName="OBIS_RightsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="OBIS_Index" msprop:Generator_ColumnVarNameInTable="columnOBIS_Index" msprop:Generator_ColumnPropNameInRow="OBIS_Index" msprop:Generator_ColumnPropNameInTable="OBIS_IndexColumn" msprop:Generator_UserColumnName="OBIS_Index" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Version" msprop:Generator_ColumnVarNameInTable="columnVersion" msprop:Generator_ColumnPropNameInRow="Version" msprop:Generator_ColumnPropNameInTable="VersionColumn" msprop:Generator_UserColumnName="Version" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="ObisRightGroupId" msprop:Generator_ColumnVarNameInTable="columnObisRightGroupId" msprop:Generator_ColumnPropNameInRow="ObisRightGroupId" msprop:Generator_ColumnPropNameInTable="ObisRightGroupIdColumn" msprop:Generator_UserColumnName="ObisRightGroupId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Obis_Rights_Group" msprop:Generator_TableClassName="Obis_Rights_GroupDataTable" msprop:Generator_TableVarName="tableObis_Rights_Group" msprop:Generator_TablePropName="Obis_Rights_Group" msprop:Generator_RowDeletingName="Obis_Rights_GroupRowDeleting" msprop:Generator_RowChangingName="Obis_Rights_GroupRowChanging" msprop:Generator_RowEvHandlerName="Obis_Rights_GroupRowChangeEventHandler" msprop:Generator_RowDeletedName="Obis_Rights_GroupRowDeleted" msprop:Generator_UserTableName="Obis_Rights_Group" msprop:Generator_RowChangedName="Obis_Rights_GroupRowChanged" msprop:Generator_RowEvArgName="Obis_Rights_GroupRowChangeEvent" msprop:Generator_RowClassName="Obis_Rights_GroupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Group_Name" msprop:Generator_ColumnVarNameInTable="columnGroup_Name" msprop:Generator_ColumnPropNameInRow="Group_Name" msprop:Generator_ColumnPropNameInTable="Group_NameColumn" msprop:Generator_UserColumnName="Group_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Update_Rights" msprop:Generator_ColumnVarNameInTable="columnUpdate_Rights" msprop:Generator_ColumnPropNameInRow="Update_Rights" msprop:Generator_ColumnPropNameInTable="Update_RightsColumn" msprop:Generator_UserColumnName="Update_Rights" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Rights" msprop:Generator_TableClassName="RightsDataTable" msprop:Generator_TableVarName="tableRights" msprop:Generator_TablePropName="Rights" msprop:Generator_RowDeletingName="RightsRowDeleting" msprop:Generator_RowChangingName="RightsRowChanging" msprop:Generator_RowEvHandlerName="RightsRowChangeEventHandler" msprop:Generator_RowDeletedName="RightsRowDeleted" msprop:Generator_UserTableName="Rights" msprop:Generator_RowChangedName="RightsRowChanged" msprop:Generator_RowEvArgName="RightsRowChangeEvent" msprop:Generator_RowClassName="RightsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="SubId" msprop:Generator_ColumnVarNameInTable="columnSubId" msprop:Generator_ColumnPropNameInRow="SubId" msprop:Generator_ColumnPropNameInTable="SubIdColumn" msprop:Generator_UserColumnName="SubId" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="OBIS_Right_Id" msprop:Generator_ColumnVarNameInTable="columnOBIS_Right_Id" msprop:Generator_ColumnPropNameInRow="OBIS_Right_Id" msprop:Generator_ColumnPropNameInTable="OBIS_Right_IdColumn" msprop:Generator_UserColumnName="OBIS_Right_Id" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_UserTableName="users" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowClassName="usersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="user_name" msprop:Generator_ColumnVarNameInTable="columnuser_name" msprop:Generator_ColumnPropNameInRow="user_name" msprop:Generator_ColumnPropNameInTable="user_nameColumn" msprop:Generator_UserColumnName="user_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="user_password" msprop:Generator_ColumnVarNameInTable="columnuser_password" msprop:Generator_ColumnPropNameInRow="user_password" msprop:Generator_ColumnPropNameInTable="user_passwordColumn" msprop:Generator_UserColumnName="user_password" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="user_type" msprop:Generator_ColumnVarNameInTable="columnuser_type" msprop:Generator_ColumnPropNameInRow="user_type" msprop:Generator_ColumnPropNameInTable="user_typeColumn" msprop:Generator_UserColumnName="user_type" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Status_Word" msprop:Generator_TableClassName="Status_WordDataTable" msprop:Generator_TableVarName="tableStatus_Word" msprop:Generator_RowChangedName="Status_WordRowChanged" msprop:Generator_TablePropName="Status_Word" msprop:Generator_RowDeletingName="Status_WordRowDeleting" msprop:Generator_RowChangingName="Status_WordRowChanging" msprop:Generator_RowEvHandlerName="Status_WordRowChangeEventHandler" msprop:Generator_RowDeletedName="Status_WordRowDeleted" msprop:Generator_RowClassName="Status_WordRow" msprop:Generator_UserTableName="Status_Word" msprop:Generator_RowEvArgName="Status_WordRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Device" msprop:Generator_TableClassName="DeviceDataTable" msprop:Generator_TableVarName="tableDevice" msprop:Generator_RowChangedName="DeviceRowChanged" msprop:Generator_TablePropName="Device" msprop:Generator_RowDeletingName="DeviceRowDeleting" msprop:Generator_RowChangingName="DeviceRowChanging" msprop:Generator_RowEvHandlerName="DeviceRowChangeEventHandler" msprop:Generator_RowDeletedName="DeviceRowDeleted" msprop:Generator_RowClassName="DeviceRow" msprop:Generator_UserTableName="Device" msprop:Generator_RowEvArgName="DeviceRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Device_Name" msprop:Generator_ColumnVarNameInTable="columnDevice_Name" msprop:Generator_ColumnPropNameInRow="Device_Name" msprop:Generator_ColumnPropNameInTable="Device_NameColumn" msprop:Generator_UserColumnName="Device_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Manufacturer_Id" msprop:Generator_ColumnVarNameInTable="columnManufacturer_Id" msprop:Generator_ColumnPropNameInRow="Manufacturer_Id" msprop:Generator_ColumnPropNameInTable="Manufacturer_IdColumn" msprop:Generator_UserColumnName="Manufacturer_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="IsSinglePhase" msprop:Generator_ColumnVarNameInTable="columnIsSinglePhase" msprop:Generator_ColumnPropNameInRow="IsSinglePhase" msprop:Generator_ColumnPropNameInTable="IsSinglePhaseColumn" msprop:Generator_UserColumnName="IsSinglePhase" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AllQuantities" />
+      <xs:field xpath="mstns:OBIS_Index" />
+    </xs:unique>
+    <xs:unique name="Authentication_Type_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Authentication_Type" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="BillingItem_Group_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BillingItem_Group" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="BillingItems_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BillingItems" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Configuration_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Configuration" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Device_Association_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Device_Association" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DisplayWindows_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DisplayWindows" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DisplayWindows_Group_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DisplayWindows_Group" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Events_Group_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Events_Group" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="LoadProfileChannels_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:LoadProfileChannels" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="LoadProfile_Group_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:LoadProfile_Group" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Manufacturer_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Manufacturer" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="UniqueOBISKey">
+      <xs:selector xpath=".//mstns:OBIS_Details" />
+      <xs:field xpath="mstns:Obis_Code" />
+      <xs:field xpath="mstns:Device_Id" />
+    </xs:unique>
+    <xs:unique name="OBIS_Rights_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OBIS_Rights" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Obis_Rights_Group_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Obis_Rights_Group" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Rights_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Rights" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="users_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:users" />
+      <xs:field xpath="mstns:user_name" />
+    </xs:unique>
+    <xs:unique name="Device_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Device" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="BillingItem_GroupBillingItems" msdata:parent="BillingItem_Group" msdata:child="BillingItems" msdata:parentkey="id" msdata:childkey="BillItemGroupId" msprop:Generator_UserChildTable="BillingItems" msprop:Generator_ChildPropName="GetBillingItemsRows" msprop:Generator_UserRelationName="BillingItem_GroupBillingItems" msprop:Generator_ParentPropName="BillingItem_GroupRow" msprop:Generator_RelationVarName="relationBillingItem_GroupBillingItems" msprop:Generator_UserParentTable="BillingItem_Group" />
+      <msdata:Relationship name="AllQuantitiesBillTariffQuantity" msdata:parent="AllQuantities" msdata:child="BillTariffQuantity" msdata:parentkey="OBIS_Index" msdata:childkey="OBIS_Index" msprop:Generator_UserChildTable="BillTariffQuantity" msprop:Generator_ChildPropName="GetBillTariffQuantityRows" msprop:Generator_UserRelationName="AllQuantitiesBillTariffQuantity" msprop:Generator_ParentPropName="AllQuantitiesRow" msprop:Generator_RelationVarName="relationAllQuantitiesBillTariffQuantity" msprop:Generator_UserParentTable="AllQuantities" />
+      <msdata:Relationship name="BillingItemsBillTariffQuantity" msdata:parent="BillingItems" msdata:child="BillTariffQuantity" msdata:parentkey="id" msdata:childkey="BillItemId" msprop:Generator_UserChildTable="BillTariffQuantity" msprop:Generator_ChildPropName="GetBillTariffQuantityRows" msprop:Generator_UserRelationName="BillingItemsBillTariffQuantity" msprop:Generator_ParentPropName="BillingItemsRow" msprop:Generator_RelationVarName="relationBillingItemsBillTariffQuantity" msprop:Generator_UserParentTable="BillingItems" />
+      <msdata:Relationship name="BillingItem_GroupConfiguration" msdata:parent="BillingItem_Group" msdata:child="Configuration" msdata:parentkey="id" msdata:childkey="BillItemsGroupId" msprop:Generator_UserChildTable="Configuration" msprop:Generator_ChildPropName="GetConfigurationRows" msprop:Generator_UserRelationName="BillingItem_GroupConfiguration" msprop:Generator_ParentPropName="BillingItem_GroupRow" msprop:Generator_RelationVarName="relationBillingItem_GroupConfiguration" msprop:Generator_UserParentTable="BillingItem_Group" />
+      <msdata:Relationship name="DisplayWindows_GroupConfiguration" msdata:parent="DisplayWindows_Group" msdata:child="Configuration" msdata:parentkey="id" msdata:childkey="DisplayWindowGroupId" msprop:Generator_UserChildTable="Configuration" msprop:Generator_ChildPropName="GetConfigurationRows" msprop:Generator_UserRelationName="DisplayWindows_GroupConfiguration" msprop:Generator_RelationVarName="relationDisplayWindows_GroupConfiguration" msprop:Generator_UserParentTable="DisplayWindows_Group" msprop:Generator_ParentPropName="DisplayWindows_GroupRow" />
+      <msdata:Relationship name="Events_GroupConfiguration" msdata:parent="Events_Group" msdata:child="Configuration" msdata:parentkey="id" msdata:childkey="EventGroupId" msprop:Generator_UserChildTable="Configuration" msprop:Generator_ChildPropName="GetConfigurationRows" msprop:Generator_UserRelationName="Events_GroupConfiguration" msprop:Generator_RelationVarName="relationEvents_GroupConfiguration" msprop:Generator_UserParentTable="Events_Group" msprop:Generator_ParentPropName="Events_GroupRow" />
+      <msdata:Relationship name="LoadProfile_GroupConfiguration" msdata:parent="LoadProfile_Group" msdata:child="Configuration" msdata:parentkey="id" msdata:childkey="lp_channels_group_id" msprop:Generator_UserChildTable="Configuration" msprop:Generator_ChildPropName="GetConfigurationRows" msprop:Generator_UserRelationName="LoadProfile_GroupConfiguration" msprop:Generator_RelationVarName="relationLoadProfile_GroupConfiguration" msprop:Generator_UserParentTable="LoadProfile_Group" msprop:Generator_ParentPropName="LoadProfile_GroupRow" />
+      <msdata:Relationship name="Authentication_TypeDevice_Association" msdata:parent="Authentication_Type" msdata:child="Device_Association" msdata:parentkey="id" msdata:childkey="Authentication_Type_Id" msprop:Generator_UserChildTable="Device_Association" msprop:Generator_ChildPropName="GetDevice_AssociationRows" msprop:Generator_UserRelationName="Authentication_TypeDevice_Association" msprop:Generator_ParentPropName="Authentication_TypeRow" msprop:Generator_RelationVarName="relationAuthentication_TypeDevice_Association" msprop:Generator_UserParentTable="Authentication_Type" />
+      <msdata:Relationship name="ConfigurationDevice_Association" msdata:parent="Configuration" msdata:child="Device_Association" msdata:parentkey="id" msdata:childkey="Configuration_Id" msprop:Generator_UserChildTable="Device_Association" msprop:Generator_ChildPropName="GetDevice_AssociationRows" msprop:Generator_UserRelationName="ConfigurationDevice_Association" msprop:Generator_ParentPropName="ConfigurationRow" msprop:Generator_RelationVarName="relationConfigurationDevice_Association" msprop:Generator_UserParentTable="Configuration" />
+      <msdata:Relationship name="Obis_Rights_GroupDevice_Association" msdata:parent="Obis_Rights_Group" msdata:child="Device_Association" msdata:parentkey="id" msdata:childkey="ObisRightGroupId" msprop:Generator_UserChildTable="Device_Association" msprop:Generator_ChildPropName="GetDevice_AssociationRows" msprop:Generator_UserRelationName="Obis_Rights_GroupDevice_Association" msprop:Generator_RelationVarName="relationObis_Rights_GroupDevice_Association" msprop:Generator_UserParentTable="Obis_Rights_Group" msprop:Generator_ParentPropName="Obis_Rights_GroupRow" />
+      <msdata:Relationship name="AllQuantitiesDisplayWindows" msdata:parent="AllQuantities" msdata:child="DisplayWindows" msdata:parentkey="OBIS_Index" msdata:childkey="QuantityIndex" msprop:Generator_UserChildTable="DisplayWindows" msprop:Generator_ChildPropName="GetDisplayWindowsRows" msprop:Generator_UserRelationName="AllQuantitiesDisplayWindows" msprop:Generator_ParentPropName="AllQuantitiesRow" msprop:Generator_RelationVarName="relationAllQuantitiesDisplayWindows" msprop:Generator_UserParentTable="AllQuantities" />
+      <msdata:Relationship name="DisplayWindows_GroupDisplayWindows" msdata:parent="DisplayWindows_Group" msdata:child="DisplayWindows" msdata:parentkey="id" msdata:childkey="DisplayWindowsGroupId" msprop:Generator_UserChildTable="DisplayWindows" msprop:Generator_ChildPropName="GetDisplayWindowsRows" msprop:Generator_UserRelationName="DisplayWindows_GroupDisplayWindows" msprop:Generator_RelationVarName="relationDisplayWindows_GroupDisplayWindows" msprop:Generator_UserParentTable="DisplayWindows_Group" msprop:Generator_ParentPropName="DisplayWindows_GroupRow" />
+      <msdata:Relationship name="Events_GroupEventInfo" msdata:parent="Events_Group" msdata:child="EventInfo" msdata:parentkey="id" msdata:childkey="EventGroupId" msprop:Generator_UserChildTable="EventInfo" msprop:Generator_ChildPropName="GetEventInfoRows" msprop:Generator_UserRelationName="Events_GroupEventInfo" msprop:Generator_RelationVarName="relationEvents_GroupEventInfo" msprop:Generator_UserParentTable="Events_Group" msprop:Generator_ParentPropName="Events_GroupRow" />
+      <msdata:Relationship name="AllQuantitiesEventLogs" msdata:parent="AllQuantities" msdata:child="EventLogs" msdata:parentkey="OBIS_Index" msdata:childkey="EventLogIndex" msprop:Generator_UserChildTable="EventLogs" msprop:Generator_ChildPropName="GetEventLogsRows" msprop:Generator_UserRelationName="AllQuantitiesEventLogs" msprop:Generator_ParentPropName="AllQuantitiesRow" msprop:Generator_RelationVarName="relationAllQuantitiesEventLogs" msprop:Generator_UserParentTable="AllQuantities" />
+      <msdata:Relationship name="EventInfoEventLogs" msdata:parent="EventInfo" msdata:child="EventLogs" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserChildTable="EventLogs" msprop:Generator_ChildPropName="GetEventLogsRows" msprop:Generator_UserRelationName="EventInfoEventLogs" msprop:Generator_ParentPropName="EventInfoRow" msprop:Generator_RelationVarName="relationEventInfoEventLogs" msprop:Generator_UserParentTable="EventInfo" />
+      <msdata:Relationship name="Events_GroupEventLogs" msdata:parent="Events_Group" msdata:child="EventLogs" msdata:parentkey="id" msdata:childkey="EventGroupId" msprop:Generator_UserChildTable="EventLogs" msprop:Generator_ChildPropName="GetEventLogsRows" msprop:Generator_UserRelationName="Events_GroupEventLogs" msprop:Generator_RelationVarName="relationEvents_GroupEventLogs" msprop:Generator_UserParentTable="Events_Group" msprop:Generator_ParentPropName="Events_GroupRow" />
+      <msdata:Relationship name="AllQuantitiesLoadProfileChannels" msdata:parent="AllQuantities" msdata:child="LoadProfileChannels" msdata:parentkey="OBIS_Index" msdata:childkey="QuantityIndex" msprop:Generator_UserChildTable="LoadProfileChannels" msprop:Generator_ChildPropName="GetLoadProfileChannelsRows" msprop:Generator_UserRelationName="AllQuantitiesLoadProfileChannels" msprop:Generator_ParentPropName="AllQuantitiesRow" msprop:Generator_RelationVarName="relationAllQuantitiesLoadProfileChannels" msprop:Generator_UserParentTable="AllQuantities" />
+      <msdata:Relationship name="LoadProfile_GroupLoadProfileChannels" msdata:parent="LoadProfile_Group" msdata:child="LoadProfileChannels" msdata:parentkey="id" msdata:childkey="LoadProfileGroupId" msprop:Generator_UserChildTable="LoadProfileChannels" msprop:Generator_ChildPropName="GetLoadProfileChannelsRows" msprop:Generator_UserRelationName="LoadProfile_GroupLoadProfileChannels" msprop:Generator_RelationVarName="relationLoadProfile_GroupLoadProfileChannels" msprop:Generator_UserParentTable="LoadProfile_Group" msprop:Generator_ParentPropName="LoadProfile_GroupRow" />
+      <msdata:Relationship name="AllQuantitiesOBIS_Details" msdata:parent="AllQuantities" msdata:child="OBIS_Details" msdata:parentkey="OBIS_Index" msdata:childkey="Default_OBIS_Code" msprop:Generator_UserChildTable="OBIS_Details" msprop:Generator_ChildPropName="GetOBIS_DetailsRows" msprop:Generator_UserRelationName="AllQuantitiesOBIS_Details" msprop:Generator_ParentPropName="AllQuantitiesRow" msprop:Generator_RelationVarName="relationAllQuantitiesOBIS_Details" msprop:Generator_UserParentTable="AllQuantities" />
+      <msdata:Relationship name="OBIS_RightsRights" msdata:parent="OBIS_Rights" msdata:child="Rights" msdata:parentkey="id" msdata:childkey="OBIS_Right_Id" msprop:Generator_UserChildTable="Rights" msprop:Generator_ChildPropName="GetRightsRows" msprop:Generator_UserRelationName="OBIS_RightsRights" msprop:Generator_ParentPropName="OBIS_RightsRow" msprop:Generator_RelationVarName="relationOBIS_RightsRights" msprop:Generator_UserParentTable="OBIS_Rights" />
+      <msdata:Relationship name="Obis_Rights_Group_OBIS_Rights" msdata:parent="Obis_Rights_Group" msdata:child="OBIS_Rights" msdata:parentkey="id" msdata:childkey="ObisRightGroupId" msprop:Generator_UserChildTable="OBIS_Rights" msprop:Generator_ChildPropName="GetOBIS_RightsRows" msprop:Generator_UserRelationName="Obis_Rights_Group_OBIS_Rights" msprop:Generator_RelationVarName="relationObis_Rights_Group_OBIS_Rights" msprop:Generator_UserParentTable="Obis_Rights_Group" msprop:Generator_ParentPropName="Obis_Rights_GroupRow" />
+      <msdata:Relationship name="Manufacturer_Device" msdata:parent="Manufacturer" msdata:child="Device" msdata:parentkey="id" msdata:childkey="Manufacturer_Id" msprop:Generator_UserChildTable="Device" msprop:Generator_ChildPropName="GetDeviceRows" msprop:Generator_UserRelationName="Manufacturer_Device" msprop:Generator_RelationVarName="relationManufacturer_Device" msprop:Generator_UserParentTable="Manufacturer" msprop:Generator_ParentPropName="ManufacturerRow" />
+      <msdata:Relationship name="Device_Device_Association" msdata:parent="Device" msdata:child="Device_Association" msdata:parentkey="id" msdata:childkey="Device_Id" msprop:Generator_UserChildTable="Device_Association" msprop:Generator_ChildPropName="GetDevice_AssociationRows" msprop:Generator_UserRelationName="Device_Device_Association" msprop:Generator_ParentPropName="DeviceRow" msprop:Generator_RelationVarName="relationDevice_Device_Association" msprop:Generator_UserParentTable="Device" />
+      <msdata:Relationship name="Device_OBIS_Details" msdata:parent="Device" msdata:child="OBIS_Details" msdata:parentkey="id" msdata:childkey="Device_Id" msprop:Generator_UserChildTable="OBIS_Details" msprop:Generator_ChildPropName="GetOBIS_DetailsRows" msprop:Generator_UserRelationName="Device_OBIS_Details" msprop:Generator_ParentPropName="DeviceRow" msprop:Generator_RelationVarName="relationDevice_OBIS_Details" msprop:Generator_UserParentTable="Device" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

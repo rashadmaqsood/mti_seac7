@@ -175,6 +175,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DLMS\HeartBeat_Ehsan.cs" />
+    <Compile Include="DLMS\HeartBeat_YTL.cs" />
     <Compile Include="DLMS\HeartBeat_MTI.cs" />
     <Compile Include="DLMS\IConnection.cs" />
     <Compile Include="DLMS\IDecodeAnyObject.cs" />

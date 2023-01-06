@@ -1,0 +1,249 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Communicator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ApplicationConfigsDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\Application_Configs</Value>
+    </Setting>
+    <Setting Name="ServerIP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0.0.0.0</Value>
+    </Setting>
+    <Setting Name="TCPTimeOut" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:01:30</Value>
+    </Setting>
+    <Setting Name="TCP_Inactivity_TimeOut" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:03:30</Value>
+    </Setting>
+    <Setting Name="isTCPTimeOut" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SchedulerPoolingTime" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:01:00</Value>
+    </Setting>
+    <Setting Name="SaveLogToDBFlag" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MinCacheAge" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:05:00</Value>
+    </Setting>
+    <Setting Name="MaxCahceAge" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:10:00</Value>
+    </Setting>
+    <Setting Name="MaxMeterConn" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="MinMeterConn" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">800</Value>
+    </Setting>
+    <Setting Name="MaxPhyConn" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="Port" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1112</Value>
+    </Setting>
+    <Setting Name="startKAScheduler" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Instance" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MDC_ActualMeters</Value>
+    </Setting>
+    <Setting Name="MaxKeepAlive" Type="System.Single" Scope="Application">
+      <Value Profile="(Default)">35</Value>
+    </Setting>
+    <Setting Name="StatisticsUpdateSessionTime" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:30:00</Value>
+    </Setting>
+    <Setting Name="WorkerThreadPoolSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1500</Value>
+    </Setting>
+    <Setting Name="IOThreadPoolSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">4500</Value>
+    </Setting>
+    <Setting Name="ReadOldData" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="timeSync_SecondThreshold" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="timeSync_MinuteThreshold" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="timeSync_transmissionOffset_Seconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="timeSync_transmissionOffset_Minutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="EnableGeneralLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultResetSessionDurationForNonKeepAliveMeters" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:05:00</Value>
+    </Setting>
+    <Setting Name="DefaultResetSessionDurationForKeepAliveMeters" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:15:00</Value>
+    </Setting>
+    <Setting Name="AssociationTimeout" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:05:00</Value>
+    </Setting>
+    <Setting Name="SupportForPrepaid" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MinWorkerThreadPoolSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">400</Value>
+    </Setting>
+    <Setting Name="MinIOThreadPoolSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="RefreshingTimeForAllMeterWindow" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="IsEnableInvalidTimeSync" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SaveMDCSessions" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SaveMDCStatus" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SaveStatistics" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SaveErrorToDB" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ContactorStatusReadDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="GrantContactorOnPermission" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="GrantContactorOFFPermission" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TimeSyncOnBatteryDead" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PermissionParamsWrite" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FFFFFFFF</Value>
+    </Setting>
+    <Setting Name="ApplicationTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MTIwaves</Value>
+    </Setting>
+<<<<<<< HEAD
+=======
+    <Setting Name="HeartBeatWaitTime" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="CheckAccessRights" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="OnConnectionDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="OnRequestDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+>>>>>>> 7751e6bf6c9956e501a69a184fb3524b956411f1
+    <Setting Name="EnableProcessInfoLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableIOLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableErrorLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableLogs" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableLogsBuffer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableWriteToConsole" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableWriteToTextLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableWriteToEventLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EnableWriteToUDPLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogsDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LogsFileSize" Type="System.Single" Scope="Application">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="LogsFileCount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="LoggerBroadcastIPAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">255.255.255.255</Value>
+    </Setting>
+    <Setting Name="LoggerPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">8009</Value>
+    </Setting>
+    <Setting Name="LogMeterSerialNumbersFilter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="EnableMSNFilter" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ByPassContactorStateChecks" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="HDLCAddressLength" Type="System.UInt16" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="MaxInfoBufferTransmit" Type="System.UInt16" Scope="Application">
+      <Value Profile="(Default)">128</Value>
+    </Setting>
+    <Setting Name="MaxInfoBufferReceive" Type="System.UInt16" Scope="Application">
+      <Value Profile="(Default)">128</Value>
+    </Setting>
+    <Setting Name="WinSizeTransmit" Type="System.UInt16" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="WinSizeReceive" Type="System.UInt16" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DeviceAddress" Type="System.UInt16" Scope="Application">
+      <Value Profile="(Default)">17</Value>
+    </Setting>
+    <Setting Name="ResponseTimeOut" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="InActivityTimeOut" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IsKAEnable" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsEnableRetry" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsSkipLoginParam" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Validate_MSN" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="HeartBeatWaitTime" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="CheckAccessRights" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="OnConnectionDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
+    <Setting Name="OnRequestDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
