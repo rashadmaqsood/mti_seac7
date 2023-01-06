@@ -405,13 +405,13 @@
       <Project>{964a11f5-41bb-43f6-a038-3db7c03e0a8f}</Project>
       <Name>DLMS_COSEM_Lib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharedCode\SharedCode.csproj">
-      <Project>{101351f7-97d8-4124-8108-2f08b284241a}</Project>
-      <Name>SharedCode</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DatabaseConfiguration\DatabaseConfiguration\DatabaseConfiguration.csproj">
       <Project>{02658470-02dc-4c1c-93b0-40f71393f8b4}</Project>
       <Name>DatabaseConfiguration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedCode\SharedCode.csproj">
+      <Project>{101351f7-97d8-4124-8108-2f08b284241a}</Project>
+      <Name>SharedCode</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
