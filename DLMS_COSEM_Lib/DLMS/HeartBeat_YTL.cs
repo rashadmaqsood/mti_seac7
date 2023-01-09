@@ -14,7 +14,7 @@ namespace DLMS
     {
         public HeartBeat_YTL()
         {
-            HeartBeatTag = 0x0D;
+            HeartBeatTag = 0xDD;
             HeartBeatResponse = new byte[] { 0xDA };
             HeartBeatMaxLength = 6;
         }
@@ -37,12 +37,12 @@ namespace DLMS
                 {
                     if (APDU[index++] == HeartBeatTag)
                     {
-                        uint mSerialNoLength = (uint)APDU[index++];
+                        uint mSerialNoLength = (uint)APDU[index];
                         MeteSerialNoLength = mSerialNoLength;
-                        if ((size - index) >= MeteSerialNoLength && MeteSerialNoLength > 0)
+                        if ((size - index) >= MeteSerialNoLength && MeteSerialNoLength > 0 && (index + MeteSerialNoLength) < APDU.Length)
                         {
-                            for (int i = 0; (i < mSerialNoLength && index < APDU.Length); index++, i++)
-                                MeterSerialNo[i] = APDU[index];
+                            for (int i = 0; (i < mSerialNoLength);  i++)
+                                MeterSerialNo[i] = APDU[index+mSerialNoLength-i];
                             try
                             {
                                 EventCounter = (UInt16)(((UInt16)(APDU[index]) << 8) | APDU[index + 1]);

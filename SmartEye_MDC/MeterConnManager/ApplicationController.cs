@@ -689,6 +689,12 @@ namespace Communicator.MeterConnManager
 
                         #endregion
 
+                        #region Limit Features
+                        MeterInfo.Read_AR = false;
+                        MeterInfo.ReadPlan.Clear();
+                        MeterInfo.ReadPlan.Add(Schedules.PowerQuantities);
+                        #endregion
+
                         #region // If Task Canceled
 
                         if (ThreadCancelToken != null && _threadCancelToken.IsCancellationRequested)

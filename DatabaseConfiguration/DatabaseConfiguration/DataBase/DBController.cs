@@ -377,7 +377,7 @@ namespace DatabaseConfiguration.DataBase
         {
             try
             {
-                Thread.Sleep(5000);
+                //Thread.Sleep(5000);
                 var manufac_data = _entityModel.Manufacturer_Data.ToList()
                                            .OrderByDescending(m => m.id);
 
