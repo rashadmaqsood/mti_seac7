@@ -428,11 +428,11 @@ namespace Communicator.MTI_MDC
 
                 // Load Application Initialization Settings
                 Init_Application_Config();
-                string dsn = string.Format("Dsn={0}", DatabaseManager.Properties.Settings.Default.MDC_DSN);
+                string dsn = DatabaseManager.Properties.Settings.Default.MDC_DSN;
                 //ConnStr = Crypto.Decrypt(DatabaseManager.Properties.Settings.Default.MDC_DSN, Commons.Key_ConStr);
                 //this._Configurator.ConfigurationHelper.DAL = new MDC_DBAccessLayer(dsn);
-                ConnStr = dsn;
-                this._Configurator.ConfigurationHelper.DAL = new ConfigDBController(ConnStr, DatabaseConfiguration.DataBaseTypes.MDC_DATABASE_With_ODBC);
+                ConnStr = string.Format("Dsn={0}", dsn);
+                this._Configurator.ConfigurationHelper.DAL = new ConfigDBController(dsn, DatabaseConfiguration.DataBaseTypes.MDC_DATABASE_With_ODBC);
                 Commons.GetNetMaskValues();
                 // Load Meter Configurations
                 TryLoadConfiguration(Configuration);
@@ -658,7 +658,7 @@ namespace Communicator.MTI_MDC
 
                 Activity_DataLoggerLocal.AttachGlobalExceptionHandler();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 #if Enable_Error_Logging
                 LocalCommon.LogMDCExceptionIntoFile(ex);
@@ -815,8 +815,12 @@ namespace Communicator.MTI_MDC
             {
                 //string dsn = string.Format("Dsn={0}", DatabaseManager.Properties.Settings.Default.MDC_DSN);
                 //MDC_DBAccessLayer DBDAO = new MDC_DBAccessLayer(dsn);
-
-                ConfigDBController DBDAO = new ConfigDBController(ConnStr, DatabaseConfiguration.DataBaseTypes.MDC_DATABASE_With_ODBC);
+                var connStrToPass = ConnStr;
+                if(ConnStr.Contains("Dsn="))
+                {
+                    connStrToPass = ConnStr.Substring(4);
+                }
+                ConfigDBController DBDAO = new ConfigDBController(connStrToPass, DatabaseConfiguration.DataBaseTypes.MDC_DATABASE_With_ODBC);
                 DBDAO.Load_All_Configurations(configDataSet);
 
                 // Select Configuration

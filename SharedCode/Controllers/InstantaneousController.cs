@@ -1249,7 +1249,7 @@ namespace SharedCode.Controllers
 
                     //GETDouble_Any(captureObj.StOBISCode, 2);
 
-                    double val = GETDouble_Any(captureObj.StOBISCode, 0);
+                    double val = GETDouble_Any(captureObj.StOBISCode, 2);
                     val = Commons.ApplyMultiplier(val, captureObj.Multiplier);
 
                     if (ReadValues.ContainsKey(captureObj.DatabaseFieldName))

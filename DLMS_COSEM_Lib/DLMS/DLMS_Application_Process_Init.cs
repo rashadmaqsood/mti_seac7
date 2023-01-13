@@ -331,7 +331,7 @@ namespace DLMS
             // GET_to_AL.Request_Type = (byte)GET_Method.With_Block;
             // Send_GET.Request_Type = (byte)GET_Method.WithList;
 
-            GET_to_AL.Invoke_Id_Priority = 0xC1;
+            GET_to_AL.Invoke_Id_Priority = 0x81;
             GET_to_AL.COSEM_Attribute_Descriptor.COSEM_Class_Id = 0x0011;
 
             byte[] DATA = { 0x00, 0x00, 0x29, 0x00, 0x00, 0xFF };

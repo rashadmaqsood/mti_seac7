@@ -79,7 +79,7 @@ namespace Communicator.MeterConnManager
         private const string DateFormat = "yyyy-MM-dd HH:mm:ss";
         private List<GridStatusItem> _GridInputStatus;
 
-        
+
         //cumulativeBilling_SinglePhase data_SP;
 
         private IEventDispatcher _appEventDispatcher = null;
@@ -693,6 +693,8 @@ namespace Communicator.MeterConnManager
                         MeterInfo.Read_AR = false;
                         MeterInfo.ReadPlan.Clear();
                         MeterInfo.ReadPlan.Add(Schedules.PowerQuantities);
+                        MeterInfo.Schedule_PQ.SchType = ScheduleType.EveryTime;
+                        MeterInfo.EnableLiveUpdate = false;
                         #endregion
 
                         #region // If Task Canceled
@@ -1041,9 +1043,9 @@ namespace Communicator.MeterConnManager
                         break;
                     }
 
-                    #endregion
+                #endregion
 
-                    LOGOUT:
+                LOGOUT:
                     #region Logout/Disconnect
 
                     try
@@ -1470,7 +1472,7 @@ namespace Communicator.MeterConnManager
                                                     #endregion
                                                 }
 
-                                                SS_Exit:
+                                            SS_Exit:
                                                 ;//Do Nothing
                                             }
                                             catch (Exception ex)
@@ -1512,7 +1514,6 @@ namespace Communicator.MeterConnManager
                                             {
                                                 int retryCount = 0;
                                                 bool lastTimeUpdate = false;
-                                                retry:
                                                 #region Reading Instantaneous Data
 #if Enable_Abstract_Log
                                                 LogMessage("Reading Instantaneous Data", "ID", "R", 1);
@@ -1546,140 +1547,121 @@ namespace Communicator.MeterConnManager
                                                     if (!MeterInfo.DDS110_Compatible)
                                                         data = InstantaneousController.saveToClass(insData, MeterInfo.MSN);
 
-                                                    if (data.active_powerPositive_PhaseA == 0 && data.active_powerPositive_PhaseB == 0 &&
-                                                        data.active_powerPositive_PhaseC == 0 && data.active_powerPositive_PhaseTL > 0)
+                                                    try
                                                     {
-                                                        retryCount++;
-                                                        #region Verification of Instantaneous Data Failed
-#if Enable_Abstract_Log
-                                                        LogMessage("Verification of Instantaneous Data Failed", "IDVRF", "F", 1);
-#endif
-
-#if !Enable_Abstract_Log
-						 LogMessage("Verification of Instantaneous Data Failed", 0);
-#endif
-                                                        #endregion
-                                                        if (retryCount < 2)
-                                                            goto retry;
-                                                    }
-                                                    else
-                                                    {
-                                                        try
-                                                        {
-                                                            DB_Controller.DBConnect.OpenConnection();
-                                                            #region Update Live
+                                                        DB_Controller.DBConnect.OpenConnection();
+                                                        #region Update Live
 #if !Enable_LoadTester_Mode
-                                                            if (MeterInfo.EnableLiveUpdate)
+                                                        if (MeterInfo.EnableLiveUpdate)
+                                                        {
+                                                            try
                                                             {
-                                                                try
+                                                                if (MeterInfo.DDS110_Compatible) //By Azeem
                                                                 {
-                                                                    if (MeterInfo.DDS110_Compatible) //By Azeem
+                                                                    if (DB_Controller.Insert_Update_Instantaneous_Live_byObisList(data, SessionDateTime, ConnectToMeter.ConnectionTime, MeterInfo))//Updating data for live monitoring 
                                                                     {
-                                                                        if (DB_Controller.Insert_Update_Instantaneous_Live_byObisList(data, SessionDateTime, ConnectToMeter.ConnectionTime, MeterInfo))//Updating data for live monitoring 
-                                                                        {
-                                                                            #region Instantaneous live data updated successfully
+                                                                        #region Instantaneous live data updated successfully
 #if Enable_Abstract_Log
-                                                                            LogMessage("Instantaneous live data updated successfully", "IDLD", "S", 1);
+                                                                        LogMessage("Instantaneous live data updated successfully", "IDLD", "S", 1);
 #endif
 #if !Enable_Abstract_Log
 						LogMessage("Instantaneous live data updated successfully", 2);
 #endif
-                                                                            #endregion
-                                                                            MeterInfo.IsLiveUpdated = true;
-                                                                        }
+                                                                        #endregion
+                                                                        MeterInfo.IsLiveUpdated = true;
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (DB_Controller.UpdateInstantaneous_Live(data, SessionDateTime, ConnectToMeter.ConnectionTime, MeterInfo))//Updating data for live monitoring 
+                                                                    {
+                                                                        #region Instantaneous live data updated successfully
+#if Enable_Abstract_Log
+                                                                        LogMessage("Instantaneous live data updated successfully", "IDLD", "S", 1);
+#endif
+#if !Enable_Abstract_Log
+						LogMessage("Instantaneous live data updated successfully", 2);
+#endif
+                                                                        #endregion
+                                                                        MeterInfo.IsLiveUpdated = true;
                                                                     }
                                                                     else
                                                                     {
-                                                                        if (DB_Controller.UpdateInstantaneous_Live(data, SessionDateTime, ConnectToMeter.ConnectionTime, MeterInfo))//Updating data for live monitoring 
-                                                                        {
-                                                                            #region Instantaneous live data updated successfully
+                                                                        #region Unable to update Instantaneous live data Server Inserting as a new Record
 #if Enable_Abstract_Log
-                                                                            LogMessage("Instantaneous live data updated successfully", "IDLD", "S", 1);
-#endif
-#if !Enable_Abstract_Log
-						LogMessage("Instantaneous live data updated successfully", 2);
-#endif
-                                                                            #endregion
-                                                                            MeterInfo.IsLiveUpdated = true;
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            #region Unable to update Instantaneous live data Server Inserting as a new Record
-#if Enable_Abstract_Log
-                                                                            LogMessage("Unable to update Instantaneous live data Server Inserting as a new Record", "IDLD", "N", 1);
+                                                                        LogMessage("Unable to update Instantaneous live data Server Inserting as a new Record", "IDLD", "N", 1);
 #endif
 #if !Enable_Abstract_Log
 						LogMessage("Unable to update Instantaneous live data Server Inserting as a new Record", 2);
 #endif
-                                                                            #endregion
-                                                                            if (DB_Controller.InsertInstantaneous_Live(data, SessionDateTime, ConnectToMeter.ConnectionTime, MeterInfo))
-                                                                                MeterInfo.IsLiveUpdated = true;
-                                                                        }
+                                                                        #endregion
+                                                                        if (DB_Controller.InsertInstantaneous_Live(data, SessionDateTime, ConnectToMeter.ConnectionTime, MeterInfo))
+                                                                            MeterInfo.IsLiveUpdated = true;
                                                                     }
                                                                 }
-                                                                catch (Exception ex)
-                                                                {
-                                                                    LogMessage(String.Format("Unable to update Instantaneous live data\r\nDetails:{0}", ex.Message), 4);
-                                                                }
                                                             }
-#endif
-                                                            #endregion
-                                                            #region Save
-                                                            if (MeterInfo.SavePQForcibly || (MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.SaveSchedule_PQ) && MeterInfo.SaveSchedule_PQ.SchType != ScheduleType.Disabled && MeterInfo.Save_PQ))
+                                                            catch (Exception ex)
                                                             {
-                                                                var saveFlag = false;
-                                                                if (MeterInfo.DDS110_Compatible)
-                                                                    saveFlag = DB_Controller.InsertInstantaneous_byObisList(data, SessionDateTime, MeterInfo);
-                                                                else
-                                                                    saveFlag = DB_Controller.SaveInstantaneous(data, SessionDateTime, _signalStrength, signal_strength_read, MeterInfo);
-
-                                                                lastTimeUpdate = saveFlag;
-                                                                if (saveFlag)
-                                                                {
-
-                                                                    MeterInfo.PreUpdateSchedule(MeterInfo.SaveSchedule_PQ, SessionDateTime);
-                                                                    if (MeterInfo.SaveSchedule_PQ.SchType == ScheduleType.Disabled)
-                                                                        MIUF.SaveSchedule_PQ = true;
-                                                                    MIUF.last_Save_PQ_time = true;
-                                                                    if (MeterInfo.SaveSchedule_PQ.IsSuperImmediate)
-                                                                        MIUF.SuperImmediate_Save_PQ = true;
-                                                                    if (MeterInfo.SaveSchedule_PQ.SchType == ScheduleType.IntervalFixed || MeterInfo.SaveSchedule_PQ.SchType == ScheduleType.IntervalRandom)
-                                                                        MIUF.base_time_Save_PQ = true;
-                                                                    MeterInfo.SaveSchedule_PQ.IsSuperImmediate = false;
-                                                                    #region Saving Instantaneous Data completed
-
-                                                                    LogMessage("Saving Instantaneous Data completed", "IDD", "S", 1);
-
-                                                                    #endregion
-                                                                }
-                                                                else
-                                                                {
-                                                                    #region
-
-                                                                    LogMessage(string.Format("Error while saving Instantaneous Data (Error Code:{0})", (int)MDCErrors.App_Instantaneous_Data_Save), "IDD", "F", 1);
-
-                                                                    #endregion
-                                                                }
+                                                                LogMessage(String.Format("Unable to update Instantaneous live data\r\nDetails:{0}", ex.Message), 4);
                                                             }
-                                                            #endregion
                                                         }
-                                                        finally
+#endif
+                                                        #endregion
+                                                        #region Save
+                                                        if (MeterInfo.SavePQForcibly || (MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.SaveSchedule_PQ) && MeterInfo.SaveSchedule_PQ.SchType != ScheduleType.Disabled && MeterInfo.Save_PQ))
                                                         {
-                                                            DB_Controller.DBConnect.CloseConnection();
+                                                            var saveFlag = false;
+                                                            if (MeterInfo.DDS110_Compatible)
+                                                                saveFlag = DB_Controller.InsertInstantaneous_byObisList(data, SessionDateTime, MeterInfo);
+                                                            else
+                                                                saveFlag = DB_Controller.SaveInstantaneous(data, SessionDateTime, _signalStrength, signal_strength_read, MeterInfo);
+
+                                                            lastTimeUpdate = saveFlag;
+                                                            if (saveFlag)
+                                                            {
+
+                                                                MeterInfo.PreUpdateSchedule(MeterInfo.SaveSchedule_PQ, SessionDateTime);
+                                                                if (MeterInfo.SaveSchedule_PQ.SchType == ScheduleType.Disabled)
+                                                                    MIUF.SaveSchedule_PQ = true;
+                                                                MIUF.last_Save_PQ_time = true;
+                                                                if (MeterInfo.SaveSchedule_PQ.IsSuperImmediate)
+                                                                    MIUF.SuperImmediate_Save_PQ = true;
+                                                                if (MeterInfo.SaveSchedule_PQ.SchType == ScheduleType.IntervalFixed || MeterInfo.SaveSchedule_PQ.SchType == ScheduleType.IntervalRandom)
+                                                                    MIUF.base_time_Save_PQ = true;
+                                                                MeterInfo.SaveSchedule_PQ.IsSuperImmediate = false;
+                                                                #region Saving Instantaneous Data completed
+
+                                                                LogMessage("Saving Instantaneous Data completed", "IDD", "S", 1);
+
+                                                                #endregion
+                                                            }
+                                                            else
+                                                            {
+                                                                #region
+
+                                                                LogMessage(string.Format("Error while saving Instantaneous Data (Error Code:{0})", (int)MDCErrors.App_Instantaneous_Data_Save), "IDD", "F", 1);
+
+                                                                #endregion
+                                                            }
                                                         }
-
-                                                        MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_PQ, SessionDateTime);
-                                                        if (MeterInfo.Schedule_PQ.SchType == ScheduleType.Disabled)
-                                                            MIUF.Schedule_PQ = true;
-                                                        MIUF.last_PQ_time = lastTimeUpdate;
-                                                        if (MeterInfo.Schedule_PQ.IsSuperImmediate)
-                                                            MIUF.SuperImmediate_PQ = true;
-                                                        if (MeterInfo.Schedule_PQ.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_PQ.SchType == ScheduleType.IntervalRandom)
-                                                            MIUF.base_time_PQ = true;
-
-                                                        MeterInfo.Schedule_PQ.IsSuperImmediate = false;
-                                                        IsProcessed = true;
+                                                        #endregion
                                                     }
+                                                    finally
+                                                    {
+                                                        DB_Controller.DBConnect.CloseConnection();
+                                                    }
+
+                                                    MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_PQ, SessionDateTime);
+                                                    if (MeterInfo.Schedule_PQ.SchType == ScheduleType.Disabled)
+                                                        MIUF.Schedule_PQ = true;
+                                                    MIUF.last_PQ_time = lastTimeUpdate;
+                                                    if (MeterInfo.Schedule_PQ.IsSuperImmediate)
+                                                        MIUF.SuperImmediate_PQ = true;
+                                                    if (MeterInfo.Schedule_PQ.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_PQ.SchType == ScheduleType.IntervalRandom)
+                                                        MIUF.base_time_PQ = true;
+
+                                                    MeterInfo.Schedule_PQ.IsSuperImmediate = false;
+                                                    IsProcessed = true;
                                                 }
                                             }
                                             catch (Exception ex)
@@ -2137,7 +2119,7 @@ namespace Communicator.MeterConnManager
                                                 }
                                                 #endregion
                                             }
-                                            Exit:
+                                        Exit:
                                             #region Events Disabled
 #if Enable_Abstract_Log
                                             // if (!MeterInfo.Read_EV)
@@ -2891,7 +2873,7 @@ namespace Communicator.MeterConnManager
                 {
                     data = Billing_Controller.ReadCummulativeBillingDataByOBISList();
                 }
-                else if(IsSinglePhase)
+                else if (IsSinglePhase)
                 {
                     billData = Billing_Controller.GetCumulativeBillingData(true);
                 }
@@ -2921,7 +2903,7 @@ namespace Communicator.MeterConnManager
                 #endregion
                 DB_Controller.DBConnect.OpenConnection();
 
-                if(!MeterInfo.DDS110_Compatible && billData != null)
+                if (!MeterInfo.DDS110_Compatible && billData != null)
                     data = Billing_Controller.saveToClass(billData, MeterInfo.MSN);
 
                 if (data != null && !String.IsNullOrEmpty(data.DBColumns.ToString()) && !String.IsNullOrEmpty(data.DBValues.ToString()))
@@ -2932,7 +2914,7 @@ namespace Communicator.MeterConnManager
                         /*string log = $"MeterInfo MSN : {MeterInfo.MSN}, MeterSerialObjectMSN: {connectToMeter.MeterSerialNumberObj.ToString()}" +
                             $"columns: {data.DBColumns}, Values: {data.DBValues}";
                         LogMessage("",log,"I",2);*/
-                        if(MeterInfo.MSN != connectToMeter.MeterSerialNumberObj.ToString())
+                        if (MeterInfo.MSN != connectToMeter.MeterSerialNumberObj.ToString())
                         {
                             MeterInfo = DB_Controller.GetMeterSettings(connectToMeter.MeterSerialNumberObj.ToString());
                         }
@@ -2946,7 +2928,7 @@ namespace Communicator.MeterConnManager
                         //}
                         //else if (MeterInfo.DetailedBillingID == 0)
                         //{
-                            
+
                         //    //saveFlag = DB_Controller.saveCumulativeBillingData(data, SessionDateTime, MeterInfo);
                         //}
                         //else
@@ -3672,9 +3654,9 @@ namespace Communicator.MeterConnManager
                                             }
 
 
-                                            #endregion
+                                        #endregion
 
-                                            ExitFinally:
+                                        ExitFinally:
                                             IsProcessed = true;
                                         }
                                         catch (Exception e)
@@ -3791,9 +3773,9 @@ namespace Communicator.MeterConnManager
                         LoadProfile_Controller.LoadProfileInformation = null;
                     }
 
-                    #endregion
+                #endregion
 
-                    Exit:
+                Exit:
                     ;
                 }
 
@@ -3869,75 +3851,75 @@ namespace Communicator.MeterConnManager
                                         if (MeterInfo.Schedule_CB.IsSuperImmediate || MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.Schedule_CB))
                                         {
                                             ReadAndSaveCummBilling(true);
-//                                            BillingData billData = null;
-//                                            try
-//                                            {
-//                                                LogMessage("Reading Cumulative Billing Data", "CB", "R");
-//                                                if (MeterInfo.DDS110_Compatible) data = Billing_Controller.ReadCummulativeBillingDataByOBISList(); //Billing_Controller.ReadCummulativeBillingsDataDDS_SinglePhase();
-//                                                else billData = Billing_Controller.GetCumulativeBillingData(true);
-//                                                LogMessage("Reading Cumulative Billing Data Completed :-)", "CB", "S");
+                                            //                                            BillingData billData = null;
+                                            //                                            try
+                                            //                                            {
+                                            //                                                LogMessage("Reading Cumulative Billing Data", "CB", "R");
+                                            //                                                if (MeterInfo.DDS110_Compatible) data = Billing_Controller.ReadCummulativeBillingDataByOBISList(); //Billing_Controller.ReadCummulativeBillingsDataDDS_SinglePhase();
+                                            //                                                else billData = Billing_Controller.GetCumulativeBillingData(true);
+                                            //                                                LogMessage("Reading Cumulative Billing Data Completed :-)", "CB", "S");
 
-//                                                if (billData != null)
-//                                                {
-//                                                    if (MeterInfo.Save_CB)
-//                                                    {
-//                                                        DB_Controller.DBConnect.OpenConnection();
-//                                                        if (!MeterInfo.DDS110_Compatible)
-//                                                            data = Billing_Controller.saveToClass(billData, MeterInfo.MSN);
+                                            //                                                if (billData != null)
+                                            //                                                {
+                                            //                                                    if (MeterInfo.Save_CB)
+                                            //                                                    {
+                                            //                                                        DB_Controller.DBConnect.OpenConnection();
+                                            //                                                        if (!MeterInfo.DDS110_Compatible)
+                                            //                                                            data = Billing_Controller.saveToClass(billData, MeterInfo.MSN);
 
-//                                                        bool save_Flag = DB_Controller.saveCumulativeBillingDataEx(data, SessionDateTime, MeterInfo);
-//                                                        if (save_Flag)
-//                                                        {
-//                                                            LogMessage("Saving Cumulative billing Data completed", "CBD", "S");
-//                                                            if (MeterInfo.isPrepaid && DB_Controller.saveCumulativeBillingForPrepaid_SinglePhase(data, SessionDateTime, MeterInfo))
-//                                                            {
-//                                                                LogMessage("Cumulative Billing Data saved for Prepaid", "CBPD", "S");
-//                                                            }
-//                                                        }
-//                                                        else
-//                                                        {
-//                                                            LogMessage(string.Format("Error Occurred while reading Cumulative billing Data (Error Code:{0})", (int)MDCErrors.App_Cum_Billing_Save), "CB", "F");
-//                                                        }
+                                            //                                                        bool save_Flag = DB_Controller.saveCumulativeBillingDataEx(data, SessionDateTime, MeterInfo);
+                                            //                                                        if (save_Flag)
+                                            //                                                        {
+                                            //                                                            LogMessage("Saving Cumulative billing Data completed", "CBD", "S");
+                                            //                                                            if (MeterInfo.isPrepaid && DB_Controller.saveCumulativeBillingForPrepaid_SinglePhase(data, SessionDateTime, MeterInfo))
+                                            //                                                            {
+                                            //                                                                LogMessage("Cumulative Billing Data saved for Prepaid", "CBPD", "S");
+                                            //                                                            }
+                                            //                                                        }
+                                            //                                                        else
+                                            //                                                        {
+                                            //                                                            LogMessage(string.Format("Error Occurred while reading Cumulative billing Data (Error Code:{0})", (int)MDCErrors.App_Cum_Billing_Save), "CB", "F");
+                                            //                                                        }
 
-//#if Enable_Abstract_Log
-//                                                        LogMessage("Saving Cumulative billing Data completed", "CBD", "S", 2);
-//#endif
+                                            //#if Enable_Abstract_Log
+                                            //                                                        LogMessage("Saving Cumulative billing Data completed", "CBD", "S", 2);
+                                            //#endif
 
-//                                                        if (MeterInfo.EnableLiveUpdate)
-//                                                        {
+                                            //                                                        if (MeterInfo.EnableLiveUpdate)
+                                            //                                                        {
 
-//                                                            //Saves Cumm BIlling Data in CUmulative Data Live
-//                                                            LogMessage("Saving Cumulative billing Data Live(Cumm)", "CBLD", "R", 2);
-//                                                            DB_Controller.UpdateCumulativeEnergy_Live(data, _session_DateTime, MeterInfo);
-//                                                            LogMessage("Cumulative Billing Data Live(Cumm) saved", "CBLD", "S", 1);
-//                                                            //End
-//                                                        }
+                                            //                                                            //Saves Cumm BIlling Data in CUmulative Data Live
+                                            //                                                            LogMessage("Saving Cumulative billing Data Live(Cumm)", "CBLD", "R", 2);
+                                            //                                                            DB_Controller.UpdateCumulativeEnergy_Live(data, _session_DateTime, MeterInfo);
+                                            //                                                            LogMessage("Cumulative Billing Data Live(Cumm) saved", "CBLD", "S", 1);
+                                            //                                                            //End
+                                            //                                                        }
 
 
-//                                                    }
+                                            //                                                    }
 
-//                                                    MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_CB, SessionDateTime);
-//                                                    MIUF.Schedule_CB = true;
-//                                                    MIUF.last_CB_time = true;
-//                                                    if (MeterInfo.Schedule_CB.IsSuperImmediate)
-//                                                        MIUF.SuperImmediate_CB = true;
-//                                                    if (MeterInfo.Schedule_CB.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_CB.SchType == ScheduleType.IntervalRandom)
-//                                                        MIUF.base_time_CB = true;
-//                                                    MeterInfo.Schedule_CB.IsSuperImmediate = false;
-//                                                    IsProcessed = true;
-//                                                }
-//                                            }
-//                                            catch (Exception ex)
-//                                            {
-//                                                LogMessage(ex, 4, "Cumulative Billing Data");
-//                                                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
-//                                                StatisticsObj.InsertError(ex, _session_DateTime, 15);
-//                                            }
-//                                            finally
-//                                            {
-//                                                if (IsProcessed)
-//                                                    ResetMaxIOFailure();
-//                                            }
+                                            //                                                    MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_CB, SessionDateTime);
+                                            //                                                    MIUF.Schedule_CB = true;
+                                            //                                                    MIUF.last_CB_time = true;
+                                            //                                                    if (MeterInfo.Schedule_CB.IsSuperImmediate)
+                                            //                                                        MIUF.SuperImmediate_CB = true;
+                                            //                                                    if (MeterInfo.Schedule_CB.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_CB.SchType == ScheduleType.IntervalRandom)
+                                            //                                                        MIUF.base_time_CB = true;
+                                            //                                                    MeterInfo.Schedule_CB.IsSuperImmediate = false;
+                                            //                                                    IsProcessed = true;
+                                            //                                                }
+                                            //                                            }
+                                            //                                            catch (Exception ex)
+                                            //                                            {
+                                            //                                                LogMessage(ex, 4, "Cumulative Billing Data");
+                                            //                                                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
+                                            //                                                StatisticsObj.InsertError(ex, _session_DateTime, 15);
+                                            //                                            }
+                                            //                                            finally
+                                            //                                            {
+                                            //                                                if (IsProcessed)
+                                            //                                                    ResetMaxIOFailure();
+                                            //                                            }
                                         }
                                     }
 
@@ -4003,7 +3985,7 @@ namespace Communicator.MeterConnManager
                                                     LogMessage("", "SSLD", rslt ? "N" : "F", 2);
                                                 }
 
-                                                SS_Exit:;// Do Nothing
+                                            SS_Exit:;// Do Nothing
                                             }
                                             catch (Exception ex)
                                             {
@@ -4065,24 +4047,24 @@ namespace Communicator.MeterConnManager
                                                     if (MeterInfo.EnableLiveUpdate)
                                                     {
                                                         #region Live Update
-                                                            //if (ConnectToMeter.CurrentConnection == PhysicalConnectionType.KeepAlive)//For Keep Alive
-                                                            //{
-                                                            try
+                                                        //if (ConnectToMeter.CurrentConnection == PhysicalConnectionType.KeepAlive)//For Keep Alive
+                                                        //{
+                                                        try
+                                                        {
+                                                            if (DB_Controller.UpdateInstantaneous_Live_SinglePhase(MeterInfo.MeterID, data, SessionDateTime, ConnectToMeter.ConnectionTime, (int)MeterInfo.MeterType_OBJ))
+                                                                MeterInfo.IsLiveUpdated = true;
+                                                            else if (!MeterInfo.IsLiveUpdated)
                                                             {
-                                                                if (DB_Controller.UpdateInstantaneous_Live_SinglePhase(MeterInfo.MeterID, data, SessionDateTime, ConnectToMeter.ConnectionTime, (int)MeterInfo.MeterType_OBJ))
+                                                                LogMessage(String.Format("Unable to update PQ live data Server Inserted as a new Row"), "IDL", "N", 1);
+                                                                if (DB_Controller.InsertInstantaneous_Live_SinglePhase(MeterInfo.MeterID, data, SessionDateTime, ConnectToMeter.ConnectionTime, (int)MeterInfo.MeterType_OBJ))
                                                                     MeterInfo.IsLiveUpdated = true;
-                                                                else if (!MeterInfo.IsLiveUpdated)
-                                                                {
-                                                                    LogMessage(String.Format("Unable to update PQ live data Server Inserted as a new Row"), "IDL", "N", 1);
-                                                                    if (DB_Controller.InsertInstantaneous_Live_SinglePhase(MeterInfo.MeterID, data, SessionDateTime, ConnectToMeter.ConnectionTime, (int)MeterInfo.MeterType_OBJ))
-                                                                        MeterInfo.IsLiveUpdated = true;
-                                                                }
                                                             }
-                                                            catch (Exception ex)
-                                                            {
-                                                                LogMessage(String.Format("Unable to update PQ live data\r\nDetails:{0}", ex.Message));
-                                                            }
-                                                            //}
+                                                        }
+                                                        catch (Exception ex)
+                                                        {
+                                                            LogMessage(String.Format("Unable to update PQ live data\r\nDetails:{0}", ex.Message));
+                                                        }
+                                                        //}
 
                                                         #endregion
                                                         LogMessage("Saving Instantaneous Data completed", "IDD", "S");
@@ -4374,7 +4356,7 @@ namespace Communicator.MeterConnManager
 
                                                 #endregion
                                             }
-                                            Exit:
+                                        Exit:
                                             if (!MeterInfo.Read_EV)
                                                 LogMessage("Events Disabled", 3);
                                         }
@@ -4898,7 +4880,7 @@ namespace Communicator.MeterConnManager
             }
             catch (Exception ex)
             {
-                throw new Exception(string.Format("Error while reading Alarm Status Register(Error Code:{0})"+Environment.NewLine+"Detail: {1}", (int)MDCErrors.App_AlarmRegister_Read, ex.InnerException.Message), ex);
+                throw new Exception(string.Format("Error while reading Alarm Status Register(Error Code:{0})" + Environment.NewLine + "Detail: {1}", (int)MDCErrors.App_AlarmRegister_Read, ex.InnerException.Message), ex);
             }
         }
 
@@ -4981,7 +4963,7 @@ namespace Communicator.MeterConnManager
         {
             try
             {
-                MeterInfo.logoutMeter = false;
+                //MeterInfo.logoutMeter = false;
                 if (PermissionToWriteParams == null && PermissionToWriteParams.Count < 32)
                     PermissionToWriteParams = Commons.GetSubscripotionArray(Settings.Default.PermissionParamsWrite);
 
@@ -5080,7 +5062,7 @@ namespace Communicator.MeterConnManager
                         if (MIUF.IsContactorStatusUpdate)
                             ResetMaxIOFailure();
                     }
-                    Exit: MeterInfo.IsMeterParameterized = true;
+                Exit: MeterInfo.IsMeterParameterized = true;
                 }
 
                 #endregion

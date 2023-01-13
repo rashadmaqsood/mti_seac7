@@ -119,6 +119,7 @@
     <Compile Include="CommonModels\configuration_new.cs" />
     <Compile Include="CommonModels\users.cs" />
     <Compile Include="DataBaseTypes.cs" />
+    <Compile Include="DataBase\ConnectionStringConverter.cs" />
     <Compile Include="DataBase\DBController.cs" />
     <Compile Include="CommonModels\device.cs" />
     <Compile Include="CommonModels\device_association.cs" />

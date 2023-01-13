@@ -105,9 +105,9 @@ namespace DatabaseConfiguration.DataBase
                 }
                 else if (active_database == DataBaseTypes.MDC_DATABASE_With_ODBC)
                 {
-                    _conn = new OdbcConnection()
+                    _conn = new MySqlConnection()
                     {
-                        ConnectionString = _connString
+                        ConnectionString = ConnectionStringConverter.ODBCtoMySqlConnectionString(_connString)
                     };
                 }
                 else

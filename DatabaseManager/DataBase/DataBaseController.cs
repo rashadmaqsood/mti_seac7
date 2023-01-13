@@ -1331,9 +1331,9 @@ namespace DatabaseManager.Database
             {
                 string query = string.Empty;
                 //GetColumnsValuesString(Read_Values, out string columnsList, out string valuesList, out string columnsValuesList);
-                query = $"INSERT INTO instantaneous_data (`msn`, `session_date_time`, `time`, `date`, {inst_Class.DBColumns} `meter_date_time`,`ct`,`pt`,`customer_id`,`global_device_id`) "
-                      + $"VALUES ('{MeterInfo.MSN}', '{SessionDateTime.ToString(DateFormat)}', CURTIME(), CURDATE(), {inst_Class.DBValues} "
-                      + $"'{inst_Class.dateTime.GetDateTime().ToString(DateFormat)}',{MeterInfo.CT},{MeterInfo.PT},{MeterInfo.Customer_ID},'{MeterInfo.GlobalDeviceId}')";
+                query = $"INSERT INTO instantaneous_data (`msn`,`global_device_id`, `mdc_read_datetime`, `db_datetime`, {inst_Class.DBColumns} `meter_datetime`) "
+                      + $"VALUES ('{MeterInfo.MSN}','{MeterInfo.GlobalDeviceId}', '{SessionDateTime.ToString(DateFormat)}', now(), {inst_Class.DBValues} "
+                      + $"'{inst_Class.dateTime.GetDateTime().ToString(DateFormat)}')";
 
                 DBConnect.OpenConnection();
                 OdbcCommand Command = new OdbcCommand(query, Connection);
