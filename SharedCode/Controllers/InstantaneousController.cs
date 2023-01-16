@@ -1245,11 +1245,12 @@ namespace SharedCode.Controllers
                 {
                     if (captureObj.StOBISCode.OBISIndex.Equals(Get_Index.Meter_Clock)) continue;
 
-                    if (string.IsNullOrEmpty(captureObj.DatabaseFieldName)) continue;
+                    if (string.IsNullOrEmpty(captureObj.DatabaseFieldName)) 
+                        continue;
 
                     //GETDouble_Any(captureObj.StOBISCode, 2);
-
-                    double val = GETDouble_Any(captureObj.StOBISCode, 2);
+                    var obisCode = GetOBISCode(captureObj.StOBISCode.OBISIndex);
+                    double val = GETDouble_Any(obisCode, 2);
                     val = Commons.ApplyMultiplier(val, captureObj.Multiplier);
 
                     if (ReadValues.ContainsKey(captureObj.DatabaseFieldName))

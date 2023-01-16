@@ -6562,11 +6562,11 @@ namespace DLMS
         ///</summary>
         ACTIVE_POWER_ABS_AGGREGATE = 0x000301000F1B00FF,
         ///<summary>
-        /// Description: Quantity_Name= REACTIVE POWER ABS AGGREGATE
+        /// Description: Quantity_Name= Aggregate_Reactive_Power_Absolute
         /// OBIS_CODE = 1.0.3.180.0.255
         /// Description
         ///</summary>
-        REACTIVE_POWER_ABS_AGGREGATE = 0x00030100038000FF,
+        Aggregate_Reactive_Power_Absolute = 0x00030100038000FF,
         ///<summary>
         /// Description: Quantity_Name= ACTIVE POWER IMPORT PHASE_1
         /// OBIS_CODE = 1.0.21.27.0.255

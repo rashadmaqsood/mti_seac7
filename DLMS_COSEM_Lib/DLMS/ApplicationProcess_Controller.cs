@@ -1676,7 +1676,7 @@ namespace DLMS
                 if (APSAPTable.OBISLabelLookup.Keys.Count <= 0)
                     Actual_OBIS_CODE = OBIS_CODE;
                 else
-                    Actual_OBIS_CODE = APSAPTable.OBISLabelLookup[OBIS_CODE];
+                    Actual_OBIS_CODE = APSAPTable.OBISLabelLookup[Actual_OBIS_CODE];
             }
             catch
             {
