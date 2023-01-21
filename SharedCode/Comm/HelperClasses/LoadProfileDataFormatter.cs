@@ -208,7 +208,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff1_KwhImport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Positive_T1;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -221,7 +221,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff2_KwhImport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Positive_T2;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -235,7 +235,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff3_KwhImport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Positive_T3;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -248,7 +248,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff4_KwhImport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Positive_T4;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -261,7 +261,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_TariffTL_KwhImport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Positive_TL;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -275,7 +275,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff1_KwhExport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Negative_T1;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -288,7 +288,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff2_KwhExport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Negative_T2;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -302,7 +302,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff3_KwhExport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Negative_T3;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -315,7 +315,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff4_KwhExport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Negative_T4;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -328,7 +328,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_TariffTL_KwhExport;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Negative_TL;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -342,7 +342,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff1_KwhAbsolute;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Absolute_T1;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -355,7 +355,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff2_KwhAbsolute;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Absolute_T2;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -369,7 +369,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff3_KwhAbsolute;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Absolute_T3;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -382,7 +382,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_Tariff4_KwhAbsolute;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Absolute_T4;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 
@@ -395,7 +395,7 @@ namespace SharedCode.Comm.HelperClasses
             Load_Profile_Selectable_entity.Unit = Unit.kWh;
             Load_Profile_Selectable_entity.Format = "F3";
             Load_Profile_Selectable_entity.IsDataPresent = false;
-            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Cumulative_TariffTL_KwhAbsolute;
+            Load_Profile_Selectable_entity.OBIS_Index = Get_Index.Active_Energy_Absolute_TL;
             Load_Profile_Selectable_entity.CapturePeriod = new TimeSpan(0);
             Load_Profile_Selectable_entity.Multiplier = -3.0f;
 

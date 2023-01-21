@@ -3773,7 +3773,7 @@ namespace SharedCode.Others
                 }
                 if (SelectedParameters.Contains(Params.ParamLoadProfileChannelInfo))
                 {
-                    loadedObjs = XMLParamsProcessor.Load_LoadProfileShowError(fileURL, LoadProfileScheme.Scheme_1);
+                    loadedObjs = XMLParamsProcessor.Load_LoadProfileShowError(fileURL, LoadProfileScheme.Load_Profile);
                     if (loadedObjs != null && loadedObjs.Length > 0)
                     {
                         try
@@ -3788,7 +3788,7 @@ namespace SharedCode.Others
                 }
                 if (SelectedParameters.Contains(Params.ParamLoadProfileChannelInfo_2))
                 {
-                    loadedObjs = XMLParamsProcessor.Load_LoadProfileShowError(fileURL, LoadProfileScheme.Scheme_2);
+                    loadedObjs = XMLParamsProcessor.Load_LoadProfileShowError(fileURL, LoadProfileScheme.Load_Profile_Channel_2);
                     if (loadedObjs != null && loadedObjs.Length > 0)
                     {
                         try
@@ -4175,7 +4175,7 @@ namespace SharedCode.Others
                         //        chList.Add(item);
                         //    }
                         //}
-                        paramterConfigurationSet.ParamLoadProfileChannelInfo = SubParamList.Cast<LoadProfileChannelInfo>().ToList().FindAll(x=>x.Scheme==LoadProfileScheme.Scheme_1);
+                        paramterConfigurationSet.ParamLoadProfileChannelInfo = SubParamList.Cast<LoadProfileChannelInfo>().ToList().FindAll(x=>x.Scheme==LoadProfileScheme.Load_Profile);
                     }
                     catch
                     {
@@ -4197,7 +4197,7 @@ namespace SharedCode.Others
                         //    }
                         //    //paramterConfigurationSet.ParamLoadProfileChannelInfo_2 = SubParamList.Cast<LoadProfileChannelInfo>().ToList();
                         //}
-                        paramterConfigurationSet.ParamLoadProfileChannelInfo_2 = SubParamList.Cast<LoadProfileChannelInfo>().ToList().FindAll(x => x.Scheme == LoadProfileScheme.Scheme_2);
+                        paramterConfigurationSet.ParamLoadProfileChannelInfo_2 = SubParamList.Cast<LoadProfileChannelInfo>().ToList().FindAll(x => x.Scheme == LoadProfileScheme.Load_Profile_Channel_2);
                     }
                     catch
                     {
@@ -4861,7 +4861,7 @@ namespace SharedCode.Others
                     LoadProfileChannelInfo[] paramloadedObjs = paramterConfigurationSet.ParamLoadProfileChannelInfo.ToArray();
                     if (paramloadedObjs != null && paramloadedObjs.Length > 0)
                     {
-                        XMLParamsProcessor.Save_LoadProfileShowError(fileURL, paramloadedObjs, LoadProfileScheme.Scheme_1);
+                        XMLParamsProcessor.Save_LoadProfileShowError(fileURL, paramloadedObjs, LoadProfileScheme.Load_Profile);
                     }
                 }
 
@@ -4871,7 +4871,7 @@ namespace SharedCode.Others
                     LoadProfileChannelInfo[] paramloadedObjs = paramterConfigurationSet.ParamLoadProfileChannelInfo_2.ToArray();
                     if (paramloadedObjs != null && paramloadedObjs.Length > 0)
                     {
-                        XMLParamsProcessor.Save_LoadProfileShowError(fileURL, paramloadedObjs, LoadProfileScheme.Scheme_2);
+                        XMLParamsProcessor.Save_LoadProfileShowError(fileURL, paramloadedObjs, LoadProfileScheme.Load_Profile_Channel_2);
                     }
                 }
 

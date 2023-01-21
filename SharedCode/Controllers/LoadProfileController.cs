@@ -732,7 +732,7 @@ namespace SharedCode.Controllers
             Get_Index LP_Index = Get_Index.Load_Profile;
             switch (lpScheme)
             {
-                case LoadProfileScheme.Scheme_2: LP_Index = Get_Index.Load_Profile_2; break;
+                case LoadProfileScheme.Load_Profile_Channel_2: LP_Index = Get_Index.Daily_Load_Profile; break;
                 case LoadProfileScheme.PQ_Load_Profile: LP_Index = Get_Index.PQ_Load_Profile; break;
             }
             return LP_Index;
@@ -742,7 +742,7 @@ namespace SharedCode.Controllers
             Get_Index LP_Index = Get_Index.Load_Profile_Counter;
             switch (lpScheme)
             {
-                case LoadProfileScheme.Scheme_2: LP_Index = Get_Index.Load_Profile_Counter_2; break;
+                case LoadProfileScheme.Load_Profile_Channel_2: LP_Index = Get_Index.Load_Profile_Counter_2; break;
                 case LoadProfileScheme.PQ_Load_Profile: LP_Index = Get_Index.PQ_Load_Profile_Counter; break;
             }
             return LP_Index;
@@ -775,7 +775,7 @@ namespace SharedCode.Controllers
 
             //Cumulative_TariffTL_KwhAbsolute             Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_TariffTL_KwhAbsolute;
+            OBis = Get_Index.Active_Energy_Absolute_TL;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -783,7 +783,7 @@ namespace SharedCode.Controllers
 
             ///Cumulative_TariffTL_KvarhAbsolute             Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_TariffTL_KvarhAbsolute;
+            OBis = Get_Index.Reactive_Energy_Absolute_TL;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -1191,9 +1191,9 @@ namespace SharedCode.Controllers
                     var Load_Profile_Capture_Period2 = _AP_Controller.GetOBISCode(Get_Index.Load_Profile_Capture_Period_2);
                     var Load_Profile_Capture_Period3 = _AP_Controller.GetOBISCode(Get_Index.PQ_Load_Profile_Capture_Period);
                     ///Read Load Profile Channels
-                    foreach (var item in LoadProfileInfo.CaptureBufferInfo)
+                    foreach (var item in LoadProfileInfo.CaptureObjectsInfo)
                     {
-                        int indexLoadChannel = AllSelectableValues.FindIndex((x) => x.OBIS_Index == item.INDEX);
+                        int indexLoadChannel = AllSelectableValues.FindIndex((x) => x.OBIS_Index == item.StOBISCode.OBISIndex);
                         LoadProfileChannelInfo ChannelInfoT = null;
                         if (indexLoadChannel != -1)
                         {
@@ -1203,23 +1203,24 @@ namespace SharedCode.Controllers
                         }
                         else if (
                             IncludeFixChannels ||
-                            (item.INDEX != Meter_Clock &&
-                            item.INDEX != Load_Profile_Counter &&
-                            item.INDEX != Load_Profile_Counter_2 &&
-                            item.INDEX != Load_Profile_Counter_3 &&
-                            item.INDEX != Load_Profile_Capture_Period &&
-                            item.INDEX != Load_Profile_Capture_Period2 &&
-                            item.INDEX != Load_Profile_Capture_Period3
+                            (item.StOBISCode.OBISIndex != Meter_Clock &&
+                            item.StOBISCode.OBISIndex != Load_Profile_Counter &&
+                            item.StOBISCode.OBISIndex != Load_Profile_Counter_2 &&
+                            item.StOBISCode.OBISIndex != Load_Profile_Counter_3 &&
+                            item.StOBISCode.OBISIndex != Load_Profile_Capture_Period &&
+                            item.StOBISCode.OBISIndex != Load_Profile_Capture_Period2 &&
+                            item.StOBISCode.OBISIndex != Load_Profile_Capture_Period3
                             ))
                         {
                             ChannelInfoT = new LoadProfileChannelInfo();
-                            ChannelInfoT.SelectedAttribute = item.DecodingAttribute;
-                            ChannelInfoT.OBIS_Index = item.INDEX;
-                            ChannelInfoT.Quantity_Name = Enum.GetName(typeof(Get_Index), item.INDEX);
+                            ChannelInfoT.SelectedAttribute = item.AttributeIndex;
+                            ChannelInfoT.OBIS_Index = item.StOBISCode.OBISIndex;
+                            ChannelInfoT.Quantity_Name = Enum.GetName(typeof(Get_Index), item.StOBISCode.OBISIndex);
                             ChannelInfoT.Unit = Unit.UnitLess;
-                            ChannelInfoT.Multiplier = (float)0.0;
+                            ChannelInfoT.Multiplier = item.Multiplier;
                             ChannelInfoT.Format = "f3";
                             ChannelInfoT.Channel_id = channelId;
+                            ChannelInfoT.DbColumnName = item.DatabaseFieldName;
                             ChannelInfo.Add(ChannelInfoT);
                         }
                         channelId++;
@@ -1777,9 +1778,11 @@ namespace SharedCode.Controllers
                 obj.MSN = msn;
                 //obj.reference_no = reference_no;
                 obj.channels.Clear();
+                obj.DBColumns.Clear();
                 for (int i = 0; i < data.ChannelsInfo.Count; i++)
                 {
                     obj.channels.Add(data.ChannelsInfo[i].OBIS_Index.ToString());
+                    obj.DBColumns.Add(data.ChannelsInfo[i].DbColumnName);
                 }
 
                 for (int j = 0; j < data.ChannelsInstances.Count; j++)

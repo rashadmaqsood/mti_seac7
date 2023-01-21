@@ -11,6 +11,7 @@ namespace SharedCode.Comm.DataContainer
         public string MSN;
         //public string reference_no;
         public List<string> channels ;
+        public List<string> DBColumns;
         public List<L_Data> loadData;
 
         public Load_Profile()

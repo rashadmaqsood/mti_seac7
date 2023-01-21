@@ -23,7 +23,8 @@ namespace SharedCode.Comm.Param
         private bool dataPresent;
         private TimeSpan capturePeriod;
         private byte selectedAttribute;
-        private LoadProfileScheme scheme; //Azeem
+        private LoadProfileScheme scheme; 
+        private string dbColumnName;
         //private bool isDisplayData;
 
         #endregion
@@ -115,6 +116,11 @@ namespace SharedCode.Comm.Param
         {
             get { return scheme; }
             set { scheme = value; }
+        }
+        public string DbColumnName
+        {
+            get { return dbColumnName; }
+            set { dbColumnName = value; }
         }
 
         #endregion

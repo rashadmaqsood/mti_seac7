@@ -346,26 +346,26 @@ namespace SharedCode.Controllers
 
                 if (tariff.T1)
                 {
-                    item.Value.T1 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff1_KwhImport, 2)) / 1000;
+                    item.Value.T1 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Positive_T1, 2)) / 1000;
                 }
                 if (tariff.T2)
                 {
-                    item.Value.T2 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff2_KwhImport, 2)) / 1000;
+                    item.Value.T2 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Positive_T2, 2)) / 1000;
 
                 }
                 if (tariff.T3)
                 {
-                    item.Value.T3 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff3_KwhImport, 2)) / 1000;
+                    item.Value.T3 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Positive_T3, 2)) / 1000;
 
                 }
                 if (tariff.T4)
                 {
-                    item.Value.T4 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff4_KwhImport, 2)) / 1000;
+                    item.Value.T4 = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Positive_T4, 2)) / 1000;
 
                 }
                 if (tariff.TL)
                 {
-                    item.Value.TL = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_TariffTL_KwhImport, 2)) / 1000;
+                    item.Value.TL = (obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Positive_TL, 2)) / 1000;
 
                 }
 
@@ -380,27 +380,27 @@ namespace SharedCode.Controllers
 
                 if (tariff.T1)
                 {
-                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff1_KwhExport, 2) / 1000;
+                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Negative_T1, 2) / 1000;
 
                 }
                 if (tariff.T2)
                 {
-                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff2_KwhExport, 2) / 1000;
+                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Negative_T2, 2) / 1000;
 
                 }
                 if (tariff.T3)
                 {
-                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff3_KwhExport, 2) / 1000;
+                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Negative_T3, 2) / 1000;
 
                 }
                 if (tariff.T4)
                 {
-                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff4_KwhExport, 2) / 1000;
+                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Negative_T4, 2) / 1000;
 
                 }
                 if (tariff.TL)
                 {
-                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_TariffTL_KwhExport, 2) / 1000;
+                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Active_Energy_Negative_TL, 2) / 1000;
 
                 }
 
@@ -415,27 +415,27 @@ namespace SharedCode.Controllers
 
                 if (tariff.T1)
                 {
-                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_1_Pos, 2) / 1000;
+                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Positive_T1, 2) / 1000;
 
                 }
                 if (tariff.T2)
                 {
-                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_2_Pos, 2) / 1000;
+                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Positive_T2, 2) / 1000;
 
                 }
                 if (tariff.T3)
                 {
-                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_3_Pos, 2) / 1000;
+                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Positive_T3, 2) / 1000;
 
                 }
                 if (tariff.T4)
                 {
-                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_4_Pos, 2) / 1000;
+                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Positive_T4, 2) / 1000;
 
                 }
                 if (tariff.TL)
                 {
-                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Total_Pos, 2) / 1000;
+                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Positive_TL, 2) / 1000;
 
                 }
 
@@ -448,27 +448,27 @@ namespace SharedCode.Controllers
 
                 if (tariff.T1)
                 {
-                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_1_Neg, 2) / 1000;
+                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Negative_T1, 2) / 1000;
 
                 }
                 if (tariff.T2)
                 {
-                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_2_Neg, 2) / 1000;
+                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Negative_T2, 2) / 1000;
 
                 }
                 if (tariff.T3)
                 {
-                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_3_Neg, 2) / 1000;
+                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Negative_T3, 2) / 1000;
 
                 }
                 if (tariff.T4)
                 {
-                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Tariff_4_Neg, 2) / 1000;
+                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Negative_T4, 2) / 1000;
 
                 }
                 if (tariff.TL)
                 {
-                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Total_Neg, 2) / 1000;
+                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Reactive_Energy_Negative_TL, 2) / 1000;
 
                 }
 
@@ -481,17 +481,17 @@ namespace SharedCode.Controllers
 
                 if (tariff.T1)
                 {
-                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff1_MdiKw, 2) / 1000;
+                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_MDI_Absolute_T1, 2) / 1000;
 
                 }
                 if (tariff.T2)
                 {
-                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff2_MdiKw, 2) / 1000;
+                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_MDI_Absolute_T2, 2) / 1000;
 
                 }
                 if (tariff.T3)
                 {
-                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff3_MdiKw, 2) / 1000;
+                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_MDI_Absolute_T3, 2) / 1000;
 
                 }
                 if (tariff.T4)
@@ -595,7 +595,7 @@ namespace SharedCode.Controllers
 
                 if (tariff.T1)
                 {
-                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff1_CurrentMonthMdiKvar, 2) / 1000;
+                    item.Value.T1 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Monthly_Reactive_MDI_Absolute_T1, 2) / 1000;
 
                     //item.Value.T1 = obj.Value;
                     //item.Value.CaptureTimeStamp[0]=(obj.Date_Time_StamtDateTime());
@@ -603,7 +603,7 @@ namespace SharedCode.Controllers
                 }
                 if (tariff.T2)
                 {
-                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff2_CurrentMonthMdiKvar, 2) / 1000;
+                    item.Value.T2 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Monthly_Reactive_MDI_Absolute_T2, 2) / 1000;
 
                     //item.Value.T2 = obj.Value;
                     //item.Value.CaptureTimeStamp[1]=(obj.Date_Time_StamtDateTime());
@@ -611,7 +611,7 @@ namespace SharedCode.Controllers
                 }
                 if (tariff.T3)
                 {
-                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff3_CurrentMonthMdiKvar, 2) / 1000;
+                    item.Value.T3 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Monthly_Reactive_MDI_Absolute_T3, 2) / 1000;
 
                     //item.Value.T3 = obj.Value;
                     //item.Value.CaptureTimeStamp[2]=(obj.Date_Time_StamtDateTime());
@@ -619,7 +619,7 @@ namespace SharedCode.Controllers
                 }
                 if (tariff.T4)
                 {
-                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_Tariff4_CurrentMonthMdiKvar, 2) / 1000;
+                    item.Value.T4 = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Monthly_Reactive_MDI_Absolute_T4, 2) / 1000;
 
                     //item.Value.T4 = obj.Value;
                     //item.Value.CaptureTimeStamp[3]=(obj.Date_Time_StamtDateTime());
@@ -627,7 +627,7 @@ namespace SharedCode.Controllers
                 }
                 if (tariff.TL)
                 {
-                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Cumulative_TariffTL_CurrentMonthMdiKvar, 2) / 1000;
+                    item.Value.TL = obj_instantaneousController.GET_Any(obj_instantaneousClass, Get_Index.Monthly_Reactive_MDI_Absolute_TL, 2) / 1000;
 
                     //item.Value.TL = obj.Value;
                     //item.Value.CaptureTimeStamp[4]=(obj.Date_Time_Stamp.GetDateTime());
@@ -711,91 +711,91 @@ namespace SharedCode.Controllers
                 }
                 cummBilling.date = GET_MeterClock(TargetObisIndex);
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff1_KwhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Active_Energy_Absolute_T1);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeEnergy_T1 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff2_KwhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Active_Energy_Absolute_T2);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeEnergy_T2 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff3_KwhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Active_Energy_Absolute_T3);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeEnergy_T3 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff4_KwhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Active_Energy_Absolute_T4);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeEnergy_T4 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_TariffTL_KwhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Active_Energy_Absolute_TL);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeEnergy_TL = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff1_KvarhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Reactive_Energy_Absolute_T1);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.reactiveEnergy_T1 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff2_KvarhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Reactive_Energy_Absolute_T2);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.reactiveEnergy_T2 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff3_KvarhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Reactive_Energy_Absolute_T3);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.reactiveEnergy_T3 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff4_KvarhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Reactive_Energy_Absolute_T4);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.reactiveEnergy_T4 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_TariffTL_KvarhAbsolute);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Reactive_Energy_Absolute_TL);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.reactiveEnergy_TL = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff1_CurrentMonthMdiKw);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Monthly_Active_MDI_Absolute_T1);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeMDI_T1 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff2_CurrentMonthMdiKw);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Monthly_Active_MDI_Absolute_T2);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeMDI_T2 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff3_CurrentMonthMdiKw);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Monthly_Active_MDI_Absolute_T3);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeMDI_T3 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_Tariff4_CurrentMonthMdiKw);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Monthly_Active_MDI_Absolute_T4);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
                 cummBilling.activeMDI_T4 = TryGET_Any(cummBilling, TargetObisIndex, 3) / kWConversionConstant;
 
-                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Cumulative_TariffTL_CurrentMonthMdiKw);
+                TargetObisIndex = AP_Controller.GetOBISCode(Get_Index.Monthly_Active_MDI_Absolute_TL);
                 if (F_Field != CumulativeBilling)
                     TargetObisIndex = TargetObisIndex.Set_OBISCode_Feild_F(F_Field);
                 TryGET_Any(cummBilling, TargetObisIndex, 2);
@@ -819,9 +819,9 @@ namespace SharedCode.Controllers
 
             BillingValues.date = GET_MeterClock(Get_Index.Meter_Clock);
 
-            TryGET_Any(BillingValues, Get_Index.Cumulative_TariffTL_KwhAbsolute, 2);
-            BillingValues.activeEnergy_T1 = BillingValues.activeEnergy_TL = TryGET_Any(BillingValues, Get_Index.Cumulative_TariffTL_KwhAbsolute, 3) / DividerkW;
-            TryGET_Any(BillingValues, Get_Index.Cumulative_TariffTL_CurrentMonthMdiKw, 2);
+            TryGET_Any(BillingValues, Get_Index.Active_Energy_Absolute_TL, 2);
+            BillingValues.activeEnergy_T1 = BillingValues.activeEnergy_TL = TryGET_Any(BillingValues, Get_Index.Active_Energy_Absolute_TL, 3) / DividerkW;
+            TryGET_Any(BillingValues, Get_Index.Monthly_Active_MDI_Absolute_TL, 2);
             BillingValues.activeMDI_T1 = BillingValues.activeMDI_TL = TryGET_Any(BillingValues, Get_Index.Current_Max_demand_KW, 3) / DividerkW;
 
 
@@ -2036,7 +2036,7 @@ namespace SharedCode.Controllers
 
                     #region Kwh Import
                     item = new BillingItem();
-                    temp = Array.Find(value, x => x.OBIS_Index == Get_Index.Cumulative_TariffTL_KwhImport);
+                    temp = Array.Find(value, x => x.OBIS_Index == Get_Index.Active_Energy_Positive_TL);
 
                     item.Name = "Cumulative Active Energy";
                     item.Unit = Unit.kWh;
@@ -2082,7 +2082,7 @@ namespace SharedCode.Controllers
 
                         #region Kwh Import
                         item = new BillingItem();
-                        temp = Array.Find(value, x => x.OBIS_Index == Get_Index.Cumulative_TariffTL_KwhImport);
+                        temp = Array.Find(value, x => x.OBIS_Index == Get_Index.Active_Energy_Positive_TL);
                         item.Name = "Cumulative Active Energy";
                         item.Unit = Unit.kWh;
                         item.Value.TL = (makeValue(temp, item.Multiplier) / 1000); //convert from wh to kwh
@@ -2220,7 +2220,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_TariffTL_KwhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_TariffTL_KwhAbsolute;
+            OBis = Get_Index.Active_Energy_Absolute_TL;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2228,7 +2228,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff1_KwhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff1_KwhAbsolute;
+            OBis = Get_Index.Active_Energy_Absolute_T1;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2236,7 +2236,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff2_KwhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff2_KwhAbsolute;
+            OBis = Get_Index.Active_Energy_Absolute_T2;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2244,7 +2244,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff3_KwhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff3_KwhAbsolute;
+            OBis = Get_Index.Active_Energy_Absolute_T3;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2252,7 +2252,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff4_KwhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff4_KwhAbsolute;
+            OBis = Get_Index.Active_Energy_Absolute_T4;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2260,7 +2260,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_TariffTL_KvarhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_TariffTL_KvarhAbsolute;
+            OBis = Get_Index.Reactive_Energy_Absolute_TL;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2268,7 +2268,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff1_KvarhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff1_KvarhAbsolute;
+            OBis = Get_Index.Reactive_Energy_Absolute_T1;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2276,7 +2276,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff2_KvarhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff2_KvarhAbsolute;
+            OBis = Get_Index.Reactive_Energy_Absolute_T2;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2284,7 +2284,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff3_KvarhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff3_KvarhAbsolute;
+            OBis = Get_Index.Reactive_Energy_Absolute_T3;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2292,7 +2292,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff4_KvarhAbsolute              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff4_KvarhAbsolute;
+            OBis = Get_Index.Reactive_Energy_Absolute_T4;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2308,7 +2308,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff1_MdiKw              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff1_MdiKw;
+            OBis = Get_Index.Cumulative_MDI_Absolute_T1;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2316,7 +2316,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff2_MdiKw              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff2_MdiKw;
+            OBis = Get_Index.Cumulative_MDI_Absolute_T2;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;
@@ -2324,7 +2324,7 @@ namespace SharedCode.Controllers
 
             // Cumulative_Tariff3_MdiKw              Class id 3   Attribut 00  Data Index 00
             Obj_1 = new CaptureObject();
-            OBis = Get_Index.Cumulative_Tariff3_MdiKw;
+            OBis = Get_Index.Cumulative_MDI_Absolute_T3;
             Obj_1.ClassId = OBis.ClassId;
             Obj_1.AttributeIndex = 0x00;
             Obj_1.OBISCode = OBis.OBISCode;

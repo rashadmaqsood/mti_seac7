@@ -409,11 +409,11 @@ namespace ucCustomControl
                     Param_StatusWordMap Param_status_word_map_object = null;
                     StatusWordMapType _statusWordMapType = StatusWordMapType.StatusWordMap_1;
 
-                    if (LP_Scheme == LoadProfileScheme.Scheme_1)
+                    if (LP_Scheme == LoadProfileScheme.Load_Profile)
                     {
                         _statusWordMapType = StatusWordMapType.StatusWordMap_1;
                     }
-                    else if (LP_Scheme == LoadProfileScheme.Scheme_2)
+                    else if (LP_Scheme == LoadProfileScheme.Load_Profile_Channel_2)
                     {
                         _statusWordMapType = StatusWordMapType.StatusWordMap_2;
                     }
@@ -2678,7 +2678,7 @@ namespace ucCustomControl
             //}
 
             string[] qty = null;
-            if (lpScheme == LoadProfileScheme.Scheme_1)
+            if (lpScheme == LoadProfileScheme.Load_Profile)
             {
                 qty = new string[LP_Data.loadData.ChannelsInfo.Count];
 
@@ -2691,7 +2691,7 @@ namespace ucCustomControl
                     qty[i] = LP_Data.loadData.ChannelsInfo[j++].Quantity_Name.Replace("_", " "); // + 3].Quantity_Name;
                 }
             }
-            else if (lpScheme == LoadProfileScheme.Scheme_2)
+            else if (lpScheme == LoadProfileScheme.Load_Profile_Channel_2)
             {
                 qty = new string[LP_Data.loadData.ChannelsInfo.Count];
                 for (int i = 0; i < qty.Length; i++)
@@ -2735,7 +2735,7 @@ namespace ucCustomControl
 
             if (cmbLoadProfileType.SelectedIndex == 0)
             {
-                LP_Scheme = LoadProfileScheme.Scheme_1;
+                LP_Scheme = LoadProfileScheme.Load_Profile;
                 LP_Data = loadData1;
 
 
@@ -2750,7 +2750,7 @@ namespace ucCustomControl
 
             else if (cmbLoadProfileType.SelectedIndex == 1)
             {
-                LP_Scheme = LoadProfileScheme.Scheme_2;
+                LP_Scheme = LoadProfileScheme.Load_Profile_Channel_2;
                 LP_Data = loadData2;
 
                 chk_channel_filter.Checked = false;
@@ -2846,7 +2846,7 @@ namespace ucCustomControl
             chkLPChannels.Items.Clear();
             if (cmbLoadProfileType.SelectedIndex == 0)
             {
-                LP_Scheme = LoadProfileScheme.Scheme_1;
+                LP_Scheme = LoadProfileScheme.Load_Profile;
                 LP_Data = loadData1;
                 if (!IsHideReportButton)
                     btn_Rpt_LoadProfile.Visible = true;
@@ -2871,7 +2871,7 @@ namespace ucCustomControl
 
             else if (cmbLoadProfileType.SelectedIndex == 1)
             {
-                LP_Scheme = LoadProfileScheme.Scheme_2;
+                LP_Scheme = LoadProfileScheme.Load_Profile_Channel_2;
                 LP_Data = PQ_LoadProfile;
 
                 btn_Rpt_LoadProfile.Visible = false;

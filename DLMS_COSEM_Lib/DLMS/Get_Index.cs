@@ -803,7 +803,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.8.0.255
         /// Description
         ///</summary>
-        Reactive_Energy_Total_Pos = 0x00030100030800FF,
+        Reactive_Energy_Positive_TL = 0x00030100030800FF,
 
 
 
@@ -812,7 +812,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.8.1.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_1_Pos = 0x00030100030801FF,
+        Reactive_Energy_Positive_T1 = 0x00030100030801FF,
 
 
 
@@ -821,7 +821,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.8.2.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_2_Pos = 0x00030100030802FF,
+        Reactive_Energy_Positive_T2 = 0x00030100030802FF,
 
 
 
@@ -830,7 +830,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.8.3.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_3_Pos = 0x00030100030803FF,
+        Reactive_Energy_Positive_T3 = 0x00030100030803FF,
 
 
 
@@ -839,7 +839,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.8.4.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_4_Pos = 0x00030100030804FF,
+        Reactive_Energy_Positive_T4 = 0x00030100030804FF,
 
 
 
@@ -848,7 +848,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.4.8.0.255
         /// Description
         ///</summary>
-        Reactive_Energy_Total_Neg = 0x00030100040800FF,
+        Reactive_Energy_Negative_TL = 0x00030100040800FF,
 
 
 
@@ -857,7 +857,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.4.8.1.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_1_Neg = 0x00030100040801FF,
+        Reactive_Energy_Negative_T1 = 0x00030100040801FF,
 
 
 
@@ -866,7 +866,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.4.8.2.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_2_Neg = 0x00030100040802FF,
+        Reactive_Energy_Negative_T2 = 0x00030100040802FF,
 
 
 
@@ -875,7 +875,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.4.8.3.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_3_Neg = 0x00030100040803FF,
+        Reactive_Energy_Negative_T3 = 0x00030100040803FF,
 
 
 
@@ -884,7 +884,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.4.8.4.255
         /// Description
         ///</summary>
-        Reactive_Energy_Tariff_4_Neg = 0x00030100040804FF,
+        Reactive_Energy_Negative_T4 = 0x00030100040804FF,
 
 
 
@@ -1085,6 +1085,13 @@ namespace DLMS
         ///</summary>
         Load_Profile = 0x00070100630100FF,
 
+        ///<summary>
+        ///Description: Quantity_Name= Load_Profile_Channel_2  Class ID 7 
+        /// OBIS_CODE = 1.0.99.1.1.255
+        /// Description
+        ///</summary>
+        Load_Profile_Channel_2 = 0x00070100630101FF,
+
 
         ///<summary>
         ///Description: Quantity_Name= Load_Profile_Counter  Class ID 1 
@@ -1099,7 +1106,14 @@ namespace DLMS
         /// OBIS_CODE = 1.0.99.2.0.255
         /// Description
         ///</summary>
-        Load_Profile_2 = 0x00070100630200FF,
+        Daily_Load_Profile = 0x00070100630200FF,
+
+        ///<summary>
+        ///Description: Quantity_Name= Daily_Load_Profile_Channel_2  Class ID 7 
+        /// OBIS_CODE = 1.0.99.2.1.255
+        /// Description
+        ///</summary>
+        Daily_Load_Profile_Channel_2 = 0x00070100630201FF,
 
         ///<summary>
         ///Description: Quantity_Name= Load_Profile_Counter_2  Class ID 1 
@@ -2452,7 +2466,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.1.8.1.255
         /// Description
         ///</summary>
-        Cumulative_Tariff1_KwhImport = 0x00030100010801FF,
+        Active_Energy_Positive_T1 = 0x00030100010801FF,
 
 
 
@@ -2461,7 +2475,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.2.8.1.255
         /// Description
         ///</summary>
-        Cumulative_Tariff1_KwhExport = 0x00030100020801FF,
+        Active_Energy_Negative_T1 = 0x00030100020801FF,
 
 
 
@@ -2470,7 +2484,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.8.1.255
         /// Description
         ///</summary>
-        Cumulative_Tariff1_KwhAbsolute = 0x000301000F0801FF,
+        Active_Energy_Absolute_T1 = 0x000301000F0801FF,
 
 
 
@@ -2515,7 +2529,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.94.92.1.255
         /// Description
         ///</summary>
-        Cumulative_Tariff1_KvarhAbsolute = 0x000301005E5C01FF,
+        Reactive_Energy_Absolute_T1 = 0x000301005E5C01FF,
 
 
 
@@ -2542,7 +2556,7 @@ namespace DLMS
         ///OBIS_CODE = 1.0.15.2.1.255
         ///Description
         ///</summary>
-        Cumulative_Tariff1_MdiKw = 0x000401000F0201FF,
+        Cumulative_MDI_Absolute_T1 = 0x000401000F0201FF,
 
 
 
@@ -2569,7 +2583,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.6.1.255
         /// Description
         ///</summary>
-        Cumulative_Tariff1_CurrentMonthMdiKw = 0x000401000F0601FF,
+        Monthly_Active_MDI_Absolute_T1 = 0x000401000F0601FF,
 
 
 
@@ -2578,7 +2592,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.6.1.255
         /// Description
         ///</summary>
-        Cumulative_Tariff1_CurrentMonthMdiKvar = 0x00040100030601FF,
+        Monthly_Reactive_MDI_Absolute_T1 = 0x00040100030601FF,
 
 
 
@@ -2587,7 +2601,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.1.8.2.255
         /// Description
         ///</summary>
-        Cumulative_Tariff2_KwhImport = 0x00030100010802FF,
+        Active_Energy_Positive_T2 = 0x00030100010802FF,
 
 
 
@@ -2596,7 +2610,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.2.8.2.255
         /// Description
         ///</summary>
-        Cumulative_Tariff2_KwhExport = 0x00030100020802FF,
+        Active_Energy_Negative_T2 = 0x00030100020802FF,
 
 
 
@@ -2605,7 +2619,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.8.2.255
         /// Description
         ///</summary>
-        Cumulative_Tariff2_KwhAbsolute = 0x000301000F0802FF,
+        Active_Energy_Absolute_T2 = 0x000301000F0802FF,
 
 
 
@@ -2650,7 +2664,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.94.92.2.255
         /// Description
         ///</summary>
-        Cumulative_Tariff2_KvarhAbsolute = 0x000301005E5C02FF,
+        Reactive_Energy_Absolute_T2 = 0x000301005E5C02FF,
 
 
 
@@ -2677,7 +2691,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.2.2.255
         /// Description
         ///</summary>
-        Cumulative_Tariff2_MdiKw = 0x000401000F0202FF,
+        Cumulative_MDI_Absolute_T2 = 0x000401000F0202FF,
 
 
 
@@ -2704,7 +2718,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.6.2.255
         /// Description
         ///</summary>
-        Cumulative_Tariff2_CurrentMonthMdiKw = 0x000401000F0602FF,
+        Monthly_Active_MDI_Absolute_T2 = 0x000401000F0602FF,
 
 
 
@@ -2713,7 +2727,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.6.2.255
         /// Description
         ///</summary>
-        Cumulative_Tariff2_CurrentMonthMdiKvar = 0x00040100030602FF,
+        Monthly_Reactive_MDI_Absolute_T2 = 0x00040100030602FF,
 
 
 
@@ -2722,7 +2736,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.1.8.3.255
         /// Description
         ///</summary>
-        Cumulative_Tariff3_KwhImport = 0x00030100010803FF,
+        Active_Energy_Positive_T3 = 0x00030100010803FF,
 
 
 
@@ -2731,7 +2745,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.2.8.3.255
         /// Description
         ///</summary>
-        Cumulative_Tariff3_KwhExport = 0x00030100020803FF,
+        Active_Energy_Negative_T3 = 0x00030100020803FF,
 
 
 
@@ -2740,7 +2754,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.8.3.255
         /// Description
         ///</summary>
-        Cumulative_Tariff3_KwhAbsolute = 0x000301000F0803FF,
+        Active_Energy_Absolute_T3 = 0x000301000F0803FF,
 
 
 
@@ -2785,7 +2799,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.94.92.3.255
         /// Description
         ///</summary>
-        Cumulative_Tariff3_KvarhAbsolute = 0x000301005E5C03FF,
+        Reactive_Energy_Absolute_T3 = 0x000301005E5C03FF,
 
 
 
@@ -2812,7 +2826,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.2.3.255
         /// Description
         ///</summary>
-        Cumulative_Tariff3_MdiKw = 0x000401000F0203FF,
+        Cumulative_MDI_Absolute_T3 = 0x000401000F0203FF,
 
 
 
@@ -2839,7 +2853,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.6.3.255
         /// Description
         ///</summary>
-        Cumulative_Tariff3_CurrentMonthMdiKw = 0x000401000F0603FF,
+        Monthly_Active_MDI_Absolute_T3 = 0x000401000F0603FF,
 
 
 
@@ -2848,7 +2862,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.6.3.255
         /// Description
         ///</summary>
-        Cumulative_Tariff3_CurrentMonthMdiKvar = 0x00040100030603FF,
+        Monthly_Reactive_MDI_Absolute_T3 = 0x00040100030603FF,
 
 
 
@@ -2857,7 +2871,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.1.8.4.255
         /// Description
         ///</summary>
-        Cumulative_Tariff4_KwhImport = 0x00030100010804FF,
+        Active_Energy_Positive_T4 = 0x00030100010804FF,
 
 
 
@@ -2866,7 +2880,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.2.8.4.255
         /// Description
         ///</summary>
-        Cumulative_Tariff4_KwhExport = 0x00030100020804FF,
+        Active_Energy_Negative_T4 = 0x00030100020804FF,
 
 
         ///<summary>
@@ -2874,7 +2888,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.8.4.255
         /// Description
         ///</summary>
-        Cumulative_Tariff4_KwhAbsolute = 0x000301000F0804FF,
+        Active_Energy_Absolute_T4 = 0x000301000F0804FF,
 
 
         ///<summary>
@@ -2914,7 +2928,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.94.92.4.255
         /// Description
         ///</summary>
-        Cumulative_Tariff4_KvarhAbsolute = 0x000301005E5C04FF,
+        Reactive_Energy_Absolute_T4 = 0x000301005E5C04FF,
 
 
         ///<summary>
@@ -2972,7 +2986,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.6.4.255
         /// Description
         ///</summary>
-        Cumulative_Tariff4_CurrentMonthMdiKw = 0x000401000F0604FF,
+        Monthly_Active_MDI_Absolute_T4 = 0x000401000F0604FF,
 
 
 
@@ -2981,7 +2995,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.6.4.255
         /// Description
         ///</summary>
-        Cumulative_Tariff4_CurrentMonthMdiKvar = 0x00040100030604FF,
+        Monthly_Reactive_MDI_Absolute_T4 = 0x00040100030604FF,
 
 
         ///<summary>
@@ -2989,7 +3003,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.1.8.0.255
         /// Description
         ///</summary>
-        Cumulative_TariffTL_KwhImport = 0x00030100010800FF,
+        Active_Energy_Positive_TL = 0x00030100010800FF,
 
 
         ///<summary>
@@ -2997,7 +3011,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.2.8.0.255
         /// Description
         ///</summary>
-        Cumulative_TariffTL_KwhExport = 0x00030100020800FF,
+        Active_Energy_Negative_TL = 0x00030100020800FF,
 
 
         ///<summary>
@@ -3005,7 +3019,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.8.0.255
         /// Description
         ///</summary>
-        Cumulative_TariffTL_KwhAbsolute = 0x000301000F0800FF,
+        Active_Energy_Absolute_TL = 0x000301000F0800FF,
 
 
         ///<summary>
@@ -3046,7 +3060,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.94.92.0.255
         /// Description
         ///</summary>
-        Cumulative_TariffTL_KvarhAbsolute = 0x000301005E5C00FF,
+        Reactive_Energy_Absolute_TL = 0x000301005E5C00FF,
 
 
         ///<summary>
@@ -3086,7 +3100,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.6.0.255
         /// Description
         ///</summary>
-        Cumulative_TariffTL_CurrentMonthMdiKw = 0x000401000F0600FF,
+        Monthly_Active_MDI_Absolute_TL = 0x000401000F0600FF,
 
 
         ///<summary>
@@ -3094,7 +3108,7 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.6.0.255
         /// Description
         ///</summary>
-        Cumulative_TariffTL_CurrentMonthMdiKvar = 0x00040100030600FF,
+        Monthly_Reactive_MDI_Absolute_TL = 0x00040100030600FF,
 
 
         ///<summary>
@@ -6223,62 +6237,62 @@ namespace DLMS
         /// OBIS_CODE = 1.0.1.2.0.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_IMPORT_TOTAL = 0x00030100010200FF,
+        Active_MDI_Positive_TL = 0x00030100010200FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI IMPORT T1
         /// OBIS_CODE = 1.0.1.2.1.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_IMPORT_T1 = 0x00030100010201FF,
+        Active_MDI_Positive_T1 = 0x00030100010201FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI IMPORT T2 
         /// OBIS_CODE = 1.0.1.2.2.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_IMPORT_T2 = 0x00030100010202FF,
+        Active_MDI_Positive_T2 = 0x00030100010202FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI IMPORT T3 
         /// OBIS_CODE = 1.0.1.2.3.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_IMPORT_T3 = 0x00030100010203FF,
+        Active_MDI_Positive_T3 = 0x00030100010203FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI IMPORT T4 
         /// OBIS_CODE = 1.0.1.2.4.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_IMPORT_T4 = 0x00030100010204FF,
+        Active_MDI_Positive_T4 = 0x00030100010204FF,
 
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI IMPORT TOTAL 
         /// OBIS_CODE = 1.0.1.6.0.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_IMPORT_TOTAL = 0x00040100010600FF,
+        Monthly_Active_MDI_Positive_TL = 0x00040100010600FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI IMPORT T1 
         /// OBIS_CODE = 1.0.1.6.1.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_IMPORT_T1 = 0x00040100010601FF,
+        Monthly_Active_MDI_Positive_T1 = 0x00040100010601FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI IMPORT T2 
         /// OBIS_CODE = 1.0.1.6.2.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_IMPORT_T2 = 0x00040100010602FF,
+        Monthly_Active_MDI_Positive_T2 = 0x00040100010602FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI IMPORT T3
         /// OBIS_CODE = 1.0.1.6.3.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_IMPORT_T3 = 0x00040100010603FF,
+        Monthly_Active_MDI_Positive_T3 = 0x00040100010603FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI IMPORT T4 
         /// OBIS_CODE = 1.0.1.6.4.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_IMPORT_T4 = 0x00040100010604FF,
+        Monthly_Active_MDI_Positive_T4 = 0x00040100010604FF,
 
         ///<summary>
         /// Description: Quantity_Name= ACTIVE POWER IMPORT AGGREGATE 
@@ -6292,31 +6306,31 @@ namespace DLMS
         /// OBIS_CODE = 1.0.2.2.0.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_EXPORT_TOTAL = 0x00030100020200FF,
+        Active_MDI_Negative_TL = 0x00030100020200FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI EXPORT T1 
         /// OBIS_CODE = 1.0.2.2.1.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_EXPORT_T1 = 0x00030100020201FF,
+        Active_MDI_Negative_T1 = 0x00030100020201FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI EXPORT T2 
         /// OBIS_CODE = 1.0.2.2.2.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_EXPORT_T2 = 0x00030100020202FF,
+        Active_MDI_Negative_T2 = 0x00030100020202FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI EXPORT T3
         /// OBIS_CODE = 1.0.2.2.3.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_EXPORT_T3 = 0x00030100020203FF,
+        Active_MDI_Negative_T3 = 0x00030100020203FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI EXPORT T4 
         /// OBIS_CODE = 1.0.2.2.4.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_EXPORT_T4 = 0x00030100020204FF,
+        Active_MDI_Negative_T4 = 0x00030100020204FF,
 
         ///<summary>
         /// Description: Quantity_Name= DEMAND ACTIVE EXPORT 
@@ -6337,31 +6351,31 @@ namespace DLMS
         /// OBIS_CODE = 1.0.2.6.0.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_EXPORT_TOTAL = 0x00040100020600FF,
+        Monthly_Active_MDI_Negative_TL = 0x00040100020600FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI EXPORT T1 
         /// OBIS_CODE = 1.0.2.6.1.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_EXPORT_T1 = 0x00040100020601FF,
+        Monthly_Active_MDI_Negative_T1 = 0x00040100020601FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI EXPORT T2
         /// OBIS_CODE = 1.0.2.6.2.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_EXPORT_T2 = 0x00040100020602FF,
+        Monthly_Active_MDI_Negative_T2 = 0x00040100020602FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI EXPORT T3 
         /// OBIS_CODE = 1.0.2.6.3.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_EXPORT_T3 = 0x00040100020603FF,
+        Monthly_Active_MDI_Negative_T3 = 0x00040100020603FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY ACTIVE MDI EXPORT T4 
         /// OBIS_CODE = 1.0.2.6.4.255
         /// Description
         ///</summary>
-        MONTHLY_ACTIVE_MDI_EXPORT_T4 = 0x00040100020604FF,
+        Monthly_Active_MDI_Negative_T4 = 0x00040100020604FF,
 
         ///<summary>
         /// Description: Quantity_Name= ACTIVE POWER EXPORT AGGREGATE
@@ -6375,31 +6389,31 @@ namespace DLMS
         /// OBIS_CODE = 1.0.3.2.0.255
         /// Description
         ///</summary>
-        Cumulative_Reactive_MDI_Import_TOTAL = 0x00030100030200FF,
+        Reactive_MDI_Positive_TL = 0x00030100030200FF,
         ///<summary>
         /// Description: Quantity_Name= Cumulative Reactive MDI Import T1
         /// OBIS_CODE = 1.0.3.2.1.255
         /// Description
         ///</summary>
-        Cumulative_Reactive_MDI_Import_T1 = 0x00030100030201FF,
+        Reactive_MDI_Positive_T1 = 0x00030100030201FF,
         ///<summary>
         /// Description: Quantity_Name= Cumulative Reactive MDI Import T2
         /// OBIS_CODE = 1.0.3.2.2.255
         /// Description
         ///</summary>
-        Cumulative_Reactive_MDI_Import_T2 = 0x00030100030202FF,
+        Reactive_MDI_Positive_T2 = 0x00030100030202FF,
         ///<summary>
         /// Description: Quantity_Name= Cumulative Reactive MDI Import T3
         /// OBIS_CODE = 1.0.3.2.3.255
         /// Description
         ///</summary>
-        Cumulative_Reactive_MDI_Import_T3 = 0x00030100030203FF,
+        Reactive_MDI_Positive_T3 = 0x00030100030203FF,
         ///<summary>
         /// Description: Quantity_Name= Cumulative Reactive MDI Import T4
         /// OBIS_CODE = 1.0.3.2.4.255
         /// Description
         ///</summary>
-        Cumulative_Reactive_MDI_Import_T4 = 0x00030100030204FF,
+        Reactive_MDI_Positive_T4 = 0x00030100030204FF,
 
         ///<summary>
         /// Description: Quantity_Name= DEMAND REACTIVE IMPORT
@@ -6419,31 +6433,31 @@ namespace DLMS
         /// OBIS_CODE = 1.0.4.2.0.255
         /// Description
         ///</summary>
-        CUMULATIVE_REACTIVE_MDI_EXPORT_TOTAL = 0x00030100040200FF,
+        Reactive_MDI_Negative_TL = 0x00030100040200FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE REACTIVE MDI EXPORT T1
         /// OBIS_CODE = 1.0.4.2.1.255
         /// Description
         ///</summary>
-        CUMULATIVE_REACTIVE_MDI_EXPORT_T1 = 0x00030100040201FF,
+        Reactive_MDI_Negative_T1 = 0x00030100040201FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE REACTIVE MDI EXPORT T2
         /// OBIS_CODE = 1.0.4.2.2.255
         /// Description
         ///</summary>
-        CUMULATIVE_REACTIVE_MDI_EXPORT_T2 = 0x00030100040202FF,
+        Reactive_MDI_Negative_T2 = 0x00030100040202FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE REACTIVE MDI EXPORT T3
         /// OBIS_CODE = 1.0.4.2.3.255
         /// Description
         ///</summary>
-        CUMULATIVE_REACTIVE_MDI_EXPORT_T3 = 0x00030100040203FF,
+        Reactive_MDI_Negative_T3 = 0x00030100040203FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE REACTIVE MDI EXPORT T4
         /// OBIS_CODE = 1.0.4.2.4.255
         /// Description
         ///</summary>
-        CUMULATIVE_REACTIVE_MDI_EXPORT_T4 = 0x00030100040204FF,
+        Reactive_MDI_Negative_T4 = 0x00030100040204FF,
         ///<summary>
         /// Description: Quantity_Name= DEMAND REACTIVE EXPORT
         /// OBIS_CODE = 1.0.4.4.0.255
@@ -6455,31 +6469,31 @@ namespace DLMS
         /// OBIS_CODE = 1.0.4.6.0.255
         /// Description
         ///</summary>
-        MONTHLY_REACTIVE_MDI_EXPORT_TOTAL = 0x00040100040600FF,
+        Monthly_Reactive_MDI_Negative_TL = 0x00040100040600FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY REACTIVE MDI EXPORT T1
         /// OBIS_CODE = 1.0.4.6.1.255
         /// Description
         ///</summary>
-        MONTHLY_REACTIVE_MDI_EXPORT_T1 = 0x00040100040601FF,
+        Monthly_Reactive_MDI_Negative_T1 = 0x00040100040601FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY REACTIVE MDI EXPORT T2
         /// OBIS_CODE = 1.0.4.6.2.255
         /// Description
         ///</summary>
-        MONTHLY_REACTIVE_MDI_EXPORT_T2 = 0x00040100040602FF,
+        Monthly_Reactive_MDI_Negative_T2 = 0x00040100040602FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY REACTIVE MDI EXPORT T3
         /// OBIS_CODE = 1.0.4.6.3.255
         /// Description
         ///</summary>
-        MONTHLY_REACTIVE_MDI_EXPORT_T3 = 0x00040100040603FF,
+        Monthly_Reactive_MDI_Negative_T3 = 0x00040100040603FF,
         ///<summary>
         /// Description: Quantity_Name= MONTHLY REACTIVE MDI EXPORT T4
         /// OBIS_CODE = 1.0.4.6.4.255
         /// Description
         ///</summary>
-        MONTHLY_REACTIVE_MDI_EXPORT_T4 = 0x00040100040604FF,
+        Monthly_Reactive_MDI_Negative_T4 = 0x00040100040604FF,
         ///<summary>
         /// Description: Quantity_Name= REACTIVE POWER EXPORT AGGREGATE
         /// OBIS_CODE = 1.0.4.27.0.255
@@ -6491,31 +6505,31 @@ namespace DLMS
         /// OBIS_CODE = 1.0.15.2.0.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_ABSOLUTE_TOTAL = 0x000301000F0200FF,
+        Active_MDI_Absolute_TL = 0x000301000F0200FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI ABSOLUTE T1
         /// OBIS_CODE = 1.0.15.2.1.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_ABSOLUTE_T1 = 0x000301000F0201FF,
+        Active_MDI_Absolute_T1 = 0x000301000F0201FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI ABSOLUTE T2
         /// OBIS_CODE = 1.0.15.2.2.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_ABSOLUTE_T2 = 0x000301000F0202FF,
+        Active_MDI_Absolute_T2 = 0x000301000F0202FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI ABSOLUTE T3
         /// OBIS_CODE = 1.0.15.2.3.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_ABSOLUTE_T3 = 0x000301000F0203FF,
+        Active_MDI_Absolute_T3 = 0x000301000F0203FF,
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI ABSOLUTE T4
         /// OBIS_CODE = 1.0.15.2.4.255
         /// Description
         ///</summary>
-        CUMULATIVE_ACTIVE_MDI_ABSOLUTE_T4 = 0x000301000F0204FF,
+        Active_MDI_Absolute_T4 = 0x000301000F0204FF,
 
         ///<summary>
         /// Description: Quantity_Name= DEMAND ACTIVE ABSOLUTE

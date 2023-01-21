@@ -112,8 +112,8 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
         public ucLoadProfile()
         {
             InitializeComponent();
-            this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Scheme_1);
-            this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Scheme_2);
+            this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Load_Profile);
+            this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Load_Profile_Channel_2);
             this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.PQ_Load_Profile);
             Init();
         }
@@ -363,7 +363,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                 TimeSpan LPPeriod = new TimeSpan();
                 LoadProfileScheme lpScheme = (LoadProfileScheme)(cmbLoadProfileScheme.SelectedItem);
                 LPPeriod = SaveLoadProfileInterval();
-                if (lpScheme == LoadProfileScheme.Scheme_1)
+                if (lpScheme == LoadProfileScheme.Load_Profile)
                 {
                     LoadProfilePeriod = LPPeriod;
                     foreach (var item in LoadProfileChannelsInfo)
@@ -371,7 +371,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                         item.CapturePeriod = LPPeriod;
                     }
                 }
-                else if (lpScheme == LoadProfileScheme.Scheme_2)
+                else if (lpScheme == LoadProfileScheme.Load_Profile_Channel_2)
                 {
                     LoadProfilePeriod_2 = LPPeriod;
                     foreach (var item in LoadProfileChannelsInfo_2)
@@ -417,11 +417,11 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
             {
                 case LoadProfileParams.LoadProfileChannels:
                     if (read || write)
-                        this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Scheme_1);
+                        this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Load_Profile);
                     break;
                 case LoadProfileParams.LoadProfileChannels2:
                     if (read || write)
-                        this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Scheme_2);
+                        this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Load_Profile_Channel_2);
                     break;
                 case LoadProfileParams.PQLoadProfile:
                     if (read || write)
@@ -446,8 +446,8 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                     LoadProfileScheme lpScheme = (LoadProfileScheme)(cmbLoadProfileScheme.SelectedItem);
                     switch (lpScheme)
                     {
-                        case LoadProfileScheme.Scheme_1: ShowLoadProfile(LoadProfileChannelsInfo, LoadProfilePeriod); break;
-                        case LoadProfileScheme.Scheme_2: ShowLoadProfile(LoadProfileChannelsInfo_2, LoadProfilePeriod_2); break;
+                        case LoadProfileScheme.Load_Profile: ShowLoadProfile(LoadProfileChannelsInfo, LoadProfilePeriod); break;
+                        case LoadProfileScheme.Load_Profile_Channel_2: ShowLoadProfile(LoadProfileChannelsInfo_2, LoadProfilePeriod_2); break;
                         case LoadProfileScheme.PQ_Load_Profile: ShowLoadProfile(new List<LoadProfileChannelInfo>(), PQLoadProfilePeriod); break;
                     }
                 }
@@ -486,13 +486,13 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
             };
             LoadProfileScheme lpScheme = (LoadProfileScheme)(cmbLoadProfileScheme.SelectedItem);
 
-            if (lpScheme == LoadProfileScheme.Scheme_1)
+            if (lpScheme == LoadProfileScheme.Load_Profile)
             {
                 ch.Scheme = lpScheme;
                 this.SaveLoadProfile(LoadProfileChannelsInfo, ch, lpScheme, ref _LoadProfilePeriod);
                 this.ShowLoadProfile(LoadProfileChannelsInfo, LoadProfilePeriod);
             }
-            else if (lpScheme == LoadProfileScheme.Scheme_2)
+            else if (lpScheme == LoadProfileScheme.Load_Profile_Channel_2)
             {
                 ch.Scheme = lpScheme;
                 this.SaveLoadProfile(LoadProfileChannelsInfo_2, ch, lpScheme, ref _LoadProfilePeriod_2);
@@ -503,11 +503,11 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
         private void btnClear_Click(object sender, EventArgs e)
         {
             LoadProfileScheme lpScheme = (LoadProfileScheme)(cmbLoadProfileScheme.SelectedItem);
-            if (lpScheme == LoadProfileScheme.Scheme_1)
+            if (lpScheme == LoadProfileScheme.Load_Profile)
             {
                 LoadProfileChannelsInfo.Clear();
             }
-            else if (lpScheme == LoadProfileScheme.Scheme_2)
+            else if (lpScheme == LoadProfileScheme.Load_Profile_Channel_2)
             {
                 LoadProfileChannelsInfo_2.Clear();
             }
@@ -522,7 +522,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                 if (dgvLoadProfileChannels.Rows.Count > 0 && dgvLoadProfileChannels.SelectedRows.Count != 0)
                 {
                     LoadProfileScheme lpScheme = (LoadProfileScheme)(cmbLoadProfileScheme.SelectedItem);
-                    if (lpScheme == LoadProfileScheme.Scheme_1)
+                    if (lpScheme == LoadProfileScheme.Load_Profile)
                     {
                         foreach (DataGridViewRow row in dgvLoadProfileChannels.SelectedRows)
                         {
@@ -535,7 +535,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                         }
                         this.ShowLoadProfile(LoadProfileChannelsInfo, LoadProfilePeriod);
                     }
-                    else if (lpScheme == LoadProfileScheme.Scheme_2)
+                    else if (lpScheme == LoadProfileScheme.Load_Profile_Channel_2)
                     {
                         foreach (DataGridViewRow row in dgvLoadProfileChannels.SelectedRows)
                         {

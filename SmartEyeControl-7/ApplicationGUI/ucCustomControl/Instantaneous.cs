@@ -3486,12 +3486,12 @@ namespace ucCustomControl
             List<QuantityMDI> MDIsToRead = new List<QuantityMDI>();
 
             // Current MOnth Active MDI
-            MDIsToRead.Add(new QuantityMDI("Current Month MDI kW Import", Get_Index.MONTHLY_ACTIVE_MDI_IMPORT_TOTAL));
-            MDIsToRead.Add(new QuantityMDI("Current Month MDI kW Export", Get_Index.MONTHLY_ACTIVE_MDI_EXPORT_TOTAL));
-            MDIsToRead.Add(new QuantityMDI("Current Month MDI kW Absolute", Get_Index.Cumulative_TariffTL_CurrentMonthMdiKw));
+            MDIsToRead.Add(new QuantityMDI("Current Month MDI kW Import", Get_Index.Monthly_Active_MDI_Positive_TL));
+            MDIsToRead.Add(new QuantityMDI("Current Month MDI kW Export", Get_Index.Monthly_Active_MDI_Negative_TL));
+            MDIsToRead.Add(new QuantityMDI("Current Month MDI kW Absolute", Get_Index.Monthly_Active_MDI_Absolute_TL));
 
-            MDIsToRead.Add(new QuantityMDI("Current Month MDI kVar Import", Get_Index.Cumulative_TariffTL_CurrentMonthMdiKvar));
-            MDIsToRead.Add(new QuantityMDI("Current Month MDI kVar Export", Get_Index.MONTHLY_REACTIVE_MDI_EXPORT_TOTAL));
+            MDIsToRead.Add(new QuantityMDI("Current Month MDI kVar Import", Get_Index.Monthly_Reactive_MDI_Absolute_TL));
+            MDIsToRead.Add(new QuantityMDI("Current Month MDI kVar Export", Get_Index.Monthly_Reactive_MDI_Negative_TL));
             MDIsToRead.Add(new QuantityMDI("Current Month MDI kVar Absolute", Get_Index.MONTHLY_REACTIVE_MDI_ABSOLUTE_TOTAL));
 
             MDIsToRead.Add(new QuantityMDI("Previous Month MDI kW Import", Get_Index.PREVIOUS_MONTH_MDI_KW_P_TOTAL));
@@ -3502,12 +3502,12 @@ namespace ucCustomControl
             MDIsToRead.Add(new QuantityMDI("Previous Month MDI kVar Export", Get_Index.PREVIOUS_MONTH_MDI_KVAR_N_TOTAL));
             MDIsToRead.Add(new QuantityMDI("Previous Month MDI kVar Absolute", Get_Index.PB_PREVIOUS_MONTH_MDI_KVAR_TL));
 
-            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kW Import", Get_Index.CUMULATIVE_ACTIVE_MDI_IMPORT_TOTAL));
-            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kW Export", Get_Index.CUMULATIVE_ACTIVE_MDI_EXPORT_TOTAL));
-            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kW Absolute", Get_Index.CUMULATIVE_ACTIVE_MDI_ABSOLUTE_TOTAL));
+            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kW Import", Get_Index.Active_MDI_Positive_TL));
+            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kW Export", Get_Index.Active_MDI_Negative_TL));
+            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kW Absolute", Get_Index.Active_MDI_Absolute_TL));
 
-            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kVar Import", Get_Index.Cumulative_Reactive_MDI_Import_TOTAL));
-            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kVar Export", Get_Index.CUMULATIVE_REACTIVE_MDI_EXPORT_TOTAL));
+            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kVar Import", Get_Index.Reactive_MDI_Positive_TL));
+            MDIsToRead.Add(new QuantityMDI("Cumulative MDI kVar Export", Get_Index.Reactive_MDI_Negative_TL));
             MDIsToRead.Add(new QuantityMDI("Cumulative MDI kVar Absolute", Get_Index.CUM_MDI_KVAR_TOTAL));
             //chkLstMDIs.Items.Clear();
             //chkLstMDIs.Items.AddRange(MDIsToRead.ToArray());

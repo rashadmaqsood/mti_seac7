@@ -2715,7 +2715,7 @@ namespace ucCustomControl
                 {
                     try
                     {
-                        GET_LoadProfileChannels(LoadProfileScheme.Scheme_1);
+                        GET_LoadProfileChannels(LoadProfileScheme.Load_Profile);
                     }
                     catch (Exception)
                     {
@@ -2730,7 +2730,7 @@ namespace ucCustomControl
                 {
                     try
                     {
-                        GET_LoadProfileChannels(LoadProfileScheme.Scheme_2);
+                        GET_LoadProfileChannels(LoadProfileScheme.Load_Profile_Channel_2);
                     }
                     catch (Exception)
                     {
@@ -3827,12 +3827,12 @@ namespace ucCustomControl
                 else
                     LPPeriod = new TimeSpan();     // Default Time Period
 
-                if (LP_Scheme == LoadProfileScheme.Scheme_1)
+                if (LP_Scheme == LoadProfileScheme.Load_Profile)
                 {
                     LoadProfileChannelsInfo = LPChannels;
                     LoadProfilePeriod = LPPeriod;
                 }
-                else if (LP_Scheme == LoadProfileScheme.Scheme_2)
+                else if (LP_Scheme == LoadProfileScheme.Load_Profile_Channel_2)
                 {
                     LoadProfileChannelsInfo_2 = LPChannels;
                     LoadProfilePeriod_2 = LPPeriod;
@@ -3883,9 +3883,9 @@ namespace ucCustomControl
                 Param_Controller.ParametersGETStatus.BuildStatusCollection(string.Format("Load Profile Interval_ {0}", (byte)LP_Scheme));
                 TimeSpan LPPeriod = LoadProfile_Controller.Get_LoadProfileInterval(LP_Scheme);
 
-                if (LP_Scheme == LoadProfileScheme.Scheme_1)
+                if (LP_Scheme == LoadProfileScheme.Load_Profile)
                     LoadProfilePeriod = LPPeriod;
-                else if (LP_Scheme == LoadProfileScheme.Scheme_2)
+                else if (LP_Scheme == LoadProfileScheme.Load_Profile_Channel_2)
                     LoadProfilePeriod_2 = LPPeriod;
                 else if (LP_Scheme == LoadProfileScheme.PQ_Load_Profile)
                     PQLoadProfilePeriod = LPPeriod;
@@ -4174,28 +4174,28 @@ namespace ucCustomControl
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Scheme_1);
+                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Load_Profile);
                     }
 
                     if (setter.chk_LoadProfile_2_Interval.Checked)
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Scheme_2);
+                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Load_Profile_Channel_2);
                     }
 
                     if (setter.chk_LoadProfile.Checked)
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels(LoadProfileScheme.Scheme_1);
+                        SET_LoadProfileChannels(LoadProfileScheme.Load_Profile);
                     }
 
                     if (setter.chk_LoadProfile_2.Checked)
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels(LoadProfileScheme.Scheme_2);
+                        SET_LoadProfileChannels(LoadProfileScheme.Load_Profile_Channel_2);
                     }
 
                     if (setter.chk_PQ_LoadProfileInterval.Checked)
@@ -5012,8 +5012,8 @@ namespace ucCustomControl
             try
             {
                 List<LoadProfileChannelInfo> LPChannels = null;
-                if (LP_Scheme == LoadProfileScheme.Scheme_1) LPChannels = ucLoadProfile.LoadProfileChannelsInfo;
-                else if (LP_Scheme == LoadProfileScheme.Scheme_2) LPChannels = ucLoadProfile.LoadProfileChannelsInfo_2;
+                if (LP_Scheme == LoadProfileScheme.Load_Profile) LPChannels = ucLoadProfile.LoadProfileChannelsInfo;
+                else if (LP_Scheme == LoadProfileScheme.Load_Profile_Channel_2) LPChannels = ucLoadProfile.LoadProfileChannelsInfo_2;
                 Param_Controller.ParametersSETStatus.BuildStatusCollection(string.Format("Load Profile_{0} Channel", (byte)LP_Scheme));
                 Data_Access_Result result = this.LoadProfile_Controller.Set_LoadProfileChannels(LPChannels, LP_Scheme);
 
@@ -5047,9 +5047,9 @@ namespace ucCustomControl
             try
             {
                 TimeSpan LPPeriod = new TimeSpan();
-                if (LP_Scheme == LoadProfileScheme.Scheme_1)
+                if (LP_Scheme == LoadProfileScheme.Load_Profile)
                     LPPeriod = LoadProfilePeriod;
-                else if (LP_Scheme == LoadProfileScheme.Scheme_2)
+                else if (LP_Scheme == LoadProfileScheme.Load_Profile_Channel_2)
                     LPPeriod = LoadProfilePeriod_2;
                 else if (LP_Scheme == LoadProfileScheme.PQ_Load_Profile)
                     LPPeriod = PQLoadProfilePeriod;
@@ -10563,7 +10563,7 @@ namespace ucCustomControl
                 {
                     try
                     {
-                        GET_LoadProfileChannels(LoadProfileScheme.Scheme_1);
+                        GET_LoadProfileChannels(LoadProfileScheme.Load_Profile);
                     }
                     catch (Exception)
                     {
@@ -10577,7 +10577,7 @@ namespace ucCustomControl
                 {
                     try
                     {
-                        GET_LoadProfileChannels(LoadProfileScheme.Scheme_2);
+                        GET_LoadProfileChannels(LoadProfileScheme.Load_Profile_Channel_2);
                     }
                     catch (Exception)
                     {
@@ -11222,28 +11222,28 @@ namespace ucCustomControl
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Scheme_1);
+                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Load_Profile);
                     }
 
                     if (setter.chk_LoadProfile_2_Interval.Checked)
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Scheme_2);
+                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Load_Profile_Channel_2);
                     }
 
                     if (setter.chk_LoadProfile.Checked)
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels(LoadProfileScheme.Scheme_1);
+                        SET_LoadProfileChannels(LoadProfileScheme.Load_Profile);
                     }
 
                     if (setter.chk_LoadProfile_2.Checked)
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels(LoadProfileScheme.Scheme_2);
+                        SET_LoadProfileChannels(LoadProfileScheme.Load_Profile_Channel_2);
                     }
 
                     if (setter.chk_PQ_LoadProfileInterval.Checked)

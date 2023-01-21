@@ -7,9 +7,11 @@ namespace SharedCode.Comm.DataContainer
     public enum LoadProfileScheme:byte
     {
         None = 0, //by Azeem
-        Scheme_1 = 1,
-        Scheme_2 = 2,
-        PQ_Load_Profile = 3
+        Load_Profile = 1,
+        Load_Profile_Channel_2 = 2,
+        PQ_Load_Profile = 3,
+        Daily_Load_Profile = 4,
+        Daily_Load_Profile_Channel2 = 5
     }
     public class LoadProfileData
     {

@@ -2847,7 +2847,7 @@ namespace DatabaseManager.Database
                 //var weeklyUpdate = new StringBuilder();
                 var channels_col = new StringBuilder();
                 var channels_val = new StringBuilder();
-                var lp_table_name = " load_profile";
+                var lp_table_name = " load_profile_data";
                 var weekly_lp_table_name = " weekly_load_profile_data";
                 var lp_prefix = " (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `load_profile_group_id`,{0} `counter`, `lp_interval`,`ct`,`pt`,`customer_id`,`load_profile_type`, `global_device_id`) VALUES";
                 //var lp_weekly_prefix = " (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `load_profile_group_id`,{0} `counter`, `lp_interval`,`ct`,`pt`,`customer_id`,`load_profile_type`) VALUES";
@@ -2857,10 +2857,10 @@ namespace DatabaseManager.Database
                 #region MakeChannelsColumns
                 if (Data.loadData.Count > 0)
                 {
-                    L_Data lData = Data.loadData[0];
-                    for (int i = 0; i < lData.value.Count; i++)
+                    //L_Data lData = Data.DBColumns;
+                    for (int i = 0; i < Data.DBColumns.Count; i++)
                     {
-                        channels_col.Append(string.Format("`channel_{0}_val`,", i + 1));
+                        channels_col.Append($"`{Data.DBColumns[i]}`,");
                     }
 
                 }
@@ -5648,7 +5648,7 @@ namespace DatabaseManager.Database
             {
                 DBConnect.OpenConnection();
                 //int loadProfileGroupID = getLoadProfileID(channels, model);
-                var Fields = new string[] { string.Format("load_profile{0}_counter", lpScheme == LoadProfileScheme.Scheme_1 ? string.Empty : ((byte)lpScheme).ToString()) };
+                var Fields = new string[] { string.Format("load_profile{0}_counter", lpScheme == LoadProfileScheme.Load_Profile ? string.Empty : ((byte)lpScheme).ToString()) };
                 var Values = new string[] { "0" };
                 if (GeneralUpdate("meter", Fields, Values, "msn", "=", MSN))
                     return true;

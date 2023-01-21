@@ -43,12 +43,6 @@ namespace DLMS
                         {
                             for (int i = 0; (i < mSerialNoLength);  i++)
                                 MeterSerialNo[i] = APDU[index+mSerialNoLength-i];
-                            try
-                            {
-                                EventCounter = (UInt16)(((UInt16)(APDU[index]) << 8) | APDU[index + 1]);
-                            }
-                            catch (Exception)
-                            { }
                             IsVerifited = true;
                             DateTimeStamp = DateTime.Now;
                         }

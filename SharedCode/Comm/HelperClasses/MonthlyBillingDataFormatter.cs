@@ -400,9 +400,9 @@ namespace SharedCode.Comm.HelperClasses
             //    (double)Get_Index.Cumulative_Tariff4_KwhImport,
             //    (double)Get_Index.Cumulative_TariffTL_KwhImport);
 
-            KwhImport.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Cumulative_Tariff1_KwhImport,Get_Index.Cumulative_Tariff2_KwhImport,
-                                                                  Get_Index.Cumulative_Tariff3_KwhImport,Get_Index.Cumulative_Tariff4_KwhImport,
-                                                                  Get_Index.Cumulative_TariffTL_KwhImport
+            KwhImport.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Active_Energy_Positive_T1,Get_Index.Active_Energy_Positive_T2,
+                                                                  Get_Index.Active_Energy_Positive_T3,Get_Index.Active_Energy_Positive_T4,
+                                                                  Get_Index.Active_Energy_Positive_TL
                                                                   });
             ///Cumulative_TariffTL_KwhExport
             BillingItem KwhExport = new BillingItem();
@@ -415,9 +415,9 @@ namespace SharedCode.Comm.HelperClasses
             //    (double)Get_Index.Cumulative_Tariff3_KwhExport,
             //    (double)Get_Index.Cumulative_Tariff4_KwhExport,
             //    (double)Get_Index.Cumulative_TariffTL_KwhExport);
-            KwhExport.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Cumulative_Tariff1_KwhExport,Get_Index.Cumulative_Tariff2_KwhExport,
-                                                                  Get_Index.Cumulative_Tariff3_KwhExport,Get_Index.Cumulative_Tariff4_KwhExport,
-                                                                  Get_Index.Cumulative_TariffTL_KwhExport
+            KwhExport.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Active_Energy_Negative_T1,Get_Index.Active_Energy_Negative_T2,
+                                                                  Get_Index.Active_Energy_Negative_T3,Get_Index.Active_Energy_Negative_T4,
+                                                                  Get_Index.Active_Energy_Negative_TL
                                                                   });
 
 
@@ -432,9 +432,9 @@ namespace SharedCode.Comm.HelperClasses
             //    (double)Get_Index.Cumulative_Tariff3_KwhAbsolute,
             //    (double)Get_Index.Cumulative_Tariff4_KwhAbsolute,
             //    (double)Get_Index.Cumulative_TariffTL_KwhAbsolute);
-            KwhTotal.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Cumulative_Tariff1_KwhAbsolute,Get_Index.Cumulative_Tariff2_KwhAbsolute,
-                                                                  Get_Index.Cumulative_Tariff3_KwhAbsolute,Get_Index.Cumulative_Tariff4_KwhAbsolute,
-                                                                  Get_Index.Cumulative_TariffTL_KwhAbsolute
+            KwhTotal.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Active_Energy_Absolute_T1,Get_Index.Active_Energy_Absolute_T2,
+                                                                  Get_Index.Active_Energy_Absolute_T3,Get_Index.Active_Energy_Absolute_T4,
+                                                                  Get_Index.Active_Energy_Absolute_TL
                                                                   });
 
             ///Cumulative_Tariff1_Kvah	Apparent Energy
@@ -531,9 +531,9 @@ namespace SharedCode.Comm.HelperClasses
             //    (double)Get_Index.Cumulative_Tariff3_KwhAbsolute,
             //    (double)Get_Index.Cumulative_Tariff4_KwhAbsolute,
             //    (double)Get_Index.Cumulative_TariffTL_KwhAbsolute);
-            KvarhTotal.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Cumulative_Tariff1_KvarhAbsolute,Get_Index.Cumulative_Tariff2_KvarhAbsolute,
-                                                                  Get_Index.Cumulative_Tariff3_KvarhAbsolute,Get_Index.Cumulative_Tariff4_KvarhAbsolute,
-                                                                  Get_Index.Cumulative_TariffTL_KvarhAbsolute
+            KvarhTotal.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Reactive_Energy_Absolute_T1,Get_Index.Reactive_Energy_Absolute_T2,
+                                                                  Get_Index.Reactive_Energy_Absolute_T3,Get_Index.Reactive_Energy_Absolute_T4,
+                                                                  Get_Index.Reactive_Energy_Absolute_TL
                                                                   });
 
 
@@ -565,8 +565,8 @@ namespace SharedCode.Comm.HelperClasses
             //    (double)Get_Index.Cumulative_Tariff3_MdiKw,
             //    (double)Get_Index.Cumulative_Tariff4_MdiKw,
             //    (double)Get_Index.Cumulative_TariffTL_MdiKw);
-            MdiKw.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Cumulative_Tariff1_MdiKw,Get_Index.Cumulative_Tariff2_MdiKw,
-                                                                  Get_Index.Cumulative_Tariff3_MdiKw,Get_Index.Cumulative_Tariff4_MdiKw,
+            MdiKw.ValueInfo = new List<Get_Index>(new Get_Index[]{Get_Index.Cumulative_MDI_Absolute_T1,Get_Index.Cumulative_MDI_Absolute_T2,
+                                                                  Get_Index.Cumulative_MDI_Absolute_T3,Get_Index.Cumulative_Tariff4_MdiKw,
                                                                   Get_Index.Cumulative_TariffTL_MdiKw
                                                                   });
 

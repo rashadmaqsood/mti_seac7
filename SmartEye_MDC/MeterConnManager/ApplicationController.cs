@@ -691,9 +691,12 @@ namespace Communicator.MeterConnManager
 
                         #region Limit Features
                         MeterInfo.Read_AR = false;
+                        MeterInfo.Read_LP = READ_METHOD.ByDateTime;
                         MeterInfo.ReadPlan.Clear();
                         MeterInfo.ReadPlan.Add(Schedules.PowerQuantities);
+                        MeterInfo.ReadPlan.Add(Schedules.LoadProfile);
                         MeterInfo.Schedule_PQ.SchType = ScheduleType.EveryTime;
+                        MeterInfo.Schedule_LP.SchType = ScheduleType.EveryTime;
                         MeterInfo.EnableLiveUpdate = false;
                         #endregion
 
@@ -2709,7 +2712,7 @@ namespace Communicator.MeterConnManager
                                         CancelTokenSource.Token.ThrowIfCancellationRequested();
                                     }
                                     #endregion
-                                    IsProcessed = ReadLoadProfile(ref MeterInfo.Schedule_LP, MeterInfo.LP_Counters, LoadProfileScheme.Scheme_1, ref MeterInfo.Read_LP, MeterInfo.Save_LP, CancelTokenSource, IsProcessed);
+                                    IsProcessed = ReadLoadProfile(ref MeterInfo.Schedule_LP, MeterInfo.LP_Counters, LoadProfileScheme.Load_Profile, ref MeterInfo.Read_LP, MeterInfo.Save_LP, CancelTokenSource, IsProcessed);
                                 }
                                 break;
                             case Schedules.LoadProfile2:
@@ -2720,7 +2723,7 @@ namespace Communicator.MeterConnManager
                                         CancelTokenSource.Token.ThrowIfCancellationRequested();
                                     }
                                     #endregion
-                                    IsProcessed = ReadLoadProfile(ref MeterInfo.Schedule_LP2, MeterInfo.LP2_Counters, LoadProfileScheme.Scheme_2, ref MeterInfo.Read_LP2, MeterInfo.Save_LP, CancelTokenSource, IsProcessed);
+                                    IsProcessed = ReadLoadProfile(ref MeterInfo.Schedule_LP2, MeterInfo.LP2_Counters, LoadProfileScheme.Load_Profile_Channel_2, ref MeterInfo.Read_LP2, MeterInfo.Save_LP, CancelTokenSource, IsProcessed);
                                 }
                                 break;
                             case Schedules.PQLoadProfile:
@@ -3501,7 +3504,7 @@ namespace Communicator.MeterConnManager
                                                     else
                                                     {
                                                         #region Update to live table
-                                                        if (LP_Scheme == LoadProfileScheme.Scheme_1 && MeterInfo.EnableLiveUpdate && loadData.ChannelsInstances[loadData.ChannelsInstances.Count - 1].LoadProfileInstance.Count >= 4)
+                                                        if (LP_Scheme == LoadProfileScheme.Load_Profile && MeterInfo.EnableLiveUpdate && loadData.ChannelsInstances[loadData.ChannelsInstances.Count - 1].LoadProfileInstance.Count >= 4)
                                                         {
                                                             //Update LoadProfile_Live
                                                             var LPLiveData = new LoadProfile_Live();
@@ -6037,9 +6040,9 @@ namespace Communicator.MeterConnManager
                 if (!MeterInfo.PrioritizeWakeup && PermissionToWriteParams[(int)WriteParams.SetLoadProfileInterval])
                 {
                     if (MeterInfo.LPParamRequest.ChangeIntervalRequestLP1)
-                        WriteLoadProfileInterval(MeterInfo.LP_Counters.Period, LoadProfileScheme.Scheme_1, ref MeterInfo.LPParamRequest.ChangeIntervalRequestLP1, ref MIUF.LP1_IntervalWriteRequest);
+                        WriteLoadProfileInterval(MeterInfo.LP_Counters.Period, LoadProfileScheme.Load_Profile, ref MeterInfo.LPParamRequest.ChangeIntervalRequestLP1, ref MIUF.LP1_IntervalWriteRequest);
                     if (MeterInfo.LPParamRequest.ChangeIntervalRequestLP2)
-                        WriteLoadProfileInterval(MeterInfo.LP2_Counters.Period, LoadProfileScheme.Scheme_2, ref MeterInfo.LPParamRequest.ChangeIntervalRequestLP2, ref MIUF.LP2_IntervalWriteRequest);
+                        WriteLoadProfileInterval(MeterInfo.LP2_Counters.Period, LoadProfileScheme.Load_Profile_Channel_2, ref MeterInfo.LPParamRequest.ChangeIntervalRequestLP2, ref MIUF.LP2_IntervalWriteRequest);
                     if (MeterInfo.LPParamRequest.ChangeIntervalRequestLP3)
                         WriteLoadProfileInterval(MeterInfo.LP3_Counters.Period, LoadProfileScheme.PQ_Load_Profile, ref MeterInfo.LPParamRequest.ChangeIntervalRequestLP3, ref MIUF.LP3_IntervalWriteRequest);
                 }
@@ -6059,9 +6062,9 @@ namespace Communicator.MeterConnManager
                 if (!MeterInfo.PrioritizeWakeup && PermissionToWriteParams[(int)WriteParams.SetLoadProfileChannel])
                 {
                     if (MeterInfo.LPParamRequest.ChannelRequestLP1)
-                        WriteLoadProfileChannels(MeterInfo.LP_Counters.GroupId, LoadProfileScheme.Scheme_1, ref MeterInfo.LPParamRequest.ChannelRequestLP1, ref MIUF.LP1_ChannelsWriteRequest);
+                        WriteLoadProfileChannels(MeterInfo.LP_Counters.GroupId, LoadProfileScheme.Load_Profile, ref MeterInfo.LPParamRequest.ChannelRequestLP1, ref MIUF.LP1_ChannelsWriteRequest);
                     if (MeterInfo.LPParamRequest.ChannelRequestLP2)
-                        WriteLoadProfileChannels(MeterInfo.LP2_Counters.GroupId, LoadProfileScheme.Scheme_2, ref MeterInfo.LPParamRequest.ChannelRequestLP2, ref MIUF.LP2_ChannelsWriteRequest);
+                        WriteLoadProfileChannels(MeterInfo.LP2_Counters.GroupId, LoadProfileScheme.Load_Profile_Channel_2, ref MeterInfo.LPParamRequest.ChannelRequestLP2, ref MIUF.LP2_ChannelsWriteRequest);
                 }
 #endif
 

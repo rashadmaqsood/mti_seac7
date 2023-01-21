@@ -1916,23 +1916,23 @@ namespace SmartEyeControl_7.ApplicationGUI.GUI
                         #region Detailed_Billing
 
 
-                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KwhImport", Get_Index.Cumulative_Tariff1_KwhImport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KwhImport", Get_Index.Cumulative_Tariff2_KwhImport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KwhImport", Get_Index.Cumulative_Tariff3_KwhImport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KwhImport", Get_Index.Cumulative_Tariff4_KwhImport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KwhImport", Get_Index.Cumulative_TariffTL_KwhImport, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KwhImport", Get_Index.Active_Energy_Positive_T1, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KwhImport", Get_Index.Active_Energy_Positive_T2, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KwhImport", Get_Index.Active_Energy_Positive_T3, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KwhImport", Get_Index.Active_Energy_Positive_T4, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KwhImport", Get_Index.Active_Energy_Positive_TL, 0);
 
-                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KwhExport", Get_Index.Cumulative_Tariff1_KwhExport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KwhExport", Get_Index.Cumulative_Tariff2_KwhExport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KwhExport", Get_Index.Cumulative_Tariff3_KwhExport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KwhExport", Get_Index.Cumulative_Tariff4_KwhExport, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KwhExport", Get_Index.Cumulative_TariffTL_KwhExport, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KwhExport", Get_Index.Active_Energy_Negative_T1, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KwhExport", Get_Index.Active_Energy_Negative_T2, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KwhExport", Get_Index.Active_Energy_Negative_T3, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KwhExport", Get_Index.Active_Energy_Negative_T4, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KwhExport", Get_Index.Active_Energy_Negative_TL, 0);
 
-                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KwhAbsolute", Get_Index.Cumulative_Tariff1_KwhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KwhAbsolute", Get_Index.Cumulative_Tariff2_KwhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KwhAbsolute", Get_Index.Cumulative_Tariff3_KwhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KwhAbsolute", Get_Index.Cumulative_Tariff4_KwhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KwhAbsolute", Get_Index.Cumulative_TariffTL_KwhAbsolute, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KwhAbsolute", Get_Index.Active_Energy_Absolute_T1, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KwhAbsolute", Get_Index.Active_Energy_Absolute_T2, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KwhAbsolute", Get_Index.Active_Energy_Absolute_T3, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KwhAbsolute", Get_Index.Active_Energy_Absolute_T4, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KwhAbsolute", Get_Index.Active_Energy_Absolute_TL, 0);
 
                         instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KvarhQ1", Get_Index.Cumulative_Tariff1_KvarhQ1, 0);
                         instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KvarhQ1", Get_Index.Cumulative_Tariff2_KvarhQ1, 0);
@@ -1958,11 +1958,11 @@ namespace SmartEyeControl_7.ApplicationGUI.GUI
                         instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KvarhQ4", Get_Index.Cumulative_Tariff4_KvarhQ4, 0);
                         instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KvarhQ4", Get_Index.Cumulative_TariffTL_KvarhQ4, 0);
 
-                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KvarhAbsolute", Get_Index.Cumulative_Tariff1_KvarhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KvarhAbsolute", Get_Index.Cumulative_Tariff2_KvarhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KvarhAbsolute", Get_Index.Cumulative_Tariff3_KvarhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KvarhAbsolute", Get_Index.Cumulative_Tariff4_KvarhAbsolute, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KvarhAbsolute", Get_Index.Cumulative_TariffTL_KvarhAbsolute, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "KvarhAbsolute", Get_Index.Reactive_Energy_Absolute_T1, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "KvarhAbsolute", Get_Index.Reactive_Energy_Absolute_T2, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "KvarhAbsolute", Get_Index.Reactive_Energy_Absolute_T3, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "KvarhAbsolute", Get_Index.Reactive_Energy_Absolute_T4, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "KvarhAbsolute", Get_Index.Reactive_Energy_Absolute_TL, 0);
 
                         instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "Kvah", Get_Index.Cumulative_Tariff1_Kvah, 0);
                         instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "Kvah", Get_Index.Cumulative_Tariff2_Kvah, 0);
@@ -1976,9 +1976,9 @@ namespace SmartEyeControl_7.ApplicationGUI.GUI
                         instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "TamperKwh", Get_Index.Cumulative_Tariff4_TamperKwh, 0);
                         instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "TamperKwh", Get_Index.Cumulative_TariffTL_TamperKwh, 0);
 
-                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "MdiKw", Get_Index.Cumulative_Tariff1_MdiKw, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "MdiKw", Get_Index.Cumulative_Tariff2_MdiKw, 0);
-                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "MdiKw", Get_Index.Cumulative_Tariff3_MdiKw, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T1_obj, "MdiKw", Get_Index.Cumulative_MDI_Absolute_T1, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T2_obj, "MdiKw", Get_Index.Cumulative_MDI_Absolute_T2, 0);
+                        instantController.TryGETValue_Any(Cumulative_Billing_T3_obj, "MdiKw", Get_Index.Cumulative_MDI_Absolute_T3, 0);
                         instantController.TryGETValue_Any(Cumulative_Billing_T4_obj, "MdiKw", Get_Index.Cumulative_Tariff4_MdiKw, 0);
                         instantController.TryGETValue_Any(Cumulative_Billing_Tot_obj, "MdiKw", Get_Index.Cumulative_TariffTL_MdiKw, 0);
 
@@ -2118,11 +2118,11 @@ namespace SmartEyeControl_7.ApplicationGUI.GUI
                             Instantaneous_Class_obj.MDIsToShow = new List<QuantityMDI>();
                         Instantaneous_Class_obj.MDIsToShow.Clear();
                         if (_Rights.Find((x) => x.QuantityName.Equals(Billing.Inst_Itm_Current_Max_kW_DateTime_Import.ToString())).Read)
-                            Instantaneous_Class_obj.MDIsToShow.Add(new QuantityMDI("Current Max kW Import", Get_Index.MONTHLY_ACTIVE_MDI_IMPORT_TOTAL));
+                            Instantaneous_Class_obj.MDIsToShow.Add(new QuantityMDI("Current Max kW Import", Get_Index.Monthly_Active_MDI_Positive_TL));
                         if (_Rights.Find((x) => x.QuantityName.Equals(Billing.Inst_Itm_Current_Max_kW_DateTime_Export.ToString())).Read)
-                            Instantaneous_Class_obj.MDIsToShow.Add(new QuantityMDI("Current Max kW Export", Get_Index.MONTHLY_ACTIVE_MDI_EXPORT_TOTAL));
+                            Instantaneous_Class_obj.MDIsToShow.Add(new QuantityMDI("Current Max kW Export", Get_Index.Monthly_Active_MDI_Negative_TL));
                         if (_Rights.Find((x) => x.QuantityName.Equals(Billing.Inst_Itm_Current_Max_kW_DateTime_Absolute.ToString())).Read)
-                            Instantaneous_Class_obj.MDIsToShow.Add(new QuantityMDI("Current Max kW", Get_Index.Cumulative_TariffTL_CurrentMonthMdiKw));
+                            Instantaneous_Class_obj.MDIsToShow.Add(new QuantityMDI("Current Max kW", Get_Index.Monthly_Active_MDI_Absolute_TL));
 
                         if (Instantaneous_Class_obj.MDIsToShow != null)
                         {
