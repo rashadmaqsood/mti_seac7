@@ -281,7 +281,7 @@ namespace DLMS
                 {
                     try
                     {
-                        Repeat_BufferDecodnig: current_char = Data[array_traverse++];
+                    Repeat_BufferDecodnig: current_char = Data[array_traverse++];
 
                         // null Data
                         if (current_char == (byte)DataTypes._A00_Null)
@@ -685,7 +685,8 @@ namespace DLMS
             }
             finally
             {
-                Data = null;
+                if (DecodingAttribute != 4)
+                    Data = null;
             }
         }
 

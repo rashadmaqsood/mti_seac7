@@ -733,7 +733,7 @@ namespace SharedCode.Controllers
             switch (lpScheme)
             {
                 case LoadProfileScheme.Load_Profile_Channel_2: LP_Index = Get_Index.Daily_Load_Profile; break;
-                case LoadProfileScheme.PQ_Load_Profile: LP_Index = Get_Index.PQ_Load_Profile; break;
+                case LoadProfileScheme.Daily_Load_Profile: LP_Index = Get_Index.Daily_Load_Profile; break;
             }
             return LP_Index;
         }
@@ -743,7 +743,7 @@ namespace SharedCode.Controllers
             switch (lpScheme)
             {
                 case LoadProfileScheme.Load_Profile_Channel_2: LP_Index = Get_Index.Load_Profile_Counter_2; break;
-                case LoadProfileScheme.PQ_Load_Profile: LP_Index = Get_Index.PQ_Load_Profile_Counter; break;
+                case LoadProfileScheme.Daily_Load_Profile: LP_Index = Get_Index.PQ_Load_Profile_Counter; break;
             }
             return LP_Index;
         }

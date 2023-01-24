@@ -2829,6 +2829,16 @@ namespace DatabaseManager.Database
                 return false;
             }
         }
+        public static string GetLoadProfileTableName(LoadProfileScheme scheme) 
+        {
+            switch(scheme)
+            {
+                case LoadProfileScheme.Load_Profile: return "load_profile_data";
+                case LoadProfileScheme.Load_Profile_Channel_2: return "instantaneous_data";
+                case LoadProfileScheme.Daily_Load_Profile: return "billing_data";
+                default: return "load_profile_data";
+            }
+        }
         public CustomException saveLoadProfileWithReplace(READ_METHOD LP_ReadMethod, Profile_Counter LP_Counter, Load_Profile Data, DateTime SessionDateTime, MeterInformation MeterInfo, LoadProfileScheme lpScheme)
         {
             CustomException cException = new CustomException();
@@ -2847,7 +2857,7 @@ namespace DatabaseManager.Database
                 //var weeklyUpdate = new StringBuilder();
                 var channels_col = new StringBuilder();
                 var channels_val = new StringBuilder();
-                var lp_table_name = " load_profile_data";
+                var lp_table_name = " " + GetLoadProfileTableName(lpScheme); //" load_profile_data";
                 var weekly_lp_table_name = " weekly_load_profile_data";
                 var lp_prefix = " (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `load_profile_group_id`,{0} `counter`, `lp_interval`,`ct`,`pt`,`customer_id`,`load_profile_type`, `global_device_id`) VALUES";
                 //var lp_weekly_prefix = " (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `load_profile_group_id`,{0} `counter`, `lp_interval`,`ct`,`pt`,`customer_id`,`load_profile_type`) VALUES";

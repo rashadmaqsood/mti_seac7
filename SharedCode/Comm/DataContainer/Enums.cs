@@ -256,7 +256,7 @@ namespace SharedCode.Comm.DataContainer
         ParamterizationRead=8,
         RemoteGrid=9,
         LoadProfile2 = 10,
-        PQLoadProfile = 11,
+        DailyLoadProfile = 11,
         ReadContactorStatus = 12,
     }
 

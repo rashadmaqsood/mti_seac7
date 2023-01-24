@@ -634,7 +634,7 @@ namespace ucCustomControl
                 uint MaxLP_Entries_Local = LP_Data.MaxEntries;//  MaxLP_Entries;
                 #region // Channel_Selector For LP Scheme 2
 
-                if (LP_Scheme == LoadProfileScheme.PQ_Load_Profile)
+                if (LP_Scheme == LoadProfileScheme.Daily_Load_Profile)
                 {
                     // All Channel Option Not Selected
                     if (PQ_LoadProfile.IsChannelSelectorEnable)
@@ -2758,7 +2758,7 @@ namespace ucCustomControl
             }
             else if (cmbLoadProfileType.SelectedIndex == 2)
             {
-                LP_Scheme = LoadProfileScheme.PQ_Load_Profile;
+                LP_Scheme = LoadProfileScheme.Daily_Load_Profile;
                 LP_Data = PQ_LoadProfile;
 
                 btn_Rpt_LoadProfile.Visible = false;
@@ -2891,7 +2891,7 @@ namespace ucCustomControl
             }
             else if (cmbLoadProfileType.SelectedIndex == 2)
             {
-                LP_Scheme = LoadProfileScheme.PQ_Load_Profile;
+                LP_Scheme = LoadProfileScheme.Daily_Load_Profile;
                 LP_Data = loadData2;
 
                 btn_Rpt_LoadProfile.Visible = false;

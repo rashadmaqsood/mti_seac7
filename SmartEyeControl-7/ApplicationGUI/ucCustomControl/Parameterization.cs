@@ -2744,7 +2744,7 @@ namespace ucCustomControl
                 {
                     try
                     {
-                        GET_LoadProfileInterval(LoadProfileScheme.PQ_Load_Profile);
+                        GET_LoadProfileInterval(LoadProfileScheme.Daily_Load_Profile);
                     }
                     catch (Exception)
                     {
@@ -3887,7 +3887,7 @@ namespace ucCustomControl
                     LoadProfilePeriod = LPPeriod;
                 else if (LP_Scheme == LoadProfileScheme.Load_Profile_Channel_2)
                     LoadProfilePeriod_2 = LPPeriod;
-                else if (LP_Scheme == LoadProfileScheme.PQ_Load_Profile)
+                else if (LP_Scheme == LoadProfileScheme.Daily_Load_Profile)
                     PQLoadProfilePeriod = LPPeriod;
 
 
@@ -4202,7 +4202,7 @@ namespace ucCustomControl
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels_Interval(LoadProfileScheme.PQ_Load_Profile);
+                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Daily_Load_Profile);
                     }
                     if (setter.check_MajorAlarmprofile.Checked && setter.check_MajorAlarmprofile.Visible)
                     {
@@ -5051,7 +5051,7 @@ namespace ucCustomControl
                     LPPeriod = LoadProfilePeriod;
                 else if (LP_Scheme == LoadProfileScheme.Load_Profile_Channel_2)
                     LPPeriod = LoadProfilePeriod_2;
-                else if (LP_Scheme == LoadProfileScheme.PQ_Load_Profile)
+                else if (LP_Scheme == LoadProfileScheme.Daily_Load_Profile)
                     LPPeriod = PQLoadProfilePeriod;
 
                 Param_Controller.ParametersSETStatus.BuildStatusCollection(string.Format("Load Profile_{0} Interval", (byte)LP_Scheme));
@@ -10591,7 +10591,7 @@ namespace ucCustomControl
                 {
                     try
                     {
-                        GET_LoadProfileInterval(LoadProfileScheme.PQ_Load_Profile);
+                        GET_LoadProfileInterval(LoadProfileScheme.Daily_Load_Profile);
                     }
                     catch (Exception)
                     {
@@ -11250,7 +11250,7 @@ namespace ucCustomControl
                     {
                         if (Parameterization_BckWorkerThread.CancellationPending)
                             arg.Cancel = true;
-                        SET_LoadProfileChannels_Interval(LoadProfileScheme.PQ_Load_Profile);
+                        SET_LoadProfileChannels_Interval(LoadProfileScheme.Daily_Load_Profile);
                     }
                     Application.DoEvents();
                     if (setter.check_MajorAlarmprofile.Checked && setter.check_MajorAlarmprofile.Visible)

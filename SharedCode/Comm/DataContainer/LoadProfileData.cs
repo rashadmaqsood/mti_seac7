@@ -9,7 +9,6 @@ namespace SharedCode.Comm.DataContainer
         None = 0, //by Azeem
         Load_Profile = 1,
         Load_Profile_Channel_2 = 2,
-        PQ_Load_Profile = 3,
         Daily_Load_Profile = 4,
         Daily_Load_Profile_Channel2 = 5
     }

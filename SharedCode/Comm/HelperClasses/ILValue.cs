@@ -627,7 +627,18 @@ namespace SharedCode.Comm.HelperClasses
                     }
                     //else
                     //    extValue.Value = Double.PositiveInfinity;
-                } 
+                }
+                #endregion
+                #region Class_7
+                else if(CommObj.GetType() == typeof(DLMS.Class_7))
+                {
+                    Class_7 _CommObj = (Class_7)CommObj;
+                    ///Store Current Average Value Feild
+                    if (CommObj.GetAttributeDecodingResult(4) == DLMS.DecodingResult.Ready)
+                    {
+                        extValue.SetDataItemValue(0x04, _CommObj.capturePeriod);
+                    }
+                }
                 #endregion
                 #region Class_8
                 else if (CommObj.GetType() == typeof(DLMS.Class_8))

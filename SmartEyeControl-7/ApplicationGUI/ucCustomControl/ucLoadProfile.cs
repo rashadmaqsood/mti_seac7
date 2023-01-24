@@ -114,7 +114,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
             InitializeComponent();
             this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Load_Profile);
             this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Load_Profile_Channel_2);
-            this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.PQ_Load_Profile);
+            this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Daily_Load_Profile);
             Init();
         }
 
@@ -379,7 +379,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                         item.CapturePeriod = LPPeriod;
                     }
                 }
-                else if (lpScheme == LoadProfileScheme.PQ_Load_Profile)
+                else if (lpScheme == LoadProfileScheme.Daily_Load_Profile)
                 {
                     PQLoadProfilePeriod = LPPeriod;
                 }
@@ -425,7 +425,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                     break;
                 case LoadProfileParams.PQLoadProfile:
                     if (read || write)
-                        this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.PQ_Load_Profile);
+                        this.cmbLoadProfileScheme.Items.Add(LoadProfileScheme.Daily_Load_Profile);
                     break;
                 case LoadProfileParams.LoadProfileInterval:
                 case LoadProfileParams.LoadProfileInterval2:
@@ -448,7 +448,7 @@ namespace AccurateOptocomSoftware.ApplicationGUI.ucCustomControl
                     {
                         case LoadProfileScheme.Load_Profile: ShowLoadProfile(LoadProfileChannelsInfo, LoadProfilePeriod); break;
                         case LoadProfileScheme.Load_Profile_Channel_2: ShowLoadProfile(LoadProfileChannelsInfo_2, LoadProfilePeriod_2); break;
-                        case LoadProfileScheme.PQ_Load_Profile: ShowLoadProfile(new List<LoadProfileChannelInfo>(), PQLoadProfilePeriod); break;
+                        case LoadProfileScheme.Daily_Load_Profile: ShowLoadProfile(new List<LoadProfileChannelInfo>(), PQLoadProfilePeriod); break;
                     }
                 }
             }
