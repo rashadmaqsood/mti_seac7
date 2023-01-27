@@ -943,7 +943,7 @@ namespace DatabaseManager.Database
         {
             List<string> MSNs = null;
             DataTable DT = null;
-             OdbcCommand Command = null;
+            OdbcCommand Command = null;
             string query = null;
 
             try
@@ -2661,7 +2661,7 @@ namespace DatabaseManager.Database
                         //_monthlyBillingData.CustomerStatusCode = Convert.ToInt32(tblComsumer.Rows[0]["consumer_status_code"]);
                         //DateTime.TryParse(tblComsumer.Rows[0]["consumer_status_date"].ToString(), out _monthlyBillingData.CustomerStatusChangeDate);
                     }
-                    else _monthlyBillingData.MeterTariffCode = 0; 
+                    else _monthlyBillingData.MeterTariffCode = 0;
                 }
             }
             catch (Exception ex)
@@ -2829,9 +2829,9 @@ namespace DatabaseManager.Database
                 return false;
             }
         }
-        public static string GetLoadProfileTableName(LoadProfileScheme scheme) 
+        public static string GetLoadProfileTableName(LoadProfileScheme scheme)
         {
-            switch(scheme)
+            switch (scheme)
             {
                 case LoadProfileScheme.Load_Profile: return "load_profile_data";
                 case LoadProfileScheme.Load_Profile_Channel_2: return "instantaneous_data";
@@ -2859,7 +2859,7 @@ namespace DatabaseManager.Database
                 var channels_val = new StringBuilder();
                 var lp_table_name = " " + GetLoadProfileTableName(lpScheme); //" load_profile_data";
                 var weekly_lp_table_name = " weekly_load_profile_data";
-                var lp_prefix = " (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `load_profile_group_id`,{0} `counter`, `lp_interval`,`ct`,`pt`,`customer_id`,`load_profile_type`, `global_device_id`) VALUES";
+                var lp_prefix = " (`msn`, `global_device_id`, `db_datetime`,`mdc_read_datetime`,{0} `meter_datetime`) VALUES";
                 //var lp_weekly_prefix = " (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `load_profile_group_id`,{0} `counter`, `lp_interval`,`ct`,`pt`,`customer_id`,`load_profile_type`) VALUES";
                 var prfix = "Insert Into";
                 int bulkCounter = 0;
@@ -2870,7 +2870,8 @@ namespace DatabaseManager.Database
                     //L_Data lData = Data.DBColumns;
                     for (int i = 0; i < Data.DBColumns.Count; i++)
                     {
-                        channels_col.Append($"`{Data.DBColumns[i]}`,");
+                        if (!string.IsNullOrEmpty(Data.DBColumns[i]))
+                            channels_col.Append($"`{Data.DBColumns[i]}`,");
                     }
 
                 }
@@ -2915,22 +2916,16 @@ namespace DatabaseManager.Database
 
                         for (int index = 0; index < Data.loadData[i].value.Count; index++)
                         {
-                            channels_val.Append(string.Format("'{0}',", Data.loadData[i].value[index]));
+                            if (!string.IsNullOrEmpty(Data.DBColumns[index]))
+                                channels_val.Append(string.Format("'{0}',", Data.loadData[i].value[index]));
                         }
 
-                        lpInsert.Append(String.Format("('{0}', '{1}', CURTIME(), CURDATE(), '{2}', '{3}', {4} '{5}', '{6}', '{7}', '{8}', {9},'{10}', '{11}' ),"
+                        lpInsert.Append(String.Format("('{0}', '{1}', now(), '{2}', {3} '{4}'),"
                                                                     , Data.MSN
-                                                                    , SessionDateTime.ToString(DateFormat)
-                                                                    , Data.loadData[i].timeStamp.ToString(DateFormat)
-                                                                    , LP_Counter.GroupId
-                                                                    , channels_val
-                                                                    , Data.loadData[i].counter
-                                                                    , Data.loadData[i].interval
-                                                                    , MeterInfo.CT
-                                                                    , MeterInfo.PT
-                                                                    , MeterInfo.Customer_ID
-                                                                    , (byte)lpScheme
                                                                     , MeterInfo.GlobalDeviceId
+                                                                    , SessionDateTime.ToString(DateFormat)
+                                                                    , channels_val
+                                                                    , Data.loadData[i].timeStamp.ToString(DateFormat)
                                                                     ));
 
                         CurrentDataCount = Data.loadData[i].counter;
@@ -3346,7 +3341,7 @@ namespace DatabaseManager.Database
                             break;
                         }
                     }
-                    Next: continue;
+                Next: continue;
                 }
             }
             catch (Exception ex)
@@ -5338,7 +5333,7 @@ namespace DatabaseManager.Database
         {
             try
             {
-                _DBConnect.Command = new OdbcCommand(Query, ( OdbcConnection)_DBConnect.Connection);
+                _DBConnect.Command = new OdbcCommand(Query, (OdbcConnection)_DBConnect.Connection);
                 OdbcDataAdapter adapter = new OdbcDataAdapter();
                 adapter.SelectCommand = (OdbcCommand)_DBConnect.Command;
                 DataTable DT = new DataTable();
@@ -6129,7 +6124,7 @@ namespace DatabaseManager.Database
                 using (var reader = Command.ExecuteReader())
                 {
                     var dLits = Commons.MapReaderToObject<ContactorControlData>(reader);
-                    return ContactorControlData.GetCommandToExecute(MI, dLits, out obj_req, OnDemandOff); 
+                    return ContactorControlData.GetCommandToExecute(MI, dLits, out obj_req, OnDemandOff);
                 }
             }
             catch (Exception ex)
@@ -7832,7 +7827,7 @@ namespace DatabaseManager.Database
                                   $"INNER JOIN meter m ON dbdm.msn = m.msn " +
                                   $"INNER JOIN connection con ON m.feeder_id = con.feeder_id " +
                                   $"INNER JOIN consumers c ON con.customer_id = c.consumer_id " +
-                                  $"WHERE m.feeder_id = '{feederId}' and billing_date > c.initial_billing_date "  + //interval 24 hour " +
+                                  $"WHERE m.feeder_id = '{feederId}' and billing_date > c.initial_billing_date " + //interval 24 hour " +
                                   $"ORDER BY billing_date DESC LIMIT 6;";
 
                 DateTime ExpectedDate = date;

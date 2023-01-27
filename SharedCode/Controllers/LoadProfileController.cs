@@ -732,7 +732,7 @@ namespace SharedCode.Controllers
             Get_Index LP_Index = Get_Index.Load_Profile;
             switch (lpScheme)
             {
-                case LoadProfileScheme.Load_Profile_Channel_2: LP_Index = Get_Index.Daily_Load_Profile; break;
+                case LoadProfileScheme.Load_Profile_Channel_2: LP_Index = Get_Index.Load_Profile_Channel_2; break;
                 case LoadProfileScheme.Daily_Load_Profile: LP_Index = Get_Index.Daily_Load_Profile; break;
             }
             return LP_Index;
@@ -1193,15 +1193,16 @@ namespace SharedCode.Controllers
                     ///Read Load Profile Channels
                     foreach (var item in LoadProfileInfo.CaptureObjectsInfo)
                     {
-                        int indexLoadChannel = AllSelectableValues.FindIndex((x) => x.OBIS_Index == item.StOBISCode.OBISIndex);
+                        //int indexLoadChannel = AllSelectableValues.FindIndex((x) => x.OBIS_Index == item.StOBISCode.OBISIndex);
                         LoadProfileChannelInfo ChannelInfoT = null;
-                        if (indexLoadChannel != -1)
-                        {
-                            ChannelInfoT = AllSelectableValues[indexLoadChannel];
-                            ChannelInfoT.Channel_id = channelId;
-                            ChannelInfo.Add(ChannelInfoT);
-                        }
-                        else if (
+                        //if (indexLoadChannel != -1)
+                        //{
+                        //    ChannelInfoT = AllSelectableValues[indexLoadChannel];
+                        //    ChannelInfoT.Channel_id = channelId;
+                        //    ChannelInfo.Add(ChannelInfoT);
+                        //}
+                        //else 
+                        if (
                             IncludeFixChannels ||
                             (item.StOBISCode.OBISIndex != Meter_Clock &&
                             item.StOBISCode.OBISIndex != Load_Profile_Counter &&
@@ -1872,6 +1873,7 @@ namespace SharedCode.Controllers
 
                 // Make LP Data In Order
                 List<ILValue[]> tRawLoadProfileData = new List<ILValue[]>();
+                var fixedChannels = Get_FixedChannels();
                 switch (LoadProfileInfo.SortMethod)
                 {
                     case SortMethod.FIFO:
@@ -1880,7 +1882,7 @@ namespace SharedCode.Controllers
                             {
                                 tRawLoadProfileData.Clear();
                                 tRawLoadProfileData.Add(RawLoadProfileData[index]);
-                                LoadProfileData LPData = dtFormat.MakeData(tRawLoadProfileData, this.ChannelInfo,Get_FixedChannels(), ref counter);
+                                LoadProfileData LPData = dtFormat.MakeData(tRawLoadProfileData, this.ChannelInfo, fixedChannels, ref counter);
                                 formatted_LP_Data.Add(LPData);
                             }
                             break;
@@ -1891,7 +1893,7 @@ namespace SharedCode.Controllers
                             {
                                 tRawLoadProfileData.Clear();
                                 tRawLoadProfileData.Add(RawLoadProfileData[index]);
-                                LoadProfileData LPData = dtFormat.MakeData(tRawLoadProfileData, this.ChannelInfo, Get_FixedChannels(), ref counter);
+                                LoadProfileData LPData = dtFormat.MakeData(tRawLoadProfileData, this.ChannelInfo, fixedChannels, ref counter);
                                 formatted_LP_Data.Add(LPData);
 
                             }

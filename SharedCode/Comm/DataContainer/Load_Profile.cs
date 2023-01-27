@@ -19,6 +19,7 @@ namespace SharedCode.Comm.DataContainer
             MSN = "";
             loadData = new List<L_Data>();
             channels = new List<string>();
+            DBColumns = new List<string>();
         }
     }
 
