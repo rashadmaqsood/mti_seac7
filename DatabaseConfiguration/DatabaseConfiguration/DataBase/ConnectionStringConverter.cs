@@ -11,17 +11,11 @@ namespace DatabaseConfiguration.DataBase
     {
         public static string ODBCtoMySqlConnectionString(string dsn)
         {
-            //Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\ODBC
-            RegistryKey reg = (Registry.LocalMachine).OpenSubKey($@"Software\ODBC\ODBC.INI\{dsn}");
-            if (reg == null)
-            {
-                reg = (Registry.CurrentUser).OpenSubKey($@"Software\ODBC\ODBC.INI\{dsn}");
-            }
-            if (reg == null)
-            {
-                reg = (Registry.LocalMachine).OpenSubKey($@"Software\WOW6432Node\ODBC\ODBC.INI\{dsn}");
-            }
-            //reg = reg.OpenSubKey(dsn);
+            RegistryKey reg = (Registry.CurrentUser).OpenSubKey("Software");
+            reg = reg.OpenSubKey("ODBC");
+            reg = reg.OpenSubKey("ODBC.INI");
+            // reg = reg.OpenSubKey("ODBC Data Sources");
+            reg = reg.OpenSubKey(dsn);
             if (reg != null)
             {
                 var server = reg.GetValue("SERVER");
