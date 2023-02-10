@@ -943,7 +943,7 @@ namespace DatabaseManager.Database
         {
             List<string> MSNs = null;
             DataTable DT = null;
-             OdbcCommand Command = null;
+            OdbcCommand Command = null;
             string query = null;
 
             try
@@ -2661,7 +2661,7 @@ namespace DatabaseManager.Database
                         //_monthlyBillingData.CustomerStatusCode = Convert.ToInt32(tblComsumer.Rows[0]["consumer_status_code"]);
                         //DateTime.TryParse(tblComsumer.Rows[0]["consumer_status_date"].ToString(), out _monthlyBillingData.CustomerStatusChangeDate);
                     }
-                    else _monthlyBillingData.MeterTariffCode = 0; 
+                    else _monthlyBillingData.MeterTariffCode = 0;
                 }
             }
             catch (Exception ex)
@@ -2829,9 +2829,9 @@ namespace DatabaseManager.Database
                 return false;
             }
         }
-        public static string GetLoadProfileTableName(LoadProfileScheme scheme) 
+        public static string GetLoadProfileTableName(LoadProfileScheme scheme)
         {
-            switch(scheme)
+            switch (scheme)
             {
                 case LoadProfileScheme.Load_Profile: return "load_profile_data";
                 case LoadProfileScheme.Load_Profile_Channel_2: return "instantaneous_data";
@@ -3346,7 +3346,7 @@ namespace DatabaseManager.Database
                             break;
                         }
                     }
-                    Next: continue;
+                Next: continue;
                 }
             }
             catch (Exception ex)
@@ -3383,7 +3383,7 @@ namespace DatabaseManager.Database
             return cException;
         }
 
-        public CustomException saveEventsDataWithReplace(EventData Data, string msn, DateTime SessionDateTime, long CountComparer, long MeterCount, long DatabaseCount, MeterInformation MeterInfo, MeterInfoUpdateFlags flags)
+        public CustomException saveEventsDataWithReplace(EventData Data, string msn, DateTime SessionDateTime, MeterInformation MeterInfo, MeterInfoUpdateFlags flags)
         {
             CustomException cException = new CustomException();
             long PreviousSavedDataCount = 0;
@@ -3444,12 +3444,6 @@ namespace DatabaseManager.Database
                                                 ));
 
                     CurrentDataCount = Data.EventRecords[i].EventCounter;
-                    if (CurrentDataCount > CountComparer)
-                    {
-                        cException.SomeMessage = "Data with Invalid Events Counter save try... ";
-                        cException.isTrue = false;
-                        break;
-                    }
                     PreviousSavedDataCount = Data.EventRecords[i].EventCounter;
 
                     #endregion
@@ -3494,20 +3488,12 @@ namespace DatabaseManager.Database
                     try
                     {
                         cException.SomeNumber = (long)PreviousSavedDataCount;
-                        if (PreviousSavedDataCount > MeterCount + 1 || PreviousSavedDataCount < DatabaseCount)
-                        {
-                            cException.SomeMessage += "Invalid Events Counter update try";
-                            cException.isTrue = false;
 
-                        }
-                        else
-                        {
-                            //update_EventCounter(msn, PreviousSavedDataCount, MyCommand);//Update Counter to DB
-                            MeterInfo.EvCounterToUpdate = PreviousSavedDataCount;
-                            cException.SomeNumber = PreviousSavedDataCount;
-                            flags.UpdateEventCounters = true;
+                        //update_EventCounter(msn, PreviousSavedDataCount, MyCommand);//Update Counter to DB
+                        MeterInfo.EvCounterToUpdate = PreviousSavedDataCount;
+                        cException.SomeNumber = PreviousSavedDataCount;
+                        flags.UpdateEventCounters = true;
 
-                        }
                         if (transaction != null) transaction.Dispose();
                     }
                     catch (Exception)
@@ -5338,7 +5324,7 @@ namespace DatabaseManager.Database
         {
             try
             {
-                _DBConnect.Command = new OdbcCommand(Query, ( OdbcConnection)_DBConnect.Connection);
+                _DBConnect.Command = new OdbcCommand(Query, (OdbcConnection)_DBConnect.Connection);
                 OdbcDataAdapter adapter = new OdbcDataAdapter();
                 adapter.SelectCommand = (OdbcCommand)_DBConnect.Command;
                 DataTable DT = new DataTable();
@@ -6129,7 +6115,7 @@ namespace DatabaseManager.Database
                 using (var reader = Command.ExecuteReader())
                 {
                     var dLits = Commons.MapReaderToObject<ContactorControlData>(reader);
-                    return ContactorControlData.GetCommandToExecute(MI, dLits, out obj_req, OnDemandOff); 
+                    return ContactorControlData.GetCommandToExecute(MI, dLits, out obj_req, OnDemandOff);
                 }
             }
             catch (Exception ex)
@@ -7832,7 +7818,7 @@ namespace DatabaseManager.Database
                                   $"INNER JOIN meter m ON dbdm.msn = m.msn " +
                                   $"INNER JOIN connection con ON m.feeder_id = con.feeder_id " +
                                   $"INNER JOIN consumers c ON con.customer_id = c.consumer_id " +
-                                  $"WHERE m.feeder_id = '{feederId}' and billing_date > c.initial_billing_date "  + //interval 24 hour " +
+                                  $"WHERE m.feeder_id = '{feederId}' and billing_date > c.initial_billing_date " + //interval 24 hour " +
                                   $"ORDER BY billing_date DESC LIMIT 6;";
 
                 DateTime ExpectedDate = date;

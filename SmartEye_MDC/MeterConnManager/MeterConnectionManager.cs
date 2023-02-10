@@ -490,7 +490,7 @@ namespace Commuincator.MeterConnManager
         {
             try
             {
-                ApplicationController NEw_AppProcess = new ApplicationController();
+                ApplicationController NEw_AppProcess = MDC_ObjectFactory.GetApplicationControllerObject();//  new ApplicationController();
                 NEw_AppProcess.Applicationprocess_Controller.OwnerThreadId = OwnerId++;
                 // Init Work Here
                 NEw_AppProcess.Applicationprocess_Controller.GetSAPEntryDlg = new GetSAPEntryKeyIndex(GetSAPEntryKeyIndexer);

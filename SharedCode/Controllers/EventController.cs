@@ -19,7 +19,7 @@ namespace SharedCode.Controllers
 
         internal int Max_Sync_Iteration = 50;
         public static readonly int Extra_Iteration = 25;
-        private ApplicationProcess_Controller _AP_Controller;
+        protected ApplicationProcess_Controller _AP_Controller;
         private GenericProfileInfo EventLogGenericInfo = null;
         private EventInfo currentEventLog = null;
 
@@ -928,7 +928,7 @@ namespace SharedCode.Controllers
             return IsSuccess;
         }
 
-        public bool TryReadEventLogData(Profile_Counter Event_Counters, EventInfo EventLogInfoObj, EventData EventInstances,
+        public virtual bool TryReadEventLogData(Profile_Counter Event_Counters, EventInfo EventLogInfoObj, EventData EventInstances,
             Action<Exception> SetInnerException = null, CancellationTokenSource CancelToken = null)
         {
             Exception InnerException = null;

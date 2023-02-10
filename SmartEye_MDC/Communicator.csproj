@@ -249,6 +249,7 @@
     <Compile Include="MeterConfiguration\Events.cs" />
     <Compile Include="MeterConfiguration\Parameterization.cs" />
     <Compile Include="MeterConnManager\ApplicationController.cs" />
+    <Compile Include="MeterConnManager\ApplicationController_YTL.cs" />
     <Compile Include="MeterConnManager\ConnectionThreadAllocater.cs" />
     <Compile Include="MeterConnManager\DataTaskAllocater.cs" />
     <Compile Include="MeterConnManager\DateTimeValuesComparer.cs" />
@@ -265,6 +266,7 @@
     <Compile Include="MTI_MDC\ListViewHelper.cs" />
     <Compile Include="MTI_MDC\LocalCommon.cs" />
     <Compile Include="MTI_MDC\MachineProfileEngine.cs" />
+    <Compile Include="MTI_MDC\MDC_ObjectFactory.cs" />
     <Compile Include="MTI_MDC\ProductValidationEngine.cs" />
     <Compile Include="MDCForm.cs">
       <SubType>Form</SubType>

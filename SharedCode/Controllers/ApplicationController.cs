@@ -243,7 +243,7 @@ namespace SharedCode.Controllers
             _ConnectionController = new ConnectionController();
             _Billing_Controller = new BillingController();
             _LoadProfile_Controller = new LoadProfileController();
-            _EventController = new EventController();
+            _EventController = ObjectFactory.GetEventControllerObject(); //new EventController();
             //_DBController = new DBController_OLD();
             _InstantaneousController = new InstantaneousController();
             Configurator = new Configurator();

@@ -17,9 +17,9 @@ namespace SharedCode.Common
         Creative = 2,
         YTL = 3,
     }
-    class ObjectFactory
+    public class ObjectFactory
     {
-        static MeteringCompany meteringCompany = MeteringCompany.YTL;
+        public static readonly MeteringCompany meteringCompany = MeteringCompany.YTL;
         static ObjectFactory()
         {
             //meteringCompany = (MeteringCompany)Settings.Default.HeartBeatType; // HeartBeatType.SHENZHEN_CLOU;
@@ -62,6 +62,21 @@ namespace SharedCode.Common
                     return new BillingController();
             }
         }
+        public static EventController GetEventControllerObject()
+        {
+            switch (ObjectFactory.meteringCompany)
+            {
+                case MeteringCompany.YTL:
+                    return new EventController_YTL();
+                case MeteringCompany.ShenzenClu:
+                case MeteringCompany.Creative:
+                case MeteringCompany.MTI:
+                default:
+                    return new EventController();
+            }
+        }
+
+
     }
 }
 
