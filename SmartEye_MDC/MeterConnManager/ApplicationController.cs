@@ -691,11 +691,11 @@ namespace Communicator.MeterConnManager
 
                         #region Limit Features
                         MeterInfo.Read_AR = false;
-                        MeterInfo.Read_LP3 = READ_METHOD.ByDateTime;
+                        MeterInfo.Read_EV = true;
                         MeterInfo.ReadPlan.Clear();
-                        MeterInfo.ReadPlan.Add(Schedules.PowerQuantities);
+                        MeterInfo.ReadPlan.Add(Schedules.Events);
                         //MeterInfo.ReadPlan.Add(Schedules.DailyLoadProfile);
-                        MeterInfo.Schedule_PQ.SchType = ScheduleType.EveryTime;
+                        MeterInfo.Schedule_EV.SchType = ScheduleType.EveryTime;
                         MeterInfo.Schedule_LP3.SchType = ScheduleType.EveryTime;
                         MeterInfo.EnableLiveUpdate = false;
                         #endregion

@@ -739,7 +739,7 @@ namespace SharedCode.Controllers
             return isSuccess;
         }
 
-        public bool TryReadEventLogDataInChunks(Profile_Counter Event_Counters, EventInfo EventLogInfoObj, EventData EventInstances,
+        public virtual bool TryReadEventLogDataInChunks(Profile_Counter Event_Counters, EventInfo EventLogInfoObj, EventData EventInstances,
             Action<Exception> SetInnerException = null, uint maxChunkSize = 25, CancellationTokenSource CancelToken = null)
         {
             Exception InnerException = null;
