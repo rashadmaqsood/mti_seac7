@@ -3267,18 +3267,14 @@ namespace DatabaseManager.Database
                 {
                     try
                     {
-                        MyCommand.CommandText = string.Format("INSERT INTO events_data(`session_datetime`,`arrival_time`,`msn`,`date`,`time`,`event_code`,`counter`,`description`,`is_individual`,`reference_no`,`customer_id`, `global_device_id`) VALUES" +
-                                "('{0}', '{1}', '{2}', CURDATE(), CURTIME(), '{3}', '{4}', '{5}', '{6}','{7}',{8})" // , {9})"
+                        MyCommand.CommandText = string.Format("INSERT INTO events(`mdc_read_datetime`,`event_datetime`,`msn`,`event_code`,`event_counter`,`event_description`,`db_datetime`, `global_device_id`) VALUES" +
+                                "('{0}', '{1}', '{2}','{3}', '{4}', '{5}',now())" // , {9})"
                                         , SessionDateTime.ToString(DateFormat)
                                         , Data.EventRecords[i].EventDateTimeStamp.ToString(DateFormat)
                                         , msn
                                         , Data.EventRecords[i].EventInfo.EventCode
                                         , Data.EventRecords[i].EventCounter
                                         , Data.EventRecords[i].EventDetailStr
-                                        , 0 // We are reading only combine events log
-                                        , reference_no
-                                        , MeterInfo.Customer_ID
-                                        //, MeterInfo.GlobalDeviceId
                                         );
 
                         CurrentDataCount = Data.EventRecords[i].EventCounter;
@@ -3400,7 +3396,18 @@ namespace DatabaseManager.Database
                 StringBuilder events = new StringBuilder();
                 var bulkExecutor = 0;
                 var prefix = "INSERT INTO";
-                var event_query = " events_data(`session_datetime`,`arrival_time`,`msn`,`date`,`time`,`event_code`,`counter`,`description`,`is_individual`,`customer_id`, `global_device_id`) VALUES";
+                var event_query = " events(`mdc_read_datetime`,`event_datetime`,`msn`,`event_code`,`event_counter`,`event_description`,`db_datetime`, `global_device_id`) VALUES";
+                /*
+                                         MyCommand.CommandText = string.Format("INSERT INTO events(`mdc_read_datetime`,`event_datetime`,`msn`,`event_code`,`event_counter`,`event_description`,`db_datetime`, `global_device_id`) VALUES" +
+                                "('{0}', '{1}', '{2}','{3}', '{4}', '{5}',now())" // , {9})"
+                                        , SessionDateTime.ToString(DateFormat)
+                                        , Data.EventRecords[i].EventDateTimeStamp.ToString(DateFormat)
+                                        , msn
+                                        , Data.EventRecords[i].EventInfo.EventCode
+                                        , Data.EventRecords[i].EventCounter
+                                        , Data.EventRecords[i].EventDetailStr
+                                        );
+                 */
                 #region Making Query
 
                 events.Append(event_query);
@@ -3431,17 +3438,15 @@ namespace DatabaseManager.Database
                     #endregion
 
                     #region Save
-                    events.Append(string.Format("('{0}', '{1}', '{2}', CURDATE(), CURTIME(), '{3}', '{4}', '{5}', '{6}', {7}, '{8}' ),"
-                                                , SessionDateTime.ToString(DateFormat)
-                                                , Data.EventRecords[i].EventDateTimeStamp.ToString(DateFormat)
-                                                , msn
-                                                , Data.EventRecords[i].EventInfo.EventCode
-                                                , Data.EventRecords[i].EventCounter
-                                                , Data.EventRecords[i].EventDetailStr
-                                                , 0 // We are reading only combine events log
-                                                , MeterInfo.Customer_ID
-                                                , MeterInfo.GlobalDeviceId
-                                                ));
+                    events.Append(string.Format("('{0}', '{1}', '{2}','{3}', '{4}', '{5}',now(),'{6}')," // , {9})"
+                                        , SessionDateTime.ToString(DateFormat)
+                                        , Data.EventRecords[i].EventDateTimeStamp.ToString(DateFormat)
+                                        , msn
+                                        , Data.EventRecords[i].EventInfo.EventCode
+                                        , Data.EventRecords[i].EventCounter
+                                        , Data.EventRecords[i].EventDetailStr,
+                                        MeterInfo.GlobalDeviceId
+                                        ));
 
                     CurrentDataCount = Data.EventRecords[i].EventCounter;
                     PreviousSavedDataCount = Data.EventRecords[i].EventCounter;
