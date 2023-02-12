@@ -434,6 +434,12 @@ namespace DLMS
         ///</summary>
         Supply_Frequency = 0x000301000E0700FF,
 
+        ///<summary>
+        ///Description: Quantity_Name= Supply_Frequency  Class ID 3 
+        /// OBIS_CODE = 1.0.14.27.0.255
+        /// Description
+        ///</summary>
+        Average_Supply_Frequency = 0x000301000E1B00FF,
 
 
         ///<summary>
@@ -895,6 +901,12 @@ namespace DLMS
         ///</summary>
         Monthly_Avg_PF = 0x000301000D0000FF,
 
+        ///<summary>
+        ///Description: Quantity_Name= Average_PF  Class ID 3 
+        /// OBIS_CODE = 1.0.13.0.0.255
+        /// Description
+        ///</summary>
+        Average_PF = 0x000301000D1B00FF,
 
 
         ///<summary>
@@ -6500,6 +6512,14 @@ namespace DLMS
         /// Description
         ///</summary>
         REACTIVE_POWER_EXPORT_AGGREGATE = 0x00030100041B00FF,
+
+        ///<summary>
+        /// Description: Quantity_Name= REACTIVE POWER EXPORT AGGREGATE
+        /// OBIS_CODE = 1.0.128.27.0.255
+        /// Description
+        ///</summary>
+        REACTIVE_POWER_ABS_AGGREGATE = 0x00030100801B00FF,
+
         ///<summary>
         /// Description: Quantity_Name= CUMULATIVE ACTIVE MDI ABSOLUTE TOTAL
         /// OBIS_CODE = 1.0.15.2.0.255

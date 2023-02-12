@@ -782,7 +782,7 @@ namespace dlmsConfigurationTool
             this.loadToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.loadToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -791,7 +791,7 @@ namespace dlmsConfigurationTool
             this.saveToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.saveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -800,7 +800,7 @@ namespace dlmsConfigurationTool
             this.importToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.importToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
@@ -809,7 +809,7 @@ namespace dlmsConfigurationTool
             this.exportToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -972,7 +972,7 @@ namespace dlmsConfigurationTool
             this.addBillingItemToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.addBillingItemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addBillingItemToolStripMenuItem.Name = "addBillingItemToolStripMenuItem";
-            this.addBillingItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addBillingItemToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.addBillingItemToolStripMenuItem.Text = "&Add Billing Item";
             this.addBillingItemToolStripMenuItem.Click += new System.EventHandler(this.addBillingItemToolStripMenuItem_Click);
             // 
@@ -981,7 +981,7 @@ namespace dlmsConfigurationTool
             this.removeBillingItemsToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.removeBillingItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.removeBillingItemsToolStripMenuItem.Name = "removeBillingItemsToolStripMenuItem";
-            this.removeBillingItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeBillingItemsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.removeBillingItemsToolStripMenuItem.Text = "&Remove Billing Items";
             this.removeBillingItemsToolStripMenuItem.Click += new System.EventHandler(this.removeBillingItemsToolStripMenuItem_Click);
             // 
@@ -990,7 +990,7 @@ namespace dlmsConfigurationTool
             this.copyBillingItemsToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.copyBillingItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.copyBillingItemsToolStripMenuItem.Name = "copyBillingItemsToolStripMenuItem";
-            this.copyBillingItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyBillingItemsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.copyBillingItemsToolStripMenuItem.Text = "Copy Billing Items";
             this.copyBillingItemsToolStripMenuItem.Click += new System.EventHandler(this.copyBillingItemsToolStripMenuItem_Click);
             // 
@@ -1012,7 +1012,7 @@ namespace dlmsConfigurationTool
             this.newAllQuantitesToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.newAllQuantitesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.newAllQuantitesToolStripMenuItem.Name = "newAllQuantitesToolStripMenuItem";
-            this.newAllQuantitesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.newAllQuantitesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.newAllQuantitesToolStripMenuItem.Text = "&New All Quantities";
             this.newAllQuantitesToolStripMenuItem.Click += new System.EventHandler(this.newAllQuantitesToolStripMenuItem_Click);
             // 
@@ -1021,7 +1021,7 @@ namespace dlmsConfigurationTool
             this.searchToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.searchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.searchToolStripMenuItem.Text = "&Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
@@ -1030,7 +1030,7 @@ namespace dlmsConfigurationTool
             this.insertNewQuantityToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.insertNewQuantityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.insertNewQuantityToolStripMenuItem.Name = "insertNewQuantityToolStripMenuItem";
-            this.insertNewQuantityToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.insertNewQuantityToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.insertNewQuantityToolStripMenuItem.Text = "&Insert New Quantity";
             this.insertNewQuantityToolStripMenuItem.Click += new System.EventHandler(this.insertNewQuantityToolStripMenuItem_Click);
             // 
@@ -1039,7 +1039,7 @@ namespace dlmsConfigurationTool
             this.editQuantityToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.editQuantityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.editQuantityToolStripMenuItem.Name = "editQuantityToolStripMenuItem";
-            this.editQuantityToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.editQuantityToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.editQuantityToolStripMenuItem.Text = "&Edit Quantity";
             this.editQuantityToolStripMenuItem.Click += new System.EventHandler(this.editQuantityToolStripMenuItem_Click);
             // 
