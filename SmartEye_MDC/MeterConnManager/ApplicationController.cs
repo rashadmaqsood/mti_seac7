@@ -696,10 +696,10 @@ namespace Communicator.MeterConnManager
                         MeterInfo.Read_LP2 = READ_METHOD.ByDateTime;
                         MeterInfo.Read_LP3 = READ_METHOD.ByDateTime;
                         MeterInfo.ReadPlan.Clear();
-                        MeterInfo.ReadPlan.Add(Schedules.Events);
+                        //MeterInfo.ReadPlan.Add(Schedules.Events);
                         MeterInfo.ReadPlan.Add(Schedules.LoadProfile);
-                        MeterInfo.ReadPlan.Add(Schedules.DailyLoadProfile);
-                        MeterInfo.ReadPlan.Add(Schedules.LoadProfile2);
+                        //MeterInfo.ReadPlan.Add(Schedules.DailyLoadProfile);
+                        //MeterInfo.ReadPlan.Add(Schedules.LoadProfile2);
                         MeterInfo.Schedule_EV.SchType = ScheduleType.EveryTime;
                         MeterInfo.Schedule_LP.SchType = ScheduleType.EveryTime;
                         MeterInfo.Schedule_LP2.SchType = ScheduleType.EveryTime;
