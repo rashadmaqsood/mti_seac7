@@ -16,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace DatabaseConfiguration.DataBase
 {
@@ -109,6 +110,7 @@ namespace DatabaseConfiguration.DataBase
                     {
                         ConnectionString = ConnectionStringConverter.ODBCtoMySqlConnectionString(_connString)
                     };
+                    //MessageBox.Show($"ConnString:{_conn.ConnectionString}");
                 }
                 else
                 {

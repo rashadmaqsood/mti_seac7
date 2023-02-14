@@ -2859,7 +2859,7 @@ namespace DatabaseManager.Database
                 var channels_val = new StringBuilder();
                 var lp_table_name = " " + GetLoadProfileTableName(lpScheme); //" load_profile_data";
                 var weekly_lp_table_name = " weekly_load_profile_data";
-                var lp_prefix = " (`msn`, `mdc_read_datetime`, `db_datetime`, `meter_date_time`,{0} `load_profile_type`, `global_device_id`) VALUES";
+                var lp_prefix = " (`msn`, `global_device_id`, `db_datetime`,`mdc_read_datetime`,{0} `meter_datetime`) VALUES";
                 //var lp_weekly_prefix = " (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `load_profile_group_id`,{0} `counter`, `lp_interval`,`ct`,`pt`,`customer_id`,`load_profile_type`) VALUES";
                 var prfix = "Insert Into";
                 int bulkCounter = 0;
@@ -2870,7 +2870,8 @@ namespace DatabaseManager.Database
                     //L_Data lData = Data.DBColumns;
                     for (int i = 0; i < Data.DBColumns.Count; i++)
                     {
-                        channels_col.Append($"`{Data.DBColumns[i]}`,");
+                        if (!string.IsNullOrEmpty(Data.DBColumns[i]))
+                            channels_col.Append($"`{Data.DBColumns[i]}`,");
                     }
 
                 }
@@ -2915,15 +2916,16 @@ namespace DatabaseManager.Database
 
                         for (int index = 0; index < Data.loadData[i].value.Count; index++)
                         {
-                            channels_val.Append(string.Format("'{0}',", Data.loadData[i].value[index]));
+                            if (!string.IsNullOrEmpty(Data.DBColumns[index]))
+                                channels_val.Append(string.Format("'{0}',", Data.loadData[i].value[index]));
                         }
 
-                        lpInsert.Append(String.Format("('{0}', '{1}', NOW(), {2} '{3}', '{4}'),"
+                        lpInsert.Append(String.Format("('{0}', '{1}', now(), '{2}', {3} '{4}'),"
                                                                     , Data.MSN
+                                                                    , MeterInfo.GlobalDeviceId
                                                                     , SessionDateTime.ToString(DateFormat)
                                                                     , channels_val
-                                                                    , (byte)lpScheme
-                                                                    , MeterInfo.GlobalDeviceId
+                                                                    , Data.loadData[i].timeStamp.ToString(DateFormat)
                                                                     ));
                         CurrentDataCount = Data.loadData[i].counter;
                         if (LP_ReadMethod == READ_METHOD.ByCounter && CurrentDataCount > LP_Counter.Meter_Counter)

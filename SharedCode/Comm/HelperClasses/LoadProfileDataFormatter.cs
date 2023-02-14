@@ -147,30 +147,35 @@ namespace SharedCode.Comm.HelperClasses
                             {
                                 ilValues.Add(val);
                                 double ChannelVal = double.PositiveInfinity;
-                                if (item.SelectedAttribute == 0)
+                                if (ItemActualCode.ClassId >= 1 && ItemActualCode.ClassId <= 4)//(item.SelectedAttribute == 0)
                                     ChannelVal = MakeChannelValue(val, item);
-                                else
+                                else if (ItemActualCode.ClassId == 5)
                                 {
-                                    if (ItemActualCode.ClassId == 5)
+                                    ///Lav
+                                    if (item.SelectedAttribute == 0x03)
                                     {
-                                        ///Lav
-                                        if (item.SelectedAttribute == 0x03)
-                                        {
-                                            val.Value = val.GetDataItemValue(0x03);
-                                            ChannelVal = MakeChannelValue(val, item);
-                                        }
-                                        ///Cav
-                                        else if (item.SelectedAttribute == 0x02)
-                                        {
-                                            val.Value = val.GetDataItemValue(0x02);
-                                            ChannelVal = MakeChannelValue(val, item);
-                                        }
-                                        ///Lav
-                                        else
-                                        {
-                                            val.Value = val.GetDataItemValue(0x03);
-                                            ChannelVal = MakeChannelValue(val, item);
-                                        }
+                                        val.Value = val.GetDataItemValue(0x03);
+                                        ChannelVal = MakeChannelValue(val, item);
+                                    }
+                                    ///Cav
+                                    else if (item.SelectedAttribute == 0x02)
+                                    {
+                                        val.Value = val.GetDataItemValue(0x02);
+                                        ChannelVal = MakeChannelValue(val, item);
+                                    }
+                                    ///Lav
+                                    else
+                                    {
+                                        val.Value = val.GetDataItemValue(0x03);
+                                        ChannelVal = MakeChannelValue(val, item);
+                                    }
+                                }
+                                else if (ItemActualCode.ClassId == 7)
+                                {
+                                    if (item.SelectedAttribute == 0x04)
+                                    {
+                                        val.Value = val.GetDataItemValue(0x04);
+                                        ChannelVal = MakeChannelValue(val, item);
                                     }
                                 }
                                 LoadProfileInstance.LoadProfileInstance.Add(ChannelVal);
@@ -545,7 +550,15 @@ namespace SharedCode.Comm.HelperClasses
         {
             try
             {
-                if (val == null || val.Value == null || !(val.Value is ValueType))
+                if (val == null || val.Value == null)
+                {
+                    return double.NaN;
+                }
+                if (val.Value is Array && val.ValueCollection.ContainsKey(ChannelInfo.SelectedAttribute))
+                {
+                    return Convert.ToDouble(((byte[])val.value[ChannelInfo.SelectedAttribute])[1]);
+                }
+                else if (!(val.Value is ValueType))
                     return double.NaN;
                 double rawVal = Convert.ToDouble(val.Value);
                 if (ChannelInfo.Multiplier < 0)
