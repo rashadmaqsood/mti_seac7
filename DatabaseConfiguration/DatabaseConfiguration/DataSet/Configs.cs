@@ -831,7 +831,7 @@ namespace DatabaseConfiguration.DataSet
                 {
                     List<Configs.CaptureObjectsRow> CaptureObjs = new List<CaptureObjectsRow>();
                     Configs.CaptureObjectsRow[] TList = (Configs.CaptureObjectsRow[])this.Select(String.Format("DeviceId = {0}",
-                        deviceId), "SequenceId,Target_OBIS_Index  asc");
+                        deviceId), "Target_OBIS_Index,GroupId,SequenceId  asc");
                     CaptureObjs.AddRange(TList);
                     return CaptureObjs;
                 }
