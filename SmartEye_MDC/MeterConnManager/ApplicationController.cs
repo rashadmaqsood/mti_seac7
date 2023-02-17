@@ -2131,6 +2131,12 @@ namespace Communicator.MeterConnManager
                                                 }
                                                 else if (MeterInfo.Read_MB == READ_METHOD.ByDateTime)
                                                 {
+                                                    LogMessage("Reading Monthly Billing Data", "MB",
+           string.Format("R {0} - {1}", MeterInfo.MB_Counters.LastReadTime.ToString(Commons.DateTimeFormat), DateTime.Now.ToString(Commons.DateTimeFormat)));
+
+                                                    monthlyBillingData = Billing_Controller.GetBillingData(MeterInfo.MB_Counters, MeterInfo.Read_MB);
+                                                    LogMessage("Reading Monthly Billing Data Complete", "MB", "S", 1);
+
                                                 }
                                             }
                                             catch (Exception ex)
@@ -2148,7 +2154,7 @@ namespace Communicator.MeterConnManager
                                                 try
                                                 {
                                                     if (MeterInfo != null && MeterInfo.MB_Counters != null &&
-                                                        MeterInfo.MB_Counters.Meter_Counter > 0)
+                                                        (MeterInfo.MB_Counters.Meter_Counter > 0 || MeterInfo.Read_MB == READ_METHOD.ByDateTime))
                                                         ResetMaxIOFailure();
 
                                                     if (MeterInfo.Save_MB && !IsMBUpToDate && IsMBRead && ((MeterInfo.DDS110_Compatible && monthlyData != null) || monthlyBillingData != null))
@@ -2182,29 +2188,38 @@ namespace Communicator.MeterConnManager
                                                             }
                                                             //
                                                         }
-
+                                                        /*
                                                         DB_Controller.ReadMeterStatusInfo(monthlyData, MeterInfo.Customer_ID);
+                                                        */
                                                         // there will come the logic of reading meter info
                                                         var CEx = DB_Controller.SaveMonthlyBillingDataWithReplaceEx(monthlyData,
                                                             MeterInfo.MB_Counters.Meter_Counter, SessionDateTime, MeterInfo, MIUF);
                                                         if (CEx != null && CEx.isTrue && CEx.Ex == null && monthlyData.monthly_billing_data.Count > 0)
                                                         {
-                                                            //bool flag = DB_Controller.update_MonthlyBilling_Counter(MeterInfo.MSN, meterCounter);
-                                                            MeterInfo.MonthlyBillingCounterToUpdate = (int)MeterInfo.MB_Counters.Meter_Counter;
-                                                            MIUF.UpdateMBCounter = true;
-                                                            #region LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", meterCounter), 2);
+                                                            if (MeterInfo.Read_MB == READ_METHOD.ByCounter)
+                                                            {
+
+                                                                //bool flag = DB_Controller.update_MonthlyBilling_Counter(MeterInfo.MSN, meterCounter);
+                                                                MeterInfo.MonthlyBillingCounterToUpdate = (int)MeterInfo.MB_Counters.Meter_Counter;
+                                                                MIUF.UpdateMBCounter = true;
+                                                                #region LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", meterCounter), 2);
 #if Enable_Abstract_Log
-                                                            LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", MeterInfo.MB_Counters.Meter_Counter), "MBD", string.Format("S, {0}", MeterInfo.MB_Counters.Meter_Counter.ToString()), 1);
+                                                                LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", MeterInfo.MB_Counters.Meter_Counter), "MBD", string.Format("S, {0}", MeterInfo.MB_Counters.Meter_Counter.ToString()), 1);
 #endif
 #if !Enable_Abstract_Log
 						LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", meterCounter), 2);
 #endif
+                                                            }
+                                                            else
+                                                            {
+                                                                LogMessage("Saving Monthly billing Data completed", "MBD", "S", 1);
+                                                            }
                                                             #endregion
                                                             lastTimeUpdate = true;
                                                         }
                                                         else
                                                         {
-                                                            if (CEx.SomeMessage.Contains(string.Format("Error:{0}", (int)MDCErrors.DB_Duplicate_Entery)))
+                                                            if (MeterInfo.Read_MB == READ_METHOD.ByCounter && CEx.SomeMessage.Contains(string.Format("Error:{0}", (int)MDCErrors.DB_Duplicate_Entery)))
                                                             {
                                                                 #region monthly billing Counter difference check w.r.t database count
                                                                 DB_Controller.DBConnect.OpenConnection();
@@ -2247,7 +2262,10 @@ namespace Communicator.MeterConnManager
                                                     if (IsMBUpToDate || monthlyBillingData == null)
                                                     {
                                                         MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_MB, SessionDateTime);
-
+                                                        if (MeterInfo.Read_MB == READ_METHOD.ByDateTime && monthlyBillingData != null && monthlyBillingData.Count > 0)
+                                                        {
+                                                            MeterInfo.Schedule_MB.LastReadTime = monthlyBillingData.Last().TimeStamp;
+                                                        }
                                                         MIUF.Schedule_MB = true;
                                                         MIUF.last_MB_time = lastTimeUpdate | IsMBUpToDate;
                                                         if (MeterInfo.Schedule_MB.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_MB.SchType == ScheduleType.IntervalRandom)
@@ -2428,7 +2446,7 @@ namespace Communicator.MeterConnManager
 
         protected virtual bool ProcessEventsLogRequest(CancellationTokenSource CancelTokenSource, int meterEvetnsCount)
         {
-            bool IsProcessed=false;
+            bool IsProcessed = false;
             if (!MeterInfo.PrioritizeWakeup && MeterInfo.read_individual_events_sch || MeterInfo.Schedule_EV.IsSuperImmediate || (MeterInfo.ReadEventsForcibly && MeterInfo.Read_EV && MeterInfo.Save_EV))
             {
                 if (MeterInfo.read_logbook && (MeterInfo.ReadEventsForcibly || MeterInfo.Schedule_EV.IsSuperImmediate ||
@@ -2758,7 +2776,7 @@ namespace Communicator.MeterConnManager
                                 if (MeterInfo.Save_EV && EventsData != null && EventsData.MaxEventCounter > 0)
                                 {
                                     uint tempMAXEventCount = EventsData.MaxEventCounter;
-                                    CustomException CEX = DB_Controller.saveEventsDataWithReplace(EventsData, MeterInfo.MSN, SessionDateTime,  MeterInfo, MIUF);
+                                    CustomException CEX = DB_Controller.saveEventsDataWithReplace(EventsData, MeterInfo.MSN, SessionDateTime, MeterInfo, MIUF);
 
                                     if (CEX != null && CEX.isTrue && CEX.Ex == null)
                                     {
@@ -4329,7 +4347,7 @@ namespace Communicator.MeterConnManager
                                                         if (MeterInfo.Save_EV && EventsData != null && EventsData.MaxEventCounter > 0)
                                                         {
                                                             uint tempMAXEventCount = EventsData.MaxEventCounter;
-                                                            CustomException CEX = DB_Controller.saveEventsDataWithReplace(EventsData, MeterInfo.MSN, SessionDateTime,  MeterInfo, MIUF);
+                                                            CustomException CEX = DB_Controller.saveEventsDataWithReplace(EventsData, MeterInfo.MSN, SessionDateTime, MeterInfo, MIUF);
 
                                                             if (CEX != null && CEX.isTrue && CEX.Ex == null)
                                                             {
