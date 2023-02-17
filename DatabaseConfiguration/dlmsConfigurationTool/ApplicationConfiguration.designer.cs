@@ -632,6 +632,7 @@ namespace dlmsConfigurationTool
             this.Group_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_ShowMenu = new System.Windows.Forms.Button();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.cmbTargetObisIndexFilter = new System.Windows.Forms.ComboBox();
             this.menuStrip.SuspendLayout();
             this.tb_DataViewer.SuspendLayout();
             this.tp_all_quantities.SuspendLayout();
@@ -782,7 +783,7 @@ namespace dlmsConfigurationTool
             this.loadToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.loadToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -791,7 +792,7 @@ namespace dlmsConfigurationTool
             this.saveToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.saveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -800,7 +801,7 @@ namespace dlmsConfigurationTool
             this.importToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.importToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
@@ -809,7 +810,7 @@ namespace dlmsConfigurationTool
             this.exportToolStripMenuItem.BackColor = System.Drawing.Color.LightSlateGray;
             this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -2125,10 +2126,10 @@ namespace dlmsConfigurationTool
             this.gb_selection_device_in_capture_objects.Controls.Add(this.lbl_device);
             this.gb_selection_device_in_capture_objects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_selection_device_in_capture_objects.ForeColor = System.Drawing.Color.White;
-            this.gb_selection_device_in_capture_objects.Location = new System.Drawing.Point(6, 92);
+            this.gb_selection_device_in_capture_objects.Location = new System.Drawing.Point(6, 117);
             this.gb_selection_device_in_capture_objects.Name = "gb_selection_device_in_capture_objects";
             this.gb_selection_device_in_capture_objects.Padding = new System.Windows.Forms.Padding(6);
-            this.gb_selection_device_in_capture_objects.Size = new System.Drawing.Size(138, 296);
+            this.gb_selection_device_in_capture_objects.Size = new System.Drawing.Size(138, 271);
             this.gb_selection_device_in_capture_objects.TabIndex = 28;
             this.gb_selection_device_in_capture_objects.TabStop = false;
             this.gb_selection_device_in_capture_objects.Text = "Selection";
@@ -2141,7 +2142,7 @@ namespace dlmsConfigurationTool
             this.lb_device.FormattingEnabled = true;
             this.lb_device.Location = new System.Drawing.Point(6, 32);
             this.lb_device.Name = "lb_device";
-            this.lb_device.Size = new System.Drawing.Size(126, 258);
+            this.lb_device.Size = new System.Drawing.Size(126, 233);
             this.lb_device.TabIndex = 9;
             this.lb_device.ValueMember = "id";
             // 
@@ -2163,13 +2164,14 @@ namespace dlmsConfigurationTool
             // 
             // gb_capture_objects
             // 
+            this.gb_capture_objects.Controls.Add(this.cmbTargetObisIndexFilter);
             this.gb_capture_objects.Controls.Add(this.btn_ImportGrpId);
             this.gb_capture_objects.Controls.Add(this.btn_ExportGrpId);
             this.gb_capture_objects.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_capture_objects.ForeColor = System.Drawing.Color.White;
             this.gb_capture_objects.Location = new System.Drawing.Point(6, 6);
             this.gb_capture_objects.Name = "gb_capture_objects";
-            this.gb_capture_objects.Size = new System.Drawing.Size(138, 86);
+            this.gb_capture_objects.Size = new System.Drawing.Size(138, 111);
             this.gb_capture_objects.TabIndex = 27;
             this.gb_capture_objects.TabStop = false;
             this.gb_capture_objects.Text = "Operation Fields";
@@ -6707,6 +6709,14 @@ namespace dlmsConfigurationTool
             this.btn_ShowMenu.Click += new System.EventHandler(this.btn_ShowMenu_Click);
             this.btn_ShowMenu.MouseHover += new System.EventHandler(this.btn_ShowMenu_MouseHover);
             // 
+            // cmbTargetObisIndexFilter
+            // 
+            this.cmbTargetObisIndexFilter.FormattingEnabled = true;
+            this.cmbTargetObisIndexFilter.Location = new System.Drawing.Point(6, 84);
+            this.cmbTargetObisIndexFilter.Name = "cmbTargetObisIndexFilter";
+            this.cmbTargetObisIndexFilter.Size = new System.Drawing.Size(126, 21);
+            this.cmbTargetObisIndexFilter.TabIndex = 27;
+            // 
             // ApplicationConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7444,5 +7454,6 @@ namespace dlmsConfigurationTool
         private System.Windows.Forms.DataGridViewComboBoxColumn oBISIndexDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sequenceIdDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn126;
+        private System.Windows.Forms.ComboBox cmbTargetObisIndexFilter;
     }
 }
