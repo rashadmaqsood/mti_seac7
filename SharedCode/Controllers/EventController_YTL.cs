@@ -32,6 +32,12 @@ namespace SharedCode.Controllers
                 try
                 {
                     EventRawData.Clear();
+                    RangeDescripter descriptor = new RangeDescripter()
+                    {
+                        EncodingDataType = DataTypes._A19_datetime,
+                        FromEntry = Event_Counters.LastReadTime,
+                        ToEntry = DateTime.Now
+                    };
                     ///Read Internal Events Data In Chunks
                     IsSuccess = TryReadEventLogDataRaw(null, infoObj, EventRawData, (ex) => InnerException = ex);
 

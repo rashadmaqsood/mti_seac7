@@ -217,6 +217,7 @@ namespace Communicator.MeterConnManager
                             if ((MeterInfo.EV_Counters.IsUptoDate || IsEventsReadSuccessfully) && MeterInfo.Save_EV)//!MeterInfo.read_individual_events_sch)change by furqan
                             {
                                 MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_EV, SessionDateTime);
+                                MeterInfo.Schedule_EV.LastReadTime = EventsData.EventRecords.Last().DateTimeStamp.GetDateTime();
                                 MIUF.Schedule_EV = true;
                                 MIUF.last_EV_time = lastTimeUpdate | MeterInfo.EV_Counters.IsUptoDate;
                                 if (MeterInfo.Schedule_EV.IsSuperImmediate)
