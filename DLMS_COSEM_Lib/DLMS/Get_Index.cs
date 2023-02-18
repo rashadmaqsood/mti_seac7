@@ -3041,6 +3041,38 @@ namespace DLMS
         /// OBIS_CODE = 1.0.94.92.0.255
         /// Description
         ///</summary>
+        Cumulative_TariffTL_KvarhQ1Q3 = 0x00030100050800FF,
+
+
+        ///<summary>
+        ///Description: Quantity_Name= Cumulative_TariffT1_KvarhQ1Q3  Class ID 3 
+        /// OBIS_CODE = 1.0.6.8.0.255
+        /// Description
+        ///</summary>
+        Cumulative_TariffT1_KvarhQ1Q3 = 0x000301005E5C01FF,
+
+
+
+        ///<summary>
+        ///Description: Quantity_Name= Cumulative_TariffT2_KvarhQ1Q3  Class ID 3 
+        /// OBIS_CODE = 1.0.7.8.0.255
+        /// Description
+        ///</summary>
+        Cumulative_TariffT2_KvarhQ1Q3 = 0x000301005E5C02FF,
+
+
+        ///<summary>
+        ///Description: Quantity_Name= Cumulative_TariffT3_KvarhQ1Q3  Class ID 3 
+        /// OBIS_CODE = 1.0.8.8.0.255
+        /// Description
+        ///</summary>
+        Cumulative_TariffT3_KvarhQ1Q3 = 0x000301005E5C03FF,
+
+        ///<summary>
+        ///Description: Quantity_Name= Cumulative_TariffTL_KvarhQ1Q3  Class ID 3 
+        /// OBIS_CODE = 1.0.94.92.0.255
+        /// Description
+        ///</summary>
         Reactive_Energy_TL_Q1Q3 = 0x000301005E5C00FF,
 
 
