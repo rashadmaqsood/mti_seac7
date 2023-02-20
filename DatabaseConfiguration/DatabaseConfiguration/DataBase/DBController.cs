@@ -574,7 +574,7 @@ namespace DatabaseConfiguration.DataBase
         {
             try
             {
-                 var capture_obj = _entityModel.Capture_Objects_Data.Where(x=>x.Target_OBIS_Index == (long)Get_Index.Billing_Periods_Data).ToList()
+                 var capture_obj = _entityModel.Capture_Objects_Data.ToList()
                                        .OrderBy(m => m.id).ThenBy(x => x.Target_OBIS_Index).ThenBy(x=>x.GroupId).ThenBy(x=>x.SequenceId);
 
                 foreach (capture_objects obj in capture_obj)
