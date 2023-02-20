@@ -686,8 +686,10 @@ namespace SharedCode.Controllers
                     ///Init Event Log Object
                     GetEventLogGenericInfo(EventLogInfoObj);
                 }
-                if (EventLogObj.IsAccessSelecterApplied(02) == SelectiveAccessType.Entry_Descripter ||
-                    EventLogObj.IsAccessSelecterApplied(02) == SelectiveAccessType.Both_Types)
+                if (AccessSelector != null)
+                    //EventLogObj.IsAccessSelecterApplied(02) == SelectiveAccessType.Entry_Descripter ||
+                    //EventLogObj.IsAccessSelecterApplied(02) == SelectiveAccessType.Range_Descripter ||
+                    //EventLogObj.IsAccessSelecterApplied(02) == SelectiveAccessType.Both_Types)
                 {
                     EventLogObj.AccessSelector = AccessSelector;
                 }

@@ -61,7 +61,7 @@ namespace Communicator.MeterConnManager
                                     LogMessage(String.Format("Reading Events Data from {0} to {1} {2}", eventCounter.Previous_Counter, eventCounter.Current_Counter, (MeterInfo.ReadEventsForcibly) ? "due to some Major Alarm occurred" : ""), 0);
 #endif
                                 #endregion
-                                IsEventsReadSuccessfully = Event_Controller.TryReadEventLogDataInChunks(null, e_info, EventsData,
+                                IsEventsReadSuccessfully = Event_Controller.TryReadEventLogDataInChunks(MeterInfo.EV_Counters, e_info, EventsData,
                                                 (ex) => innerException = ex, 25, CancelTokenSource);
 
                                 if (IsEventsReadSuccessfully)
@@ -82,7 +82,7 @@ namespace Communicator.MeterConnManager
                                     int id = 0;
                                     bool retry = true;
                                     EventItem data = null;
-
+                                    EventsData.EventRecords = EventsData.EventRecords.Where(x => x.EventDateTimeStamp > MeterInfo.EV_Counters.LastReadTime).ToList();
                                     EventData copy_data = EventsData.Clone();
 
                                     #region Contactor Status Update
@@ -198,7 +198,7 @@ namespace Communicator.MeterConnManager
                                 ResetMaxIOFailure();
                             if (IsEventsReadSuccessfully)
                             {
-                                if (MeterInfo.Save_EV && EventsData != null)
+                                if (MeterInfo.Save_EV && EventsData != null && EventsData.EventRecords.Count > 0)
                                 {
                                     uint tempMAXEventCount = EventsData.MaxEventCounter;
                                     CustomException CEX = DB_Controller.saveEventsDataWithReplace(EventsData, MeterInfo.MSN, SessionDateTime, MeterInfo, MIUF);
@@ -217,9 +217,12 @@ namespace Communicator.MeterConnManager
                             if ((MeterInfo.EV_Counters.IsUptoDate || IsEventsReadSuccessfully) && MeterInfo.Save_EV)//!MeterInfo.read_individual_events_sch)change by furqan
                             {
                                 MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_EV, SessionDateTime);
-                                MeterInfo.Schedule_EV.LastReadTime = EventsData.EventRecords.Last().DateTimeStamp.GetDateTime();
+                                if (EventsData.EventRecords.Count > 0)
+                                {
+                                    MeterInfo.Schedule_EV.LastReadTime = EventsData.EventRecords.Last().DateTimeStamp.GetDateTime();
+                                    MIUF.last_EV_time = true;// lastTimeUpdate | MeterInfo.EV_Counters.IsUptoDate;
+                                }
                                 MIUF.Schedule_EV = true;
-                                MIUF.last_EV_time = lastTimeUpdate | MeterInfo.EV_Counters.IsUptoDate;
                                 if (MeterInfo.Schedule_EV.IsSuperImmediate)
                                     MIUF.SuperImmediate_EV = true;
                                 if (MeterInfo.Schedule_EV.SchType == ScheduleType.IntervalFixed ||

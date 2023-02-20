@@ -845,7 +845,7 @@ namespace SharedCode.Controllers
                     if (string.IsNullOrEmpty(captureObj.DatabaseFieldName)) continue;
 
                     //GETDouble_Any(captureObj.StOBISCode, 2);
-                    double val = (GETDouble_Any(captureObj.StOBISCode, 0));
+                    double val = (GETDouble_Any(captureObj.StOBISCode, 2));
 
                     val = Commons.ApplyMultiplier(val, captureObj.Multiplier);
 
@@ -1071,10 +1071,10 @@ namespace SharedCode.Controllers
 
                 #region CheckIfRangeSelector
 
-                if (AccessSelector.GetType() == typeof(RangeDescripter))
-                {
-                    ((RangeDescripter)AccessSelector).Capture_Object_Definition = Billing_CommObj.captureObjectsList;
-                }
+                //if (AccessSelector.GetType() == typeof(RangeDescripter))
+                //{
+                //    ((RangeDescripter)AccessSelector).Capture_Object_Definition = Billing_CommObj.captureObjectsList;
+                //}
 
                 #endregion
             }

@@ -271,7 +271,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SQLite.Interop.dll" />
+    <Content Include="SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="bin\Debug\Images\doubleArrow_Right.png" />
     <None Include="bin\Debug\Images\doubleArrow_Left.png" />
     <None Include="bin\Debug\Images\Minimize.png" />

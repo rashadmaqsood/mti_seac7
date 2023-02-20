@@ -155,13 +155,18 @@ namespace DatabaseManager.Database
 
                     //Counters
 
-
+                    var last_ev_time = DateTime.Now;
+                    DateTime.TryParse(DT.Rows[0][DT.Columns["last_ev_time"]].ToString(), out last_ev_time);
+                    tempMeterInfo.EV_Counters.LastReadTime = last_ev_time;
                     tempMeterInfo.EV_Counters.InvalidUpdate = Convert.ToUInt16(DT.Rows[0][DT.Columns["ev_invalid_update"]]);
                     //MOnthly Billing
                     tempMeterInfo.MB_Counters.DB_Counter = Convert.ToUInt32(DT.Rows[0][DT.Columns["monthly_billing_counter"]]);
                     tempMeterInfo.MB_Counters.InvalidUpdate = Convert.ToUInt16(DT.Rows[0][DT.Columns["mb_invalid_update"]]);
                     tempMeterInfo.BillingMethodId = Convert.ToByte(DT.Rows[0][DT.Columns["mb_method"]]);
                     tempMeterInfo.MB_Counters.Max_Size = Convert.ToByte(DT.Rows[0][DT.Columns["max_billing_months"]]);
+                    var lastTimeMB = DateTime.MinValue;
+                    DateTime.TryParse(DT.Rows[0][DT.Columns["last_mb_time"]].ToString(), out lastTimeMB);
+                    tempMeterInfo.MB_Counters.LastReadTime = lastTimeMB;
 
 
                     //Events
@@ -2034,16 +2039,12 @@ namespace DatabaseManager.Database
         {
             try
             {
-
-                string query = String.Format("INSERT  INTO `cumm_billing_data` (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, {3} `ct`,`pt`,`customer_id`,`global_device_id`) VALUES('{0}', '{1}', CURTIME(), CURDATE(), '{2}', {4} '{5}', '{6}', {7}, '{8}' )"
+                string query = String.Format("INSERT  INTO `billing_data` (`msn`, `mdc_read_datetime`, `db_datetime`, `meter_datetime`, {3} `global_device_id`) VALUES('{0}', '{1}', now(), '{2}', {4} '{5}' )"
                  , MeterInfo.MSN
                  , SessionDateTime.ToString(DateFormat)
                  , Data.date.ToString(DateFormat)
                  , Data.DBColumns
                  , Data.DBValues
-                 , MeterInfo.CT
-                 , MeterInfo.PT
-                 , MeterInfo.Customer_ID
                  , MeterInfo.GlobalDeviceId
                  );
 
@@ -2059,65 +2060,6 @@ namespace DatabaseManager.Database
                 throw new Exception(String.Format("Error while saving Cumulative Billing Data (Error Code:{0})", (int)MDCErrors.App_Cum_Billing_Save), ex);
             }
         }
-
-        //public bool saveCumulativeBillingData(Cumulative_billing_data Data, DateTime SessionDateTime, MeterInformation MeterInfo)
-        //{
-        //    try
-        //    {
-        //        string query = string.Empty;
-        //        query = $"INSERT INTO `cumm_billing_data` (`customer_id`, `msn`, `global_device_id`, `session_date_time`, `time`, `date`,`meter_date_time`, {Data.DBColumns.ToString().TrimEnd(',')}) "
-        //              + $" VALUES ({MeterInfo.Customer_ID}, '{MeterInfo.MSN}', '{MeterInfo.GlobalDeviceId}', '{SessionDateTime.ToString(DateFormat)}', CURTIME(), CURDATE(),"
-        //              + $" '{Data.date.ToString(DateFormat)}', {Data.DBValues.ToString().TrimEnd(',')})";
-
-        //        OdbcCommand Command = new OdbcCommand(query, Connection);
-        //        var rslt = ExecuteCommandWithAlreadyOpenedConnection(Command);
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        if (_newException != null) _newException(ex);
-        //            throw new Exception(String.Format("Error while saving Cumulative Billing Data (Error Code:{0})", (int)MDCErrors.App_Cum_Billing_Save), ex);
-        //    }
-        //    //try
-        //    //{
-
-        //    //    string query = String.Format("INSERT  INTO `cumm_billing_data` (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `active_energy_t1`, `active_energy_t2`, `active_energy_t3`, `active_energy_t4`, `active_energy_tl`, `reactive_energy_t1`, `reactive_energy_t2`, `reactive_energy_t3`, `reactive_energy_t4`, `reactive_energy_tl`, `active_mdi_t1`, `active_mdi_t2`, `active_mdi_t3`, `active_mdi_t4`, `active_mdi_tl`,`ct`,`pt`,`customer_id`,`global_device_id`) VALUES('{0}', '{1}', CURTIME(), CURDATE(), '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}', '{17}','{18}','{19}',{20} , '{21}' )"
-        //    //    , Data.msn
-        //    //    , SessionDateTime.ToString(DateFormat)
-        //    //    , Data.date.ToString(DateFormat)
-        //    //    , Commons.Validate_BillData(Data.activeEnergy_T1)
-        //    //    , Commons.Validate_BillData(Data.activeEnergy_T2)
-        //    //    , Commons.Validate_BillData(Data.activeEnergy_T3)
-        //    //    , Commons.Validate_BillData(Data.activeEnergy_T4)
-        //    //    , Commons.Validate_BillData(Data.activeEnergy_TL)
-        //    //    , Commons.Validate_BillData(Data.reactiveEnergy_T1)
-        //    //    , Commons.Validate_BillData(Data.reactiveEnergy_T2)
-        //    //    , Commons.Validate_BillData(Data.reactiveEnergy_T3)
-        //    //    , Commons.Validate_BillData(Data.reactiveEnergy_T4)
-        //    //    , Commons.Validate_BillData(Data.reactiveEnergy_TL)
-        //    //    , Commons.Validate_BillData(Data.activeMDI_T1)
-        //    //    , Commons.Validate_BillData(Data.activeMDI_T2)
-        //    //    , Commons.Validate_BillData(Data.activeMDI_T3)
-        //    //    , Commons.Validate_BillData(Data.activeMDI_T4)
-        //    //    , Commons.Validate_BillData(Data.activeMDI_TL)
-        //    //    , MeterInfo.CT
-        //    //    , MeterInfo.PT
-        //    //    , MeterInfo.Customer_ID
-        //    //    , MeterInfo.GlobalDeviceId
-        //    //    );
-
-        //    //    OdbcCommand Command = new OdbcCommand(query, Connection);
-        //    //    if (ExecuteCommandWithAlreadyOpenedConnection(Command))
-        //    //        return true;
-        //    //    else
-        //    //        return false;
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    if (_newException != null) _newException(ex);
-        //    //    throw new Exception(String.Format("Error while saving Cumulative Billing Data (Error Code:{0})", (int)MDCErrors.App_Cum_Billing_Save), ex);
-        //    //}
-        //}
 
         public bool saveCumulativeBillingForPrepaid(Cumulative_billing_data Data, DateTime SessionDateTime, MeterInformation MeterInfo)
         {

@@ -35,11 +35,11 @@ namespace SharedCode.Controllers
                     RangeDescripter descriptor = new RangeDescripter()
                     {
                         EncodingDataType = DataTypes._A19_datetime,
-                        FromEntry = Event_Counters.LastReadTime,
+                        FromEntry = Event_Counters.LastReadTime.AddSeconds(1),
                         ToEntry = DateTime.Now
                     };
                     ///Read Internal Events Data In Chunks
-                    IsSuccess = TryReadEventLogDataRaw(null, infoObj, EventRawData, (ex) => InnerException = ex);
+                    IsSuccess = TryReadEventLogDataRaw(descriptor, infoObj, EventRawData, (ex) => InnerException = ex);
 
                     // Format Event Data Object
                     Func<Get_Index, StOBISCode> dlg = null;
@@ -126,8 +126,14 @@ namespace SharedCode.Controllers
                 try
                 {
                     EventRawData.Clear();
+                    RangeDescripter descripter = new RangeDescripter
+                    {
+                        EncodingDataType = DataTypes._A19_datetime,
+                        FromEntry = Event_Counters.LastReadTime.AddSeconds(1),
+                        ToEntry = DateTime.Now
+                    };
                     //Read Internal Events Data In Chunks
-                    IsSuccess = TryReadEventLogDataRaw(null, infoObj, EventRawData, (ex) => InnerException = ex, CancelToken);
+                    IsSuccess = TryReadEventLogDataRaw(descripter, infoObj, EventRawData, (ex) => InnerException = ex, CancelToken);
 
                     // Format Event Data Object
                     Func<Get_Index, StOBISCode> dlg = null;
