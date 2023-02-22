@@ -11,11 +11,15 @@ namespace DatabaseConfiguration.DataBase
     {
         public static string ODBCtoMySqlConnectionString(string dsn)
         {
-            RegistryKey reg = (Registry.CurrentUser).OpenSubKey("Software");
-            reg = reg.OpenSubKey("ODBC");
-            reg = reg.OpenSubKey("ODBC.INI");
+            RegistryKey reg = GetRegistry(Registry.LocalMachine, dsn);
+            //reg = reg.OpenSubKey("ODBC");
+            //reg = reg.OpenSubKey("ODBC.INI");
             // reg = reg.OpenSubKey("ODBC Data Sources");
-            reg = reg.OpenSubKey(dsn);
+            //reg = reg.OpenSubKey(dsn);
+            if(reg == null)
+            {
+                reg = GetRegistry(Registry.CurrentUser,dsn);
+            }
             if (reg != null)
             {
                 var server = reg.GetValue("SERVER");
@@ -28,6 +32,14 @@ namespace DatabaseConfiguration.DataBase
                 }
             }
             return null;
+        }
+        public static RegistryKey GetRegistry(RegistryKey registry,string dsn)
+        {
+            RegistryKey reg = (registry).OpenSubKey($"Software");
+            reg = reg?.OpenSubKey("ODBC");
+            reg = reg?.OpenSubKey("ODBC.INI");
+            reg = reg?.OpenSubKey(dsn);
+            return reg;
         }
     }
 }
