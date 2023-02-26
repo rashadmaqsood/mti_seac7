@@ -1081,6 +1081,7 @@ namespace SharedCode.Controllers
             #endregion
 
             List<ILValue[]> billPeriods = ReadBillingDataRaw(AccessSelector, Billing_CommObj);
+
             ///Save Incoming Raw Data
             List<BillingData> formattedCumulativeBillData = FormatBillingData(billPeriods);
             return formattedCumulativeBillData;

@@ -8083,6 +8083,8 @@ namespace DatabaseConfiguration.DataSet {
             
             private global::System.Data.DataColumn columnMultiplier;
             
+            private global::System.Data.DataColumn columnQuantity_Code;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CaptureObjectsDataTable() {
@@ -8206,6 +8208,14 @@ namespace DatabaseConfiguration.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Quantity_CodeColumn {
+                get {
+                    return this.columnQuantity_Code;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8241,7 +8251,7 @@ namespace DatabaseConfiguration.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CaptureObjectsRow AddCaptureObjectsRow(int SequenceId, AllQuantitiesRow parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK, byte AttributeNo, ulong DataIndex, int ConfigId, long GroupId, AllQuantitiesRow parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK1, int DeviceId, string databasefield, short Multiplier) {
+            public CaptureObjectsRow AddCaptureObjectsRow(int SequenceId, AllQuantitiesRow parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK, byte AttributeNo, ulong DataIndex, int ConfigId, long GroupId, AllQuantitiesRow parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK1, int DeviceId, string databasefield, short Multiplier, string Quantity_Code) {
                 CaptureObjectsRow rowCaptureObjectsRow = ((CaptureObjectsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -8254,7 +8264,8 @@ namespace DatabaseConfiguration.DataSet {
                         null,
                         DeviceId,
                         databasefield,
-                        Multiplier};
+                        Multiplier,
+                        Quantity_Code};
                 if ((parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK != null)) {
                     columnValuesArray[2] = parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK[1];
                 }
@@ -8301,6 +8312,7 @@ namespace DatabaseConfiguration.DataSet {
                 this.columnDeviceId = base.Columns["DeviceId"];
                 this.columndatabasefield = base.Columns["databasefield"];
                 this.columnMultiplier = base.Columns["Multiplier"];
+                this.columnQuantity_Code = base.Columns["Quantity_Code"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8328,6 +8340,8 @@ namespace DatabaseConfiguration.DataSet {
                 base.Columns.Add(this.columndatabasefield);
                 this.columnMultiplier = new global::System.Data.DataColumn("Multiplier", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMultiplier);
+                this.columnQuantity_Code = new global::System.Data.DataColumn("Quantity_Code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity_Code);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -12447,6 +12461,22 @@ namespace DatabaseConfiguration.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Quantity_Code {
+                get {
+                    try {
+                        return ((string)(this[this.tableCaptureObjects.Quantity_CodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity_Code\' in table \'CaptureObjects\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCaptureObjects.Quantity_CodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AllQuantitiesRow AllQuantitiesRowByAllQuantities_CaptureObjects_FK {
                 get {
                     return ((AllQuantitiesRow)(this.GetParentRow(this.Table.ParentRelations["AllQuantities_CaptureObjects_FK"])));
@@ -12525,6 +12555,18 @@ namespace DatabaseConfiguration.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdatabasefieldNull() {
                 this[this.tableCaptureObjects.databasefieldColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQuantity_CodeNull() {
+                return this.IsNull(this.tableCaptureObjects.Quantity_CodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQuantity_CodeNull() {
+                this[this.tableCaptureObjects.Quantity_CodeColumn] = global::System.Convert.DBNull;
             }
         }
         
