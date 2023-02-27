@@ -233,6 +233,7 @@ namespace DLMS.LRUCache
         private StOBISCode obisCode;
         private ushort? ownerId;
         private ushort? instanceId;
+        private ushort? attributeId;
 
         #endregion
 
@@ -255,7 +256,11 @@ namespace DLMS.LRUCache
             get { return instanceId; }
             set { instanceId = value; }
         }
-
+        public ushort? AttributeId
+        {
+            get { return attributeId; }
+            set { attributeId = value; }
+        }
         public string Key
         {
             get
@@ -263,7 +268,8 @@ namespace DLMS.LRUCache
                 try
                 {
                     return ObisCode.ToString() + String.Format("_{0}_", ((OwnerId != null) ? OwnerId.ToString() : string.Empty)) +
-                                String.Format("_{0}", ((InstanceId != null) ? InstanceId.ToString() : string.Empty));
+                                String.Format("_{0}", ((InstanceId != null) ? InstanceId.ToString() : string.Empty))+
+                                String.Format("_{0}", ((AttributeId != null) ? AttributeId.ToString() : string.Empty));
                 }
                 catch (Exception ex)
                 {
@@ -281,6 +287,7 @@ namespace DLMS.LRUCache
             obisCode = OBISCode;
             ownerId = null;
             instanceId = null;
+            attributeId = null;
         }
 
         public KeyIndexer(StOBISCode OBISCode, ushort? OwnerId)
@@ -294,7 +301,11 @@ namespace DLMS.LRUCache
         {
             this.instanceId = instanceId;
         }
-
+        public KeyIndexer(StOBISCode OBISCode, ushort? OwnerId, ushort? instanceId,ushort? attributeNo)
+    : this(OBISCode, OwnerId,instanceId)
+        {
+            this.attributeId = attributeNo;
+        }
         #endregion
 
         public static implicit operator KeyIndexer(StOBISCode value)

@@ -136,7 +136,7 @@ namespace DLMS
                     case 70:
                         Obj_ToRet = DLMS_Class_70_Factory(OBISCodes.OBISIndex);
                         break;
-                    #endregion
+                        #endregion
                 }
                 return Obj_ToRet;
             }

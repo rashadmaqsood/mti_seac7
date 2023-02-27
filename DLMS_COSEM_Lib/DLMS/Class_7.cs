@@ -1031,7 +1031,7 @@ namespace DLMS
                             , OBIS_STR, this.INDEX, (int)DLMSErrors.Invalid_OBISCode));
                     }
 
-                    Base_Class SapEntity = GetSAPEntryDlg.Invoke(new LRUCache.KeyIndexer(OBISCodeTmp.OBISIndex, KeyIndexer.OwnerId, instanceId));
+                    Base_Class SapEntity = GetSAPEntryDlg.Invoke(new LRUCache.KeyIndexer(OBISCodeTmp.OBISIndex, KeyIndexer.OwnerId, instanceId,item.AttributeIndex));
                     SapEntity.DecodingAttribute = item.AttributeIndex;
                     ///Selective Access
                     _baseClassCaptureObjectsList[captureListIndex++] = SapEntity;
