@@ -191,19 +191,20 @@ namespace Communicator.MeterConnManager
 
                     if (HeartBeatWaitTime > 0)
                     {
-                        LogMessage(Contr, IOConn, "HB", "W");
+                        LogMessage(Contr, IOConn, "HeartBeat", "Wait");
                         Contr.ConnectToMeter.TCPWrapperStream.CommunicationMode = CommunicationMode.IdleAliveMode;
                         SpinWait.SpinUntil(() => { return Contr.ConnectToMeter.IsHeartBeatReceive; }, (int)HeartBeatWaitTime * 1000);
 
                         if (Contr.ConnectToMeter.IsHeartBeatReceive)
                         {
-                            LogMessage(Contr, IOConn, "HB", "S");
+                            LogMessage(Contr, IOConn, "HeartBeat", "Success");
                             //Contr.LogMessage(String.Format(" {0,10}\t{1,-8}{2,-2}", IOConn.MSN, "HB", "S"));
                             MeterSerialNumberObject = IOConn.MeterSerialNumberObj;
+                            LogMessage(Contr, IOConn, "MSN:", MeterSerialNumberObject.ToString());
                         }
                         else
                         {
-                            LogMessage(Contr, IOConn, "HB", "F");
+                            LogMessage(Contr, IOConn, "HeartBeat", "Failed");
                             //Contr.LogMessage(String.Format(" {0,10}\t{1,-8}{2,-2}", IOConn.MSN, "HB", "F"));
                         }
                     }

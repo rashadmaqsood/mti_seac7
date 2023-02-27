@@ -980,7 +980,7 @@ namespace SharedCode.Controllers
                 throw new Exception("Error While Reading Monthly Billing Data.", ex);
             }
         }
-        public List<BillingData> GetBillingData(Profile_Counter MB_Counter, READ_METHOD read_MB)
+        public Tuple<List<BillingData>, List<CaptureObject>> GetBillingData(Profile_Counter MB_Counter, READ_METHOD read_MB)
         {
 
             try
@@ -1008,7 +1008,7 @@ namespace SharedCode.Controllers
                     // = Get_BillingCounter_Internal();
                     if (currentMonthlyBillingCounter == 0)
                     {
-                        return new List<BillingData>();
+                        return Tuple.Create(new List<BillingData>(), new List<CaptureObject>());
                     }
                     #endregion
                     #region ///Hard Code Entries In Use Here
@@ -1022,8 +1022,8 @@ namespace SharedCode.Controllers
                 {
                     BillingSelector = ComputeRangeSelector(MB_Counter.LastReadTime, DateTime.Now);
                 }
-
-                return ReadAndFormatBillingData(BillingSelector, Billing_CommObj);
+                var formatedBilling = ReadAndFormatBillingData(BillingSelector, Billing_CommObj);
+                return Tuple.Create(formatedBilling, BillingCommObj.captureObjectsList);
 
             }
             catch (Exception ex)
@@ -1086,6 +1086,7 @@ namespace SharedCode.Controllers
             List<BillingData> formattedCumulativeBillData = FormatBillingData(billPeriods);
             return formattedCumulativeBillData;
         }
+
 
         public List<BillingData> GetBillingData(IAccessSelector dataSelection)
         {
@@ -1816,15 +1817,25 @@ namespace SharedCode.Controllers
             return obj;
         }
 
-        public Monthly_Billing_data SaveToClass(List<BillingData> data, string msn)
+        public Monthly_Billing_data SaveToClass(List<BillingData> data, string msn, List<CaptureObject> captureObjects)
         {
             Monthly_Billing_data obj = new Monthly_Billing_data();
             BillingItem item = null;
-
+            obj.DBFields.Clear();
+            for (int index = 0; index < captureObjects.Count; index++)
+            {
+                if (string.IsNullOrEmpty(captureObjects[index].DatabaseFieldName))
+                    obj.DBFields.Append(captureObjects[index].DatabaseFieldName + ",");
+            }
             m_data B_item = null;
             for (int i = 0; i < data.Count; i++)
             {
                 item = new BillingItem();
+                for (int v = 0; v < data[i].RawBilling.Length; v++)
+                {
+                    if (string.IsNullOrEmpty(captureObjects[v].DatabaseFieldName))
+                        B_item.Values.Append(MonthlyBillingDataFormatter.makeValue(data[i].RawBilling[v], captureObjects[v].Multiplier).ToString() + ",");
+                }
                 B_item = new m_data
                 {
                     Counter = data[i].BillingCounter,

@@ -8,6 +8,7 @@ namespace SharedCode.Comm.DataContainer
     public class Monthly_Billing_data
     {
         public List<m_data> monthly_billing_data;
+        public StringBuilder DBFields { get; set; } = new StringBuilder();
 
         //public int CustomerStatusCode;
 
@@ -38,6 +39,7 @@ namespace SharedCode.Comm.DataContainer
     public class m_data
     {
         public Cumulative_billing_data billData_obj;
+        public StringBuilder Values { get; set; } = new StringBuilder();
 
         public uint Counter;
 
