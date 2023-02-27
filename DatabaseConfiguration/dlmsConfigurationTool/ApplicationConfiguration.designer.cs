@@ -226,6 +226,7 @@ namespace dlmsConfigurationTool
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sequenceIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oBISIndexDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attributeNoDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataIndexDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.configIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -241,6 +242,7 @@ namespace dlmsConfigurationTool
             this.bSrc_device = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_device = new System.Windows.Forms.Label();
             this.gb_capture_objects = new System.Windows.Forms.GroupBox();
+            this.cmbTargetObisIndexFilter = new System.Windows.Forms.ComboBox();
             this.btn_ImportGrpId = new System.Windows.Forms.Button();
             this.btn_ExportGrpId = new System.Windows.Forms.Button();
             this.tp_configuration_new = new System.Windows.Forms.TabPage();
@@ -632,7 +634,6 @@ namespace dlmsConfigurationTool
             this.Group_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_ShowMenu = new System.Windows.Forms.Button();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.cmbTargetObisIndexFilter = new System.Windows.Forms.ComboBox();
             this.menuStrip.SuspendLayout();
             this.tb_DataViewer.SuspendLayout();
             this.tp_all_quantities.SuspendLayout();
@@ -1980,6 +1981,7 @@ namespace dlmsConfigurationTool
             this.dataGridViewTextBoxColumn57,
             this.sequenceIdDataGridViewTextBoxColumn6,
             this.oBISIndexDataGridViewTextBoxColumn5,
+            this.Quantity_Code,
             this.attributeNoDataGridViewTextBoxColumn4,
             this.dataIndexDataGridViewTextBoxColumn2,
             this.configIdDataGridViewTextBoxColumn6,
@@ -2049,6 +2051,13 @@ namespace dlmsConfigurationTool
             this.oBISIndexDataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.oBISIndexDataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.oBISIndexDataGridViewTextBoxColumn5.ValueMember = "OBIS_Index";
+            // 
+            // Quantity_Code
+            // 
+            this.Quantity_Code.DataPropertyName = "Quantity_Code";
+            this.Quantity_Code.HeaderText = "Multiplier";
+            this.Quantity_Code.Name = "Quantity_Code";
+            this.Quantity_Code.ReadOnly = true;
             // 
             // attributeNoDataGridViewTextBoxColumn4
             // 
@@ -2175,6 +2184,14 @@ namespace dlmsConfigurationTool
             this.gb_capture_objects.TabIndex = 27;
             this.gb_capture_objects.TabStop = false;
             this.gb_capture_objects.Text = "Operation Fields";
+            // 
+            // cmbTargetObisIndexFilter
+            // 
+            this.cmbTargetObisIndexFilter.FormattingEnabled = true;
+            this.cmbTargetObisIndexFilter.Location = new System.Drawing.Point(6, 84);
+            this.cmbTargetObisIndexFilter.Name = "cmbTargetObisIndexFilter";
+            this.cmbTargetObisIndexFilter.Size = new System.Drawing.Size(126, 21);
+            this.cmbTargetObisIndexFilter.TabIndex = 27;
             // 
             // btn_ImportGrpId
             // 
@@ -6709,14 +6726,6 @@ namespace dlmsConfigurationTool
             this.btn_ShowMenu.Click += new System.EventHandler(this.btn_ShowMenu_Click);
             this.btn_ShowMenu.MouseHover += new System.EventHandler(this.btn_ShowMenu_MouseHover);
             // 
-            // cmbTargetObisIndexFilter
-            // 
-            this.cmbTargetObisIndexFilter.FormattingEnabled = true;
-            this.cmbTargetObisIndexFilter.Location = new System.Drawing.Point(6, 84);
-            this.cmbTargetObisIndexFilter.Name = "cmbTargetObisIndexFilter";
-            this.cmbTargetObisIndexFilter.Size = new System.Drawing.Size(126, 21);
-            this.cmbTargetObisIndexFilter.TabIndex = 27;
-            // 
             // ApplicationConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7362,17 +7371,6 @@ namespace dlmsConfigurationTool
         private System.Windows.Forms.Panel pnl_rights;
         private System.Windows.Forms.Panel pnl_status_word;
         private System.Windows.Forms.Panel pnl_users;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sequenceIdDataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewComboBoxColumn oBISIndexDataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn attributeNoDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataIndexDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn configIdDataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn targetOBISIndexDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deviceIdDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn117;
-        private System.Windows.Forms.DataGridViewTextBoxColumn multiplierDataGridViewTextBoxColumn4;
         private System.Windows.Forms.GroupBox gp_selection_billing_items;
         private System.Windows.Forms.Label lbl_billing_items;
         private System.Windows.Forms.ListBox lb_billing_items;
@@ -7455,5 +7453,17 @@ namespace dlmsConfigurationTool
         private System.Windows.Forms.DataGridViewTextBoxColumn sequenceIdDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn126;
         private System.Windows.Forms.ComboBox cmbTargetObisIndexFilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sequenceIdDataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewComboBoxColumn oBISIndexDataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity_Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attributeNoDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataIndexDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn configIdDataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn targetOBISIndexDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deviceIdDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn117;
+        private System.Windows.Forms.DataGridViewTextBoxColumn multiplierDataGridViewTextBoxColumn4;
     }
 }

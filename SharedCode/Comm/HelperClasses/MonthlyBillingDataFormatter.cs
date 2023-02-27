@@ -97,6 +97,7 @@ namespace SharedCode.Comm.HelperClasses
                 {
                     BillingData billPeriodData = new BillingData();
                     billPeriodData.BillingCounter = count;
+                    billPeriodData.RawBilling = billingPeriod;
                     
                     #region Store Fixed Objects
 
@@ -926,7 +927,7 @@ namespace SharedCode.Comm.HelperClasses
             }
         }
 
-        private double makeValue(ILValue val, float multiplier)
+        public static double makeValue(ILValue val, float multiplier)
         {
             try
             {

@@ -14,11 +14,13 @@ namespace SharedCode.Comm.HelperClasses
         public Get_Index OBIS_Index;
         [XmlElement("Value", Type = typeof(Object))]
         public Dictionary<byte?, Object> value;
+        public string dbField;
 
         public ILValue()
         {
             OBIS_Index = Get_Index.Dummy;
             ValueCollection = new Dictionary<byte?, object>(1);
+            dbField = "";
         }
 
         /// <summary>
@@ -102,7 +104,9 @@ namespace SharedCode.Comm.HelperClasses
             {
                 ILValue[] tArray = new ILValue[captureSize];
                 for (int indexI = 0; indexI < captureSize; indexI++, Indexer++)
+                {
                     tArray[indexI] = GetCommObjectValue(CommObjs[Indexer]);
+                }
                 captureObjs.Add(tArray);
             }
             return captureObjs;

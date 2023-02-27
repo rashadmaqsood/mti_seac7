@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DLMS;
 using DLMS.Comm;
+using SharedCode.Comm.HelperClasses;
 using SharedCode.Comm.Param;
 
 namespace SharedCode.Comm.DataContainer
@@ -48,6 +49,7 @@ namespace SharedCode.Comm.DataContainer
             get { return billingItems; }
             set { billingItems = value; }
         }
+        public ILValue[] RawBilling { get; set; }
 
         public BillingData()
         {

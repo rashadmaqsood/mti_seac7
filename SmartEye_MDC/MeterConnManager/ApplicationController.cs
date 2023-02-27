@@ -496,7 +496,7 @@ namespace Communicator.MeterConnManager
                 #region Insert Incoming Connection To Log
 #if Enable_Abstract_Log
 
-                StatisticsObj.DP_Logger.InsertLog("IIP_" + execRunnerThread.Id, IOConn.IOStream.ToString(), IOConn.ConnectionTime.AddSeconds(1));
+                StatisticsObj.DP_Logger.InsertLog("Meter IP:" + execRunnerThread.Id, IOConn.IOStream.ToString(), IOConn.ConnectionTime.AddSeconds(1));
                 StatisticsObj.DP_Logger.InsertLog("MSN", ConnectToMeter.MeterSerialNumberObj.ToString(), IOConn.ConnectionTime.AddSeconds(1));
                 StatisticsObj.DP_Logger.InsertLog("CummId", CummId.ToString(), IOConn.ConnectionTime.AddSeconds(1));
 #endif
@@ -596,7 +596,7 @@ namespace Communicator.MeterConnManager
                     {
                         string[] PrivateLogging_FailureResponse = new string[] { "Private Login Failure", "PVLI" };
                         string[] PublicLogging_FailureResponse = new string[] { "Public Login Failure", "PBLI" };
-                        string[] HLS_FailureResponse = new string[] { "HLS Login Failure", "HLSI" };
+                        string HLS_FailureResponse = "Login Failed";
 
                         string error_message = string.Empty;
 
@@ -612,8 +612,8 @@ namespace Communicator.MeterConnManager
                         }
                         else if (Association_Details.AuthenticationType >= HLS_Mechanism.HLS_Manufac)
                         {
-                            LogMessage(HLS_FailureResponse[0], HLS_FailureResponse[1], "F", 1);
-                            error_message = HLS_FailureResponse[0];
+                            LogMessage(HLS_FailureResponse, 1);
+                            error_message = HLS_FailureResponse;
                         }
 
                         throw new Exception(error_message);
@@ -645,39 +645,7 @@ namespace Communicator.MeterConnManager
                     // Check HDLC Inactivity Logic
                     // Commons.Delay(TimeSpan.FromSeconds(120));
 
-                    #region Configuration Test Code Region
-                    #region Read Load Profile Channel Info
 
-                    // try
-                    // {
-                    //     long? LP_GP_ID = -1;
-                    //     var LP_Counters = new Profile_Counter();
-                    //     LP_Counters.Current_Counter = int.MaxValue;
-                    //    LP_Counters.Previous_Counter = (uint)MeterInfo.LP_Counters.DB_Counter;
-                    //     LP_Counters.Max_Size = (uint)Limits.Max_LoadProfile_Count_Limit;
-                    //     LP_Counters.GroupId = MeterInfo.Counter_Obj.LoadProfile_GroupID;
-                    //  
-                    //     List<LoadProfileChannelInfo> _loadProfileChannelsInfo = LoadProfile_Controller.GetChannelsInfoList(LP_Counters);
-                    //     Configurator.GetMeterGroupByLoadProfileChannels(IOConn.ConnectionInfo, _loadProfileChannelsInfo, out LP_GP_ID);
-                    // }
-                    // catch (Exception ex)
-                    // {
-                    //     Commons.WriteLine(String.Format("Error Read Load Profile Channels Info " + ex.Message, IOConn.MSN));
-                    // }
-
-                    #endregion
-                    #endregion
-
-                    #region Watcher Check
-
-                    string Model = ConnectToMeter.MeterSerialNumberObj.GetMeterModel();
-                    if (string.Equals(Model, "W275@", StringComparison.OrdinalIgnoreCase))
-                    {
-                        IsProcessComplete = true;
-                        goto LOGOUT;
-                    }
-
-                    #endregion
                     if (ConnectionController.IsConnected)
                     {
                         #region Initial Work
@@ -692,7 +660,7 @@ namespace Communicator.MeterConnManager
                         #region Limit Features
                         MeterInfo.Read_AR = false;
                         MeterInfo.Read_EV = true;
-                        MeterInfo.Read_CB =  READ_METHOD.Disabled;
+                        MeterInfo.Read_CB = READ_METHOD.Disabled;
                         MeterInfo.Read_PQ = false;
                         MeterInfo.Read_LP = READ_METHOD.ByDateTime;
                         MeterInfo.Read_LP2 = READ_METHOD.ByDateTime;
@@ -784,17 +752,6 @@ namespace Communicator.MeterConnManager
                                     }
                                 }
                                 #endregion
-                                // Save to DB
-                                // if (MeterInfo.Save_AR)
-                                // {
-                                //     bool save_Flag = DB_Controller.SaveAlarmStatus(MSN, MeterInfo.Reference_no, SessionDateTime, ParamMajorAlarmProfileObj.MA_Status_Array);
-                                //     if (save_Flag)
-                                //     {
-                                //         LogMessage("Alarm Status saved to DB", 2);
-                                //     }
-                                //     else
-                                //         LogMessage("Error while saving Alarm Status to DB", 2);
-                                // }
                             }
                         }
                         catch (Exception ex)
@@ -976,27 +933,13 @@ namespace Communicator.MeterConnManager
 #endif
                     #endregion
                     MeterInfo.ModelID = 1;
-                    if (IOConn.ConnectionInfo.MeterInfo.Device.IsSinglePhase) // 1 means R283
-                    {
-                        CusExc_ProcessRequest = ProcessRequest_SinglePhase(CancelTK);//also used for update schedule
-                    }
-                    else
-                    {
-                        //-- Alarm will reset either on successful or unsuccessful transaction
 
-                        // on successful transaction this alarms will reset
-                        CusExc_ProcessRequest = ProcessRequest(CancelTK);//also used for update schedule
-                        // if (CusExc_ProcessRequest != null && CusExc_ProcessRequest.Ex == null)
-                        // {
-                        if (!MeterInfo.read_individual_events_sch && !MeterInfo.ReadEventsOnMajorAlarms)
-                        {
-                            // NO EVENTS TO READ. ALARM REGISTER STILL NOT CLEAR. CLEAR ALARM REGISTER NOW
-                            //  Alarm Resetting change:5656
-                            // if (MeterInfo.Read_AR)
-                            //     ResetAlarmRegister();
-                        }
-                        // }
-                    }
+                    //-- Alarm will reset either on successful or unsuccessful transaction
+
+                    // on successful transaction this alarms will reset
+                    CusExc_ProcessRequest = ProcessRequest(CancelTK);//also used for update schedule
+                                                                     // if (CusExc_ProcessRequest != null && CusExc_ProcessRequest.Ex == null)
+                                                                     // {
                     if (CancelTK != null)
                         CancelTK.Dispose();
 
@@ -2041,6 +1984,7 @@ namespace Communicator.MeterConnManager
                                         {
                                             List<BillingData> monthlyBillingData = null;
                                             Monthly_Billing_data monthlyData = null;
+                                            List<CaptureObject> captureObjects = null;
                                             var lastTimeUpdate = false;
                                             //uint meterCounter = 0;
                                             bool IsMBUpToDate = false;
@@ -2110,7 +2054,10 @@ namespace Communicator.MeterConnManager
                                                                 byte MaxCounterToread = (byte)(MeterInfo.MB_Counters.Max_Size - 1);
                                                                 if (MeterInfo.MB_Counters.Difference > MaxCounterToread) counterToread = MaxCounterToread;
                                                                 counterToread = MeterInfo.MB_Counters.Difference + 100;
-                                                                monthlyBillingData = Billing_Controller.GetBillingData(MeterInfo.MB_Counters, MeterInfo.Read_MB);
+                                                                Tuple<List<BillingData>, List<CaptureObject>> billingTuple = Billing_Controller.GetBillingData(MeterInfo.MB_Counters, MeterInfo.Read_MB);
+                                                                captureObjects = billingTuple.Item2;
+                                                                monthlyBillingData = billingTuple.Item1;
+
                                                             }
                                                             #region LogMessage("Reading Monthly Billing Data Complete", 1);
 #if Enable_Abstract_Log
@@ -2143,7 +2090,10 @@ namespace Communicator.MeterConnManager
                                                     LogMessage("Reading Monthly Billing Data", "MB",
            string.Format("R {0} - {1}", MeterInfo.MB_Counters.LastReadTime.ToString(Commons.DateTimeFormat), DateTime.Now.ToString(Commons.DateTimeFormat)));
 
-                                                    monthlyBillingData = Billing_Controller.GetBillingData(MeterInfo.MB_Counters, MeterInfo.Read_MB);
+                                                    Tuple<List<BillingData>, List<CaptureObject>> billingTuple = Billing_Controller.GetBillingData(MeterInfo.MB_Counters, MeterInfo.Read_MB);
+                                                    captureObjects = billingTuple.Item2;
+                                                    monthlyBillingData = billingTuple.Item1;
+
                                                     LogMessage("Reading Monthly Billing Data Complete", "MB", "S", 1);
 
                                                 }
@@ -2171,7 +2121,7 @@ namespace Communicator.MeterConnManager
                                                         //save to class
                                                         if (MeterInfo.BillingMethodId == (byte)BillingMethods.OneGetMethod)
                                                         {
-                                                            monthlyData = Billing_Controller.SaveToClass(monthlyBillingData, MeterInfo.MSN);
+                                                            monthlyData = Billing_Controller.SaveToClass(monthlyBillingData, MeterInfo.MSN,captureObjects);
                                                         }
                                                         else
                                                         {
@@ -2906,7 +2856,7 @@ namespace Communicator.MeterConnManager
                 bool lastTimeUpdate = false;
                 #region Reading Cumulative Billing Data
 #if Enable_Abstract_Log
-                LogMessage("Reading Cumulative Billing Data", "CB", "R", 0);
+                LogMessage("BILL?", 0);
 #endif
 #if !Enable_Abstract_Log
 						        LogMessage("Reading Cumulative Billing Data");
@@ -2926,21 +2876,11 @@ namespace Communicator.MeterConnManager
                 {
                     billData = Billing_Controller.GetCumulativeBillingData(MeterInfo.Read_CB);
                 }
-                // Detailed billing by getting tariffs detail from meter
-                //else
-                //{
-                //    GetTariff tariffDetails = DB_Controller.getTariffDetails(MeterInfo.DetailedBillingID);
-                //    if (tariffDetails != null)
-                //        billData = Billing_Controller.GetCumulativeBillingData_KESC(tariffDetails);
-                //    else
-                //    {
-                //        throw new Exception("No Tariff details found");
-                //    }
-                //}
+
 
                 #region Reading Cumulative billing Data completed
 #if Enable_Abstract_Log
-                LogMessage("Reading Cumulative billing Data completed", "CB", "S", 1);
+                LogMessage("OK", 1);
 #endif
 #if !Enable_Abstract_Log
 						        LogMessage("Reading Cumulative billing Data completed",1);
@@ -2988,7 +2928,7 @@ namespace Communicator.MeterConnManager
 
                             #region Saving Cumulative billing Data completed
 #if Enable_Abstract_Log
-                            LogMessage("Saving Cumulative billing Data completed", "CBD", "S", 2);
+                            LogMessage("Save?", 2);
 #endif
 #if !Enable_Abstract_Log
 						    LogMessage("Saving Cumulative billing Data completed",2);
@@ -2998,7 +2938,7 @@ namespace Communicator.MeterConnManager
                             {
                                 #region Cumulative Billing Data saved for Prepaid
 #if Enable_Abstract_Log
-                                LogMessage("Cumulative Billing Data saved for Prepaid", "CBPD", "S", 1);
+                                LogMessage("Save Success", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -3011,7 +2951,7 @@ namespace Communicator.MeterConnManager
                         {
                             #region Error Occurred while Saving Cumulative billing Data
 #if Enable_Abstract_Log
-                            LogMessage("Error Occurred while Saving Cumulative billing Data", "CBD", "F", 1);
+                            LogMessage("Save Failed", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -3022,16 +2962,8 @@ namespace Communicator.MeterConnManager
 
                         #endregion
 
-#if Enable_Abstract_Log
-                        LogMessage("Saving Cumulative billing Data completed", "CBD", "S", 2);
-#endif
                         if (MeterInfo.EnableLiveUpdate)
                         {
-                            //LogMessage("Saving Instantaneous Data Live(Cumm)", "CBLD_ID", "R", 2);
-                            //Saves Activ e and Reactive Energies in Instantaneosu Data Live 
-                            //DB_Controller.UpdateCumulativeEnergy_Live(MeterInfo.MSN, data.activeEnergy_TL, data.reactiveEnergy_TL, _session_DateTime);
-                            //LogMessage("Cumulative Billing Data Live (Inst) saved", "CBLD_ID", "S", 1);
-
                             //Saves Cumm BIlling Data in CUmulative Data Live
                             LogMessage("Saving Cumulative billing Data Live(Cumm)", "CBLD", "R", 2);
                             DB_Controller.UpdateCumulativeEnergy_Live(data, _session_DateTime, MeterInfo);
@@ -3161,7 +3093,7 @@ namespace Communicator.MeterConnManager
                     try
                     {
 #if Enable_Abstract_Log
-                        LogMessage(String.Format("Load Profile Scheme: {0}", (byte)LP_Scheme), "LPS", string.Format("{0}", (byte)LP_Scheme), 1);
+                        LogMessage(string.Format("LPRO{0}", (byte)LP_Scheme), 1);
 #endif
 
                         if (LP_Counters.DB_Counter >= 0 && LP_Counters.Max_Size > 0)
@@ -3267,7 +3199,7 @@ namespace Communicator.MeterConnManager
                                 if (LP_Counters.IsEqual)
                                 {
                                     IsLPUpdated = true;
-                                    LogMessage("Load Profile Data Is UP-To-Date", "LP", string.Format("U, {0}", LP_Counters.DB_Counter), 1);
+                                    LogMessage("LPU", 1);
                                     LP_Counters.CounterToUpdate = loadProfileInfo.EntriesInUse;
                                 }
                                 if (LP_Counters.IsLessThanMinDifference)
@@ -3449,8 +3381,7 @@ namespace Communicator.MeterConnManager
                                                 LP_Counters.LastReadTime = LP_Counters.MaxEntriesTime;
                                             }
                                             if (MeterInfo.EnableEchoLog)
-                                                LogMessage(String.Format("Reading Load Profile Data From {0}", LP_Counters.LastReadTime.ToString(Commons.DateTimeFormat)), "LP",
-                                                    string.Format("R {0}", LP_Counters.LastReadTime.ToString(Commons.DateTimeFormat)), 1);
+                                                LogMessage(string.Format("LPRO {0}", LP_Counters.LastReadTime.ToString(Commons.DateTimeFormat)), 1);
                                             IsSuccess = LoadProfile_Controller.TryGet_LoadProfileDataByDateTime(LP_Scheme, LP_Counters, loadData, _loadProfileChannelsInfo, (x) => InnerException = x, CancelTokenSource);
 
                                         }
@@ -3464,7 +3395,7 @@ namespace Communicator.MeterConnManager
                                         {
                                             #region LogMessage("Reading Load Profile Data Complete", 1);
 #if Enable_Abstract_Log
-                                            LogMessage("Reading Load Profile Data Complete", "LP", "S", 1);
+                                            LogMessage("OK", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -3478,7 +3409,7 @@ namespace Communicator.MeterConnManager
                                         {
                                             #region  LogMessage(string.Format("Error while reading complete Load Profile Data (Error Code:{0})", (int)MDCErrors.App_Load_Profile_Read), 1);
 #if Enable_Abstract_Log
-                                            LogMessage(string.Format("Error while reading complete Load Profile Data (Error Code:{0})", (int)MDCErrors.App_Load_Profile_Read), "LP", "F", 1);
+                                            LogMessage("Failed", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -3827,1081 +3758,6 @@ namespace Communicator.MeterConnManager
             }
             #endregion
             return IsProcessed;
-        }
-
-        public CustomException ProcessRequest_SinglePhase(CancellationTokenSource CancelTokenSource = null)
-        {
-            CustomException custExc = new CustomException();
-            bool IsProcessed = false;
-            bool IsMDIResetOccured = false;
-            bool signal_strength_read_SP = false;
-            int meterEvetnsCount = _EventController.EventLogInfoList.Count;
-            try
-            {
-                if (MeterInfo != null && MeterInfo.MSN != null)
-                {
-                    #region // If Task Canceled
-                    if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
-                    {
-                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                    }
-                    #endregion
-                    #region MDI Reset Check
-
-                    if (ParamMajorAlarmProfileObj != null)
-                    {
-                        MajorAlarm MA = ParamMajorAlarmProfileObj.AlarmItems.Find(x => x.Info._EventId == 24); //MDI RESET
-                        if (MA != null && MA.IsTriggered)
-                        {
-                            IsMDIResetOccured = true;
-                        }
-                    }
-
-                    #endregion
-                    #region Verify Single Phase Request(Disable EV and LP)
-                    MeterInfo.Schedule_EV.SchType = ScheduleType.Disabled;
-                    MeterInfo.Schedule_LP.SchType = ScheduleType.Disabled;
-                    #endregion
-
-                    foreach (var item in MeterInfo.ReadPlan)
-                    {
-                        switch (item)
-                        {
-                            case Schedules.ReadContactorStatus:
-                                {
-                                    #region ///If Task Cancelled
-                                    if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-                                    #endregion
-                                    IsProcessed = ReadContactorStatus(IsProcessed);
-                                }
-                                break;
-                            case Schedules.CumulativeBilling:
-                                {
-                                    #region // If Task Canceled
-
-                                    if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-
-                                    #endregion
-                                    #region Cumulative Billing Data
-
-                                    if (MeterInfo.Schedule_CB.IsSuperImmediate ||
-                                        (MeterInfo.Schedule_CB.SchType != ScheduleType.Disabled && MeterInfo.Read_CB != READ_METHOD.Disabled))
-                                    {
-                                        if (MeterInfo.Schedule_CB.IsSuperImmediate || MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.Schedule_CB))
-                                        {
-                                            ReadAndSaveCummBilling(true);
-                                            //                                            BillingData billData = null;
-                                            //                                            try
-                                            //                                            {
-                                            //                                                LogMessage("Reading Cumulative Billing Data", "CB", "R");
-                                            //                                                if (MeterInfo.DDS110_Compatible) data = Billing_Controller.ReadCummulativeBillingDataByOBISList(); //Billing_Controller.ReadCummulativeBillingsDataDDS_SinglePhase();
-                                            //                                                else billData = Billing_Controller.GetCumulativeBillingData(true);
-                                            //                                                LogMessage("Reading Cumulative Billing Data Completed :-)", "CB", "S");
-
-                                            //                                                if (billData != null)
-                                            //                                                {
-                                            //                                                    if (MeterInfo.Save_CB)
-                                            //                                                    {
-                                            //                                                        DB_Controller.DBConnect.OpenConnection();
-                                            //                                                        if (!MeterInfo.DDS110_Compatible)
-                                            //                                                            data = Billing_Controller.saveToClass(billData, MeterInfo.MSN);
-
-                                            //                                                        bool save_Flag = DB_Controller.saveCumulativeBillingDataEx(data, SessionDateTime, MeterInfo);
-                                            //                                                        if (save_Flag)
-                                            //                                                        {
-                                            //                                                            LogMessage("Saving Cumulative billing Data completed", "CBD", "S");
-                                            //                                                            if (MeterInfo.isPrepaid && DB_Controller.saveCumulativeBillingForPrepaid_SinglePhase(data, SessionDateTime, MeterInfo))
-                                            //                                                            {
-                                            //                                                                LogMessage("Cumulative Billing Data saved for Prepaid", "CBPD", "S");
-                                            //                                                            }
-                                            //                                                        }
-                                            //                                                        else
-                                            //                                                        {
-                                            //                                                            LogMessage(string.Format("Error Occurred while reading Cumulative billing Data (Error Code:{0})", (int)MDCErrors.App_Cum_Billing_Save), "CB", "F");
-                                            //                                                        }
-
-                                            //#if Enable_Abstract_Log
-                                            //                                                        LogMessage("Saving Cumulative billing Data completed", "CBD", "S", 2);
-                                            //#endif
-
-                                            //                                                        if (MeterInfo.EnableLiveUpdate)
-                                            //                                                        {
-
-                                            //                                                            //Saves Cumm BIlling Data in CUmulative Data Live
-                                            //                                                            LogMessage("Saving Cumulative billing Data Live(Cumm)", "CBLD", "R", 2);
-                                            //                                                            DB_Controller.UpdateCumulativeEnergy_Live(data, _session_DateTime, MeterInfo);
-                                            //                                                            LogMessage("Cumulative Billing Data Live(Cumm) saved", "CBLD", "S", 1);
-                                            //                                                            //End
-                                            //                                                        }
-
-
-                                            //                                                    }
-
-                                            //                                                    MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_CB, SessionDateTime);
-                                            //                                                    MIUF.Schedule_CB = true;
-                                            //                                                    MIUF.last_CB_time = true;
-                                            //                                                    if (MeterInfo.Schedule_CB.IsSuperImmediate)
-                                            //                                                        MIUF.SuperImmediate_CB = true;
-                                            //                                                    if (MeterInfo.Schedule_CB.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_CB.SchType == ScheduleType.IntervalRandom)
-                                            //                                                        MIUF.base_time_CB = true;
-                                            //                                                    MeterInfo.Schedule_CB.IsSuperImmediate = false;
-                                            //                                                    IsProcessed = true;
-                                            //                                                }
-                                            //                                            }
-                                            //                                            catch (Exception ex)
-                                            //                                            {
-                                            //                                                LogMessage(ex, 4, "Cumulative Billing Data");
-                                            //                                                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
-                                            //                                                StatisticsObj.InsertError(ex, _session_DateTime, 15);
-                                            //                                            }
-                                            //                                            finally
-                                            //                                            {
-                                            //                                                if (IsProcessed)
-                                            //                                                    ResetMaxIOFailure();
-                                            //                                            }
-                                        }
-                                    }
-
-                                    #endregion
-                                }
-                                break;
-                            case Schedules.SignalStrength:
-                                {
-                                    #region /// If Task Cancelled
-                                    if (CancelTokenSource != null)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-                                    #endregion
-                                    #region Signal Strength
-#if !Enable_LoadTester_Mode
-                                    if (MeterInfo.Schedule_SS.IsSuperImmediate || (MeterInfo.Schedule_SS.SchType != ScheduleType.Disabled && MeterInfo.Read_SS))
-                                    {
-                                        if (MeterInfo.Schedule_SS.IsSuperImmediate || MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.Schedule_SS))
-                                        {
-                                            try
-                                            {
-                                                LogMessage("Reading Signal Strength", "SS", "R", 0);
-                                                var insObj = new Instantaneous_Class();
-                                                _signalStrength = Convert.ToInt32(InstantaneousController.GET_Any(insObj, Get_Index.RSSI_SignalStrength, 0));
-                                                signal_strength_read_SP = true;
-                                                LogMessage("Signal Strength read successfully", "SS", "S", 1);
-                                                MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_SS, SessionDateTime);
-                                                MIUF.Schedule_SS = true;
-                                                MIUF.last_SS_time = true;
-                                                if (MeterInfo.Schedule_SS.IsSuperImmediate)
-                                                    MIUF.SuperImmediate_SS = true;
-                                                if (MeterInfo.Schedule_SS.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_SS.SchType == ScheduleType.IntervalRandom)
-                                                    MIUF.base_time_SS = true;
-                                                MeterInfo.Schedule_SS.IsSuperImmediate = false;
-                                                bool Res;
-                                                try
-                                                {
-                                                    Res = DB_Controller.UpdateSignalStrength_Live(_signalStrength, MeterInfo.MSN, SessionDateTime);
-                                                    // Res = DB_Controller.InsertSignalStrength_Live(_signalStrength, MeterInfo.MSN);
-                                                }
-                                                catch (Exception)
-                                                {
-                                                    try
-                                                    {
-                                                        // var rslt =DB_Controller.InsertSignalStrength_Live(_signalStrength, MeterInfo.MSN);
-                                                        // LogMessage(
-                                                        //         rslt ? "Signal Strength inserted successfully"
-                                                        //         : "Signal Strength update and insertion is unsuccessful", 2);
-
-                                                        var rslt = DB_Controller.InsertSignalStrength_Live(_signalStrength, MeterInfo.MSN, SessionDateTime);
-                                                        LogMessage("", "SSLD", rslt ? "N" : "F", 2);
-                                                    }
-                                                    catch
-                                                    { }
-                                                    goto SS_Exit;
-                                                }
-                                                if (Res)
-                                                    LogMessage("Signal Strength updated successfully", "SSLD", "S", 2);
-                                                else
-                                                {
-                                                    var rslt = DB_Controller.InsertSignalStrength_Live(_signalStrength, MeterInfo.MSN, SessionDateTime);
-                                                    LogMessage("", "SSLD", rslt ? "N" : "F", 2);
-                                                }
-
-                                            SS_Exit:;// Do Nothing
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                ex = new Exception(string.Format("{0} (Error Code:{1})", ex.Message, (int)MDCErrors.App_Signal_Strength_Read), ex.InnerException);
-                                                LogMessage(ex, 4, "Signal Strength");
-                                                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
-                                                StatisticsObj.InsertError(ex, _session_DateTime, 15);
-                                            }
-                                            finally
-                                            {
-
-                                                if (signal_strength_read_SP)
-                                                    ResetMaxIOFailure();
-                                            }
-                                        }
-                                    }
-#endif
-                                    #endregion
-                                }
-                                break;
-                            case Schedules.PowerQuantities:
-                                {
-
-                                    #region /// If Task Canceled
-
-                                    if (CancelTokenSource != null)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-
-                                    #endregion
-                                    #region Instantaneous Data
-
-                                    if (MeterInfo.Schedule_PQ.IsSuperImmediate || (MeterInfo.Schedule_PQ.SchType != ScheduleType.Disabled && MeterInfo.Read_PQ))
-                                    {
-                                        if (MeterInfo.Schedule_PQ.IsSuperImmediate || MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.Schedule_PQ))
-                                        {
-                                            InstantaneousData insData = null;
-                                            Instantaneous_Class data = null;
-                                            try
-                                            {
-                                                LogMessage("Reading Instantaneous Data", "ID", "R");
-                                                if (MeterInfo.DDS110_Compatible) data = InstantaneousController.ReadInstantaneousDataDDS_SinglePhase();
-                                                insData = InstantaneousController.ReadInstantaneousData_SinglePhase();
-                                                LogMessage("Reading Instantaneous Data completed", "ID", "S");
-                                                if (insData != null)
-                                                {
-                                                    if (MeterInfo.Save_PQ)
-                                                    {
-                                                        DB_Controller.DBConnect.OpenConnection();
-                                                        if (!MeterInfo.DDS110_Compatible)
-                                                            data = InstantaneousController.saveToClass(insData, MeterInfo.MSN);
-
-                                                        bool save_Flag = DB_Controller.SaveInstantaneous(data, SessionDateTime, _signalStrength, signal_strength_read_SP, MeterInfo);
-
-                                                    }
-                                                    #region Update Live
-#if !Enable_LoadTester_Mode
-                                                    if (MeterInfo.EnableLiveUpdate)
-                                                    {
-                                                        #region Live Update
-                                                        //if (ConnectToMeter.CurrentConnection == PhysicalConnectionType.KeepAlive)//For Keep Alive
-                                                        //{
-                                                        try
-                                                        {
-                                                            if (DB_Controller.UpdateInstantaneous_Live_SinglePhase(MeterInfo.MeterID, data, SessionDateTime, ConnectToMeter.ConnectionTime, (int)MeterInfo.MeterType_OBJ))
-                                                                MeterInfo.IsLiveUpdated = true;
-                                                            else if (!MeterInfo.IsLiveUpdated)
-                                                            {
-                                                                LogMessage(String.Format("Unable to update PQ live data Server Inserted as a new Row"), "IDL", "N", 1);
-                                                                if (DB_Controller.InsertInstantaneous_Live_SinglePhase(MeterInfo.MeterID, data, SessionDateTime, ConnectToMeter.ConnectionTime, (int)MeterInfo.MeterType_OBJ))
-                                                                    MeterInfo.IsLiveUpdated = true;
-                                                            }
-                                                        }
-                                                        catch (Exception ex)
-                                                        {
-                                                            LogMessage(String.Format("Unable to update PQ live data\r\nDetails:{0}", ex.Message));
-                                                        }
-                                                        //}
-
-                                                        #endregion
-                                                        LogMessage("Saving Instantaneous Data completed", "IDD", "S");
-                                                    }
-                                                    else
-                                                    {
-                                                        LogMessage(string.Format("Error while saving Instantaneous Data (Error Code:{0})", (int)MDCErrors.App_Instantaneous_Data_Save), "ID", "F");
-                                                    }
-#endif
-                                                    #endregion
-                                                    MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_PQ, SessionDateTime);
-                                                    MIUF.Schedule_PQ = true;
-                                                    MIUF.last_PQ_time = true;
-                                                    if (MeterInfo.Schedule_PQ.IsSuperImmediate)
-                                                        MIUF.SuperImmediate_PQ = true;
-                                                    if (MeterInfo.Schedule_PQ.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_PQ.SchType == ScheduleType.IntervalRandom)
-                                                        MIUF.base_time_PQ = true;
-                                                    MeterInfo.Schedule_PQ.IsSuperImmediate = false;
-                                                    IsProcessed = true;
-                                                }
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                ex = new Exception(string.Format("{0} (Error Code:{1})", ex.Message, (int)MDCErrors.App_Instantaneous_Data_Read), ex.InnerException);
-                                                LogMessage(ex, 4, "Instantaneous Data");
-                                                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
-                                                StatisticsObj.InsertError(ex, _session_DateTime, 15);
-                                            }
-                                            finally
-                                            {
-
-                                                if (IsProcessed)
-                                                    ResetMaxIOFailure();
-                                            }
-                                        }
-                                    }
-
-                                    #endregion
-                                }
-                                break;
-                            case Schedules.Events:
-                                {
-                                    #region ///If Task Canceled
-                                    if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-
-                                    #endregion
-                                    #region Events
-
-#if !Enable_LoadTester_Mode
-
-                                    #region Read Combine Event Logs
-
-                                    if (MeterInfo.read_individual_events_sch || MeterInfo.Schedule_EV.IsSuperImmediate || (MeterInfo.ReadEventsForcibly && MeterInfo.Read_EV && MeterInfo.Save_EV))
-                                    {
-                                        if (MeterInfo.read_logbook && (MeterInfo.ReadEventsForcibly || MeterInfo.Schedule_EV.IsSuperImmediate ||
-                                            MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.Schedule_EV)))
-                                        {
-                                            var EventsData = new EventData();
-                                            //bool IsEventsUpToDate = false;
-                                            bool IsEventsReadSuccessfully = false;
-                                            //long MeterCount = 0;
-                                            long DBCount = MeterInfo.EV_Counters.DB_Counter;
-                                            try
-                                            {
-                                                if (MeterInfo.EV_Counters.DB_Counter >= 0)
-                                                {
-                                                    DateTime latest_event_logbook = DateTime.MinValue;
-
-                                                    #region Read Current Counter from Meter
-
-                                                    //uint currentCounter;
-                                                    try
-                                                    {
-                                                        MeterInfo.EV_Counters.Meter_Counter = Event_Controller.Get_EventCounter_Internal();
-                                                        //MeterCount = currentCounter;
-                                                        LogMessage(String.Format("Events Counter Received from Meter: {0} and DBCount: {1}", MeterInfo.EV_Counters.Meter_Counter,
-                                                            MeterInfo.EV_Counters.DB_Counter), 3);
-                                                    }
-                                                    catch
-                                                    {
-                                                        throw;
-                                                    }
-
-                                                    #endregion
-                                                    #region Compare Counter and Disable Events
-
-                                                    bool isEVCountValid = MeterInfo.EV_Counters.IsCounterValid;
-                                                    if (!isEVCountValid)
-                                                    {
-                                                        //Retry
-                                                        MeterInfo.EV_Counters.Meter_Counter = Event_Controller.Get_EventCounter_Internal();
-                                                        //MeterCount = currentCounter;
-                                                        //LogMessage(String.Format("Events Counter Received on Retry\tMeterCount: {0}", currentCounter), 3);
-
-                                                        bool isEVCountValidRetry = MeterInfo.EV_Counters.IsCounterValid;
-                                                        //!(MeterInfo.Counter_Obj.Events_Count > currentCounter
-                                                        //                             || (currentCounter - (uint)MeterInfo.Counter_Obj.Events_Count) > MeterInfo.Counter_Obj.MaxEventsDiffCheck);
-                                                        if (!isEVCountValidRetry)
-                                                        {
-                                                            //Disable EV and Insert Warning
-                                                            try
-                                                            {
-                                                                DB_Controller.DBConnect.OpenConnection();
-                                                                DB_Controller.InsertWarning(MeterInfo.MSN, SessionDateTime, ConnectToMeter.ConnectionTime, String.Format("Invalid Events Counter Received DBCounter:{0}, MeterCounter:{1}, Server is disabling the Events", MeterInfo.EV_Counters.DB_Counter, MeterInfo.EV_Counters.Meter_Counter));
-                                                                //const QuantityName x = QuantityName.Read_logbook;
-                                                                //DB_Controller.DisableQuantity(MeterInfo.MSN, Enum.GetName(typeof(QuantityName), x));
-                                                                LogMessage(String.Format("Invalid Events Counter Received DBCounter:{0}, MeterCounter:{1}, Server is disabling the Events", MeterInfo.EV_Counters.DB_Counter, MeterInfo.EV_Counters.Meter_Counter),
-                                                                    "ED", string.Format("D, {0},{1},{2}", MeterInfo.EV_Counters.Meter_Counter, MeterInfo.EV_Counters.DB_Counter, MeterInfo.EV_Counters.MinDifferenceCheck), 1);
-                                                                MIUF.IsDisableEv = true;
-                                                            }
-                                                            catch { }
-                                                            finally
-                                                            {
-                                                                DB_Controller.DBConnect.CloseConnection();
-                                                                MeterInfo.Read_EV = false;
-                                                            }
-                                                            goto Exit;
-                                                        }
-                                                    }
-
-                                                    #endregion
-                                                    #region Making Entry
-
-                                                    var eventCounter = new Profile_Counter();
-                                                    //eventCounter.Previous_Counter = (uint)MeterInfo.Counter_Obj.Events_Count;
-                                                    //eventCounter.Current_Counter = currentCounter;
-                                                    //eventCounter.Max_Size = Limits.Max_Events_Count_Limit;
-
-                                                    //long old_counter = MeterInfo.Counter_Obj.Events_Count;
-                                                    var e_info = new EventInfo();
-                                                    e_info.EventCode = 0;
-                                                    e_info = Event_Controller.EventLogInfoList.Find((x) => x.EventCode == 0);
-
-                                                    //long difference = (long)currentCounter - old_counter;
-
-                                                    if (MeterInfo.EV_Counters.IsUptoDate)
-                                                    {
-                                                        LogMessage("Events Data is up-to-date", 3);
-                                                        //IsEventsUpToDate = true;
-                                                    }
-
-                                                    #endregion
-                                                    #region Read
-
-                                                    if (MeterInfo.EV_Counters.IsReadable)
-                                                    {
-                                                        Exception innerException = null;
-                                                        try
-                                                        {
-                                                            LogMessage(String.Format("Reading Events Data from {0} to {1} {2}", eventCounter.DB_Counter, eventCounter.Meter_Counter, (MeterInfo.ReadEventsForcibly) ? "due to some Major Alarm occurred" : ""), 0);
-
-                                                            IsEventsReadSuccessfully = Event_Controller.TryReadEventLogDataInChunks(eventCounter, e_info, EventsData,
-                                                                            (ex) => innerException = ex, 25, CancelTokenSource);
-
-                                                            if (IsEventsReadSuccessfully)
-                                                            {
-                                                                LogMessage("Events Data read complete", 1);
-
-                                                                //Update Event For Live-Update
-
-                                                                //EventIDtoCode idTOcode = new EventIDtoCode();
-                                                                DateTime latest = DateTime.MinValue;
-                                                                int id = 0;
-                                                                bool retry = true;
-                                                                EventItem data = null;
-
-                                                                EventData copy_data = EventsData.Clone();
-
-                                                                while (retry && copy_data.EventRecords.Count > 0)
-                                                                {
-                                                                    latest = copy_data.EventRecords.Max(x => x.EventDateTimeStamp);
-                                                                    data = copy_data.EventRecords.Find(x => x.EventDateTimeStamp == latest);
-
-                                                                    //id = idTOcode.getEventID(data.EventInfo.EventCode);
-                                                                    if (data != null)
-                                                                        id = data.EventInfo._EventId;
-
-                                                                    MeterInfo.eventsForLiveUpdate_logbook = Commons.HexStringToBinary(MeterInfo.eventsForLiveUpdate_logbook_string, meterEvetnsCount);
-                                                                    if (MeterInfo.eventsForLiveUpdate_logbook[id - 1] == '1')
-                                                                    {
-                                                                        retry = false;
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        copy_data.EventRecords.Remove(data);
-                                                                    }
-                                                                }
-                                                                if (!retry)
-                                                                {
-                                                                    if (DB_Controller.UpdateLastEvent_Live_logbook(MeterInfo.MSN, data.EventInfo.EventCode, data.EventDateTimeStamp))
-                                                                    {
-                                                                        LogMessage("Logbook->Event Code " + data.EventInfo.EventCode + " updated to Instantaneous Live ");
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        LogMessage("Error occurred while updating Event Code " + data.EventInfo.EventCode + " updated to Instantaneous Live ");
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    LogMessage("No events to read from the logbook");
-                                                                }
-                                                            }
-                                                            if (!IsEventsReadSuccessfully && innerException != null)
-                                                                throw innerException;
-                                                        }
-                                                        catch (Exception ex)
-                                                        {
-                                                            LogMessage("Error while reading Events Data: " + ex, 4);
-                                                            throw;
-                                                        }
-                                                        if (innerException != null)
-                                                        {
-                                                            throw innerException;
-                                                        }
-                                                    }
-
-                                                    #endregion
-                                                }
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                LogMessage(ex, 4, "Read Combine Event Logs");
-                                                // if (!(ex is NullReferenceException))
-                                                //    throw;
-                                                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
-                                                StatisticsObj.InsertError(ex, _session_DateTime, 15);
-                                            }
-                                            finally
-                                            {
-                                                // MeterInfo.ReadEventsForcibly = false;
-                                                #region Saving To Database
-
-                                                try
-                                                {
-                                                    if (IsEventsReadSuccessfully)
-                                                        ResetMaxIOFailure();
-
-                                                    if (!MeterInfo.EV_Counters.IsUptoDate && IsEventsReadSuccessfully)
-                                                    {
-                                                        if (MeterInfo.Save_EV && EventsData != null && EventsData.MaxEventCounter > 0)
-                                                        {
-                                                            uint tempMAXEventCount = EventsData.MaxEventCounter;
-                                                            CustomException CEX = DB_Controller.saveEventsDataWithReplace(EventsData, MeterInfo.MSN, SessionDateTime, MeterInfo, MIUF);
-
-                                                            if (CEX != null && CEX.isTrue && CEX.Ex == null)
-                                                            {
-                                                                MeterInfo.EV_Counters.DB_Counter = tempMAXEventCount;
-
-                                                                if (CEX.SomeNumber > MeterInfo.EV_Counters.Meter_Counter || CEX.SomeNumber < DBCount || !CEX.SomeMessage.Equals("Nothing", StringComparison.OrdinalIgnoreCase))
-                                                                {
-                                                                    LogMessage(String.Format("Saving Events Data failed, {0}", CEX.SomeMessage));
-                                                                }
-                                                                else
-                                                                    LogMessage(String.Format("Events Data saved successfully and updated to count {0}, Internal Message: " + CEX.SomeMessage, CEX.SomeNumber), 2);
-                                                            }
-                                                            else
-                                                            {
-                                                                var Error = "Saving Events Data failed";
-                                                                if (CEX != null && CEX.Ex != null)
-                                                                    Error += " Error: " + CEX.Ex.Message;
-                                                                LogMessage(Error, 4);
-                                                            }
-                                                        }
-                                                    }
-                                                    if ((MeterInfo.EV_Counters.IsUptoDate || IsEventsReadSuccessfully) && MeterInfo.read_logbook)//!MeterInfo.read_individual_events_sch) changed by furqan
-                                                    {
-                                                        MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_EV, SessionDateTime);
-                                                        MIUF.Schedule_EV = true;
-                                                        MIUF.last_EV_time = true;
-                                                        if (MeterInfo.Schedule_EV.IsSuperImmediate)
-                                                            MIUF.SuperImmediate_EV = true;
-                                                        if (MeterInfo.Schedule_EV.SchType == ScheduleType.IntervalFixed ||
-                                                            MeterInfo.Schedule_EV.SchType == ScheduleType.IntervalRandom)
-                                                            MIUF.base_time_EV = true;
-
-                                                        MeterInfo.Schedule_EV.IsSuperImmediate = false;
-                                                    }
-
-                                                    IsProcessed = true;
-                                                }
-                                                catch (Exception ex)
-                                                {
-                                                    LogMessage(ex.Message, 4);
-                                                }
-
-                                                #endregion
-                                            }
-                                        Exit:
-                                            if (!MeterInfo.Read_EV)
-                                                LogMessage("Events Disabled", 3);
-                                        }
-                                    }
-
-                                    #endregion
-
-                                    #region READ SEPARATE EVENTS
-
-                                    List<EventData> _obj_EventData = null;
-                                    try
-                                    {
-                                        List<EventInfo> eventsToRead = new List<EventInfo>();
-                                        List<EventInfo> eventsIndividualRead = new List<EventInfo>();
-                                        EventLogInfo _obj = null;
-                                        MeterInfo.individual_events_string_sch = (string.IsNullOrEmpty(MeterInfo.individual_events_string_sch)) ? "0" : MeterInfo.individual_events_string_sch;
-                                        MeterInfo.individual_events_string_alarm = (string.IsNullOrEmpty(MeterInfo.individual_events_string_alarm)) ? "0" : MeterInfo.individual_events_string_alarm;
-                                        // EventIDtoCode eventIDtoCode_obj = new EventIDtoCode();
-                                        if ((MeterInfo.read_individual_events_sch && MeterInfo.ReadEventsForcibly))
-                                        {
-                                            char[] binStringEventsOnAlarm = Commons.HexStringToBinary(MeterInfo.individual_events_string_alarm, meterEvetnsCount);
-                                            char[] binStringEventsSch = Commons.HexStringToBinary(MeterInfo.individual_events_string_sch, meterEvetnsCount);
-                                            MeterInfo.individual_events_array = new char[meterEvetnsCount];
-                                            for (int i = 0; i < meterEvetnsCount; i++)
-                                            {
-                                                MeterInfo.individual_events_array[i] = (Convert.ToByte(binStringEventsOnAlarm[i]) | Convert.ToByte(binStringEventsSch[i])).ToString().ToCharArray()[0];
-                                            }
-
-                                        }
-                                        if (MeterInfo.read_individual_events_sch)
-                                        {
-                                            // WHen reading events on schedule, we do not need to check if that alarm was triggered. This check
-                                            // is included when we read events in case of major alarms
-
-                                            if ((MeterInfo.individual_events_string_sch != string.Empty &&
-                                                MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.Schedule_EV)) ||
-                                                MeterInfo.Schedule_EV.IsSuperImmediate)
-                                            {
-                                                MeterInfo.individual_events_array = Commons.HexStringToBinary(MeterInfo.individual_events_string_sch, meterEvetnsCount);
-                                                for (int a = 1; a <= MeterInfo.individual_events_array.Length; a++)
-                                                {
-                                                    if (MeterInfo.individual_events_array[a - 1].Equals('1'))
-                                                    {
-                                                        // TODO:Modification
-                                                        // int CurrentEventCode = eventIDtoCode_obj.getEventCode((int)a);
-                                                        // if (CurrentEventCode != -1)
-                                                        _obj = _EventController.EventLogInfoList.Find(x => x._EventId == a); //|| x.EventCode == CurrentEventCode);
-                                                        // No Event Data in case of TBE1 and TBE2
-                                                        if (_obj != null && ((_obj._EventId != 38 && _obj._EventId != 39) ||
-                                                                            (_obj.EventCode != 211 && _obj.EventCode != 212)))
-                                                            eventsToRead.Add(_obj);
-                                                    }
-                                                }
-                                                // else goto exitEvents;
-                                            }
-                                        }
-
-                                        if ((MeterInfo.ReadEventsForcibly && MeterInfo.individual_events_string_alarm != string.Empty) || MeterInfo.Schedule_EV.IsSuperImmediate)
-                                        {
-                                            MeterInfo.individual_events_array = Commons.HexStringToBinary(MeterInfo.individual_events_string_alarm, meterEvetnsCount);
-                                            for (int a = 1; a <= MeterInfo.individual_events_array.Length; a++)
-                                            {
-                                                if (MeterInfo.individual_events_array[a - 1].Equals('1') && ParamMajorAlarmProfileObj != null && ParamMajorAlarmProfileObj.AlarmItems[a - 1].IsTriggered)
-                                                {
-                                                    // TODO:Modification
-                                                    // int CurrentEventCode = eventIDtoCode_obj.getEventCode((int)a);
-                                                    // if (CurrentEventCode != -1)
-                                                    _obj = _EventController.EventLogInfoList.Find(x => x._EventId == a);
-                                                    // || x.EventCode == CurrentEventCode);
-                                                    // No Event Data in case of TBE1 and TBE2
-                                                    if (_obj != null && ((_obj._EventId != 38 && _obj._EventId != 39) ||
-                                                                        (_obj.EventCode != 211 && _obj.EventCode != 212)))
-                                                        eventsToRead.Add(_obj);
-                                                }
-                                            }
-                                        }
-
-                                        if ((MeterInfo.ReadEventsForcibly || MeterInfo.read_individual_events_sch) && eventsToRead.Count > 0)
-                                            eventsToRead = eventsToRead.Distinct().ToList();
-
-                                        #region //Clone EventInfo & EventLogInfo Obj
-                                        IList<EventInfo> event_Info_T = eventsToRead.ToList();
-                                        eventsToRead.Clear();
-                                        foreach (var ev_Info in event_Info_T)
-                                        {
-                                            EventInfo t_Obj = null;
-                                            if (ev_Info is EventLogInfo)
-                                                t_Obj = (EventInfo)((EventLogInfo)ev_Info).Clone();
-                                            else if (ev_Info is EventInfo)
-                                                t_Obj = (EventInfo)((EventInfo)ev_Info).Clone();
-                                            eventsToRead.Add(t_Obj);
-                                        }
-                                        #endregion
-
-                                        Exception Internal_Exception = null;
-                                        bool isSuccessful = false;
-                                        _obj_EventData = new List<EventData>();
-
-                                        if (eventsToRead.Count > 0)
-                                        {
-                                            #region Debugging & Logging
-#if Enable_DEBUG_ECHO
-                                            LogMessage("Reading Individual Events Data", 0);
-#endif
-                                            #endregion
-
-                                            //_obj_EventData = _EventController.ReadEventLogData(eventsToRead);
-                                            isSuccessful = _EventController.TryReadEventLogData(eventsToRead, ref _obj_EventData, (ex) => Internal_Exception = ex, CancelTokenSource);
-                                            // Update Individual Events Read Successfully
-                                            foreach (var ev_Data in _obj_EventData)
-                                            {
-                                                if (ev_Data != null && ev_Data.EventInfo != null)
-                                                    eventsIndividualRead.Add(ev_Data.EventInfo);
-                                            }
-                                            MeterInfo.eventsForLiveUpdate_individual = Commons.HexStringToBinary(MeterInfo.eventsForLiveUpdate_individual_string, meterEvetnsCount);
-                                            DateTime latest_Event = DateTime.MinValue;
-                                            EventData data = null;
-                                            EventItem data_Item = null;
-                                            DateTime currentMax = DateTime.MinValue;
-                                            int latestEventCode = 0;
-
-                                            for (int i = 0; i < MeterInfo.eventsForLiveUpdate_individual.Length; i++)
-                                            {
-                                                if (MeterInfo.eventsForLiveUpdate_individual[i] == '1')
-                                                {
-                                                    //int code = eventIDtoCode_obj.getEventCode((int)i + 1);
-                                                    data = _obj_EventData.Find(x => x.EventInfo != null &&
-                                                                              (x.EventInfo._EventId == i + 1));
-                                                    // || x.EventInfo.EventCode == code));
-
-                                                    if (data != null && data.EventRecords.Count > 0)
-                                                    {
-                                                        currentMax = data.EventRecords.Max(x => x.EventDateTimeStamp);
-                                                        data_Item = data.EventRecords.Find(x => x.EventDateTimeStamp == currentMax);
-
-                                                        if (currentMax > latest_Event)
-                                                        {
-                                                            latest_Event = currentMax;
-                                                            if (data_Item != null && data_Item.EventInfo != null)
-                                                                latestEventCode = data_Item.EventInfo.EventCode;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            if (latest_Event != DateTime.MinValue)
-                                            {
-                                                if (DB_Controller.UpdateLastEvent_Live_individual(MeterInfo.MSN, latestEventCode, latest_Event))
-                                                {
-                                                    LogMessage("Individual Events->Event Code " + latestEventCode + " updated to Instantaneous Live ");
-                                                }
-                                                else
-                                                {
-                                                    LogMessage("Error occurred while updating Event Code " + latestEventCode + " updated to Instantaneous Live ");
-                                                }
-                                            }
-                                            #region Debugging & Logging
-
-#if Enable_DEBUG_ECHO
-                                            LogMessage("Reading Individual Events Data Complete", 0);
-#endif
-#if Enable_Transactional_Logging
-                                            Statistics_Obj.InsertLog(String.Format("Reading Events Data Complete for MSN {0}", MSN));
-#endif
-
-                                            #endregion
-                                        }
-                                        else
-                                        {
-                                            #region Debugging & Logging
-#if Enable_Transactional_Logging
-                           //Program.Out.WriteLine(String.Format("No New Event triggered for MSN {0}", MSN));
-                           Statistics_Obj.InsertLog(String.Format("No New Event triggered for MSN {0}", MSN));
-#endif
-                                            #endregion
-                                        }
-                                        // exitEvents:
-                                        if (_obj_EventData != null)
-                                        {
-                                            CustomException CEX = DB_Controller.saveEventsData_IndividualithReplace(_obj_EventData, MeterInfo.MSN, SessionDateTime, MeterInfo);
-                                            if (CEX != null && CEX.Ex != null)
-                                            {
-                                                LogMessage("Error Saving Individual Events data", 0);
-                                                throw CEX.Ex;
-                                            }
-                                            else if (!isSuccessful && Internal_Exception != null)
-                                            {
-                                                LogMessage("Error Occurred reading Individual Events data", 0);
-
-                                                //Reset Alarm Register
-                                                if (MeterInfo.Read_AR)
-                                                {
-                                                    ResetAlarmRegister(eventsIndividualRead);
-                                                }
-                                                IsProcessed = false;
-                                                throw Internal_Exception;
-                                            }
-                                            else
-                                            {
-                                                //Reset Alarm Register Alarm Resetting change:5656
-                                                //if (MeterInfo.Read_AR)
-                                                //{
-                                                //    ResetAlarmRegister();
-                                                //}
-                                                MeterInfo.ReadEventsForcibly = false;
-                                                MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_EV, SessionDateTime);
-                                                MIUF.Schedule_EV = true;
-                                                MIUF.last_EV_time = true;
-                                                if (MeterInfo.Schedule_EV.IsSuperImmediate)
-                                                    MIUF.SuperImmediate_EV = true;
-                                                if (MeterInfo.Schedule_EV.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_EV.SchType == ScheduleType.IntervalRandom)
-                                                    MIUF.base_time_EV = true;
-
-                                                MeterInfo.Schedule_EV.IsSuperImmediate = false;
-                                                IsProcessed = true;
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        LogMessage(ex, 4, "Events");
-                                        if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
-                                        StatisticsObj.InsertError(ex, _session_DateTime, 15);
-                                    }
-                                    finally
-                                    {
-                                        if (IsProcessed)
-                                            ResetMaxIOFailure();
-                                    }
-
-                                    #endregion
-#endif
-                                    #endregion
-                                }
-                                break;
-                            case Schedules.MonthlyBilling:
-                                {
-                                    #region ///If Task Cancelled
-                                    if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-                                    #endregion
-                                    #region Monthly Billing
-#if !Enable_LoadTester_Mode
-                                    if (MeterInfo.Schedule_MB.IsSuperImmediate || ((IsMDIResetOccured || MeterInfo.Schedule_MB.SchType != ScheduleType.Disabled) && MeterInfo.MB_Counters.DB_Counter >= 0 && MeterInfo.Read_MB != READ_METHOD.Disabled))
-                                    {
-                                        if (MeterInfo.Schedule_MB.IsSuperImmediate || MeterInfo.IsScheduleReadyToBeProcess(MeterInfo.Schedule_MB))
-                                        {
-                                            List<BillingData> MonthlyBillingData = null;
-                                            //uint meterCounter = 0;
-                                            bool IsMBUpToDate = false;
-                                            try
-                                            {
-                                                if (MeterInfo.MB_Counters.DB_Counter >= 0)
-                                                {
-                                                    MonthlyBillingData = new List<BillingData>();
-                                                    MeterInfo.MB_Counters.Meter_Counter = Billing_Controller.Get_BillingCounter_Internal();
-
-                                                    if (MeterInfo.MB_Counters.Meter_Counter > 0) //Billing available
-                                                    {
-                                                        #region Billing available
-                                                        if (MeterInfo.MB_Counters.Difference == 0)
-                                                        {
-                                                            LogMessage("Monthly Billing Data is up-to-date", "MB", string.Format("U, {0}", MeterInfo.MB_Counters.DB_Counter));
-                                                            IsMBUpToDate = true;
-                                                        }
-                                                        else if (MeterInfo.MB_Counters.Difference > 0)
-                                                        {
-                                                            #region CalculateMonthlyBillingCounter
-
-                                                            // uint differenceInCounter = Convert.ToUInt32(meterCounter - MeterInfo.MB_Counters.DB_Counter);
-                                                            int counterToread;
-                                                            if (MeterInfo.MB_Counters.Difference > 23) counterToread = 23;
-                                                            counterToread = MeterInfo.MB_Counters.Difference + 100;
-                                                            Billing_Controller.MonthlyBillingFilter = Convert.ToByte(counterToread);
-
-                                                            #endregion
-                                                            LogMessage("Reading Monthly Billing Data", "MB", "R");
-                                                            MonthlyBillingData = Billing_Controller.GetBillingData();
-                                                            LogMessage("Reading Monthly Billing Data Complete", "MB", "S");
-                                                        }
-                                                        #endregion
-                                                    }
-                                                    else
-                                                    {
-                                                        LogMessage("Billing not available (MDI Reset Count = 0)", "MB", "EMPT");
-                                                    }
-                                                }
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                LogMessage(ex, 4, "Monthly Billing");
-                                                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
-                                                StatisticsObj.InsertError(ex, _session_DateTime, 15);
-                                            }
-                                            finally
-                                            {
-                                                try
-                                                {
-                                                    if (MeterInfo != null && MeterInfo.MB_Counters != null &&
-                                                        MeterInfo.MB_Counters.Meter_Counter > 0)
-                                                        ResetMaxIOFailure();
-
-                                                    if (MeterInfo.Save_MB && MonthlyBillingData != null && !IsMBUpToDate && MonthlyBillingData.Count > 0)
-                                                    {
-                                                        //save to class
-                                                        //Monthly_Billing_data_SinglePhase monthlyData = Billing_Controller.saveToClass_SinglePhase(MonthlyBillingData, MeterInfo.MSN);
-                                                        //bool save_Flag = DB_Controller.saveMonthlyBillingData_SinglePhase(monthlyData, SessionDateTime, MeterInfo);
-                                                        Monthly_Billing_data monthlyData = null;
-                                                        if (MeterInfo.BillingMethodId == (byte)BillingMethods.OneGetMethod)
-                                                        {
-                                                            monthlyData = Billing_Controller.SaveToClass(MonthlyBillingData, MeterInfo.MSN);
-                                                        }
-                                                        else
-                                                        {
-                                                            LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", MeterInfo.MB_Counters.Meter_Counter), "MBID", string.Format("INVALID, {0}", MeterInfo.BillingMethodId.ToString()), 1);
-                                                        }
-                                                        //bool save_Flag = DB_Controller.saveMonthlyBillingData_SinglePhase(monthlyData, SessionDateTime, MeterInfo);
-                                                        var CEx = DB_Controller.SaveMonthlyBillingDataWithReplaceEx(monthlyData,
-                                                            MeterInfo.MB_Counters.Meter_Counter, SessionDateTime, MeterInfo, MIUF);
-                                                        if (CEx != null && CEx.isTrue && CEx.Ex == null && monthlyData.monthly_billing_data.Count > 0)
-                                                        {
-                                                            //bool flag = DB_Controller.update_MonthlyBilling_Counter(MeterInfo.MSN, meterCounter);
-                                                            MeterInfo.MonthlyBillingCounterToUpdate = (int)MeterInfo.MB_Counters.Meter_Counter;
-                                                            MIUF.UpdateMBCounter = true;
-                                                            #region LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", meterCounter), 2);
-#if Enable_Abstract_Log
-                                                            LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", MeterInfo.MB_Counters.Meter_Counter), "MBD", string.Format("S, {0}", MeterInfo.MB_Counters.Meter_Counter.ToString()), 1);
-#endif
-#if !Enable_Abstract_Log
-						LogMessage(String.Format("Saving Monthly billing Data completed and updated to count {0}", meterCounter), 2);
-#endif
-                                                            #endregion
-                                                            //lastTimeUpdate = true;
-                                                        }
-                                                        else
-                                                        {
-                                                            if (CEx.SomeMessage.Contains(string.Format("Error:{0}", (int)MDCErrors.DB_Duplicate_Entery)))
-                                                            {
-                                                                #region monthly billing Counter difference check w.r.t database count
-                                                                DB_Controller.DBConnect.OpenConnection();
-                                                                var warning = String.Format("Invalid Monthly billing Counter Received DBCounter:{0}, MeterCounter:{1}, Server is disabling the Monthly billing", MeterInfo.MB_Counters.DB_Counter, MeterInfo.MB_Counters.Meter_Counter);
-                                                                #region LogMessage(warning);
-#if Enable_Abstract_Log
-                                                                LogMessage(warning, "MB", string.Format("D, {0},{1}", MeterInfo.MB_Counters.Meter_Counter, MeterInfo.MB_Counters.DB_Counter), 1);
-#endif
-#if !Enable_Abstract_Log
-						LogMessage(warning);
-#endif
-                                                                #endregion
-                                                                DB_Controller.InsertWarning(MeterInfo.MSN, SessionDateTime, ConnectToMeter.ConnectionTime, warning);
-
-                                                                MIUF.IsDisableMB = true;
-
-                                                                MDCAlarm.MDCCombineEvents[(ushort)MDCEvents.mb_counter_mismatch] = true;
-                                                                MDCAlarm.IsMDCEventOuccer = true;
-                                                                DB_Controller.Insert_Mdc_Events_Log(warning, ((ushort)MDCEvents.mb_counter_mismatch), MeterInfo, SessionDateTime);
-                                                                #endregion
-                                                            }
-                                                            else
-                                                            {
-                                                                string Error = "Saving Monthly Billing failed";
-                                                                if (CEx != null && CEx.Ex != null)
-                                                                    Error += " Error: " + CEx.Ex.Message;
-                                                                #region  LogMessage(string.Format("{0} (Error Code:{1})", Error, (int)MDCErrors.App_Monthly_Billing_Save), 4);
-#if Enable_Abstract_Log
-                                                                LogMessage(string.Format("{0} (Error Code:{1})", Error, (int)MDCErrors.App_Monthly_Billing_Save), "MBD", "F", 1);
-#endif
-
-#if !Enable_Abstract_Log
-						 LogMessage(string.Format("{0} (Error Code:{1})", Error, (int)MDCErrors.App_Monthly_Billing_Save), 4);
-#endif
-                                                                #endregion
-                                                            }
-                                                        }
-                                                    }
-                                                    if (IsMBUpToDate || MonthlyBillingData == null)
-                                                    {
-                                                        MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_MB, SessionDateTime);
-
-                                                        MIUF.Schedule_MB = true;
-                                                        MIUF.last_MB_time = true;
-                                                        if (MeterInfo.Schedule_MB.SchType == ScheduleType.IntervalFixed || MeterInfo.Schedule_MB.SchType == ScheduleType.IntervalRandom)
-                                                            MIUF.base_time_MB = true;
-                                                        if (MeterInfo.Schedule_MB.IsSuperImmediate)
-                                                            MIUF.SuperImmediate_MB = true;
-
-                                                        MeterInfo.Schedule_MB.IsSuperImmediate = false;
-                                                    }
-                                                    IsProcessed = true;
-                                                }
-                                                catch (Exception ex)
-                                                {
-                                                    LogMessage(ex, DefaultExceptionLevel, "Monthly Billing Data");
-                                                }
-                                            }
-                                        }
-                                    }
-#endif
-                                    #endregion
-                                }
-                                break;
-                            case Schedules.LoadProfile:
-                                break;
-                            case Schedules.PerameterizationWrite:
-                                {
-                                    #region ///If Task Cancelled
-                                    if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-                                    #endregion
-                                    #region Parameterization
-                                    if (!MeterInfo.IsParamEmpty || MeterInfo.isPrepaid)
-                                    {
-                                        if (TryParameterize(CancelTokenSource))
-                                        {
-                                            LogMessage("Parameterization is Successful", "PMR", "S");
-                                            IsProcessed = true;
-                                        }
-                                        else
-                                            if (!MeterInfo.IsParamEmpty || MeterInfo.prepaid_request_exist)
-                                            LogMessage("Parameterization is Unsuccessful", "PMR", "F");
-                                    }
-                                    #endregion
-                                }
-                                break;
-                            case Schedules.ParamterizationRead:
-                                {
-                                    #region ///If Task Canceled
-                                    if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
-                                    {
-                                        CancelTokenSource.Token.ThrowIfCancellationRequested();
-                                    }
-                                    #endregion
-                                    #region Read Parameterization
-#if !Enable_LoadTester_Mode
-
-                                    if (MeterInfo.ReadParams)// || MeterInfo.isPrepaid)
-                                    {
-                                        try
-                                        {
-                                            if (TryReadParameters(CancelTokenSource))
-                                            {
-                                                LogMessage("Parameterization is Successful", "RPMR", "S");
-                                                IsProcessed = true;
-                                            }
-                                            else if (!MeterInfo.IsParamEmpty) // || MeterInfo.prepaid_request_exist)
-                                                LogMessage("Parameterization is Unsuccessful", "RPMR", "F");
-                                        }
-                                        catch (Exception x)
-                                        {
-                                            throw x;
-                                        }
-                                    }
-#endif
-                                    #endregion
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogMessage(ex, 4);
-                IsProcessed = false;
-                custExc.Ex = ex;
-            }
-            finally
-            {
-                if (MeterInfo.MeterType_OBJ == MeterType.KeepAlive)
-                {
-                    // Assign next call time and update the meter settings
-                    MeterInfo.Kas_DueTime = MeterInfo.Kas_NextCallTime;
-                    MIUF.KAS_DueTime = true;
-
-                    // //TODO:Modification Force To Logout Meter
-                    // DateTime Next_KAS_Due_Time = MeterInfo.GetNextCallTimeForFixedInterval(MeterInfo.Kas_DueTime,
-                    //                 MeterInfo.Kas_Interval.TotalMinutes);
-                    // //Next Due Time is later than DefaultKeepAliveSleepTime
-                    // if ((DateTime.Now + DefaultKeepAliveSleepTime) < Next_KAS_Due_Time)
-                    // {
-                    //     MeterInfo.logoutMeter = true;
-                    // }
-                }
-                if (MeterInfo.WakeUp_Request_ID > 0)
-                {
-                    if (((MIUF.IsPasswordTemporary || MIUF.IsDefaultPassWordActive) || (!MeterInfo.Schedule_MB.IsSuperImmediate && !MeterInfo.Schedule_EV.IsSuperImmediate && !MeterInfo.Schedule_CB.IsSuperImmediate && !MeterInfo.Schedule_LP.IsSuperImmediate && !MeterInfo.Schedule_PQ.IsSuperImmediate && !MeterInfo.Schedule_CS.IsSuperImmediate && !MeterInfo.Apply_new_contactor_state)))
-                        DB_Controller.UpdateWakeUpProcess(false, 1, MeterInfo.WakeUp_Request_ID);
-                    else
-                        DB_Controller.UpdateWakeUpProcess(false, 0, MeterInfo.WakeUp_Request_ID);
-                }
-                DB_Controller.UpdateMeterSettings(MeterInfo, MIUF);
-                MIUF = new MeterInfoUpdateFlags();
-            }
-            custExc.isTrue = IsProcessed;
-            return custExc;
         }
 
         public void ReadRemoteGridStatus(ref List<GridStatusItem> temp_Param_RemoteGridStatus)
@@ -9540,7 +8396,7 @@ namespace Communicator.MeterConnManager
                         {
                             #region Logging Out Meter
 #if Enable_Abstract_Log
-                            LogMessage("Logging Out Meter", "PVLO", "R");
+                            LogMessage("Logout");
 #endif
 #if !Enable_Abstract_Log
 						LogMessage("Logging Out Meter");
@@ -9549,7 +8405,7 @@ namespace Communicator.MeterConnManager
                             ConnectionController.Disconnect();
                             #region Logging Out Successful
 #if Enable_Abstract_Log
-                            LogMessage("Logging Out Successful", "PVLO", "S", 1);
+                            LogMessage("Success", 1);
 #endif
 #if !Enable_Abstract_Log
 						LogMessage("Logging Out Successful", 1);
@@ -9569,7 +8425,7 @@ namespace Communicator.MeterConnManager
                         {
                             #region Logging Out Meter
 #if Enable_Abstract_Log
-                            LogMessage("Logging Out Meter", "PVLO", "R");
+                            LogMessage("Logout");
 #endif
 
 #if !Enable_Abstract_Log
@@ -9579,7 +8435,7 @@ namespace Communicator.MeterConnManager
                             ConnectionController.Disconnect();
                             #region Logging Out Successful
 #if Enable_Abstract_Log
-                            LogMessage("Logging Out Successful", "PVLO", "S", 1);
+                            LogMessage("Success", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -9600,7 +8456,7 @@ namespace Communicator.MeterConnManager
                     {
                         #region Logging Out Meter
 #if Enable_Abstract_Log
-                        LogMessage("Logging Out Meter", "PVLO", "R", 1);
+                        LogMessage("Logout", 1);
 #endif
 #if !Enable_Abstract_Log
 						 LogMessage("Logging Out Meter",1);
@@ -9609,7 +8465,7 @@ namespace Communicator.MeterConnManager
                         ConnectionController.Disconnect();
                         #region Logging Out Successful
 #if Enable_Abstract_Log
-                        LogMessage("Logging Out Successful", "PVLO", "S", 1);
+                        LogMessage("Logout", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -9661,8 +8517,8 @@ namespace Communicator.MeterConnManager
             string[] PubilcLogging_Request = new string[] { "Trying Public Login", "PBLI" };
             string[] PublicLogging_Response = new string[] { "Public Login Successful", "PBLI" };
 
-            string[] HLS_Request = new string[] { "Trying HLS Login", "HLS" };
-            string[] HLS_Response = new string[] { "HLS Login Successful", "HLSI" };
+            string[] HLS_Request = new string[] { "Trying HLS Login", "HLS Login" };
+            string[] HLS_Response = new string[] { "HLS Login Successful", "HLS Success" };
 
             DeviceAssociation Association_Details = null;
 
@@ -9687,11 +8543,11 @@ namespace Communicator.MeterConnManager
 #if Enable_Abstract_Log
 
                 if (authenticationType == HLS_Mechanism.LowSec)
-                    LogMessage(PrivateLogging_Request[0], PrivateLogging_Request[1], "R");
+                    LogMessage(PrivateLogging_Request[1]);
                 else if (authenticationType == HLS_Mechanism.LowestSec)
-                    LogMessage(PubilcLogging_Request[0], PubilcLogging_Request[1], "R");
+                    LogMessage(PubilcLogging_Request[1]);
                 else if (authenticationType >= HLS_Mechanism.HLS_Manufac)
-                    LogMessage(HLS_Request[0], HLS_Request[1], "R");
+                    LogMessage(HLS_Request[1]);
 
 #endif
 #if !Enable_Abstract_Log
@@ -9743,7 +8599,7 @@ namespace Communicator.MeterConnManager
                             // Set Overlay Stream
                             ConnectToMeter.OverlayStream = ConnectionController.HDLCConnection.BaseStream;
 
-                            LogMessage("Direct HDLC Connected", "HDLC", "S", 1);
+                            LogMessage("HDLC Connected", 1);
                         }
                         else
                         {
@@ -9755,7 +8611,7 @@ namespace Communicator.MeterConnManager
                             if (ConnectToMeter.IOStream is TCPStream)
                                 (ConnectToMeter.IOStream as TCPStream).OverlayMode = false;
 
-                            LogMessage("Direct HDLC Connection Failure", "HDLC", "F", 1);
+                            LogMessage("Failed", 1);
                         }
                     }
 
@@ -9798,9 +8654,9 @@ namespace Communicator.MeterConnManager
 #if Enable_Abstract_Log
 
                 if (authenticationType == HLS_Mechanism.LowSec)
-                    LogMessage(PrivateLogging_Response[0], PrivateLogging_Response[1], "S", 1);
+                    LogMessage(PrivateLogging_Response[0], PrivateLogging_Response[1], "", 1);
                 else if (authenticationType == HLS_Mechanism.LowestSec)
-                    LogMessage(PublicLogging_Response[0], PublicLogging_Response[1], "S", 1);
+                    LogMessage(PublicLogging_Response[0], PublicLogging_Response[1], "", 1);
 
 #endif
 
@@ -9901,13 +8757,13 @@ namespace Communicator.MeterConnManager
                         return true;
                     }
 
-                LogMessage("GMAC Authentication", "GMAC", "R", 0);
+                LogMessage("GMAC Login", 0);
 
                 // Update Connection Controller
                 ConnectionController.CurrentConnection = connectToMeter;
                 Applicationprocess_Controller.GetCommunicationObject = connectToMeter;
                 ConnectionController.HLS_Authentication(this.Applicationprocess_Controller.Security_Data, AssociationDetail);
-                LogMessage("GMAC Authentication Successful", "GMAC", "S", 1);
+                LogMessage("GMAC Success", 1);
                 ServerSystemTitle = this.Applicationprocess_Controller.Security_Data.ServerSystemTitle;
                 AssociationState_Obj = AssociationState.Login;
 
@@ -9944,26 +8800,26 @@ namespace Communicator.MeterConnManager
             }
             catch (Exception ex)
             {
-                LogMessage("GMAC Authentication Unsuccessful", "GMAC", "F", 1);
+                LogMessage("GMAC Failed", 1);
 
-                Process_Security_MDCAlarms(ex);
+                //Process_Security_MDCAlarms(ex);
 
-                if (ex.Message.Contains(String.Format("(Error Code:{0})", (int)DLMSErrors.Password_Error)))
-                {
-                    MDCAlarm.MDCCombineEvents[((ushort)MDCEvents.pwd_error)] = true;
-                    MDCAlarm.IsMDCEventOuccer = true;
+                //if (ex.Message.Contains(String.Format("(Error Code:{0})", (int)DLMSErrors.Password_Error)))
+                //{
+                //    MDCAlarm.MDCCombineEvents[((ushort)MDCEvents.pwd_error)] = true;
+                //    MDCAlarm.IsMDCEventOuccer = true;
 
-                    var warning = string.Format("Password Error Received MDC trying Login Meter With Wrong Password");
-                    DB_Controller.Insert_Mdc_Events_Log(warning, ((ushort)MDCEvents.pwd_error), MeterInfo, SessionDateTime);
-                }
-                else if (ex.Message.Contains(String.Format("(Error Code:{0})", (int)DLMSErrors.Invalid_AuthenticationTAG)))
-                {
-                    MDCAlarm.MDCCombineEvents[((ushort)MDCEvents.pwd_error)] = true;
-                    MDCAlarm.IsMDCEventOuccer = true;
+                //    var warning = string.Format("Password Error Received MDC trying Login Meter With Wrong Password");
+                //    DB_Controller.Insert_Mdc_Events_Log(warning, ((ushort)MDCEvents.pwd_error), MeterInfo, SessionDateTime);
+                //}
+                //else if (ex.Message.Contains(String.Format("(Error Code:{0})", (int)DLMSErrors.Invalid_AuthenticationTAG)))
+                //{
+                //    MDCAlarm.MDCCombineEvents[((ushort)MDCEvents.pwd_error)] = true;
+                //    MDCAlarm.IsMDCEventOuccer = true;
 
-                    var warning = string.Format("Message Authentication TAG Mismatch Error");
-                    DB_Controller.Insert_Mdc_Events_Log(warning, ((ushort)MDCEvents.Invalid_AuthenticationTAG), MeterInfo, SessionDateTime);
-                }
+                //    var warning = string.Format("Message Authentication TAG Mismatch Error");
+                //    DB_Controller.Insert_Mdc_Events_Log(warning, ((ushort)MDCEvents.Invalid_AuthenticationTAG), MeterInfo, SessionDateTime);
+                //}
 
                 throw ex;
             }

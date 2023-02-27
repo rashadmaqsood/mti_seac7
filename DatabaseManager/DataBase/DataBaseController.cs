@@ -2312,9 +2312,9 @@ namespace DatabaseManager.Database
 
                 //Command.Connection = Connection;
                 var prefix = "INSERT INTO";
-                var postfix = " `monthly_billing` (`msn`, `session_date_time`, `time`, `date`, `meter_date_time`, `period_count`, {0} `ct`,`pt`,`customer_id`,`tariff` , `global_device_id`) VALUES";
+                var postfix = " `monthly_billing` (`msn`, `mdc_read_datetime`, `db_datetime`, `meter_datetime`, {0}  `global_device_id`) VALUES";
                 if (MB_data.monthly_billing_data.Count > 0)
-                    postfix = string.Format(postfix, MB_data.monthly_billing_data[0].billData_obj.DBColumns);
+                    postfix = string.Format(postfix, MB_data.monthly_billing_data[0].billData_obj.DBColumns.ToString());
                 mbQuery.Append(postfix);
                 for (int i = 0; i < MB_data.monthly_billing_data.Count; i++, bulkInsert++)
                 {
@@ -2343,16 +2343,11 @@ namespace DatabaseManager.Database
                     #endregion
 
                     #region Making Entries
-                    mbQuery.Append(String.Format("('{0}', '{1}', CURTIME(), CURDATE(), '{2}', '{3}', {4}, '{5}', '{6}', {7},'{8}' , '{9}' ),"
+                    mbQuery.Append(String.Format("('{0}', '{1}', now(), '{2}', {3} '{4}'),"
                                                             , meterInfo.MSN
                                                             , SessionDateTime.ToString(DateFormat)
                                                             , MB_data.monthly_billing_data[i].billData_obj.date.ToString(DateFormat)
-                                                            , MB_data.monthly_billing_data[i].Counter
-                                                            , MB_data.monthly_billing_data[i].billData_obj.DBValues.ToString().Trim(',')
-                                                            , meterInfo.CT
-                                                            , meterInfo.PT
-                                                            , meterInfo.Customer_ID
-                                                            , MB_data.MeterTariffCode
+                                                            , MB_data.monthly_billing_data[i].Values.ToString()
                                                             , meterInfo.GlobalDeviceId
                                       ));
                     // Counter Validation

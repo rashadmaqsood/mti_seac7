@@ -11,14 +11,14 @@ namespace DatabaseConfiguration.DataBase
     {
         public static string ODBCtoMySqlConnectionString(string dsn)
         {
-            RegistryKey reg = GetRegistry(Registry.LocalMachine, dsn);
+            RegistryKey reg = GetRegistry(Registry.CurrentUser, dsn);
             //reg = reg.OpenSubKey("ODBC");
             //reg = reg.OpenSubKey("ODBC.INI");
             // reg = reg.OpenSubKey("ODBC Data Sources");
             //reg = reg.OpenSubKey(dsn);
             if(reg == null)
             {
-                reg = GetRegistry(Registry.CurrentUser,dsn);
+                reg = GetRegistry(Registry.LocalMachine,dsn);
             }
             if (reg != null)
             {
