@@ -2314,7 +2314,7 @@ namespace DatabaseManager.Database
                 var prefix = "INSERT INTO";
                 var postfix = " `monthly_billing_data` (`msn`, `mdc_read_datetime`, `db_datetime`, `meter_datetime`, {0}  `global_device_id`) VALUES";
                 if (MB_data.monthly_billing_data.Count > 0)
-                    postfix = string.Format(postfix, MB_data.monthly_billing_data[0].billData_obj.DBColumns.ToString());
+                    postfix = string.Format(postfix, MB_data.DBFields.ToString());
                 mbQuery.Append(postfix);
                 for (int i = 0; i < MB_data.monthly_billing_data.Count; i++, bulkInsert++)
                 {

@@ -1023,7 +1023,7 @@ namespace SharedCode.Controllers
                     BillingSelector = ComputeRangeSelector(MB_Counter.LastReadTime, DateTime.Now);
                 }
                 var formatedBilling = ReadAndFormatBillingData(BillingSelector, Billing_CommObj);
-                return Tuple.Create(formatedBilling, BillingCommObj.captureObjectsList);
+                return Tuple.Create(formatedBilling, Billing_CommObj.captureObjectsList);
 
             }
             catch (Exception ex)
@@ -1822,20 +1822,15 @@ namespace SharedCode.Controllers
             Monthly_Billing_data obj = new Monthly_Billing_data();
             BillingItem item = null;
             obj.DBFields.Clear();
-            for (int index = 0; index < captureObjects.Count; index++)
-            {
-                if (string.IsNullOrEmpty(captureObjects[index].DatabaseFieldName))
-                    obj.DBFields.Append(captureObjects[index].DatabaseFieldName + ",");
-            }
+            if (captureObjects != null)
+                for (int index = 0; index < captureObjects.Count; index++)
+                {
+                    if (!string.IsNullOrEmpty(captureObjects[index].DatabaseFieldName))
+                        obj.DBFields.Append(captureObjects[index].DatabaseFieldName + ",");
+                }
             m_data B_item = null;
             for (int i = 0; i < data.Count; i++)
             {
-                item = new BillingItem();
-                for (int v = 0; v < data[i].RawBilling.Length; v++)
-                {
-                    if (string.IsNullOrEmpty(captureObjects[v].DatabaseFieldName))
-                        B_item.Values.Append(MonthlyBillingDataFormatter.makeValue(data[i].RawBilling[v], captureObjects[v].Multiplier).ToString() + ",");
-                }
                 B_item = new m_data
                 {
                     Counter = data[i].BillingCounter,
@@ -1846,6 +1841,14 @@ namespace SharedCode.Controllers
                         date = data[i].TimeStamp
                     }
                 };
+                item = new BillingItem();
+                if (captureObjects != null)
+                    for (int v = 0; v < data[i].RawBilling.Length; v++)
+                    {
+                        var xValue = MonthlyBillingDataFormatter.makeValue(data[i].RawBilling[v], captureObjects[v].Multiplier);
+                        if (!string.IsNullOrEmpty(captureObjects[v].DatabaseFieldName))
+                            B_item.Values.Append((xValue == Double.PositiveInfinity ? "0":xValue.ToString())+ ",");
+                    }
 
                 foreach (BillingItem b_item in data[i].BillingItems)
                 {
