@@ -432,7 +432,7 @@ namespace DLMS
                                         // Array Resized After Decoding
                                     }
                                     catch (DLMSDecodingException ex)
-                                    {
+                                     {
                                         SetAttributeDecodingResult(2, DecodingResult.DecodingError);
 
                                         throw new DLMSDecodingException(String.Format("Error occurred while decoding buffer object {0}_{1} (Error Code:{2}).Details {3}",
