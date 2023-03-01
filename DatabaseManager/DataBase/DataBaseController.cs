@@ -226,7 +226,7 @@ namespace DatabaseManager.Database
                     tempMeterInfo.Write_mdi_reset_date_time = Convert.ToBoolean(DT.Rows[0][DT.Columns["write_mdi_reset_date"]]);
                     tempMeterInfo.Apply_new_contactor_state = Convert.ToBoolean(DT.Rows[0][DT.Columns["apply_new_contactor_state"]]);
                     tempMeterInfo.Contactor_Priority_Sequence = DT.Rows[0][DT.Columns["contactor_priority_seq"]].ToString();
-                    //tempMeterInfo.New_contactor_satate = Convert.ToInt32(DT.Rows[0][DT.Columns["new_contactor_state"]].ToString());
+                    tempMeterInfo.New_contactor_satate = Convert.ToInt32(DT.Rows[0]["new_contactor_state"]?.ToString());
                     tempMeterInfo.Contactor_lock = Convert.ToInt32(DT.Rows[0][DT.Columns["contactor_lock"]].ToString());
 
 

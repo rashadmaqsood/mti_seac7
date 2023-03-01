@@ -657,33 +657,7 @@ namespace Communicator.MeterConnManager
 
                         #endregion
 
-                        #region Limit Features
-                        MeterInfo.Read_AR = false;
-                        MeterInfo.Read_EV = true;
-                        MeterInfo.Read_CB = READ_METHOD.Disabled;
-                        MeterInfo.Read_PQ = false;
-                        MeterInfo.Read_LP = READ_METHOD.ByDateTime;
-                        MeterInfo.Read_LP2 = READ_METHOD.ByDateTime;
-                        MeterInfo.Read_LP3 = READ_METHOD.ByDateTime;
-                        MeterInfo.Read_MB = READ_METHOD.ByCounter;
-                        MeterInfo.ReadPlan.Clear();
-                        MeterInfo.ReadPlan.Add(Schedules.Events);
-                        MeterInfo.ReadPlan.Add(Schedules.CumulativeBilling);
-                        MeterInfo.ReadPlan.Add(Schedules.PowerQuantities);
-                        MeterInfo.ReadPlan.Add(Schedules.LoadProfile);
-                        MeterInfo.ReadPlan.Add(Schedules.LoadProfile);
-                        MeterInfo.ReadPlan.Add(Schedules.DailyLoadProfile);
-                        MeterInfo.ReadPlan.Add(Schedules.LoadProfile2);
-                        MeterInfo.ReadPlan.Add(Schedules.MonthlyBilling);
-                        //MeterInfo.ReadPlan.Add(Schedules.PerameterizationWrite);
-                        MeterInfo.Schedule_CB.SchType = ScheduleType.Disabled;
-                        MeterInfo.Schedule_EV.SchType = ScheduleType.EveryTime;
-                        MeterInfo.Schedule_LP.SchType = ScheduleType.EveryTime;
-                        MeterInfo.Schedule_LP2.SchType = ScheduleType.EveryTime;
-                        MeterInfo.Schedule_LP3.SchType = ScheduleType.EveryTime;
-                        MeterInfo.Schedule_MB.SchType = ScheduleType.EveryTime;
-                        MeterInfo.EnableLiveUpdate = false;
-                        #endregion
+
 
                         #region // If Task Canceled
 
@@ -8170,24 +8144,13 @@ namespace Communicator.MeterConnManager
                 string contactorAck = string.Empty;
 
                 //MeterInfo.prepaid_request_exist = true;
-                contactorAck = DateTime.Now.ToString(DateFormat) + " Meter Connected";
-                DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-                //contactorAck = "Prepaid Server reading Contactor Request from database";
-                contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Metering Server Receiving Command";
-                DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-                contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Metering Server Command Received for meter:  " + ((State) ? "ON" : "OFF");
-                DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-                contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Metering Server reading current meter status";
-                DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
                 var currentRelayStatus = !State;
-                string onoff = string.Empty;
+                string onoff = (State) ? "ON" : "Off";
+                LogMessage($"Relay {onoff}? ");
+
                 if (!Settings.Default.ByPassContactorStateChecks)
                 {
                     currentRelayStatus = Param_Controller.GET_Relay_Status();
-                    onoff = (currentRelayStatus) ? "ON" : "OFF";
-                    LogMessage(String.Format("Current Contactor Status =  {0}", currentRelayStatus), "CONS", "P,ST " + onoff, 4);
-                    contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Meter status: " + onoff;
-                    DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
                 }
 
 
@@ -8196,53 +8159,9 @@ namespace Communicator.MeterConnManager
                 {
                     if (Settings.Default.GrantContactorOnPermission)
                     {
-                        //TURN ON CONTACTOR
-                        contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Metering Server sending Command to Turn on meter";
-                        DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-
-
                         Param_Controller.RelayConnectRequest();
-
-                        contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Metering Server Waiting for Meter acknowledgement";
-                        DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-                        if (Settings.Default.ContactorStatusReadDelay > 0)
-                        {
-                            Thread.Sleep(Settings.Default.ContactorStatusReadDelay * 1000);
-                            currentRelayStatus = Param_Controller.GET_Relay_Status();
-                        }
-                        else currentRelayStatus = true;
-                        onoff = (currentRelayStatus) ? "ON" : "OFF";
-
-                        if (currentRelayStatus)
-                        {
-                            ContactorStateChanged(currentRelayStatus, ref contactorAck);
-                            //MeterInfo.Schedule_CO.LastReadTime = DateTime.Now;
-                            //contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Meter ON";
-                            //DB_Controller.updateContactorStatus(MeterInfo.MSN,  contactorAck);
-                            ////contactorAck += "1";
-                            ////DB_Controller.updateContactorStatus(MeterInfo.MSN, MeterInfo.Reference_no, contactorAck);
-                            //DB_Controller.updateFINALContactorStatus(MeterInfo.MSN,  contactorAck, "1");
-                            //LogMessage("Contactor turned ON", "CONS", "PS, ON");
-                            //MeterInfo.Current_contactor_status = (currentRelayStatus) ? 1 : 0;
-
-                            //MDCAlarm.MDCCombineEvents[((ushort)MDCEvents.contactor_status_on)] = true;
-                            //MDCAlarm.IsMDCEventOuccer = true;
-
-                            //var warning = string.Format("MDC Turned Contactor ON.");
-                            //DB_Controller.Insert_Mdc_Events_Log(warning, ((ushort)MDCEvents.contactor_status_on), MeterInfo, SessionDateTime);
-                            return true;
-                        }
-                        else
-                        {
-                            contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Meter " + onoff + " ";
-                            DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-                            //contactorAck += "1";
-                            //DB_Controller.updateContactorStatus(MeterInfo.MSN, MeterInfo.Reference_no, contactorAck);
-                            DB_Controller.updateFINALContactorStatus(MeterInfo.MSN, contactorAck, "-1");
-                            LogMessage("Contactor ON Request Failed!", "CONS", "PF, ON");
-                            MeterInfo.Current_contactor_status = (currentRelayStatus) ? 1 : 0;
-                            return false;
-                        }
+                        LogMessage("Success");
+                        return true;
                     }
                     else
                     {
@@ -8254,40 +8173,9 @@ namespace Communicator.MeterConnManager
                 {
                     if (Settings.Default.GrantContactorOFFPermission)
                     {
-                        //TURN OFF CONTACTOR
-                        contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Metering Server sending Command to Turn off meter";
-
-                        DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-
-
                         Param_Controller.RelayDisConnectRequest();
-
-                        contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Metering Server Waiting for Meter acknowledgement";
-
-                        DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-                        if (Settings.Default.ContactorStatusReadDelay > 0)
-                        {
-                            Thread.Sleep(Settings.Default.ContactorStatusReadDelay * 1000);
-                            currentRelayStatus = Param_Controller.GET_Relay_Status();
-                        }
-                        else currentRelayStatus = false;
-                        onoff = (currentRelayStatus) ? "ON" : "OFF";
-
-                        if (!currentRelayStatus)
-                        {
-                            ContactorStateChanged(currentRelayStatus, ref contactorAck);
-                            return true;
-                        }
-                        else
-                        {
-                            LogMessage("Contactor Turned OFF Request Failed!", "CONS", "PF, OFF");
-                            contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Meter " + onoff + " ";
-                            DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-                            DB_Controller.updateFINALContactorStatus(MeterInfo.MSN, contactorAck, "-1");
-                            MeterInfo.Current_contactor_status = (currentRelayStatus) ? 1 : 0;
-
-                            return false;
-                        }
+                        LogMessage("Success");
+                        return true;
                     }
                     else
                     {
@@ -8298,22 +8186,9 @@ namespace Communicator.MeterConnManager
                 else
                 {
                     string temp = (currentRelayStatus) ? "ON" : "Off";
-                    //Delete entry from contactor_control_data table
-                    LogMessage("Meter Contactor state is Already " + temp, "CONS", "PU, " + temp);
-                    //contactorAck += "1";
-                    //DB_Controller.updateContactorStatus(MeterInfo.MSN, MeterInfo.Reference_no, contactorAck);
-                    string i = (currentRelayStatus) ? "1" : "0";
-                    DB_Controller.updateFINALContactorStatus(MeterInfo.MSN, contactorAck, i);
-
-                    MeterInfo.Current_contactor_status = (currentRelayStatus) ? 1 : 0;
-
-                    //Modification 20-11-2014 version 3.0.0.143
-                    //DB_Controller.deleteContactorRequestEntry(MeterInfo.MSN);
+                    LogMessage("Already " + temp);
                     return true;
-
                 }
-
-
             }
             catch (Exception)
             {
@@ -8324,23 +8199,10 @@ namespace Communicator.MeterConnManager
         }
         private void ContactorStateChanged(bool currentRelayStatus, ref string contactorAck)
         {
-
             MeterInfo.Schedule_CO.LastReadTime = DateTime.Now;
             MeterInfo.Current_contactor_status = (currentRelayStatus) ? 1 : 0;
-            MDCEvents mdcEventTriggered = (currentRelayStatus) ? MDCEvents.contactor_status_on : MDCEvents.contactor_status_off;
-            string relayStatus = (currentRelayStatus) ? "ON" : "OFF";
-            LogMessage(string.Format("Contactor Turned {0}", relayStatus), "CONS", string.Format("PS, {0}", relayStatus));
-            contactorAck += "\r\n\r\n" + DateTime.Now.ToString(DateFormat) + " Meter " + relayStatus;
-            DB_Controller.updateContactorStatus(MeterInfo.MSN, contactorAck);
-            //contactorAck += "1";
-            //DB_Controller.updateContactorStatus(MeterInfo.MSN, MeterInfo.Reference_no, contactorAck);
             DB_Controller.updateFINALContactorStatus(MeterInfo.MSN, contactorAck, MeterInfo.Current_contactor_status.ToString());
 
-            MDCAlarm.MDCCombineEvents[((ushort)mdcEventTriggered)] = true;
-            MDCAlarm.IsMDCEventOuccer = true;
-
-            var warning = string.Format("MDC Turned Contactor {0}.", relayStatus);
-            DB_Controller.Insert_Mdc_Events_Log(warning, ((ushort)mdcEventTriggered), MeterInfo, SessionDateTime);
         }
 
         public void LogoutMeterConnection()
