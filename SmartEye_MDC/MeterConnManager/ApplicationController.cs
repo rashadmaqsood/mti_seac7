@@ -2122,7 +2122,7 @@ namespace Communicator.MeterConnManager
                                                         //save to class
                                                         if (MeterInfo.BillingMethodId == (byte)BillingMethods.OneGetMethod)
                                                         {
-                                                            monthlyData = Billing_Controller.SaveToClass(monthlyBillingData, MeterInfo.MSN,captureObjects);
+                                                            monthlyData = Billing_Controller.SaveToClass(monthlyBillingData, MeterInfo.MSN, captureObjects);
                                                         }
                                                         else
                                                         {
@@ -3888,61 +3888,20 @@ namespace Communicator.MeterConnManager
                         {
                             #region Make Contactor Command
 
-                            ContactorControlData contactReq;
                             // if return false that means there is no request pending disable process loop
-                            var RequestPending = DB_Controller.getContactorRequest(MeterInfo, out contactReq, MeterInfo.Contactor_lock == 1);
-                            if (!RequestPending)
+                            var RequestPending = MeterInfo.Apply_new_contactor_state;// DB_Controller.getContactorRequest(MeterInfo, out contactReq, MeterInfo.Contactor_lock == 1);
+                            if (RequestPending)
                             {
                                 MeterInfo.Apply_new_contactor_state = false;
                                 MIUF.NoContactorRequestPending = true;
-                            }
-                            if (contactReq != null)
-                            {
-                                var command = (contactReq.Command == 1) ? true : false;
-                                var shouldAquireContactorLock = contactReq.CommandType == ContactorCommandType.OnDemand && !command;
 
-                                #region Commented Code_Section
+                                var command = (MeterInfo.New_contactor_satate == 1) ? true : false;
 
-                                // if (Settings.Default.ByPassContactorStateChecks)
-                                // {
-                                //     if (command && Settings.Default.GrantContactorOnPermission)
-                                //     {
-                                //         Param_Controller.RelayConnectRequest();
-                                //         ContactorStateChanged(command, ref contactorAck);
-                                //     }
-                                //     else if(!command && Settings.Default.GrantContactorOFFPermission)
-                                //     {
-                                //         Param_Controller.RelayDisConnectRequest();
-                                //         ContactorStateChanged(command, ref contactorAck);
-                                //     }
-                                // }
-                                // else  
-
-                                #endregion
-
-                                if (MeterInfo.Contactor_lock == 1 &&
-                                    contactReq.CommandType == ContactorCommandType.OnDemand && !command)
+                                if (ApplyContactorRequest(command))
                                 {
-                                    if (ApplyContactorRequest(command))
-                                    {
-                                        MIUF.IsContactorStatusUpdate = true;
-                                        //DB_Controller.UpdateContactorLiveData(MeterInfo.MSN, contactReq.ContactorID, DateTime.Now, command);
-                                        DB_Controller.UpdateContactorLognData(MeterInfo.MSN, contactReq);
-                                        DB_Controller.UpdateContactorLogLive(MeterInfo.MSN, contactReq);
-                                    }
-                                }
-                                else if (MeterInfo.Contactor_lock == 0 && ApplyContactorRequest(command))
-                                {
-                                    MIUF.AquireContactorLock = shouldAquireContactorLock;
                                     MIUF.IsContactorStatusUpdate = true;
-                                    //DB_Controller.UpdateContactorLiveData(MeterInfo.MSN, contactReq.ContactorID, DateTime.Now, command);
-                                    DB_Controller.UpdateContactorLognData(MeterInfo.MSN, contactReq);
-                                    DB_Controller.UpdateContactorLogLive(MeterInfo.MSN, contactReq);
                                 }
-                                else
-                                {
-                                    DB_Controller.UpdateContactorLognData(MeterInfo.MSN, contactReq);
-                                }
+
 
                             }
                             else
