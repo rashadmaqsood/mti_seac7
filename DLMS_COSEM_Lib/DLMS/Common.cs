@@ -2190,7 +2190,7 @@ namespace DLMS
         /// Set request.
         /// <value>0xC1</value>
         /// </summary>
-        SetRequest = 0xC1,
+        SetRequest = 0x81,
 
         /// <summary>
         /// Set response.
