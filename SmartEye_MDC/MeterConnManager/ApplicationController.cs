@@ -4132,7 +4132,7 @@ namespace Communicator.MeterConnManager
                                 var meterDatetime = new Param_Clock_Caliberation();
                                 var mdiParam = new Param_MDI_parameters();
                                 meterDatetime.Set_Time = DateTime.Now;
-
+                                /*
                                 try
                                 {
                                     Param_Controller.GET_MDI_Auto_Reset_Date(ref mdiParam);
@@ -4164,7 +4164,7 @@ namespace Communicator.MeterConnManager
                                 }
                                 catch { shouldSynchronise = true; }
 
-
+                                */
 
 
                                 Param_Controller.GET_MeterClock_Date_Time(ref meterDatetime);
@@ -4196,7 +4196,7 @@ namespace Communicator.MeterConnManager
                                     var batteryDead = (param_MajorAlarmProfile_obj == null) ? false : (param_MajorAlarmProfile_obj.MA_Status_Array[21] & param_MajorAlarmProfile_obj.MA_Status_Array[33]);
                                     var shouldSyncOnBatteryDead = batteryDead & TimeSyncOnBatteryDead;
 
-                                    if ((Math.Abs(difference_cs) <= MeterInfo.Max_cs_difference) || (EnableInvaldiClockSync && (!batteryDead || shouldSyncOnBatteryDead)))
+                                    if ((Math.Abs(difference_cs) <= MeterInfo.Max_cs_difference))// || (EnableInvaldiClockSync && (!batteryDead || shouldSyncOnBatteryDead)))
                                     {
                                         #region Write New Time
                                         //need to synchronize time
