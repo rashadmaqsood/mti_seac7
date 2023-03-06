@@ -4814,6 +4814,9 @@ namespace DatabaseConfiguration.DataSet {
                 base.Columns.Add(this.columnConfigId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("EventInfoKey1", new global::System.Data.DataColumn[] {
+                                this.columnEventCode,
+                                this.columnEventGroupId}, false));
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
@@ -8061,8 +8064,6 @@ namespace DatabaseConfiguration.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class CaptureObjectsDataTable : global::System.Data.TypedTableBase<CaptureObjectsRow> {
             
-            private global::System.Data.DataColumn columnid;
-            
             private global::System.Data.DataColumn columnSequenceId;
             
             private global::System.Data.DataColumn columnOBIS_Index;
@@ -8116,14 +8117,6 @@ namespace DatabaseConfiguration.DataSet {
             protected CaptureObjectsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
-                get {
-                    return this.columnid;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8254,7 +8247,6 @@ namespace DatabaseConfiguration.DataSet {
             public CaptureObjectsRow AddCaptureObjectsRow(int SequenceId, AllQuantitiesRow parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK, byte AttributeNo, ulong DataIndex, int ConfigId, long GroupId, AllQuantitiesRow parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK1, int DeviceId, string databasefield, short Multiplier, string Quantity_Code) {
                 CaptureObjectsRow rowCaptureObjectsRow = ((CaptureObjectsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         SequenceId,
                         null,
                         AttributeNo,
@@ -8267,21 +8259,14 @@ namespace DatabaseConfiguration.DataSet {
                         Multiplier,
                         Quantity_Code};
                 if ((parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK != null)) {
-                    columnValuesArray[2] = parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK[1];
+                    columnValuesArray[1] = parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK[1];
                 }
                 if ((parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK1 != null)) {
-                    columnValuesArray[7] = parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK1[1];
+                    columnValuesArray[6] = parentAllQuantitiesRowByAllQuantities_CaptureObjects_FK1[1];
                 }
                 rowCaptureObjectsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCaptureObjectsRow);
                 return rowCaptureObjectsRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CaptureObjectsRow FindByid(int id) {
-                return ((CaptureObjectsRow)(this.Rows.Find(new object[] {
-                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8301,7 +8286,6 @@ namespace DatabaseConfiguration.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnid = base.Columns["id"];
                 this.columnSequenceId = base.Columns["SequenceId"];
                 this.columnOBIS_Index = base.Columns["OBIS_Index"];
                 this.columnAttributeNo = base.Columns["AttributeNo"];
@@ -8318,8 +8302,6 @@ namespace DatabaseConfiguration.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
                 this.columnSequenceId = new global::System.Data.DataColumn("SequenceId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSequenceId);
                 this.columnOBIS_Index = new global::System.Data.DataColumn("OBIS_Index", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -8342,13 +8324,12 @@ namespace DatabaseConfiguration.DataSet {
                 base.Columns.Add(this.columnMultiplier);
                 this.columnQuantity_Code = new global::System.Data.DataColumn("Quantity_Code", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQuantity_Code);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid}, true));
-                this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = 1;
-                this.columnid.AllowDBNull = false;
-                this.columnid.ReadOnly = true;
-                this.columnid.Unique = true;
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("CaptureObjectsKey1", new global::System.Data.DataColumn[] {
+                                this.columnOBIS_Index,
+                                this.columnAttributeNo,
+                                this.columnGroupId,
+                                this.columnTarget_OBIS_Index,
+                                this.columnDeviceId}, false));
                 this.columnSequenceId.AllowDBNull = false;
                 this.columnOBIS_Index.AllowDBNull = false;
                 this.columnTarget_OBIS_Index.AllowDBNull = false;
@@ -12311,17 +12292,6 @@ namespace DatabaseConfiguration.DataSet {
             internal CaptureObjectsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableCaptureObjects = ((CaptureObjectsDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int id {
-                get {
-                    return ((int)(this[this.tableCaptureObjects.idColumn]));
-                }
-                set {
-                    this[this.tableCaptureObjects.idColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -396,7 +396,6 @@
         <xs:element name="CaptureObjects" msprop:Generator_TableClassName="CaptureObjectsDataTable" msprop:Generator_TableVarName="tableCaptureObjects" msprop:Generator_TablePropName="CaptureObjects" msprop:Generator_RowDeletingName="CaptureObjectsRowDeleting" msprop:Generator_RowChangingName="CaptureObjectsRowChanging" msprop:Generator_RowEvHandlerName="CaptureObjectsRowChangeEventHandler" msprop:Generator_RowDeletedName="CaptureObjectsRowDeleted" msprop:Generator_UserTableName="CaptureObjects" msprop:Generator_RowChangedName="CaptureObjectsRowChanged" msprop:Generator_RowEvArgName="CaptureObjectsRowChangeEvent" msprop:Generator_RowClassName="CaptureObjectsRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
               <xs:element name="SequenceId" msprop:Generator_ColumnVarNameInTable="columnSequenceId" msprop:Generator_ColumnPropNameInRow="SequenceId" msprop:Generator_ColumnPropNameInTable="SequenceIdColumn" msprop:Generator_UserColumnName="SequenceId" type="xs:int" />
               <xs:element name="OBIS_Index" msprop:Generator_ColumnVarNameInTable="columnOBIS_Index" msprop:Generator_ColumnPropNameInRow="OBIS_Index" msprop:Generator_ColumnPropNameInTable="OBIS_IndexColumn" msprop:Generator_UserColumnName="OBIS_Index" type="xs:decimal" />
               <xs:element name="AttributeNo" msprop:Generator_ColumnVarNameInTable="columnAttributeNo" msprop:Generator_ColumnPropNameInRow="AttributeNo" msprop:Generator_ColumnPropNameInTable="AttributeNoColumn" msprop:Generator_UserColumnName="AttributeNo" type="xs:unsignedByte" minOccurs="0" />
@@ -478,6 +477,11 @@
       <xs:selector xpath=".//mstns:EventInfo" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
+    <xs:unique name="EventInfoKey1">
+      <xs:selector xpath=".//mstns:EventInfo" />
+      <xs:field xpath="mstns:EventCode" />
+      <xs:field xpath="mstns:EventGroupId" />
+    </xs:unique>
     <xs:unique name="EventLogs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:EventLogs" />
       <xs:field xpath="mstns:id_pk" />
@@ -519,9 +523,13 @@
       <xs:selector xpath=".//mstns:users" />
       <xs:field xpath="mstns:user_name" />
     </xs:unique>
-    <xs:unique name="CaptureObjects_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+    <xs:unique name="CaptureObjectsKey1">
       <xs:selector xpath=".//mstns:CaptureObjects" />
-      <xs:field xpath="mstns:id" />
+      <xs:field xpath="mstns:OBIS_Index" />
+      <xs:field xpath="mstns:AttributeNo" />
+      <xs:field xpath="mstns:GroupId" />
+      <xs:field xpath="mstns:Target_OBIS_Index" />
+      <xs:field xpath="mstns:DeviceId" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

@@ -575,14 +575,13 @@ namespace DatabaseConfiguration.DataBase
             try
             {
                  var capture_obj = _entityModel.Capture_Objects_Data.ToList()//.Where(x=>x.Target_OBIS_Index == (long)Get_Index.Billing_Periods_Data).ToList()
-                                       .OrderBy(m => m.id).ThenBy(x => x.Target_OBIS_Index).ThenBy(x=>x.GroupId).ThenBy(x=>x.SequenceId);
+                                       .OrderBy(m => m.Target_OBIS_Index).ThenBy(x => x.GroupId).ThenBy(x=>x.SequenceId);
 
                 foreach (capture_objects obj in capture_obj)
                 {
 
                     Configs.CaptureObjectsRow NEw = (Configs.CaptureObjectsRow)AllDataSet.CaptureObjects.NewRow();
 
-                    NEw.id                = obj.id;
                     NEw.SequenceId        = obj.SequenceId;
                     NEw.OBIS_Index        = obj.OBIS_Index;
                     NEw.Quantity_Code = StOBISCode.ConvertFrom((ulong)obj.OBIS_Index).ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
