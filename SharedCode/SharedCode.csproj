@@ -90,6 +90,7 @@
     <Compile Include="Comm\Param\Param_Generator_Start.cs" />
     <Compile Include="Comm\Param\Param_Ldr_Setting.cs" />
     <Compile Include="Comm\Param\Param_Load_Scheduling.cs" />
+    <Compile Include="Comm\Param\Param_SignalStrength.cs" />
     <Compile Include="Comm\Param\Param_St_EEPRawRead.cs" />
     <Compile Include="Controllers\EventController_YTL.cs" />
     <Compile Include="eGeniousDisplayUnit\ConsumptionData.cs" />

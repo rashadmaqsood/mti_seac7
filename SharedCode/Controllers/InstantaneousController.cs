@@ -1245,13 +1245,30 @@ namespace SharedCode.Controllers
                 {
                     if (captureObj.StOBISCode.OBISIndex.Equals(Get_Index.Meter_Clock)) continue;
 
-                    if (string.IsNullOrEmpty(captureObj.DatabaseFieldName)) 
+                    if (string.IsNullOrEmpty(captureObj.DatabaseFieldName))
                         continue;
 
                     //GETDouble_Any(captureObj.StOBISCode, 2);
+                    double val = 0;
                     var obisCode = GetOBISCode(captureObj.StOBISCode.OBISIndex);
-                    double val = GETDouble_Any(obisCode, 2);
-                    val = Commons.ApplyMultiplier(val, captureObj.Multiplier);
+                    if (captureObj.StOBISCode.OBISIndex == Get_Index.RSSI_SignalStrength)
+                    {
+                        Param_SignalStrength param_Signal = new Param_SignalStrength();
+
+                        Class_1 signalEntry = (Class_1)GetSAPEntry(Get_Index.RSSI_SignalStrength);
+                        signalEntry.DecodingAttribute = 2;
+                        signalEntry.Value_Obj = param_Signal;
+                        AP_Controller.GET(signalEntry);
+                        if(signalEntry.GetAttributeDecodingResult(0x02) == DecodingResult.Ready)
+                        {
+                            val = param_Signal.SignalStrengthDb;
+                        }
+                    }
+                    else
+                    {
+                        val = GETDouble_Any(obisCode, 2);
+                        val = Commons.ApplyMultiplier(val, captureObj.Multiplier);
+                    }
 
                     if (ReadValues.ContainsKey(captureObj.DatabaseFieldName))
                         ReadValues[captureObj.DatabaseFieldName] += val;

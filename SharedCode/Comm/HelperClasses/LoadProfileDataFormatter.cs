@@ -77,6 +77,7 @@ namespace SharedCode.Comm.HelperClasses
 
 
                 List<LoadProfileItem> LoadProfileInstances = new List<LoadProfileItem>();
+                Param_SignalStrength param_Signal = new Param_SignalStrength();
                 uint count = 1;
                 foreach (var LoadProfileCapture in CommObj)
                 {
@@ -161,7 +162,14 @@ namespace SharedCode.Comm.HelperClasses
                                     else if (item.SelectedAttribute == 0x02)
                                     {
                                         val.Value = val.GetDataItemValue(0x02);
-                                        ChannelVal = MakeChannelValue(val, item);
+                                        if (val.OBIS_Index == Get_Index.RSSI_SignalStrength)
+                                        {
+                                            param_Signal.Decode_Data((byte[])val.value[0x02]);
+                                        }
+                                        else
+                                        {
+                                            ChannelVal = MakeChannelValue(val, item);
+                                        }
                                     }
                                     ///Lav
                                     else

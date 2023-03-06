@@ -1453,7 +1453,7 @@ namespace Communicator.MeterConnManager
                                                 bool lastTimeUpdate = false;
                                                 #region Reading Instantaneous Data
 #if Enable_Abstract_Log
-                                                LogMessage("Reading Instantaneous Data", "ID", "R", 1);
+                                                LogMessage("INST?", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -1472,7 +1472,7 @@ namespace Communicator.MeterConnManager
 
                                                 #region Reading Instantaneous Data completed
 #if Enable_Abstract_Log
-                                                LogMessage("Reading Instantaneous Data completed", "ID", "S", 1);
+                                                LogMessage("OK", 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -1568,7 +1568,7 @@ namespace Communicator.MeterConnManager
                                                                 MeterInfo.SaveSchedule_PQ.IsSuperImmediate = false;
                                                                 #region Saving Instantaneous Data completed
 
-                                                                LogMessage("Saving Instantaneous Data completed", "IDD", "S", 1);
+                                                                LogMessage("Saved", 1);
 
                                                                 #endregion
                                                             }
@@ -1576,7 +1576,7 @@ namespace Communicator.MeterConnManager
                                                             {
                                                                 #region
 
-                                                                LogMessage(string.Format("Error while saving Instantaneous Data (Error Code:{0})", (int)MDCErrors.App_Instantaneous_Data_Save), "IDD", "F", 1);
+                                                                LogMessage("Save Fail", 1);
 
                                                                 #endregion
                                                             }
@@ -2407,50 +2407,6 @@ namespace Communicator.MeterConnManager
                             {
                                 currentCounter = Event_Controller.Get_EventCounter_Internal();
                                 MeterInfo.EV_Counters.Meter_Counter = currentCounter;
-
-                                #region Events Counter Received from Meter and DBCount
-#if Enable_Abstract_Log
-                                // LogMessage(String.Format("Events Counter Received from Meter: {0} and DB: {1}", currentCounter, MeterInfo.Counter_Obj.Events_Count), true, 1);
-                                // LogMessage(String.Format("Events Counter Received from DB: {0}"), "EVCOUNTDB", MeterInfo.Counter_Obj.Events_Count.ToString(), 1);
-#endif
-
-#if !Enable_Abstract_Log
-						LogMessage(String.Format("Events Counter Received from Meter: {0} and DBCount: {1}", currentCounter,
-                                            MeterInfo.Counter_Obj.Events_Count), 3);
-#endif
-                                #endregion
-                                #region Counter Recheck Algorithm
-                                //while (validator++ <3)
-                                //{
-                                //    currentCounter = Event_Controller.Get_EventCounter_Internal();
-                                //    MeterCount = currentCounter;
-                                //    temp = Event_Controller.Get_EventCounter_Internal();
-                                //    if (currentCounter == temp)
-                                //    {
-                                //        MeterCount = currentCounter;
-                                //        break;
-                                //    }
-                                //    else if (currentCounter + 3 >= temp)
-                                //    {
-                                //        currentCounter = temp;
-                                //    }
-                                //}
-                                //if (MeterCount == 0)
-                                //{
-                                //    MIUF.IsDisableEv = true;
-                                //    var err = ", Other " + temp;
-                                //    var warning = String.Format("InConsitent Event Counter Received DBCounter:{0}, MeterCounter:{1}{2}, Server is disabling the Events", MeterInfo.Counter_Obj.Events_Count, MeterCount,err);
-                                //    LogMessage(warning);
-                                //    DB_Controller.InsertWarning(MeterInfo.MSN, MeterInfo.Reference_no, SessionDateTime, ConnectToMeter.ConnectionTime, warning);
-
-                                //    throw new Exception(warning);
-                                //}
-                                //else
-                                //{
-                                //    LogMessage(String.Format("Events Counter Received from Meter: {0} and DBCount: {1}", MeterCount,
-                                //        MeterInfo.Counter_Obj.Events_Count), 3);
-                                //} 
-                                #endregion
                             }
                             catch
                             {
@@ -2526,14 +2482,11 @@ namespace Communicator.MeterConnManager
                             }
 
                             #endregion
+
                             #region Making Entry
 
                             var eventCounter = MeterInfo.EV_Counters;
-                            //eventCounter.Previous_Counter = (uint)MeterInfo.Counter_Obj.Events_Count;
-                            //eventCounter.Current_Counter = currentCounter;
-                            //eventCounter.Max_Size = Limits.Max_Events_Count_Limit;
 
-                            //long old_counter = MeterInfo.Counter_Obj.Events_Count;
                             var e_info = new EventInfo();
                             e_info.EventCode = 0;
                             e_info = Event_Controller.EventLogInfoList.Find((x) => x.EventCode == 0);
@@ -2548,6 +2501,7 @@ namespace Communicator.MeterConnManager
                             }
 
                             #endregion
+
                             #region Read
 
                             if (eventCounter.IsReadable)
@@ -2561,8 +2515,8 @@ namespace Communicator.MeterConnManager
                                     var mCount = eventCounter.Meter_Counter;
                                     var dBCount = eventCounter.DB_Counter;
                                     var reading = (eventCounter.Difference > 100) ? 100 : eventCounter.Difference;
-                                    LogMessage(String.Format("Reading Events Data from {0} to {1} {2}", eventCounter.DB_Counter, eventCounter.Meter_Counter, (MeterInfo.ReadEventsForcibly) ? "due to some Major Alarm occurred" : ""), (MeterInfo.ReadEventsForcibly) ? "EDMA" : "ED",
-                                        string.Format("R {0}, {1}, {2}, {3}, {4} - {5}", mCount, dBCount, (mCount - dBCount), reading, dBCount, dBCount + reading), 1);
+                                    LogMessage(((MeterInfo.ReadEventsForcibly) ? "EVNT(MA)?" : "EVNT?")+
+                                        string.Format(" {0}, {1}, {2}, {3}, {4} - {5}", mCount, dBCount, (mCount - dBCount), reading, dBCount, dBCount + reading), 1);
 #endif
 
 #if !Enable_Abstract_Log
@@ -2903,7 +2857,7 @@ namespace Communicator.MeterConnManager
 
                             #region Saving Cumulative billing Data completed
 #if Enable_Abstract_Log
-                            LogMessage("Save?", 2);
+                            LogMessage("Saved", 2);
 #endif
 #if !Enable_Abstract_Log
 						    LogMessage("Saving Cumulative billing Data completed",2);
@@ -2988,7 +2942,7 @@ namespace Communicator.MeterConnManager
                 {
                     #region Reading Contactor Status
 #if Enable_Abstract_Log
-                    LogMessage("Reading Contactor Status", "COS", "R", 0);
+                    LogMessage("Relay ?", 0);
 #endif
 #if !Enable_Abstract_Log
 						        LogMessage("Reading Contactor Status");
@@ -3004,12 +2958,7 @@ namespace Communicator.MeterConnManager
                     }
 
                     #region Reading Contactor Status completed
-#if Enable_Abstract_Log
-                    LogMessage("Reading Contactor Status completed", "COS", "S: " + (currentStatus ? "ON" : "OFF"), 1);
-#endif
-#if !Enable_Abstract_Log
-						        LogMessage("Reading Contactor Status completed",1);
-#endif
+                    LogMessage($"OK, {(currentStatus?"ON":"OFF")}", 1);
                     #endregion
                     MeterInfo.PreUpdateSchedule(MeterInfo.Schedule_CO, SessionDateTime);
                     if (MeterInfo.Schedule_CO.SchType == ScheduleType.Disabled)
@@ -8876,8 +8825,11 @@ namespace Communicator.MeterConnManager
             try
             {
                 if (ActivityLogger != null)
-                    ActivityLogger.WriteInformation(String.Format("{0}", Message),
+                    ActivityLogger.WriteInformation(String.Format(" {0,10}\t{1,-8}", msn, Message),
                         LogDestinations.Console | LogDestinations.TextFile | LogDestinations.UDP);
+                if (StatisticsObj != null)
+                    StatisticsObj.InsertLog(Message);
+                if (ConnectToMeter != null) ConnectToMeter.MeterLiveLog = String.Format(" {0,10}\t{1,-8}", msn, Message);
             }
             catch (Exception ex)
             {
