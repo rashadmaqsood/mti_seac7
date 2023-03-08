@@ -3040,9 +3040,10 @@ namespace DatabaseConfiguration.DataBase
                     int deviceId = Convert.ToInt32(Row["DeviceId", DataRowVersion.Original]);
                     long groupId = Convert.ToInt64(Row["GroupId", DataRowVersion.Original]);
                     long targetIndex = Convert.ToInt64(Row["Target_OBIS_Index", DataRowVersion.Original]);
+                    long attributeNo = Convert.ToInt64(Row["AttributeNo", DataRowVersion.Original]);
 
                     capture_objects cap_obj = this._entityModel.Capture_Objects_Data.SingleOrDefault(x => x.OBIS_Index == obis_index 
-                                              && (x.GroupId == groupId || x.GroupId == null) && x.Target_OBIS_Index == targetIndex && x.DeviceId == deviceId);
+                                              && (x.GroupId == groupId || x.GroupId == null) && x.Target_OBIS_Index == targetIndex && x.DeviceId == deviceId && x.AttributeNo == attributeNo);
                     if (cap_obj != null)
                     {
                         cap_obj.SequenceId        = Row.SequenceId;
