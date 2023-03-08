@@ -104,7 +104,7 @@ namespace DatabaseManager.Database
                     + "`log_level`, `lp_write_channel_request`,`lp2_write_channel_request`,"
                     + "`lp_write_interval_request`, `lp_write_interval`,`lp2_write_interval_request`, `lp2_write_interval`,`lp3_write_interval_request`, `lp3_write_interval`,`is_prepaid`,`reference_no`,`meter_sim_no`,`wakeup_password`,`wakeup_no1`,`wakeup_no2`,"
                     + "`wakeup_no3`,`wakeup_no4`,`contactor_param_id`,`current_contactor_status`,`write_contactor_param`,`new_meter_password`,`write_password_flag`, "
-                    + "`new_password_activation_time`, `max_cs_difference`,`apply_new_contactor_state`,`mdi_reset_date`,`write_mdi_reset_date`,`default_password`,`last_password_update_time`,"
+                    + "`new_password_activation_time`, `max_cs_difference`,`apply_new_contactor_state`,`new_contactor_state`,`mdi_reset_date`,`write_mdi_reset_date`,`default_password`,`last_password_update_time`,"
                     + "`write_modem_limits_time`,`modem_limits_time_id`,`write_reference_no`,`number_profile_group_id`,`display_power_down_id`,`apply_disable_tbe_flag_on_powerfail`,`set_wakeup_profile_id`,"
                     + "`lp_invalid_update`,`ev_invalid_update`,`mb_invalid_update`,`read_debug_error`,`wakeup_request_id`,`ct_ratio_num`,`ct_ratio_denum`,`pt_ratio_num`,`pt_ratio_denum`,"
                     + "`limits_param_id`, `monitoring_time_param_id`, `ct_pt_param_id`, `decimal_points_param_id`, `energy_param_id`,`last_contactor_st_time`, `is_contactor`,`schedule_plan`,`read_params`,`read_param_string`,`contactor_lock`,`contactor_priority_seq`  "
@@ -3375,7 +3375,7 @@ namespace DatabaseManager.Database
                                         , msn
                                         , Data.EventRecords[i].EventInfo.EventCode
                                         , Data.EventRecords[i].EventCounter
-                                        , Data.EventRecords[i].EventDetailStr,
+                                        , Data.EventRecords[i].EventInfo.EventName,
                                         MeterInfo.GlobalDeviceId
                                         ));
 

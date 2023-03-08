@@ -668,7 +668,7 @@ namespace Communicator.MeterConnManager
 
                         #endregion
                         #region Alarm Register
-
+                        MeterInfo.Read_AR = false;
                         try
                         {
                             if (MeterInfo.Read_AR)
@@ -1120,7 +1120,39 @@ namespace Communicator.MeterConnManager
             bool signal_strength_read = false;
 
             int meterEvetnsCount = _EventController.EventLogInfoList.FindAll(x => x.EventCode > 0).Count;
+            /*
+            #region Limit Features
+            MeterInfo.Read_AR = false;
+            MeterInfo.Read_EV = true;
+            MeterInfo.ClockSyncronizationMethod = 255;
+            //MeterInfo.Read_CS = true;
 
+            MeterInfo.Read_CB = READ_METHOD.Disabled;
+            MeterInfo.Read_PQ = false;
+            MeterInfo.Read_CB = READ_METHOD.Disabled;
+            MeterInfo.Read_LP = READ_METHOD.ByDateTime;
+            MeterInfo.Read_LP2 = READ_METHOD.ByDateTime;
+            MeterInfo.Read_LP3 = READ_METHOD.ByDateTime;
+            MeterInfo.Read_MB = READ_METHOD.ByCounter;
+            MeterInfo.ReadPlan.Clear();
+            MeterInfo.ReadPlan.Add(Schedules.Events);
+            MeterInfo.ReadPlan.Add(Schedules.CumulativeBilling);
+            MeterInfo.ReadPlan.Add(Schedules.PowerQuantities);
+            MeterInfo.ReadPlan.Add(Schedules.LoadProfile);
+            MeterInfo.ReadPlan.Add(Schedules.DailyLoadProfile);
+            MeterInfo.ReadPlan.Add(Schedules.LoadProfile2);
+            MeterInfo.ReadPlan.Add(Schedules.MonthlyBilling);
+            MeterInfo.ReadPlan.Add(Schedules.PerameterizationWrite);
+            MeterInfo.Schedule_CB.SchType = ScheduleType.EveryTime;
+            MeterInfo.Schedule_EV.SchType = ScheduleType.EveryTime;
+            MeterInfo.Schedule_LP.SchType = ScheduleType.EveryTime;
+            MeterInfo.Schedule_LP2.SchType = ScheduleType.EveryTime;
+            MeterInfo.Schedule_LP3.SchType = ScheduleType.EveryTime;
+            MeterInfo.Schedule_MB.SchType = ScheduleType.EveryTime;
+            MeterInfo.Schedule_CS.SchType = ScheduleType.EveryTime;
+            #endregion
+           */
+            MeterInfo.EnableLiveUpdate = false;
             try
             {
                 if (MeterInfo != null && MeterInfo.MSN != null)

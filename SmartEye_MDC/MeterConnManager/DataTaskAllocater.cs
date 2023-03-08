@@ -402,33 +402,7 @@ namespace Communicator.MeterConnManager
                         Contr.MeterInfo = Contr.DB_Controller.GetMeterSettings(MeterSerialNumberObject.ToString());
 
                         IOConn.CurrentDeviceType = Contr.MeterInfo.DeviceTypeVal;
-                        #region Limit Features
-                        Contr.MeterInfo.Read_AR = false;
-                        Contr.MeterInfo.Read_EV = true;
-                        Contr.MeterInfo.Read_CB = READ_METHOD.Disabled;
-                        Contr.MeterInfo.Read_PQ = false;
-                        Contr.MeterInfo.Read_LP = READ_METHOD.ByDateTime;
-                        Contr.MeterInfo.Read_LP2 = READ_METHOD.ByDateTime;
-                        Contr.MeterInfo.Read_LP3 = READ_METHOD.ByDateTime;
-                        Contr.MeterInfo.Read_MB = READ_METHOD.ByCounter;
-                        Contr.MeterInfo.ReadPlan.Clear();
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.Events);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.CumulativeBilling);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.PowerQuantities);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.LoadProfile);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.LoadProfile);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.DailyLoadProfile);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.LoadProfile2);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.MonthlyBilling);
-                        Contr.MeterInfo.ReadPlan.Add(Schedules.PerameterizationWrite);
-                        Contr.MeterInfo.Schedule_CB.SchType = ScheduleType.Disabled;
-                        Contr.MeterInfo.Schedule_EV.SchType = ScheduleType.EveryTime;
-                        Contr.MeterInfo.Schedule_LP.SchType = ScheduleType.EveryTime;
-                        Contr.MeterInfo.Schedule_LP2.SchType = ScheduleType.EveryTime;
-                        Contr.MeterInfo.Schedule_LP3.SchType = ScheduleType.EveryTime;
-                        Contr.MeterInfo.Schedule_MB.SchType = ScheduleType.EveryTime;
-                        Contr.MeterInfo.EnableLiveUpdate = false;
-                        #endregion
+
                     }
                     catch (Exception ex)
                     {
