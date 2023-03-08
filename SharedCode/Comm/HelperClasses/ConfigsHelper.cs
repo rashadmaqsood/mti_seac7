@@ -1338,17 +1338,22 @@ namespace SharedCode.Comm.HelperClasses
                         GetEventLogInfoByConfigurations(CurrentConfiguration, eventLogInfoLoadList);
                 }
 
-                if ((eventInfoLoadList == null || eventInfoLoadList.Count <= 0) || (eventLogInfoLoadList == null || eventLogInfoLoadList.Count <= 0))
+                if ((eventInfoLoadList == null || eventInfoLoadList.Count <= 0))// || (eventLogInfoLoadList == null || eventLogInfoLoadList.Count <= 0))
                     throw new Exception("Unable to load event log info form configuration Data Source");
 
-                foreach (var eventLogItem in eventLogInfoLoadList)
+                foreach (var eventInfoRow in eventInfoLoadList )
                 {
-                    Configs.EventInfoRow eventInfoRow = eventInfoLoadList.Find((x) => x.id == eventLogItem.id);
-                    if (eventInfoRow == null)
-                        continue;
+                    Get_Index logIndex = Get_Index.Dummy;
+                    Get_Index countIndex = Get_Index.Dummy;
+                    Configs.EventLogsRow eventLogItem = eventLogInfoLoadList.Find((x) => x.id == eventInfoRow.id);
+                    if (eventLogItem != null)
+                    {
+                        logIndex = (Get_Index)eventLogItem.EventLogIndex;
+                        countIndex = (Get_Index)eventLogItem.EventCounterIndex;
+                    }
 
                     EventLogInfo eventLogItemNew = new EventLogInfo(eventInfoRow.EventNo, eventInfoRow.EventCode, eventInfoRow.Label,
-                        (Get_Index)eventLogItem.EventLogIndex, (Get_Index)eventLogItem.EventCounterIndex);
+                        logIndex,countIndex );
                     eventLogItemNew.MaxEventCount = eventInfoRow.MaxEventCount;
                     EventLogInfoItems.Add(eventLogItemNew);
 
