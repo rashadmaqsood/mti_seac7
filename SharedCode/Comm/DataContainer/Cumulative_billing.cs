@@ -12,6 +12,7 @@ namespace SharedCode.Comm.DataContainer
         public string msn;
         //public string reference_no;
         public DateTime date;
+        public DateTime? resetDate;
         public double activeEnergy_T1;
         public double activeEnergy_T2;
         public double activeEnergy_T3;

@@ -2312,7 +2312,7 @@ namespace DatabaseManager.Database
 
                 //Command.Connection = Connection;
                 var prefix = "INSERT INTO";
-                var postfix = " `monthly_billing_data` (`msn`, `mdc_read_datetime`, `db_datetime`, `meter_datetime`, {0}  `global_device_id`) VALUES";
+                var postfix = " `monthly_billing_data` (`msn`, `mdc_read_datetime`, `db_datetime`, `meter_datetime`, `mdi_reset_datetime`, {0}  `global_device_id`) VALUES";
                 if (MB_data.monthly_billing_data.Count > 0)
                     postfix = string.Format(postfix, MB_data.DBFields.ToString());
                 mbQuery.Append(postfix);
@@ -2343,10 +2343,11 @@ namespace DatabaseManager.Database
                     #endregion
 
                     #region Making Entries
-                    mbQuery.Append(String.Format("('{0}', '{1}', now(), '{2}', {3} '{4}'),"
+                    mbQuery.Append(String.Format("('{0}', '{1}', now(), '{2}','{3}', {4} '{5}'),"
                                                             , meterInfo.MSN
                                                             , SessionDateTime.ToString(DateFormat)
                                                             , MB_data.monthly_billing_data[i].billData_obj.date.ToString(DateFormat)
+                                                            , MB_data.monthly_billing_data[i].billData_obj.resetDate?.ToString(DateFormat)
                                                             , MB_data.monthly_billing_data[i].Values.ToString()
                                                             , meterInfo.GlobalDeviceId
                                       ));
