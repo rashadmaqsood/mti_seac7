@@ -279,6 +279,10 @@ namespace SharedCode.Comm.DataContainer
         public bool Write_Consumption_Data_Now = false;
         public bool Write_Consumption_Data_Weekly = false;
         public bool Write_Consumption_Data_Monthly = false;
+
+        public DateTime OpticalPortStartTime = DateTime.MinValue;
+        public DateTime OpticalPortEndTime = DateTime.MinValue;
+        public bool UpdateOpticalPortAccess = false;
         #endregion
 
         #region Properties

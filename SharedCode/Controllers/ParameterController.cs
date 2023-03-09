@@ -8439,5 +8439,24 @@ namespace SharedCode.Controllers
 
         #endregion // EnergyMizer Configuration
 
+        #region Optical Port Access
+        public Data_Access_Result SET_OpticalPortAccess(Param_OpticalPortAccess portAccess)
+        {
+            try
+            {
+                // Write IP Profiles {AutoConnect Mode}
+                Class_1 PortAccessObj = (Class_1)GetSAPEntry(Get_Index.Param_Optical_Port_Access);
+                PortAccessObj.EncodingAttribute = 02;
+                PortAccessObj.Value_Obj = portAccess;
+
+                return SET_Param(PortAccessObj);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while SET Optical Port Access", ex);
+            }
+        }
+        #endregion
+
     }
 }

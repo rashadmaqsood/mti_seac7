@@ -698,6 +698,18 @@ namespace Communicator.MeterConfiguration
             Param_ModemBasics_NEW_object.Flag_DecrementCounter = Convert.ToByte(DT.Rows[0][DT.Columns["decrement_event_counter"]]);
         }
         #endregion
+
+        #region Optical Port Access
+        public bool SetOpticalPortAccess(DateTime startTime,DateTime endTime)
+        {
+            Param_OpticalPortAccess portAccess = new Param_OpticalPortAccess()
+            {
+                StartTime = startTime,
+                EndTime = endTime
+            };
+            return param_Controller.SET_OpticalPortAccess(portAccess) == Data_Access_Result.Success;
+        }
+        #endregion
         #endregion
 
         #region Support Functions
