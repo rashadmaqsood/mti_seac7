@@ -23,6 +23,7 @@ namespace SharedCode.Comm.HelperClasses
         public Func<Get_Index, StOBISCode> OBISLabelLookup;
 
         private Configs configurations;
+        Param_SignalStrength param_Signal = new Param_SignalStrength();
 
         public Configs Configurations
         {
@@ -77,7 +78,6 @@ namespace SharedCode.Comm.HelperClasses
 
 
                 List<LoadProfileItem> LoadProfileInstances = new List<LoadProfileItem>();
-                Param_SignalStrength param_Signal = new Param_SignalStrength();
                 uint count = 1;
                 foreach (var LoadProfileCapture in CommObj)
                 {
@@ -148,7 +148,15 @@ namespace SharedCode.Comm.HelperClasses
                             {
                                 ilValues.Add(val);
                                 double ChannelVal = double.PositiveInfinity;
-                                if (ItemActualCode.ClassId >= 1 && ItemActualCode.ClassId <= 4)//(item.SelectedAttribute == 0)
+                                val.Value = val.GetDataItemValue(0x02);
+                                if (val.OBIS_Index == Get_Index.RSSI_SignalStrength)
+                                {
+                                    val.Value = val.GetDataItemValue(0x02);
+                                    param_Signal.Decode_Data((byte[])val.value[0x02]);
+                                    ChannelVal = param_Signal.SignalStrengthDb;
+                                }
+
+                                else if (ItemActualCode.ClassId >= 1 && ItemActualCode.ClassId <= 4)//(item.SelectedAttribute == 0)
                                     ChannelVal = MakeChannelValue(val, item);
                                 else if (ItemActualCode.ClassId == 5)
                                 {
@@ -161,15 +169,7 @@ namespace SharedCode.Comm.HelperClasses
                                     ///Cav
                                     else if (item.SelectedAttribute == 0x02)
                                     {
-                                        val.Value = val.GetDataItemValue(0x02);
-                                        if (val.OBIS_Index == Get_Index.RSSI_SignalStrength)
-                                        {
-                                            param_Signal.Decode_Data((byte[])val.value[0x02]);
-                                        }
-                                        else
-                                        {
-                                            ChannelVal = MakeChannelValue(val, item);
-                                        }
+                                        ChannelVal = MakeChannelValue(val, item);
                                     }
                                     ///Lav
                                     else
