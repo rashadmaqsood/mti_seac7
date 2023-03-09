@@ -1259,6 +1259,8 @@ namespace SharedCode.Controllers
                         signalEntry.DecodingAttribute = 2;
                         signalEntry.Value_Obj = param_Signal;
                         AP_Controller.GET(signalEntry);
+                        byte[] data = (byte[])signalEntry.Value_Array;
+                        param_Signal.Decode_Data(data);
                         if(signalEntry.GetAttributeDecodingResult(0x02) == DecodingResult.Ready)
                         {
                             val = param_Signal.SignalStrengthDb;

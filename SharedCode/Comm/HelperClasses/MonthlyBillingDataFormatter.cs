@@ -118,6 +118,13 @@ namespace SharedCode.Comm.HelperClasses
                     else
                         billPeriodData.TimeStamp = DateTime.MinValue;
 
+                    // Store Billing Reset Date & Time Stamp
+                    TVal = Array.Find<ILValue>(billingPeriod, (x) => x.OBIS_Index == Get_Index._Last_MDI_Reset_Date_Time);
+                    if (TVal != null && TVal.Value != null && TVal.Value.GetType() == typeof(byte[]) && ((byte[]) TVal.Value).Length == 12)
+                    {
+                        billPeriodData.ResetTimeStampRaw.DecodeDateTime((byte[])TVal.Value) ;
+                    }
+
                     // Store Billing Period Counter
                     TVal = Array.Find<ILValue>(billingPeriod, (x) => x.OBIS_Index == Billing_Period_Counter_VZ ||
                                                                      x.OBIS_Index == Daily_Billing_Period_Counter_VZ);

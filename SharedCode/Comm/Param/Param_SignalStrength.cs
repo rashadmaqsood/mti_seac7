@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SharedCode.Comm.Param
 {
-    class Param_SignalStrength : ICustomStructure
+    class Param_SignalStrength : ICustomStructure,IParam
     {
         public int NetworkType { get; private set; }
         public int SignalsStrngth { get; private set; }

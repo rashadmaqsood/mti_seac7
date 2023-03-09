@@ -13,6 +13,7 @@ namespace SharedCode.Comm.DataContainer
         private List<BillingItem> billingItems;
         private DateTime timeStamp;
         private StDateTime timeStampRaw;
+        private StDateTime resetTimeStampRaw = new StDateTime();
         private uint billingCounter;
         private uint billingCounterDay;
 
@@ -20,6 +21,11 @@ namespace SharedCode.Comm.DataContainer
         {
             get { return timeStampRaw; }
             set { timeStampRaw = value; }
+        }
+        public StDateTime ResetTimeStampRaw
+        {
+            get { return resetTimeStampRaw; }
+            set { resetTimeStampRaw = value; }
         }
         private DateTime timeStampDay;
         public DateTime TimeStampDay

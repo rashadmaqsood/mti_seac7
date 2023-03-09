@@ -1527,7 +1527,7 @@ namespace SharedCode.Controllers
                 {
                     case SortMethod.FIFO:
                         {
-                            Selecter.ToEntry = EntryDescripter.MaxPossibleValue;
+                            Selecter.ToEntry = BillingInfo.EntriesInUse;// EntryDescripter.MaxPossibleValue;
                             long StartIndex = BillingInfo.EntriesInUse - DeltaBillCount;
                             if (StartIndex <= 0)
                             {
@@ -1757,6 +1757,7 @@ namespace SharedCode.Controllers
             obj.msn = msn;
             //obj.reference_no = reference_no;
             obj.date = data.TimeStamp;
+            obj.resetDate =  data.ResetTimeStampRaw?.GetDateTime();
 
             foreach (BillingItem b_item in data.BillingItems)
             {
@@ -1838,7 +1839,8 @@ namespace SharedCode.Controllers
                     {
                         msn = msn,
                         //reference_no = reference_no,
-                        date = data[i].TimeStamp
+                        date = data[i].TimeStamp,
+                        resetDate = data[i].ResetTimeStampRaw?.GetDateTime()
                     }
                 };
                 item = new BillingItem();
@@ -2087,6 +2089,13 @@ namespace SharedCode.Controllers
                         //Reading Date
                         temp = Array.Find(value, x => x.OBIS_Index == Get_Index.Meter_Clock);
                         billdata.TimeStampRaw = (StDateTime)(temp.Value);
+                        #endregion
+
+                        #region MdiResetDateTime
+                        //Reading Date
+                        temp = Array.Find(value, x => x.OBIS_Index == Get_Index._Last_MDI_Reset_Date_Time);
+                        if(temp != null)
+                        billdata.ResetTimeStampRaw = (StDateTime)(temp.Value);
                         #endregion
 
                         #region BillingCounterVZ
