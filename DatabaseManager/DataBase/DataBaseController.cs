@@ -115,6 +115,7 @@ namespace DatabaseManager.Database
                     + ",`save_events_on_alarm`,`read_co`,`sch_co`,`interval_co`,`base_time_co`,`last_co_time`,`super_immediate_co`,`standard_parameters`,`prioritize_wakeup`"
                     + ",`total_tries`,`total_success`,`update_ar_live`,`send_ar_response`,`write_load_shedding_schedule`,`load_shedding_schedule_id`"
                     + ",`write_consumption_data_now`,`write_consumption_data_weekly`,`write_consumption_data_monthly`"
+                    + ",optical_port_start_time,optical_port_end_time,update_optical_port_access"
                     + " FROM meter WHERE msn = " + MSN + (chechForOnDemand ? " or ( processed_by_gateway = 0 and parent_id = " + parent_id + " and (super_immediate_pq=1 or super_immediate_cb=1 or super_immediate_lp=1 or super_immediate_ev=1 or super_immediate_co=1 or super_immediate_rg=1))" : "")
                     + (chechForOnDemand ? " order by super_immediate_pq desc,super_immediate_cb desc,super_immediate_lp desc,super_immediate_ev desc,super_immediate_co desc,super_immediate_rg desc" : "") + " Limit 1 ";
 
@@ -538,6 +539,16 @@ namespace DatabaseManager.Database
                     tempMeterInfo.Write_Load_Shedding_Schedule = Convert.ToBoolean(DT.Rows[0][DT.Columns["write_load_shedding_schedule"]]);
                     #endregion
 
+                    #region Optical_Port_Access
+                    var temp_date_time = DateTime.Now;
+                    DateTime.TryParse(DT.Rows[0][DT.Columns["optical_port_start_time"]].ToString(), out temp_date_time);
+                    tempMeterInfo.OpticalPortStartTime = temp_date_time;
+
+                    DateTime.TryParse(DT.Rows[0][DT.Columns["optical_port_end_time"]].ToString(), out temp_date_time);
+                    tempMeterInfo.OpticalPortEndTime = temp_date_time;
+
+                    tempMeterInfo.UpdateOpticalPortAccess = Convert.ToBoolean(DT.Rows[0][DT.Columns["update_optical_port_access"]]);
+                    #endregion
 
                     #region Consumption Data Flag
                     tempMeterInfo.Write_Consumption_Data_Now = Convert.ToBoolean(DT.Rows[0][DT.Columns["write_consumption_data_now"]]);
@@ -855,6 +866,7 @@ namespace DatabaseManager.Database
                 //string IsConsumptionDataNow = MIUF.IsConsumptionDataNowWrite ? string.Format(", `write_consumption_data_now`=0") : string.Empty;
                 string IsConsumptionDataWeekly = MIUF.IsConsumptionDataWeeklyWrite ? string.Format(", `write_consumption_data_weekly`=0") : string.Empty;
                 string IsConsumptionDataMonthly = MIUF.IsConsumptionDataMonthlyWrite ? string.Format(", `write_consumption_data_monthly`=0") : string.Empty;
+                string IsOpticalPortAccess = MIUF.IsOpticalPortAccessWrite ? string.Format(", `update_optical_port_access`=0") : string.Empty;
 
                 tempQuery = // String.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}{17}{18}{19}{20}{21}{22}{23}{24}{25}{26}{27}{28}{29}{30}{31}{32}{33}{34}{35}{36}{37}{38}{39}{40}{41}{42}{43}{44}{45}{46}{47}{48}{49}{50}{51}{52}{53}{54}{55}{56}{57}{58}{59}{60}{61}{62}{63}{64}{65}{66}{67}{68}{69}{70}{71}{72}{73}{74}{75}{76}{77}{78}{79}{80}{81}{82}{83}{84}{85}{86}{87}{88}{89}{90}{91}{92}{93}{94}{95}",
                     BaseTime_COValue + BaseTime_RGValue + BaseTime_CBValue + BaseTime_CSValue + BaseTime_EVValue + BaseTime_LPValue + BaseTime_MBValue + BaseTime_PQValue + BaseTime_SSValue + BaseTime_Save_PQValue +
@@ -866,7 +878,7 @@ namespace DatabaseManager.Database
                     current_con_state + write_contactor_params + write_modem_limits + write_reference_no + Write_Number_Profile + Write_Display_Down_Params + Write_TBE_Disable_on_PowerFail + loadProfileCounter + eventCounter + mbCounter +
                     Write_WakeUp_Profile + DisableLB + DisableEV + DisableCS + DisableMB + wakeupRequestID + LimitsParams + MTParams + CTPTParams + DecimalParams + EnergyParam + updateWakeRequestID + ReadParam + NoContactorReqPending + lock_contactor + EncryptionCounter +
                     BaseTime_LP2Value + LastTime_LP2Value + DisableLP2 + loadProfile2Counter + IsSuperImmediate_LP2Value + SchType_LP2Value + BaseTime_LP3Value + LastTime_LP3Value + DisableLP3 + loadProfile3Counter + IsSuperImmediate_LP3Value + SchType_LP3Value +
-                    ReadInstant_LP + ReadInstant_LP2 + ReadInstant_LP3 + ProcessedByGateway + TotalRetries + LoadSheddingSchedule;// + IsConsumptionDataNow + IsConsumptionDataWeekly + IsConsumptionDataMonthly;
+                    ReadInstant_LP + ReadInstant_LP2 + ReadInstant_LP3 + ProcessedByGateway + TotalRetries + LoadSheddingSchedule + IsOpticalPortAccess;// + IsConsumptionDataNow + IsConsumptionDataWeekly + IsConsumptionDataMonthly;
 
 
                 if (!string.IsNullOrEmpty(tempQuery))

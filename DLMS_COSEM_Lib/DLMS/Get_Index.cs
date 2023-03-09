@@ -15994,6 +15994,14 @@ namespace DLMS
         ///</summary>
         Param_Ldr_Setting = 0x0100001A0180FF,
 
+        ///<summary>
+        /// Description: Quantity_Name= Param_Optical_Port_Access        CLASS ID 1
+        /// OBIS_CODE = 0.0.90.50.16.255
+        /// Description
+        /// Data Type: Octet String
+        ///</summary>
+        Param_Optical_Port_Access = 0x00010000603C10FF,
+
         //Event_Counter_14_F = 0x10000600F0EFF,
     }
 

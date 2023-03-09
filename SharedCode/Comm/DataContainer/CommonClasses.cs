@@ -469,5 +469,6 @@ namespace SharedCode.Comm.DataContainer
         public bool IsConsumptionDataNowWrite = false;
         public bool IsConsumptionDataWeeklyWrite = false;
         public bool IsConsumptionDataMonthlyWrite = false;
+        public bool IsOpticalPortAccessWrite = false;
     }
 }

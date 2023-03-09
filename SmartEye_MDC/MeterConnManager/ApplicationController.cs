@@ -5828,6 +5828,19 @@ namespace Communicator.MeterConnManager
 
                 #endregion //  Consumption Data Now/Weekly/Monthly
 
+                #region ///If Task Cancelled
+                if (CancelTokenSource != null && _threadCancelToken.IsCancellationRequested)
+                {
+                    CancelTokenSource.Token.ThrowIfCancellationRequested();
+                }
+                #endregion
+                #region WriteOpticalPortAccess
+                if(MeterInfo.UpdateOpticalPortAccess)
+                {
+                    WriteOpticalPortAccess(MeterInfo.OpticalPortStartTime, MeterInfo.OpticalPortEndTime);
+                }
+                #endregion
+
 
                 return (MeterInfo.IsMeterParameterized);
             }
@@ -5918,6 +5931,42 @@ namespace Communicator.MeterConnManager
                     ResetMaxIOFailure();
                     ChangeIntervalReq = false;
                     UpdateIntervalFlag = true;
+                }
+            }
+        }
+        private void WriteOpticalPortAccess(DateTime startTime,DateTime endTime)
+        {
+            var success = true;
+            try
+            {
+                LogMessage("PORT ACCESS Update");
+                if (Param_OBJ.SetOpticalPortAccess(MeterInfo.OpticalPortStartTime,MeterInfo.OpticalPortEndTime))
+                {
+                    LogMessage("Success");
+                    //Change Parameterization Status
+                    MeterInfo.IsMeterParameterized = true;
+                    MeterInfo.UpdateOpticalPortAccess = true;
+                }
+                else
+                {
+                    LogMessage("Failed", 1);
+                    success = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                success = false;
+                LogMessage(ex, 4, "Port Access");
+                if (!Commons.IsTCP_Connected(ex) || !this._AP_Controller.IsConnected || IsMaxIOFailureOccure()) throw ex;
+                StatisticsObj.InsertError(ex, _session_DateTime, 15);
+            }
+            finally
+            {
+                if (success)
+                {
+                    ResetMaxIOFailure();
                 }
             }
         }
