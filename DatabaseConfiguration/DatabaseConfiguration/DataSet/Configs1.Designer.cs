@@ -8271,6 +8271,18 @@ namespace DatabaseConfiguration.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CaptureObjectsRow FindByOBIS_IndexAttributeNoConfigIdGroupIdTarget_OBIS_IndexDeviceId(decimal OBIS_Index, byte AttributeNo, int ConfigId, long GroupId, decimal Target_OBIS_Index, int DeviceId) {
+                return ((CaptureObjectsRow)(this.Rows.Find(new object[] {
+                            OBIS_Index,
+                            AttributeNo,
+                            ConfigId,
+                            GroupId,
+                            Target_OBIS_Index,
+                            DeviceId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 CaptureObjectsDataTable cln = ((CaptureObjectsDataTable)(base.Clone()));
                 cln.InitVars();
@@ -8327,11 +8339,15 @@ namespace DatabaseConfiguration.DataSet {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("CaptureObjectsKey1", new global::System.Data.DataColumn[] {
                                 this.columnOBIS_Index,
                                 this.columnAttributeNo,
+                                this.columnConfigId,
                                 this.columnGroupId,
                                 this.columnTarget_OBIS_Index,
-                                this.columnDeviceId}, false));
+                                this.columnDeviceId}, true));
                 this.columnSequenceId.AllowDBNull = false;
                 this.columnOBIS_Index.AllowDBNull = false;
+                this.columnAttributeNo.AllowDBNull = false;
+                this.columnConfigId.AllowDBNull = false;
+                this.columnGroupId.AllowDBNull = false;
                 this.columnTarget_OBIS_Index.AllowDBNull = false;
                 this.columnDeviceId.AllowDBNull = false;
                 this.columnMultiplier.AllowDBNull = false;
@@ -12320,12 +12336,7 @@ namespace DatabaseConfiguration.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public byte AttributeNo {
                 get {
-                    try {
-                        return ((byte)(this[this.tableCaptureObjects.AttributeNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AttributeNo\' in table \'CaptureObjects\' is DBNull.", e);
-                    }
+                    return ((byte)(this[this.tableCaptureObjects.AttributeNoColumn]));
                 }
                 set {
                     this[this.tableCaptureObjects.AttributeNoColumn] = value;
@@ -12352,12 +12363,7 @@ namespace DatabaseConfiguration.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ConfigId {
                 get {
-                    try {
-                        return ((int)(this[this.tableCaptureObjects.ConfigIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ConfigId\' in table \'CaptureObjects\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableCaptureObjects.ConfigIdColumn]));
                 }
                 set {
                     this[this.tableCaptureObjects.ConfigIdColumn] = value;
@@ -12368,12 +12374,7 @@ namespace DatabaseConfiguration.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public long GroupId {
                 get {
-                    try {
-                        return ((long)(this[this.tableCaptureObjects.GroupIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GroupId\' in table \'CaptureObjects\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tableCaptureObjects.GroupIdColumn]));
                 }
                 set {
                     this[this.tableCaptureObjects.GroupIdColumn] = value;
@@ -12469,18 +12470,6 @@ namespace DatabaseConfiguration.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAttributeNoNull() {
-                return this.IsNull(this.tableCaptureObjects.AttributeNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAttributeNoNull() {
-                this[this.tableCaptureObjects.AttributeNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDataIndexNull() {
                 return this.IsNull(this.tableCaptureObjects.DataIndexColumn);
             }
@@ -12489,30 +12478,6 @@ namespace DatabaseConfiguration.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDataIndexNull() {
                 this[this.tableCaptureObjects.DataIndexColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsConfigIdNull() {
-                return this.IsNull(this.tableCaptureObjects.ConfigIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetConfigIdNull() {
-                this[this.tableCaptureObjects.ConfigIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsGroupIdNull() {
-                return this.IsNull(this.tableCaptureObjects.GroupIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetGroupIdNull() {
-                this[this.tableCaptureObjects.GroupIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

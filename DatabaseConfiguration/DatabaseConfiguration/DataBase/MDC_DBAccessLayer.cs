@@ -2703,7 +2703,7 @@ namespace DatabaseConfiguration.DataBase
                     cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.DataIndexParam, OdbcType.Int)).Value = Row.DataIndex;
                     cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.DeviceIdParam, OdbcType.BigInt)).Value = Row.DeviceId;
 
-                    if (Row.IsGroupIdNull() || Row.GroupId == 0)
+                    if (Row.GroupId==null || Row.GroupId == 0)
                         cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.GroupIdParam, OdbcType.BigInt)).Value = DBNull.Value;
                     else
                         cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.GroupIdParam, OdbcType.BigInt)).Value = Row.GroupId;
@@ -2737,7 +2737,7 @@ namespace DatabaseConfiguration.DataBase
                     cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.AttributeNoParam, OdbcType.TinyInt)).Value = Row.AttributeNo;
                     cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.DataIndexParam, OdbcType.Int)).Value = Row.DataIndex;
 
-                    if (Row.IsGroupIdNull() || Row.GroupId == 0)
+                    if (Row.GroupId==null || Row.GroupId == 0)
                         cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.GroupIdParam, DBNull.Value));
                     else
                         cmd.Parameters.Add(new OdbcParameter(CaptureObjectMDC_DAO.GroupIdParam, OdbcType.BigInt)).Value = Row.GroupId;

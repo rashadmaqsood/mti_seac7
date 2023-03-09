@@ -5110,9 +5110,9 @@ namespace Communicator.MeterConnManager
                         if (MeterInfo.Mdi_reset_date_time > 0 && MeterInfo.Mdi_reset_date_time <= 28)
                         {
                             date.DayOfMonth = MeterInfo.Mdi_reset_date_time;// day of month
-                            date.Hour = 00;
-                            date.Minute = 00;
-                            date.Second = 00;
+                            date.Hour = (byte)MeterInfo.Mdi_reset_time.Hours;
+                            date.Minute = (byte)MeterInfo.Mdi_reset_time.Minutes;
+                            date.Second = (byte)MeterInfo.Mdi_reset_time.Seconds;
                             LogMessage("Setting MDI Auto Reset Date", "MARD", "PW", 1);
                             if (Param_OBJ.SET_MDI_AUTO_REST_DATE_TIME(date))
                             {
