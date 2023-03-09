@@ -36,7 +36,7 @@ namespace DatabaseConfiguration.DataBase
         #endregion
 
         #region Properties
-        
+
 
 
         #endregion // Properties
@@ -238,13 +238,13 @@ namespace DatabaseConfiguration.DataBase
                 var obis_right_group = _entityModel.Obis_Rights_Group_Data.ToList()
                                                .OrderBy(m => m.id);
 
-                
+
                 foreach (obis_rights_group obj in obis_right_group)
                 {
                     Configs.Obis_Rights_GroupRow NEw = (Configs.Obis_Rights_GroupRow)AllDataSet.Obis_Rights_Group.NewRow();
 
-                    NEw.id            = obj.id;
-                    NEw.Group_Name    = obj.Group_Name;
+                    NEw.id = obj.id;
+                    NEw.Group_Name = obj.Group_Name;
                     NEw.Update_Rights = obj.Update_Rights;
 
                     AllDataSet.Obis_Rights_Group.AddObis_Rights_GroupRow(NEw);
@@ -267,7 +267,7 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.LoadProfile_GroupRow NEw = (Configs.LoadProfile_GroupRow)AllDataSet.LoadProfile_Group.NewRow();
 
-                    NEw.id                     = obj.id;
+                    NEw.id = obj.id;
                     NEw.LoadProfile_Group_Name = obj.LoadProfile_Group_Name;
 
                     AllDataSet.LoadProfile_Group.AddLoadProfile_GroupRow(NEw);
@@ -290,7 +290,7 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.Events_GroupRow NEw = (Configs.Events_GroupRow)AllDataSet.Events_Group.NewRow();
 
-                    NEw.id                = obj.id;
+                    NEw.id = obj.id;
                     NEw.Events_group_Name = obj.Events_Group_Name;
 
                     AllDataSet.Events_Group.AddEvents_GroupRow(NEw);
@@ -313,7 +313,7 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.BillingItem_GroupRow NEw = (Configs.BillingItem_GroupRow)AllDataSet.BillingItem_Group.NewRow();
 
-                    NEw.id                     = obj.id;
+                    NEw.id = obj.id;
                     NEw.BillingItem_Group_Name = obj.BillingItem_Group_Name;
 
                     AllDataSet.BillingItem_Group.AddBillingItem_GroupRow(NEw);
@@ -336,7 +336,7 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.DisplayWindows_GroupRow NEw = (Configs.DisplayWindows_GroupRow)AllDataSet.DisplayWindows_Group.NewRow();
 
-                    NEw.id            = obj.id;
+                    NEw.id = obj.id;
                     NEw.Dw_Group_Name = obj.Dw_Group_Name;
 
                     AllDataSet.DisplayWindows_Group.AddDisplayWindows_GroupRow(NEw);
@@ -359,12 +359,12 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.ConfigurationRow NEw = (Configs.ConfigurationRow)AllDataSet.Configuration.NewRow();
 
-                    NEw.id                   = obj.id;
-                    NEw.Name                 = obj.Name;
+                    NEw.id = obj.id;
+                    NEw.Name = obj.Name;
                     NEw.lp_channels_group_id = obj.LP_Channels_Group_ID;
-                    NEw.BillItemsGroupId     = obj.BillItemsGroupId;
+                    NEw.BillItemsGroupId = obj.BillItemsGroupId;
                     NEw.DisplayWindowGroupId = obj.DisplayWindowGroupId ?? 0;
-                    NEw.EventGroupId         = obj.EventGroupId;
+                    NEw.EventGroupId = obj.EventGroupId;
 
                     AllDataSet.Configuration.AddConfigurationRow(NEw);
                 }
@@ -387,9 +387,9 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.ManufacturerRow NEw = (Configs.ManufacturerRow)AllDataSet.Manufacturer.NewRow();
 
-                    NEw.id                = obj.id;
+                    NEw.id = obj.id;
                     NEw.Manufacturer_Name = obj.Manufacturer_Name;
-                    NEw.Code              = obj.Code;
+                    NEw.Code = obj.Code;
 
                     AllDataSet.Manufacturer.AddManufacturerRow(NEw);
                 }
@@ -411,7 +411,7 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.Authentication_TypeRow NEw = (Configs.Authentication_TypeRow)AllDataSet.Authentication_Type.NewRow();
 
-                    NEw.id                       = obj.Id;
+                    NEw.id = obj.Id;
                     NEw.Authentication_Type_Name = obj.Authentication_Type_Name;
 
                     AllDataSet.Authentication_Type.AddAuthentication_TypeRow(NEw);
@@ -434,13 +434,13 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.DeviceRow NEw = (Configs.DeviceRow)AllDataSet.Device.NewRow();
 
-                    NEw.id              = obj.id;
-                    NEw.Device_Name     = obj.Device_Name;
-                    NEw.Model           = obj.Model;
+                    NEw.id = obj.id;
+                    NEw.Device_Name = obj.Device_Name;
+                    NEw.Model = obj.Model;
                     NEw.Manufacturer_Id = obj.Manufacturer_Id;
-                    NEw.IsSinglePhase   = obj.IsSinglePhase;
-                    NEw.Accuracy        = obj.Accuracy;
-                    NEw.Product         = obj.Product;
+                    NEw.IsSinglePhase = obj.IsSinglePhase;
+                    NEw.Accuracy = obj.Accuracy;
+                    NEw.Product = obj.Product;
 
                     AllDataSet.Device.AddDeviceRow(NEw);
                 }
@@ -462,16 +462,16 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.Device_AssociationRow NEw = (Configs.Device_AssociationRow)AllDataSet.Device_Association.NewRow();
 
-                    NEw.id                     = obj.id;
-                    NEw.Association_Name       = obj.Association_Name;
+                    NEw.id = obj.id;
+                    NEw.Association_Name = obj.Association_Name;
                     NEw.Authentication_Type_Id = obj.Authentication_Type_Id;
-                    NEw.Client_Sap             = obj.Client_Sap;
-                    NEw.Meter_Sap              = obj.Meter_Sap;
-                    NEw.Device_Id              = obj.Device_Id;
-                    NEw.Configuration_Id       = obj.Configuration_Id;
-                    NEw.ObisRightGroupId       = obj.ObisRightGroupId;
-                    NEw.Reload_Config          = obj.Reload_Config ?? 0;
-                    NEw.Association_Index      = obj.Association_Index;
+                    NEw.Client_Sap = obj.Client_Sap;
+                    NEw.Meter_Sap = obj.Meter_Sap;
+                    NEw.Device_Id = obj.Device_Id;
+                    NEw.Configuration_Id = obj.Configuration_Id;
+                    NEw.ObisRightGroupId = obj.ObisRightGroupId;
+                    NEw.Reload_Config = obj.Reload_Config ?? 0;
+                    NEw.Association_Index = obj.Association_Index;
 
                     AllDataSet.Device_Association.AddDevice_AssociationRow(NEw);
                 }
@@ -492,16 +492,16 @@ namespace DatabaseConfiguration.DataBase
                 foreach (all_quantities obj in all_quan)
                 {
                     Configs.AllQuantitiesRow NEw = (Configs.AllQuantitiesRow)AllDataSet.AllQuantities.NewRow();
-                    
-                    NEw.id              = obj.id;
-                    NEw.OBIS_Index      = obj.OBIS_Index;
-                    NEw.Label           = obj.Label;
-                    NEw.Dp_Name         = obj.DP_Name ?? string.Empty;
-                    NEw.Unit            = obj.Unit ?? string.Empty;
-                    NEw.Priority        = obj.Priority ?? 0;
+
+                    NEw.id = obj.id;
+                    NEw.OBIS_Index = obj.OBIS_Index;
+                    NEw.Label = obj.Label;
+                    NEw.Dp_Name = obj.DP_Name ?? string.Empty;
+                    NEw.Unit = obj.Unit ?? string.Empty;
+                    NEw.Priority = obj.Priority ?? 0;
                     StOBISCode OBISCode = (Get_Index)NEw.OBIS_Index;
-                    NEw.Quantity_Code   = OBISCode.ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
-                    NEw.Quantity_Name   = OBISCode.OBISIndex.ToString();
+                    NEw.Quantity_Code = OBISCode.ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
+                    NEw.Quantity_Name = OBISCode.OBISIndex.ToString();
 
                     AllDataSet.AllQuantities.AddAllQuantitiesRow(NEw);
                 }
@@ -523,18 +523,18 @@ namespace DatabaseConfiguration.DataBase
                     foreach (all_quantities obj in all_quan)
                     {
                         Configs.AllQuantitiesRow NEw = (Configs.AllQuantitiesRow)AllDataSet.AllQuantities.NewRow();
-                        
-                        NEw.OBIS_Index      = obj.OBIS_Index;
-                        NEw.Label           = obj.Label;
-                        NEw.Dp_Name         = obj.DP_Name ?? string.Empty;
-                        NEw.Unit            = obj.Unit ?? string.Empty;
-                        NEw.Priority        = obj.Priority ?? 0;
+
+                        NEw.OBIS_Index = obj.OBIS_Index;
+                        NEw.Label = obj.Label;
+                        NEw.Dp_Name = obj.DP_Name ?? string.Empty;
+                        NEw.Unit = obj.Unit ?? string.Empty;
+                        NEw.Priority = obj.Priority ?? 0;
                         StOBISCode OBISCode = (Get_Index)NEw.OBIS_Index;
-                        NEw.Quantity_Code   = OBISCode.ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
-                        NEw.Quantity_Name   = OBISCode.OBISIndex.ToString();
+                        NEw.Quantity_Code = OBISCode.ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
+                        NEw.Quantity_Name = OBISCode.OBISIndex.ToString();
 
                         AllDataSet.AllQuantities.AddAllQuantitiesRow(NEw);
-                    } 
+                    }
                 }
             }
             catch (Exception ex)
@@ -554,12 +554,12 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.OBIS_DetailsRow NEw = (Configs.OBIS_DetailsRow)AllDataSet.OBIS_Details.NewRow();
 
-                    NEw.id                = obj.id;
-                    NEw.Obis_Code         = obj.Obis_Code;
+                    NEw.id = obj.id;
+                    NEw.Obis_Code = obj.Obis_Code;
                     NEw.Default_OBIS_Code = obj.Default_OBIS_Code;
-                    NEw.Device_Id         = obj.Device_Id;
-                    StOBISCode OBISCode   = (Get_Index)NEw.Obis_Code;
-                    NEw.OBIS_Quantity     = OBISCode.ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
+                    NEw.Device_Id = obj.Device_Id;
+                    StOBISCode OBISCode = (Get_Index)NEw.Obis_Code;
+                    NEw.OBIS_Quantity = OBISCode.ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
 
                     AllDataSet.OBIS_Details.AddOBIS_DetailsRow(NEw);
                 }
@@ -574,29 +574,45 @@ namespace DatabaseConfiguration.DataBase
         {
             try
             {
-                 var capture_obj = _entityModel.Capture_Objects_Data.ToList()//.Where(x=>x.Target_OBIS_Index == (long)Get_Index.Billing_Periods_Data).ToList()
-                                       .OrderBy(m => m.Target_OBIS_Index).ThenBy(x => x.GroupId).ThenBy(x=>x.SequenceId);
+                var capture_obj = (from c in _entityModel.Capture_Objects_Data
+                                   from obis in _entityModel.ObisDetails_Data
+                                   where c.OBIS_Index == obis.Default_OBIS_Code && c.DeviceId == obis.Device_Id
+                                   select new { 
+                                       id = c.id,SequenceId = c.SequenceId,OBIS_Index=c.OBIS_Index,
+                                       Actual_Code = obis.Obis_Code,AttributeNo=c.AttributeNo,DataIndex=c.DataIndex,
+                                       ConfigId=c.ConfigId,GroupId=c.GroupId,Target_OBIS_Index = c.Target_OBIS_Index,DeviceId=c.DeviceId,databasefield=c.databasefield,Multiplier = c.Multiplier
+                                   }).ToList()  //.Where(x=>x.Target_OBIS_Index == (long)Get_Index.Billing_Periods_Data).ToList()
+                                   .OrderBy(m => m.Target_OBIS_Index).ThenBy(x => x.GroupId).ThenBy(x => x.SequenceId)
+                                      ;
 
-                foreach (capture_objects obj in capture_obj)
+                foreach (var obj in capture_obj)
                 {
+                    try
+                    {
+                        Configs.CaptureObjectsRow NEw = (Configs.CaptureObjectsRow)AllDataSet.CaptureObjects.NewRow();
 
-                    Configs.CaptureObjectsRow NEw = (Configs.CaptureObjectsRow)AllDataSet.CaptureObjects.NewRow();
+                        NEw.SequenceId = obj.SequenceId;
+                        NEw.OBIS_Index = obj.OBIS_Index;
+                        NEw.Quantity_Code = StOBISCode.ConvertFrom((ulong)obj.Actual_Code).ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
+                        NEw.AttributeNo = obj.AttributeNo;
+                        NEw.DataIndex = (ulong)obj.DataIndex;
+                        NEw.ConfigId = obj.ConfigId ?? 0;
+                        NEw.GroupId = obj.GroupId ?? 0;
+                        NEw.Target_OBIS_Index = obj.Target_OBIS_Index;
+                        NEw.DeviceId = obj.DeviceId ?? 0;
+                        NEw.databasefield = obj.databasefield;
+                        NEw.Multiplier = Convert.ToInt16(obj.Multiplier ?? 0);
 
-                    NEw.SequenceId        = obj.SequenceId;
-                    NEw.OBIS_Index        = obj.OBIS_Index;
-                    NEw.Quantity_Code = StOBISCode.ConvertFrom((ulong)obj.OBIS_Index).ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
-                    NEw.AttributeNo       = obj.AttributeNo;
-                    NEw.DataIndex         = (ulong)obj.DataIndex;
-                    NEw.ConfigId          = obj.ConfigId ?? 0;
-                    NEw.GroupId           = obj.GroupId ?? 0;
-                    NEw.Target_OBIS_Index = obj.Target_OBIS_Index;
-                    NEw.DeviceId          = obj.DeviceId ?? 0;
-                    NEw.databasefield     = obj.databasefield;
-                    NEw.Multiplier        = Convert.ToInt16(obj.Multiplier ?? 0);
+                        AllDataSet.CaptureObjects.AddCaptureObjectsRow(NEw);
 
-                    AllDataSet.CaptureObjects.AddCaptureObjectsRow(NEw);
+                    }
+                    catch (Exception)
+                    {
+
+                        //throw;
+                    }
                 }
-                AllDataSet.CaptureObjects.OrderBy(x => x.SequenceId);
+                //AllDataSet.CaptureObjects.OrderBy(x => x.SequenceId);
             }
             catch (Exception ex)
             {
@@ -615,14 +631,14 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.LoadProfileChannelsRow NEw = (Configs.LoadProfileChannelsRow)AllDataSet.LoadProfileChannels.NewRow();
 
-                    NEw.id                 = obj.id;
-                    NEw.Label              = obj.Label;
-                    NEw.QuantityIndex      = obj.QuantityIndex;
-                    NEw.AttributeNo        = obj.AttributeNo ?? 0;
-                    NEw.Multiplier         = Convert.ToInt16(obj.Multiplier ?? 0);
-                    NEw.SequenceId         = Convert.ToInt16(obj.SequenceId ?? 0);
-                    NEw.FormatSpecifier    = obj.FormatSpecifier;
-                    NEw.Unit               = obj.Unit;
+                    NEw.id = obj.id;
+                    NEw.Label = obj.Label;
+                    NEw.QuantityIndex = obj.QuantityIndex;
+                    NEw.AttributeNo = obj.AttributeNo ?? 0;
+                    NEw.Multiplier = Convert.ToInt16(obj.Multiplier ?? 0);
+                    NEw.SequenceId = Convert.ToInt16(obj.SequenceId ?? 0);
+                    NEw.FormatSpecifier = obj.FormatSpecifier;
+                    NEw.Unit = obj.Unit;
                     NEw.LoadProfileGroupId = obj.LoadProfileGroupId;
 
                     AllDataSet.LoadProfileChannels.AddLoadProfileChannelsRow(NEw);
@@ -645,14 +661,14 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.BillingItemsRow NEw = (Configs.BillingItemsRow)AllDataSet.BillingItems.NewRow();
 
-                    NEw.id              = obj.id;
-                    NEw.Label           = obj.Label;
+                    NEw.id = obj.id;
+                    NEw.Label = obj.Label;
                     NEw.FormatSpecifier = obj.FormatSpecifier;
-                    NEw.Unit            = obj.Unit;
-                    NEw.Multiplier      = Convert.ToInt16(obj.Multiplier ?? 0);
-                    NEw.SequenceId      = Convert.ToInt16(obj.SequenceId ?? 0);
+                    NEw.Unit = obj.Unit;
+                    NEw.Multiplier = Convert.ToInt16(obj.Multiplier ?? 0);
+                    NEw.SequenceId = Convert.ToInt16(obj.SequenceId ?? 0);
                     NEw.BillItemGroupId = obj.BillItemGroupId;
-                    NEw.ConfigId        = obj.ConfigId ?? 0;
+                    NEw.ConfigId = obj.ConfigId ?? 0;
 
                     AllDataSet.BillingItems.AddBillingItemsRow(NEw);
                 }
@@ -674,15 +690,15 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.DisplayWindowsRow NEw = (Configs.DisplayWindowsRow)AllDataSet.DisplayWindows.NewRow();
 
-                    NEw.id                    = obj.id;
-                    NEw.Category              = obj.Category;
-                    NEw.Label                 = obj.Label;
-                    NEw.AttributeNo           = obj.AttributeNo ?? 0;
-                    NEw.WinNumberToDisplay    = Convert.ToInt16(obj.WinNumberToDisplay ?? 0);
-                    NEw.QuantityIndex         = obj.QuantityIndex;
-                    NEw.SequenceId            = Convert.ToInt16(obj.SequenceId ?? 0);
+                    NEw.id = obj.id;
+                    NEw.Category = obj.Category;
+                    NEw.Label = obj.Label;
+                    NEw.AttributeNo = obj.AttributeNo ?? 0;
+                    NEw.WinNumberToDisplay = Convert.ToInt16(obj.WinNumberToDisplay ?? 0);
+                    NEw.QuantityIndex = obj.QuantityIndex;
+                    NEw.SequenceId = Convert.ToInt16(obj.SequenceId ?? 0);
                     NEw.DisplayWindowsGroupId = obj.DisplayWindowsGroupId ?? 0;
-                    NEw.ConfigId              = obj.ConfigId ?? 0;
+                    NEw.ConfigId = obj.ConfigId ?? 0;
 
                     AllDataSet.DisplayWindows.AddDisplayWindowsRow(NEw);
                 }
@@ -704,9 +720,9 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.BillTariffQuantityRow NEw = (Configs.BillTariffQuantityRow)AllDataSet.BillTariffQuantity.NewRow();
 
-                    NEw.BillItemId    = obj.BillItemId;
-                    NEw.OBIS_Index    = obj.OBIS_Index;
-                    NEw.SequenceId    = Convert.ToInt16(obj.SequenceId ?? 0);
+                    NEw.BillItemId = obj.BillItemId;
+                    NEw.OBIS_Index = obj.OBIS_Index;
+                    NEw.SequenceId = Convert.ToInt16(obj.SequenceId ?? 0);
                     NEw.DatabaseField = obj.DatabaseField;
 
                     AllDataSet.BillTariffQuantity.AddBillTariffQuantityRow(NEw);
@@ -729,15 +745,15 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.EventInfoRow NEw = (Configs.EventInfoRow)AllDataSet.EventInfo.NewRow();
 
-                    NEw.id            = obj.id;
-                    NEw.EventCode     = obj.EventCode;
-                    NEw.Label         = obj.Label;
+                    NEw.id = obj.id;
+                    NEw.EventCode = obj.EventCode;
+                    NEw.Label = obj.Label;
                     NEw.MaxEventCount = obj.MaxEventCount;
-                    NEw.EventNo       = Convert.ToInt16(obj.EventNo ?? 0);
-                    NEw.EventGroupId  = obj.EventGroupId;
+                    NEw.EventNo = Convert.ToInt16(obj.EventNo ?? 0);
+                    NEw.EventGroupId = obj.EventGroupId;
                     //NEw.CautionNumber = obj.CautionNumber;
                     //NEw.FlashTime = obj.FlashTime;
-                    NEw.ConfigId      = obj.ConfigId ?? 0;
+                    NEw.ConfigId = obj.ConfigId ?? 0;
 
                     AllDataSet.EventInfo.AddEventInfoRow(NEw);
                 }
@@ -758,12 +774,12 @@ namespace DatabaseConfiguration.DataBase
                 foreach (event_logs obj in ev_logs_data)
                 {
                     Configs.EventLogsRow NEw = (Configs.EventLogsRow)AllDataSet.EventLogs.NewRow();
-                    NEw.id_pk             = obj.id_pk;
-                    NEw.id                = obj.id;
-                    NEw.EventLogIndex     = Convert.ToDecimal(obj.EventLogIndex ?? 0);
+                    NEw.id_pk = obj.id_pk;
+                    NEw.id = obj.id;
+                    NEw.EventLogIndex = Convert.ToDecimal(obj.EventLogIndex ?? 0);
                     NEw.EventCounterIndex = Convert.ToDecimal(obj.EventCounterIndex ?? 0);
-                    NEw.EventGroupId      = obj.EventGroupId;
-                    NEw.ConfigId          = obj.ConfigId ?? 0;
+                    NEw.EventGroupId = obj.EventGroupId;
+                    NEw.ConfigId = obj.ConfigId ?? 0;
 
                     AllDataSet.EventLogs.AddEventLogsRow(NEw);
                 }
@@ -785,12 +801,12 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.OBIS_RightsRow NEw = (Configs.OBIS_RightsRow)AllDataSet.OBIS_Rights.NewRow();
 
-                    NEw.id               = (int)obj.id;
-                    NEw.OBIS_Index       = obj.OBIS_Index;
-                    NEw.Version          = obj.Version ?? 0;
+                    NEw.id = (int)obj.id;
+                    NEw.OBIS_Index = obj.OBIS_Index;
+                    NEw.Version = obj.Version ?? 0;
                     NEw.ObisRightGroupId = obj.ObisRightGroupId ?? 0;
-                    NEw.ClientSAPId      = obj.ClientSapId ?? 0;
-                    NEw.ServerSAPId      = obj.ServerSapId ?? 0;
+                    NEw.ClientSAPId = obj.ClientSapId ?? 0;
+                    NEw.ServerSAPId = obj.ServerSapId ?? 0;
 
                     AllDataSet.OBIS_Rights.AddOBIS_RightsRow(NEw);
                 }
@@ -812,10 +828,10 @@ namespace DatabaseConfiguration.DataBase
                 {
                     Configs.RightsRow NEw = (Configs.RightsRow)AllDataSet.Rights.NewRow();
 
-                    NEw.id            = (int)obj.id;
-                    NEw.type          = obj.type;
-                    NEw.SubId         = obj.SubId;
-                    NEw.value         = obj.value;
+                    NEw.id = (int)obj.id;
+                    NEw.type = obj.type;
+                    NEw.SubId = obj.SubId;
+                    NEw.value = obj.value;
                     NEw.OBIS_Right_Id = (int)obj.OBIS_Right_Id;
 
                     AllDataSet.Rights.AddRightsRow(NEw);
@@ -850,7 +866,7 @@ namespace DatabaseConfiguration.DataBase
                 //skipped because it has not been implemented in MDC
             }
         }
-        
+
         public void Load_All_Configurations(Configs AllDataSet)
         {
             try
@@ -1283,30 +1299,30 @@ namespace DatabaseConfiguration.DataBase
             try
             {
                 Configs con = new Configs();
-                
+
                 Update_All_Configs.Add(con.AllQuantities.TableName, this.AcceptChangesAllQuantities);
-                Update_All_Configs.Add(con.Authentication_Type.TableName,	this.AcceptChangesAuthenticationType);
-                Update_All_Configs.Add(con.BillingItem_Group.TableName,	this.AcceptChangesBillingGroup);
-                Update_All_Configs.Add(con.BillingItems.TableName,	this.AcceptChangesBillingItems);
-                Update_All_Configs.Add(con.BillTariffQuantity.TableName,	this.AcceptChangesBillTariffQuantity);
-                Update_All_Configs.Add(con.Configuration.TableName,	this.AcceptChangesConfigurations);
-                Update_All_Configs.Add(con.Device.TableName,	this.AcceptChangesDevice);
-                Update_All_Configs.Add(con.Device_Association.TableName,	this.AcceptChangesDeviceAssociation);
-                Update_All_Configs.Add(con.DisplayWindows.TableName,	this.AcceptChangesDisplayWindows);
-                Update_All_Configs.Add(con.DisplayWindows_Group.TableName,	this.AcceptChangesDisplayWindowsGroup);
-                Update_All_Configs.Add(con.EventInfo.TableName,	this.AcceptChangesEventsInfo);
-                Update_All_Configs.Add(con.EventLogs.TableName,	this.AcceptChangesEventsLogs);
-                Update_All_Configs.Add(con.Events_Group.TableName,	this.AcceptChangesEventsGroup);
-                Update_All_Configs.Add(con.LoadProfileChannels.TableName,	this.AcceptChangesLoadProfileChannels);
-                Update_All_Configs.Add(con.LoadProfile_Group.TableName,	this.AcceptChangesLoadProfileGroup);
-                Update_All_Configs.Add(con.Manufacturer.TableName,	this.AcceptChangesManufacturer);
-                Update_All_Configs.Add(con.OBIS_Details.TableName,	this.AcceptChangesObisDetails);
-                Update_All_Configs.Add(con.OBIS_Rights.TableName,	this.AcceptChangesObisRights);
-                Update_All_Configs.Add(con.Obis_Rights_Group.TableName,	this.AcceptChangesObisRightsGroup);
-                Update_All_Configs.Add(con.Rights.TableName,	this.AcceptChangesRights);
-                Update_All_Configs.Add(con.users.TableName,	this.AcceptChangesUsers);
-                Update_All_Configs.Add(con.CaptureObjects.TableName,	this.AcceptChangesCaptureObjects);
-                Update_All_Configs.Add(con.Status_Word.TableName,	this.AcceptChangesStatusWord);
+                Update_All_Configs.Add(con.Authentication_Type.TableName, this.AcceptChangesAuthenticationType);
+                Update_All_Configs.Add(con.BillingItem_Group.TableName, this.AcceptChangesBillingGroup);
+                Update_All_Configs.Add(con.BillingItems.TableName, this.AcceptChangesBillingItems);
+                Update_All_Configs.Add(con.BillTariffQuantity.TableName, this.AcceptChangesBillTariffQuantity);
+                Update_All_Configs.Add(con.Configuration.TableName, this.AcceptChangesConfigurations);
+                Update_All_Configs.Add(con.Device.TableName, this.AcceptChangesDevice);
+                Update_All_Configs.Add(con.Device_Association.TableName, this.AcceptChangesDeviceAssociation);
+                Update_All_Configs.Add(con.DisplayWindows.TableName, this.AcceptChangesDisplayWindows);
+                Update_All_Configs.Add(con.DisplayWindows_Group.TableName, this.AcceptChangesDisplayWindowsGroup);
+                Update_All_Configs.Add(con.EventInfo.TableName, this.AcceptChangesEventsInfo);
+                Update_All_Configs.Add(con.EventLogs.TableName, this.AcceptChangesEventsLogs);
+                Update_All_Configs.Add(con.Events_Group.TableName, this.AcceptChangesEventsGroup);
+                Update_All_Configs.Add(con.LoadProfileChannels.TableName, this.AcceptChangesLoadProfileChannels);
+                Update_All_Configs.Add(con.LoadProfile_Group.TableName, this.AcceptChangesLoadProfileGroup);
+                Update_All_Configs.Add(con.Manufacturer.TableName, this.AcceptChangesManufacturer);
+                Update_All_Configs.Add(con.OBIS_Details.TableName, this.AcceptChangesObisDetails);
+                Update_All_Configs.Add(con.OBIS_Rights.TableName, this.AcceptChangesObisRights);
+                Update_All_Configs.Add(con.Obis_Rights_Group.TableName, this.AcceptChangesObisRightsGroup);
+                Update_All_Configs.Add(con.Rights.TableName, this.AcceptChangesRights);
+                Update_All_Configs.Add(con.users.TableName, this.AcceptChangesUsers);
+                Update_All_Configs.Add(con.CaptureObjects.TableName, this.AcceptChangesCaptureObjects);
+                Update_All_Configs.Add(con.Status_Word.TableName, this.AcceptChangesStatusWord);
             }
             catch (Exception ex)
             {
@@ -1321,7 +1337,7 @@ namespace DatabaseConfiguration.DataBase
                 // Save Configs to db
                 this.Update_All_Configuration(AllDataSet);
                 AllDataSet.Clear();
-                
+
                 this.Load_All_Configurations(AllDataSet);
             }
             catch (Exception ex)
@@ -1339,7 +1355,7 @@ namespace DatabaseConfiguration.DataBase
                 AllDataSet.EnforceConstraints = false;
                 Dt.EnforceConstraints = false;
                 Dt = (Configs)AllDataSet.GetChanges();
-                
+
 
                 this.AcceptChangesEventsGroup(Dt);
                 this.AcceptChangesBillingGroup(Dt);
@@ -2634,11 +2650,11 @@ namespace DatabaseConfiguration.DataBase
                     all_quantities all_quan = new all_quantities();
 
                     all_quan.OBIS_Index = (long)Row.OBIS_Index;
-                    all_quan.Label      = Row.Label;
-                    all_quan.DP_Name    = Row.Dp_Name;
-                    all_quan.Unit       = Row.Unit;
-                    all_quan.Priority   = Row.Priority;
-                    
+                    all_quan.Label = Row.Label;
+                    all_quan.DP_Name = Row.Dp_Name;
+                    all_quan.Unit = Row.Unit;
+                    all_quan.Priority = Row.Priority;
+
                     this._entityModel.AllQuantitiesData.Add(all_quan);
                 }
                 #endregion
@@ -2661,10 +2677,10 @@ namespace DatabaseConfiguration.DataBase
                     if (all_quan != null)
                     {
                         all_quan.OBIS_Index = (long)Row.OBIS_Index;
-                        all_quan.Label      = Row.Label;
-                        all_quan.DP_Name    = Row.Dp_Name;
-                        all_quan.Unit       = Row.Unit;
-                        all_quan.Priority   = Row.Priority;
+                        all_quan.Label = Row.Label;
+                        all_quan.DP_Name = Row.Dp_Name;
+                        all_quan.Unit = Row.Unit;
+                        all_quan.Priority = Row.Priority;
 
                         this._entityModel.AllQuantitiesData.Attach(all_quan);
                         this._entityModel.Entry(all_quan).State = EntityState.Modified;
@@ -2759,10 +2775,10 @@ namespace DatabaseConfiguration.DataBase
                 {
                     obis_details obis_detail = new obis_details();
 
-                    obis_detail.id                = Row.id;
-                    obis_detail.Obis_Code         = (long)Row.Obis_Code;
+                    obis_detail.id = Row.id;
+                    obis_detail.Obis_Code = (long)Row.Obis_Code;
                     obis_detail.Default_OBIS_Code = (long)Row.Default_OBIS_Code;
-                    obis_detail.Device_Id         = Row.Device_Id;
+                    obis_detail.Device_Id = Row.Device_Id;
 
                     this._entityModel.ObisDetails_Data.Add(obis_detail);
                 }
@@ -2786,9 +2802,9 @@ namespace DatabaseConfiguration.DataBase
                     if (obis_detail != null)
                     {
                         //obis_detail.id                = Row.id;
-                        obis_detail.Obis_Code         = (long)Row.Obis_Code;
+                        obis_detail.Obis_Code = (long)Row.Obis_Code;
                         obis_detail.Default_OBIS_Code = (long)Row.Default_OBIS_Code;
-                        obis_detail.Device_Id         = Row.Device_Id;
+                        obis_detail.Device_Id = Row.Device_Id;
 
                         this._entityModel.ObisDetails_Data.Attach(obis_detail);
                         this._entityModel.Entry(obis_detail).State = EntityState.Modified;
@@ -2827,10 +2843,10 @@ namespace DatabaseConfiguration.DataBase
             }
         }
 
-        #endregion 
+        #endregion
 
         #endregion
-        
+
         #region users
         void AcceptChangesUsers(Configs DataSet)
         {
@@ -2952,10 +2968,10 @@ namespace DatabaseConfiguration.DataBase
             }
         }
 
-        #endregion 
+        #endregion
 
         #endregion
-        
+
         #region Capture Objects
         void AcceptChangesCaptureObjects(Configs DataSet)
         {
@@ -3008,16 +3024,16 @@ namespace DatabaseConfiguration.DataBase
                 {
                     capture_objects cap_obj = new capture_objects();
 
-                    cap_obj.SequenceId        = Row.SequenceId;
-                    cap_obj.OBIS_Index        = (long)Row.OBIS_Index;
-                    cap_obj.AttributeNo       = Row.AttributeNo;
-                    cap_obj.DataIndex         = (int)Row.DataIndex;
-                    cap_obj.ConfigId          = Row.ConfigId;
-                    cap_obj.GroupId           = (int)Row.GroupId;
+                    cap_obj.SequenceId = Row.SequenceId;
+                    cap_obj.OBIS_Index = (long)Row.OBIS_Index;
+                    cap_obj.AttributeNo = Row.AttributeNo;
+                    cap_obj.DataIndex = (int)Row.DataIndex;
+                    cap_obj.ConfigId = Row.ConfigId;
+                    cap_obj.GroupId = (int)Row.GroupId;
                     cap_obj.Target_OBIS_Index = (long)Row.Target_OBIS_Index;
-                    cap_obj.DeviceId          = Row.DeviceId;
-                    cap_obj.databasefield     = Row.databasefield;
-                    cap_obj.Multiplier        = Row.Multiplier;
+                    cap_obj.DeviceId = Row.DeviceId;
+                    cap_obj.databasefield = Row.databasefield;
+                    cap_obj.Multiplier = Row.Multiplier;
 
                     this._entityModel.Capture_Objects_Data.Add(cap_obj);
                 }
@@ -3042,20 +3058,20 @@ namespace DatabaseConfiguration.DataBase
                     long targetIndex = Convert.ToInt64(Row["Target_OBIS_Index", DataRowVersion.Original]);
                     long attributeNo = Convert.ToInt64(Row["AttributeNo", DataRowVersion.Original]);
 
-                    capture_objects cap_obj = this._entityModel.Capture_Objects_Data.SingleOrDefault(x => x.OBIS_Index == obis_index 
+                    capture_objects cap_obj = this._entityModel.Capture_Objects_Data.SingleOrDefault(x => x.OBIS_Index == obis_index
                                               && (x.GroupId == groupId || x.GroupId == null) && x.Target_OBIS_Index == targetIndex && x.DeviceId == deviceId && x.AttributeNo == attributeNo);
                     if (cap_obj != null)
                     {
-                        cap_obj.SequenceId        = Row.SequenceId;
-                        cap_obj.OBIS_Index        = (long)Row.OBIS_Index;
-                        cap_obj.AttributeNo       = Row.AttributeNo;
-                        cap_obj.DataIndex         = (int)Row.DataIndex;
-                        cap_obj.ConfigId          = Row.ConfigId;
-                        cap_obj.GroupId           = (int)Row.GroupId;
+                        cap_obj.SequenceId = Row.SequenceId;
+                        cap_obj.OBIS_Index = (long)Row.OBIS_Index;
+                        cap_obj.AttributeNo = Row.AttributeNo;
+                        cap_obj.DataIndex = (int)Row.DataIndex;
+                        cap_obj.ConfigId = Row.ConfigId;
+                        cap_obj.GroupId = (int)Row.GroupId;
                         cap_obj.Target_OBIS_Index = (long)Row.Target_OBIS_Index;
-                        cap_obj.DeviceId          = Row.DeviceId;
-                        cap_obj.databasefield     = Row.databasefield;
-                        cap_obj.Multiplier        = Row.Multiplier;
+                        cap_obj.DeviceId = Row.DeviceId;
+                        cap_obj.databasefield = Row.databasefield;
+                        cap_obj.Multiplier = Row.Multiplier;
 
                         this._entityModel.Capture_Objects_Data.Attach(cap_obj);
                         this._entityModel.Entry(cap_obj).State = EntityState.Modified;
@@ -3078,12 +3094,12 @@ namespace DatabaseConfiguration.DataBase
 
                 if (Row.RowState == DataRowState.Deleted)
                 {
-                    long obis_index  = Convert.ToInt64(Row["OBIS_Index", DataRowVersion.Original]);
-                    int deviceId     = Convert.ToInt32(Row["DeviceId", DataRowVersion.Original]);
-                    long groupId     = Convert.ToInt64(Row["GroupId", DataRowVersion.Original]);
+                    long obis_index = Convert.ToInt64(Row["OBIS_Index", DataRowVersion.Original]);
+                    int deviceId = Convert.ToInt32(Row["DeviceId", DataRowVersion.Original]);
+                    long groupId = Convert.ToInt64(Row["GroupId", DataRowVersion.Original]);
                     long targetIndex = Convert.ToInt64(Row["Target_OBIS_Index", DataRowVersion.Original]);
 
-                    capture_objects cap_obj = this._entityModel.Capture_Objects_Data.SingleOrDefault(x => x.OBIS_Index == obis_index 
+                    capture_objects cap_obj = this._entityModel.Capture_Objects_Data.SingleOrDefault(x => x.OBIS_Index == obis_index
                                               && x.GroupId == groupId && x.Target_OBIS_Index == targetIndex && x.DeviceId == deviceId);
                     if (cap_obj != null)
                     {
@@ -3155,12 +3171,12 @@ namespace DatabaseConfiguration.DataBase
                 {
                     obis_rights obis_rights = new obis_rights();
 
-                    obis_rights.id               = Row.id;
-                    obis_rights.OBIS_Index       = (long)Row.OBIS_Index;
+                    obis_rights.id = Row.id;
+                    obis_rights.OBIS_Index = (long)Row.OBIS_Index;
                     obis_rights.ObisRightGroupId = Row.ObisRightGroupId;
-                    obis_rights.Version          = Row.Version;
-                    obis_rights.ClientSapId      = Row.ClientSAPId;
-                    obis_rights.ServerSapId      = Row.ServerSAPId;
+                    obis_rights.Version = Row.Version;
+                    obis_rights.ClientSapId = Row.ClientSAPId;
+                    obis_rights.ServerSapId = Row.ServerSAPId;
 
                     this._entityModel.Obis_Rights_Data.Add(obis_rights);
                 }
@@ -3183,12 +3199,12 @@ namespace DatabaseConfiguration.DataBase
                     obis_rights obis_rights = this._entityModel.Obis_Rights_Data.SingleOrDefault(x => x.id == id);
                     if (obis_rights != null)
                     {
-                        obis_rights.id               = Row.id;
-                        obis_rights.OBIS_Index       = (long)Row.OBIS_Index;
+                        obis_rights.id = Row.id;
+                        obis_rights.OBIS_Index = (long)Row.OBIS_Index;
                         obis_rights.ObisRightGroupId = Row.ObisRightGroupId;
-                        obis_rights.Version          = Row.Version;
-                        obis_rights.ClientSapId      = Row.ClientSAPId;
-                        obis_rights.ServerSapId      = Row.ServerSAPId;
+                        obis_rights.Version = Row.Version;
+                        obis_rights.ClientSapId = Row.ClientSAPId;
+                        obis_rights.ServerSapId = Row.ServerSAPId;
 
                         this._entityModel.Obis_Rights_Data.Attach(obis_rights);
                         this._entityModel.Entry(obis_rights).State = EntityState.Modified;
@@ -3413,13 +3429,13 @@ namespace DatabaseConfiguration.DataBase
                     load_profile_channels lp_channels = new load_profile_channels();
 
                     //lp_channels.id                 = Row.id;
-                    lp_channels.Label              = Row.Label;
-                    lp_channels.QuantityIndex      = (long)Row.QuantityIndex;
-                    lp_channels.AttributeNo        = Row.AttributeNo;
-                    lp_channels.Multiplier         = Row.Multiplier;
-                    lp_channels.SequenceId         = Row.SequenceId;
-                    lp_channels.FormatSpecifier    = Row.FormatSpecifier;
-                    lp_channels.Unit               = Row.Unit;
+                    lp_channels.Label = Row.Label;
+                    lp_channels.QuantityIndex = (long)Row.QuantityIndex;
+                    lp_channels.AttributeNo = Row.AttributeNo;
+                    lp_channels.Multiplier = Row.Multiplier;
+                    lp_channels.SequenceId = Row.SequenceId;
+                    lp_channels.FormatSpecifier = Row.FormatSpecifier;
+                    lp_channels.Unit = Row.Unit;
                     lp_channels.LoadProfileGroupId = Row.LoadProfileGroupId;
 
                     this._entityModel.LoadProfileChannels_Data.Add(lp_channels);
@@ -3447,13 +3463,13 @@ namespace DatabaseConfiguration.DataBase
                                               && x.QuantityIndex == quantity_index && x.LoadProfileGroupId == groupId);
                     if (lp_channels != null)
                     {
-                        lp_channels.Label              = Row.Label;
-                        lp_channels.QuantityIndex      = (long)Row.QuantityIndex;
-                        lp_channels.AttributeNo        = Row.AttributeNo;
-                        lp_channels.Multiplier         = Row.Multiplier;
-                        lp_channels.SequenceId         = Row.SequenceId;
-                        lp_channels.FormatSpecifier    = Row.FormatSpecifier;
-                        lp_channels.Unit               = Row.Unit;
+                        lp_channels.Label = Row.Label;
+                        lp_channels.QuantityIndex = (long)Row.QuantityIndex;
+                        lp_channels.AttributeNo = Row.AttributeNo;
+                        lp_channels.Multiplier = Row.Multiplier;
+                        lp_channels.SequenceId = Row.SequenceId;
+                        lp_channels.FormatSpecifier = Row.FormatSpecifier;
+                        lp_channels.Unit = Row.Unit;
                         lp_channels.LoadProfileGroupId = Row.LoadProfileGroupId;
 
                         this._entityModel.LoadProfileChannels_Data.Attach(lp_channels);
@@ -3554,13 +3570,13 @@ namespace DatabaseConfiguration.DataBase
                     billing_items bill_items = new billing_items();
 
                     //bill_items.id = Row.id;
-                    bill_items.SequenceId      = Row.SequenceId;
+                    bill_items.SequenceId = Row.SequenceId;
                     bill_items.BillItemGroupId = Row.BillItemGroupId;
-                    bill_items.Label           = Row.Label;
+                    bill_items.Label = Row.Label;
                     bill_items.FormatSpecifier = Row.FormatSpecifier;
-                    bill_items.Multiplier      = Row.Multiplier;
-                    bill_items.Unit            = Row.Unit;
-                    bill_items.ConfigId        = Row.ConfigId;
+                    bill_items.Multiplier = Row.Multiplier;
+                    bill_items.Unit = Row.Unit;
+                    bill_items.ConfigId = Row.ConfigId;
 
                     this._entityModel.BillingItems_Data.Add(bill_items);
                 }
@@ -3583,13 +3599,13 @@ namespace DatabaseConfiguration.DataBase
                     billing_items bill_items = this._entityModel.BillingItems_Data.SingleOrDefault(x => x.id == id);
                     if (bill_items != null)
                     {
-                        bill_items.SequenceId      = Row.SequenceId;
+                        bill_items.SequenceId = Row.SequenceId;
                         bill_items.BillItemGroupId = Row.BillItemGroupId;
-                        bill_items.Label           = Row.Label;
+                        bill_items.Label = Row.Label;
                         bill_items.FormatSpecifier = Row.FormatSpecifier;
-                        bill_items.Multiplier      = Row.Multiplier;
-                        bill_items.Unit            = Row.Unit;
-                        bill_items.ConfigId        = Row.ConfigId;
+                        bill_items.Multiplier = Row.Multiplier;
+                        bill_items.Unit = Row.Unit;
+                        bill_items.ConfigId = Row.ConfigId;
 
                         this._entityModel.BillingItems_Data.Attach(bill_items);
                         this._entityModel.Entry(bill_items).State = EntityState.Modified;
@@ -3684,9 +3700,9 @@ namespace DatabaseConfiguration.DataBase
                 {
                     bill_tariff_quantity bill_tariff = new bill_tariff_quantity();
 
-                    bill_tariff.BillItemId    = Row.BillItemId;
-                    bill_tariff.SequenceId    = Row.SequenceId;
-                    bill_tariff.OBIS_Index    = (long)Row.OBIS_Index;
+                    bill_tariff.BillItemId = Row.BillItemId;
+                    bill_tariff.SequenceId = Row.SequenceId;
+                    bill_tariff.OBIS_Index = (long)Row.OBIS_Index;
                     bill_tariff.DatabaseField = Row.DatabaseField;
 
                     this._entityModel.BillTariffQuantity_Data.Add(bill_tariff);
@@ -3708,13 +3724,13 @@ namespace DatabaseConfiguration.DataBase
                 {
                     int bill_item_id = Convert.ToInt32(Row["BillItemId", DataRowVersion.Original]);
                     decimal obis_index = Convert.ToDecimal(Row["OBIS_Index", DataRowVersion.Original]);
-                    bill_tariff_quantity bill_tariff = this._entityModel.BillTariffQuantity_Data.SingleOrDefault(x => x.BillItemId == bill_item_id 
+                    bill_tariff_quantity bill_tariff = this._entityModel.BillTariffQuantity_Data.SingleOrDefault(x => x.BillItemId == bill_item_id
                                                                                                                  && x.OBIS_Index == obis_index);
                     if (bill_tariff != null)
                     {
-                        bill_tariff.BillItemId    = Row.BillItemId;
-                        bill_tariff.SequenceId    = Row.SequenceId;
-                        bill_tariff.OBIS_Index    = (long)Row.OBIS_Index;
+                        bill_tariff.BillItemId = Row.BillItemId;
+                        bill_tariff.SequenceId = Row.SequenceId;
+                        bill_tariff.OBIS_Index = (long)Row.OBIS_Index;
                         bill_tariff.DatabaseField = Row.DatabaseField;
 
                         this._entityModel.BillTariffQuantity_Data.Attach(bill_tariff);
@@ -3812,13 +3828,13 @@ namespace DatabaseConfiguration.DataBase
                 {
                     event_info ev_info = new event_info();
 
-                    ev_info.id            = Row.id;
-                    ev_info.EventCode     = Row.EventCode;
-                    ev_info.Label         = Row.Label;
+                    ev_info.id = Row.id;
+                    ev_info.EventCode = Row.EventCode;
+                    ev_info.Label = Row.Label;
                     ev_info.MaxEventCount = Row.MaxEventCount;
-                    ev_info.EventNo       = Row.EventNo;
-                    ev_info.EventGroupId  = Row.EventGroupId;
-                    ev_info.ConfigId      = Row.ConfigId;
+                    ev_info.EventNo = Row.EventNo;
+                    ev_info.EventGroupId = Row.EventGroupId;
+                    ev_info.ConfigId = Row.ConfigId;
 
                     this._entityModel.Events_Info_Data.Add(ev_info);
                 }
@@ -3842,13 +3858,13 @@ namespace DatabaseConfiguration.DataBase
                     event_info ev_info = this._entityModel.Events_Info_Data.SingleOrDefault(x => x.EventCode == ev_code && x.EventGroupId == ev_group);
                     if (ev_info != null)
                     {
-                        ev_info.id            = Row.id;
-                        ev_info.EventCode     = Row.EventCode;
-                        ev_info.Label         = Row.Label;
+                        ev_info.id = Row.id;
+                        ev_info.EventCode = Row.EventCode;
+                        ev_info.Label = Row.Label;
                         ev_info.MaxEventCount = Row.MaxEventCount;
-                        ev_info.EventNo       = Row.EventNo;
-                        ev_info.EventGroupId  = Row.EventGroupId;
-                        ev_info.ConfigId      = Row.ConfigId;
+                        ev_info.EventNo = Row.EventNo;
+                        ev_info.EventGroupId = Row.EventGroupId;
+                        ev_info.ConfigId = Row.ConfigId;
 
                         this._entityModel.Events_Info_Data.Attach(ev_info);
                         this._entityModel.Entry(ev_info).State = EntityState.Modified;
@@ -3944,11 +3960,11 @@ namespace DatabaseConfiguration.DataBase
                 {
                     event_logs ev_logs = new event_logs();
 
-                    ev_logs.id                = Row.id;
-                    ev_logs.EventLogIndex     = (long)Row.EventLogIndex;
+                    ev_logs.id = Row.id;
+                    ev_logs.EventLogIndex = (long)Row.EventLogIndex;
                     ev_logs.EventCounterIndex = (long)Row.EventCounterIndex;
-                    ev_logs.EventGroupId      = Row.EventGroupId;
-                    ev_logs.ConfigId          = Row.ConfigId;
+                    ev_logs.EventGroupId = Row.EventGroupId;
+                    ev_logs.ConfigId = Row.ConfigId;
 
                     this._entityModel.Event_Logs_Data.Add(ev_logs);
                 }
@@ -3972,11 +3988,11 @@ namespace DatabaseConfiguration.DataBase
                     event_logs ev_logs = this._entityModel.Event_Logs_Data.SingleOrDefault(x => x.id_pk == id_pk && x.EventGroupId == ev_group);
                     if (ev_logs != null)
                     {
-                        ev_logs.id                = Row.id;
-                        ev_logs.EventLogIndex     = (long)Row.EventLogIndex;
+                        ev_logs.id = Row.id;
+                        ev_logs.EventLogIndex = (long)Row.EventLogIndex;
                         ev_logs.EventCounterIndex = (long)Row.EventCounterIndex;
-                        ev_logs.EventGroupId      = Row.EventGroupId;
-                        ev_logs.ConfigId          = Row.ConfigId;
+                        ev_logs.EventGroupId = Row.EventGroupId;
+                        ev_logs.ConfigId = Row.ConfigId;
 
                         this._entityModel.Event_Logs_Data.Attach(ev_logs);
                         this._entityModel.Entry(ev_logs).State = EntityState.Modified;
@@ -4073,14 +4089,14 @@ namespace DatabaseConfiguration.DataBase
                     display_windows displa_win = new display_windows();
 
                     //displa_win.id                    = Row.id;
-                    displa_win.Category              = Row.Category;
-                    displa_win.Label                 = Row.Label;
-                    displa_win.AttributeNo           = Row.AttributeNo;
-                    displa_win.WinNumberToDisplay    = Row.WinNumberToDisplay;
-                    displa_win.QuantityIndex         = (long)Row.QuantityIndex;
-                    displa_win.SequenceId            = Row.SequenceId;
+                    displa_win.Category = Row.Category;
+                    displa_win.Label = Row.Label;
+                    displa_win.AttributeNo = Row.AttributeNo;
+                    displa_win.WinNumberToDisplay = Row.WinNumberToDisplay;
+                    displa_win.QuantityIndex = (long)Row.QuantityIndex;
+                    displa_win.SequenceId = Row.SequenceId;
                     displa_win.DisplayWindowsGroupId = Row.DisplayWindowsGroupId;
-                    displa_win.ConfigId              = Row.ConfigId;
+                    displa_win.ConfigId = Row.ConfigId;
 
                     this._entityModel.Display_Windows_Data.Add(displa_win);
                 }
@@ -4103,14 +4119,14 @@ namespace DatabaseConfiguration.DataBase
                     display_windows displa_win = this._entityModel.Display_Windows_Data.SingleOrDefault(x => x.id == id);
                     if (displa_win != null)
                     {
-                        displa_win.Category              = Row.Category;
-                        displa_win.Label                 = Row.Label;
-                        displa_win.AttributeNo           = Row.AttributeNo;
-                        displa_win.WinNumberToDisplay    = Row.WinNumberToDisplay;
-                        displa_win.QuantityIndex         = (long)Row.QuantityIndex;
-                        displa_win.SequenceId            = Row.SequenceId;
+                        displa_win.Category = Row.Category;
+                        displa_win.Label = Row.Label;
+                        displa_win.AttributeNo = Row.AttributeNo;
+                        displa_win.WinNumberToDisplay = Row.WinNumberToDisplay;
+                        displa_win.QuantityIndex = (long)Row.QuantityIndex;
+                        displa_win.SequenceId = Row.SequenceId;
                         displa_win.DisplayWindowsGroupId = Row.DisplayWindowsGroupId;
-                        displa_win.ConfigId              = Row.ConfigId;
+                        displa_win.ConfigId = Row.ConfigId;
 
                         this._entityModel.Display_Windows_Data.Attach(displa_win);
                         this._entityModel.Entry(displa_win).State = EntityState.Modified;
@@ -4268,7 +4284,7 @@ namespace DatabaseConfiguration.DataBase
         #endregion
 
         #endregion
-        
+
         #endregion // Update_DB_Methods
 
         #endregion // Methods

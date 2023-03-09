@@ -182,6 +182,7 @@ namespace SharedCode.Comm.DataContainer
         public int Contactor_lock = 0;
 
         public byte Mdi_reset_date_time;
+        public TimeSpan Mdi_reset_time;
         public bool Write_mdi_reset_date_time = false;
 
         public string Default_Password;
