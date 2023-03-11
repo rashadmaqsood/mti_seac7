@@ -707,7 +707,8 @@ namespace Communicator.MeterConfiguration
                 StartTime = startTime,
                 EndTime = endTime
             };
-            return param_Controller.SET_OpticalPortAccess(portAccess) == Data_Access_Result.Success;
+            var writeResult = param_Controller.SET_OpticalPortAccess(portAccess);
+            return writeResult == Data_Access_Result.Success;
         }
         #endregion
         #endregion

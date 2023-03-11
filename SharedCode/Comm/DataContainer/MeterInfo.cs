@@ -352,7 +352,8 @@ namespace SharedCode.Comm.DataContainer
                     Write_Load_Shedding_Schedule  ||
                     Write_Consumption_Data_Now ||
                     Write_Consumption_Data_Monthly ||
-                    Write_Consumption_Data_Weekly 
+                    Write_Consumption_Data_Weekly  ||
+                    UpdateOpticalPortAccess
                     );
             }
         }
