@@ -151,9 +151,17 @@ namespace SharedCode.Comm.HelperClasses
                                 val.Value = val.GetDataItemValue(0x02);
                                 if (val.OBIS_Index == Get_Index.RSSI_SignalStrength)
                                 {
-                                    val.Value = val.GetDataItemValue(0x02);
-                                    param_Signal.Decode_Data((byte[])val.value[0x02]);
-                                    ChannelVal = param_Signal.SignalStrengthDb;
+
+                                    try
+                                    {
+                                        val.Value = val.GetDataItemValue(0x02);
+                                        param_Signal.Decode_Data((byte[])val.value[0x02]);
+                                        ChannelVal = param_Signal.SignalStrengthDb;
+
+                                    }
+                                    catch (Exception)
+                                    {
+                                    }
                                 }
 
                                 else if (ItemActualCode.ClassId >= 1 && ItemActualCode.ClassId <= 4)//(item.SelectedAttribute == 0)

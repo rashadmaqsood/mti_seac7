@@ -5940,12 +5940,17 @@ namespace Communicator.MeterConnManager
             try
             {
                 LogMessage("PORT ACCESS Update");
+                if(startTime > endTime || endTime < DateTime.Now)
+                {
+                    LogMessage("Invalid Port Access dates");
+                    return;
+                }
                 if (Param_OBJ.SetOpticalPortAccess(MeterInfo.OpticalPortStartTime,MeterInfo.OpticalPortEndTime))
                 {
                     LogMessage("Success");
                     //Change Parameterization Status
+                    MIUF.IsOpticalPortAccessWrite = true;
                     MeterInfo.IsMeterParameterized = true;
-                    MeterInfo.UpdateOpticalPortAccess = true;
                 }
                 else
                 {

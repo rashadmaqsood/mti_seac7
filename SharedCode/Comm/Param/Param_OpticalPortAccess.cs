@@ -53,12 +53,17 @@ namespace SharedCode.Comm.Param
         {
             try
             {
+                byte[] encodedDate=null;
                 List<byte> encodeRaw = new List<byte>(50);
                 encodeRaw.AddRange(new byte[] { (byte)DataTypes._A02_structure, 2 });
-                ///Optical_Port_Access_Start_Time <DataTypes._A12_long_unsigned>
-                encodeRaw.AddRange(BasicEncodeDecode.Intelligent_Data_Encoder(DataTypes._A19_datetime, this.StartTime));
-                ///Optical_Port_Access_End_Time <DataTypes._A12_long_unsigned>
-                encodeRaw.AddRange(BasicEncodeDecode.Intelligent_Data_Encoder(DataTypes._A19_datetime, this.EndTime));
+                BasicEncodeDecode.Encode_DateTime(this.StartTime, ref encodedDate);
+                encodeRaw.Add((byte)DataTypes._A09_octet_string);
+                encodeRaw.Add((byte)encodedDate.Length);
+                encodeRaw.AddRange(encodedDate);
+                BasicEncodeDecode.Encode_DateTime(this.EndTime, ref encodedDate);
+                encodeRaw.Add((byte)DataTypes._A09_octet_string);
+                encodeRaw.Add((byte)encodedDate.Length);
+                encodeRaw.AddRange(encodedDate);
                 return encodeRaw.ToArray();
             }
             catch (Exception)
