@@ -400,7 +400,7 @@
               <xs:element name="OBIS_Index" msprop:Generator_ColumnVarNameInTable="columnOBIS_Index" msprop:Generator_ColumnPropNameInRow="OBIS_Index" msprop:Generator_ColumnPropNameInTable="OBIS_IndexColumn" msprop:Generator_UserColumnName="OBIS_Index" type="xs:decimal" />
               <xs:element name="AttributeNo" msprop:Generator_ColumnVarNameInTable="columnAttributeNo" msprop:Generator_ColumnPropNameInRow="AttributeNo" msprop:Generator_ColumnPropNameInTable="AttributeNoColumn" msprop:Generator_UserColumnName="AttributeNo" type="xs:unsignedByte" />
               <xs:element name="DataIndex" msprop:Generator_ColumnVarNameInTable="columnDataIndex" msprop:Generator_ColumnPropNameInRow="DataIndex" msprop:Generator_ColumnPropNameInTable="DataIndexColumn" msprop:Generator_UserColumnName="DataIndex" type="xs:unsignedLong" minOccurs="0" />
-              <xs:element name="ConfigId" msprop:Generator_ColumnVarNameInTable="columnConfigId" msprop:Generator_ColumnPropNameInRow="ConfigId" msprop:Generator_ColumnPropNameInTable="ConfigIdColumn" msprop:Generator_UserColumnName="ConfigId" type="xs:int" />
+              <xs:element name="ConfigId" msprop:Generator_ColumnVarNameInTable="columnConfigId" msprop:Generator_ColumnPropNameInRow="ConfigId" msprop:Generator_ColumnPropNameInTable="ConfigIdColumn" msprop:Generator_UserColumnName="ConfigId" type="xs:int" default="0" />
               <xs:element name="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" msprop:Generator_UserColumnName="GroupId" type="xs:long" />
               <xs:element name="Target_OBIS_Index" msprop:Generator_ColumnVarNameInTable="columnTarget_OBIS_Index" msprop:Generator_ColumnPropNameInRow="Target_OBIS_Index" msprop:Generator_ColumnPropNameInTable="Target_OBIS_IndexColumn" msprop:Generator_UserColumnName="Target_OBIS_Index" type="xs:decimal" />
               <xs:element name="DeviceId" msprop:Generator_ColumnVarNameInTable="columnDeviceId" msprop:Generator_ColumnPropNameInRow="DeviceId" msprop:Generator_ColumnPropNameInTable="DeviceIdColumn" msprop:Generator_UserColumnName="DeviceId" type="xs:int" />
@@ -527,7 +527,6 @@
       <xs:selector xpath=".//mstns:CaptureObjects" />
       <xs:field xpath="mstns:OBIS_Index" />
       <xs:field xpath="mstns:AttributeNo" />
-      <xs:field xpath="mstns:ConfigId" />
       <xs:field xpath="mstns:GroupId" />
       <xs:field xpath="mstns:Target_OBIS_Index" />
       <xs:field xpath="mstns:DeviceId" />

@@ -580,7 +580,7 @@ namespace DatabaseConfiguration.DataBase
                                    select new { 
                                        id = c.id,SequenceId = c.SequenceId,OBIS_Index=c.OBIS_Index,
                                        Actual_Code = obis.Obis_Code,AttributeNo=c.AttributeNo,DataIndex=c.DataIndex,
-                                       ConfigId=c.ConfigId,GroupId=c.GroupId,Target_OBIS_Index = c.Target_OBIS_Index,DeviceId=c.DeviceId,databasefield=c.databasefield,Multiplier = c.Multiplier
+                                       GroupId=c.GroupId,Target_OBIS_Index = c.Target_OBIS_Index,DeviceId=c.DeviceId,databasefield=c.databasefield,Multiplier = c.Multiplier
                                    }).ToList()  //.Where(x=>x.Target_OBIS_Index == (long)Get_Index.Billing_Periods_Data).ToList()
                                    .OrderBy(m => m.Target_OBIS_Index).ThenBy(x => x.GroupId).ThenBy(x => x.SequenceId)
                                       ;
@@ -596,7 +596,7 @@ namespace DatabaseConfiguration.DataBase
                         NEw.Quantity_Code = StOBISCode.ConvertFrom((ulong)obj.Actual_Code).ToString(StOBISCode.FormatSpecifier.CompleteDecimalMode);
                         NEw.AttributeNo = obj.AttributeNo;
                         NEw.DataIndex = (ulong)obj.DataIndex;
-                        NEw.ConfigId = obj.ConfigId ?? 0;
+                        //NEw.ConfigId = obj.ConfigId ?? 0;
                         NEw.GroupId = obj.GroupId ?? 0;
                         NEw.Target_OBIS_Index = obj.Target_OBIS_Index;
                         NEw.DeviceId = obj.DeviceId ?? 0;
@@ -606,7 +606,7 @@ namespace DatabaseConfiguration.DataBase
                         AllDataSet.CaptureObjects.AddCaptureObjectsRow(NEw);
 
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
 
                         //throw;
@@ -3027,8 +3027,8 @@ namespace DatabaseConfiguration.DataBase
                     cap_obj.SequenceId = Row.SequenceId;
                     cap_obj.OBIS_Index = (long)Row.OBIS_Index;
                     cap_obj.AttributeNo = Row.AttributeNo;
-                    cap_obj.DataIndex = (int)Row.DataIndex;
-                    cap_obj.ConfigId = Row.ConfigId;
+                    //cap_obj.DataIndex = (int)Row.DataIndex;
+                    cap_obj.ConfigId = 0;// Row.ConfigId;
                     cap_obj.GroupId = (int)Row.GroupId;
                     cap_obj.Target_OBIS_Index = (long)Row.Target_OBIS_Index;
                     cap_obj.DeviceId = Row.DeviceId;

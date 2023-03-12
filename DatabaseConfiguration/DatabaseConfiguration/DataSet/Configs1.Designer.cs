@@ -8271,11 +8271,10 @@ namespace DatabaseConfiguration.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CaptureObjectsRow FindByOBIS_IndexAttributeNoConfigIdGroupIdTarget_OBIS_IndexDeviceId(decimal OBIS_Index, byte AttributeNo, int ConfigId, long GroupId, decimal Target_OBIS_Index, int DeviceId) {
+            public CaptureObjectsRow FindByOBIS_IndexAttributeNoGroupIdTarget_OBIS_IndexDeviceId(decimal OBIS_Index, byte AttributeNo, long GroupId, decimal Target_OBIS_Index, int DeviceId) {
                 return ((CaptureObjectsRow)(this.Rows.Find(new object[] {
                             OBIS_Index,
                             AttributeNo,
-                            ConfigId,
                             GroupId,
                             Target_OBIS_Index,
                             DeviceId})));
@@ -8339,7 +8338,6 @@ namespace DatabaseConfiguration.DataSet {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("CaptureObjectsKey1", new global::System.Data.DataColumn[] {
                                 this.columnOBIS_Index,
                                 this.columnAttributeNo,
-                                this.columnConfigId,
                                 this.columnGroupId,
                                 this.columnTarget_OBIS_Index,
                                 this.columnDeviceId}, true));
@@ -8347,6 +8345,7 @@ namespace DatabaseConfiguration.DataSet {
                 this.columnOBIS_Index.AllowDBNull = false;
                 this.columnAttributeNo.AllowDBNull = false;
                 this.columnConfigId.AllowDBNull = false;
+                this.columnConfigId.DefaultValue = ((int)(0));
                 this.columnGroupId.AllowDBNull = false;
                 this.columnTarget_OBIS_Index.AllowDBNull = false;
                 this.columnDeviceId.AllowDBNull = false;

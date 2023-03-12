@@ -223,6 +223,17 @@ namespace dlmsConfigurationTool
             this.pnl_billingitem_group = new System.Windows.Forms.Panel();
             this.tp_capture_objects = new System.Windows.Forms.TabPage();
             this.dgv_capture_objects = new System.Windows.Forms.DataGridView();
+            this.sequenceIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oBISIndexDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attributeNoDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataIndexDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetOBISIndexDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.deviceIdDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn117 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.multiplierDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bSrc_capture_objects = new System.Windows.Forms.BindingSource(this.components);
             this.pnl_capture_objects = new System.Windows.Forms.Panel();
             this.gb_selection_device_in_capture_objects = new System.Windows.Forms.GroupBox();
@@ -622,17 +633,6 @@ namespace dlmsConfigurationTool
             this.Group_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_ShowMenu = new System.Windows.Forms.Button();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.sequenceIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oBISIndexDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Quantity_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attributeNoDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataIndexDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.configIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetOBISIndexDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.deviceIdDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn117 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.multiplierDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             this.tb_DataViewer.SuspendLayout();
             this.tp_all_quantities.SuspendLayout();
@@ -2024,6 +2024,87 @@ namespace dlmsConfigurationTool
             this.dgv_capture_objects.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_CaptureObjects_DataBindingComplete);
             this.dgv_capture_objects.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
             this.dgv_capture_objects.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgv_EditingControlShowing);
+            // 
+            // sequenceIdDataGridViewTextBoxColumn6
+            // 
+            this.sequenceIdDataGridViewTextBoxColumn6.DataPropertyName = "SequenceId";
+            this.sequenceIdDataGridViewTextBoxColumn6.HeaderText = "SequenceId";
+            this.sequenceIdDataGridViewTextBoxColumn6.Name = "sequenceIdDataGridViewTextBoxColumn6";
+            // 
+            // oBISIndexDataGridViewTextBoxColumn5
+            // 
+            this.oBISIndexDataGridViewTextBoxColumn5.DataPropertyName = "OBIS_Index";
+            this.oBISIndexDataGridViewTextBoxColumn5.DataSource = this.bSrc_all_quantities;
+            this.oBISIndexDataGridViewTextBoxColumn5.DisplayMember = "Label";
+            this.oBISIndexDataGridViewTextBoxColumn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.oBISIndexDataGridViewTextBoxColumn5.HeaderText = "OBIS_Index";
+            this.oBISIndexDataGridViewTextBoxColumn5.Name = "oBISIndexDataGridViewTextBoxColumn5";
+            this.oBISIndexDataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.oBISIndexDataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.oBISIndexDataGridViewTextBoxColumn5.ValueMember = "OBIS_Index";
+            // 
+            // Quantity_Code
+            // 
+            this.Quantity_Code.DataPropertyName = "Quantity_Code";
+            this.Quantity_Code.HeaderText = "Quantity_Code";
+            this.Quantity_Code.Name = "Quantity_Code";
+            this.Quantity_Code.ReadOnly = true;
+            // 
+            // attributeNoDataGridViewTextBoxColumn4
+            // 
+            this.attributeNoDataGridViewTextBoxColumn4.DataPropertyName = "AttributeNo";
+            this.attributeNoDataGridViewTextBoxColumn4.HeaderText = "AttributeNo";
+            this.attributeNoDataGridViewTextBoxColumn4.Name = "attributeNoDataGridViewTextBoxColumn4";
+            // 
+            // dataIndexDataGridViewTextBoxColumn2
+            // 
+            this.dataIndexDataGridViewTextBoxColumn2.DataPropertyName = "DataIndex";
+            this.dataIndexDataGridViewTextBoxColumn2.HeaderText = "DataIndex";
+            this.dataIndexDataGridViewTextBoxColumn2.Name = "dataIndexDataGridViewTextBoxColumn2";
+            this.dataIndexDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // configIdDataGridViewTextBoxColumn6
+            // 
+            this.configIdDataGridViewTextBoxColumn6.DataPropertyName = "ConfigId";
+            this.configIdDataGridViewTextBoxColumn6.HeaderText = "ConfigId";
+            this.configIdDataGridViewTextBoxColumn6.Name = "configIdDataGridViewTextBoxColumn6";
+            this.configIdDataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // groupIdDataGridViewTextBoxColumn2
+            // 
+            this.groupIdDataGridViewTextBoxColumn2.DataPropertyName = "GroupId";
+            this.groupIdDataGridViewTextBoxColumn2.HeaderText = "GroupId";
+            this.groupIdDataGridViewTextBoxColumn2.Name = "groupIdDataGridViewTextBoxColumn2";
+            // 
+            // targetOBISIndexDataGridViewTextBoxColumn2
+            // 
+            this.targetOBISIndexDataGridViewTextBoxColumn2.DataPropertyName = "Target_OBIS_Index";
+            this.targetOBISIndexDataGridViewTextBoxColumn2.DataSource = this.bSrc_all_quantities;
+            this.targetOBISIndexDataGridViewTextBoxColumn2.DisplayMember = "Label";
+            this.targetOBISIndexDataGridViewTextBoxColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.targetOBISIndexDataGridViewTextBoxColumn2.HeaderText = "Target_OBIS_Index";
+            this.targetOBISIndexDataGridViewTextBoxColumn2.Name = "targetOBISIndexDataGridViewTextBoxColumn2";
+            this.targetOBISIndexDataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.targetOBISIndexDataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.targetOBISIndexDataGridViewTextBoxColumn2.ValueMember = "OBIS_Index";
+            // 
+            // deviceIdDataGridViewTextBoxColumn4
+            // 
+            this.deviceIdDataGridViewTextBoxColumn4.DataPropertyName = "DeviceId";
+            this.deviceIdDataGridViewTextBoxColumn4.HeaderText = "DeviceId";
+            this.deviceIdDataGridViewTextBoxColumn4.Name = "deviceIdDataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn117
+            // 
+            this.dataGridViewTextBoxColumn117.DataPropertyName = "databasefield";
+            this.dataGridViewTextBoxColumn117.HeaderText = "databasefield";
+            this.dataGridViewTextBoxColumn117.Name = "dataGridViewTextBoxColumn117";
+            // 
+            // multiplierDataGridViewTextBoxColumn4
+            // 
+            this.multiplierDataGridViewTextBoxColumn4.DataPropertyName = "Multiplier";
+            this.multiplierDataGridViewTextBoxColumn4.HeaderText = "Multiplier";
+            this.multiplierDataGridViewTextBoxColumn4.Name = "multiplierDataGridViewTextBoxColumn4";
             // 
             // bSrc_capture_objects
             // 
@@ -6637,87 +6718,6 @@ namespace dlmsConfigurationTool
             this.btn_ShowMenu.Visible = false;
             this.btn_ShowMenu.Click += new System.EventHandler(this.btn_ShowMenu_Click);
             this.btn_ShowMenu.MouseHover += new System.EventHandler(this.btn_ShowMenu_MouseHover);
-            // 
-            // sequenceIdDataGridViewTextBoxColumn6
-            // 
-            this.sequenceIdDataGridViewTextBoxColumn6.DataPropertyName = "SequenceId";
-            this.sequenceIdDataGridViewTextBoxColumn6.HeaderText = "SequenceId";
-            this.sequenceIdDataGridViewTextBoxColumn6.Name = "sequenceIdDataGridViewTextBoxColumn6";
-            // 
-            // oBISIndexDataGridViewTextBoxColumn5
-            // 
-            this.oBISIndexDataGridViewTextBoxColumn5.DataPropertyName = "OBIS_Index";
-            this.oBISIndexDataGridViewTextBoxColumn5.DataSource = this.bSrc_all_quantities;
-            this.oBISIndexDataGridViewTextBoxColumn5.DisplayMember = "Label";
-            this.oBISIndexDataGridViewTextBoxColumn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.oBISIndexDataGridViewTextBoxColumn5.HeaderText = "OBIS_Index";
-            this.oBISIndexDataGridViewTextBoxColumn5.Name = "oBISIndexDataGridViewTextBoxColumn5";
-            this.oBISIndexDataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.oBISIndexDataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.oBISIndexDataGridViewTextBoxColumn5.ValueMember = "OBIS_Index";
-            // 
-            // Quantity_Code
-            // 
-            this.Quantity_Code.DataPropertyName = "Quantity_Code";
-            this.Quantity_Code.HeaderText = "Quantity_Code";
-            this.Quantity_Code.Name = "Quantity_Code";
-            this.Quantity_Code.ReadOnly = true;
-            // 
-            // attributeNoDataGridViewTextBoxColumn4
-            // 
-            this.attributeNoDataGridViewTextBoxColumn4.DataPropertyName = "AttributeNo";
-            this.attributeNoDataGridViewTextBoxColumn4.HeaderText = "AttributeNo";
-            this.attributeNoDataGridViewTextBoxColumn4.Name = "attributeNoDataGridViewTextBoxColumn4";
-            // 
-            // dataIndexDataGridViewTextBoxColumn2
-            // 
-            this.dataIndexDataGridViewTextBoxColumn2.DataPropertyName = "DataIndex";
-            this.dataIndexDataGridViewTextBoxColumn2.HeaderText = "DataIndex";
-            this.dataIndexDataGridViewTextBoxColumn2.Name = "dataIndexDataGridViewTextBoxColumn2";
-            this.dataIndexDataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // configIdDataGridViewTextBoxColumn6
-            // 
-            this.configIdDataGridViewTextBoxColumn6.DataPropertyName = "ConfigId";
-            this.configIdDataGridViewTextBoxColumn6.HeaderText = "ConfigId";
-            this.configIdDataGridViewTextBoxColumn6.Name = "configIdDataGridViewTextBoxColumn6";
-            this.configIdDataGridViewTextBoxColumn6.Visible = false;
-            // 
-            // groupIdDataGridViewTextBoxColumn2
-            // 
-            this.groupIdDataGridViewTextBoxColumn2.DataPropertyName = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn2.HeaderText = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn2.Name = "groupIdDataGridViewTextBoxColumn2";
-            // 
-            // targetOBISIndexDataGridViewTextBoxColumn2
-            // 
-            this.targetOBISIndexDataGridViewTextBoxColumn2.DataPropertyName = "Target_OBIS_Index";
-            this.targetOBISIndexDataGridViewTextBoxColumn2.DataSource = this.bSrc_all_quantities;
-            this.targetOBISIndexDataGridViewTextBoxColumn2.DisplayMember = "Label";
-            this.targetOBISIndexDataGridViewTextBoxColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.targetOBISIndexDataGridViewTextBoxColumn2.HeaderText = "Target_OBIS_Index";
-            this.targetOBISIndexDataGridViewTextBoxColumn2.Name = "targetOBISIndexDataGridViewTextBoxColumn2";
-            this.targetOBISIndexDataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.targetOBISIndexDataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.targetOBISIndexDataGridViewTextBoxColumn2.ValueMember = "OBIS_Index";
-            // 
-            // deviceIdDataGridViewTextBoxColumn4
-            // 
-            this.deviceIdDataGridViewTextBoxColumn4.DataPropertyName = "DeviceId";
-            this.deviceIdDataGridViewTextBoxColumn4.HeaderText = "DeviceId";
-            this.deviceIdDataGridViewTextBoxColumn4.Name = "deviceIdDataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn117
-            // 
-            this.dataGridViewTextBoxColumn117.DataPropertyName = "databasefield";
-            this.dataGridViewTextBoxColumn117.HeaderText = "databasefield";
-            this.dataGridViewTextBoxColumn117.Name = "dataGridViewTextBoxColumn117";
-            // 
-            // multiplierDataGridViewTextBoxColumn4
-            // 
-            this.multiplierDataGridViewTextBoxColumn4.DataPropertyName = "Multiplier";
-            this.multiplierDataGridViewTextBoxColumn4.HeaderText = "Multiplier";
-            this.multiplierDataGridViewTextBoxColumn4.Name = "multiplierDataGridViewTextBoxColumn4";
             // 
             // ApplicationConfiguration
             // 
